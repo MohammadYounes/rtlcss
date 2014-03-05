@@ -60,7 +60,7 @@ Two sets of processing directives are available, on Rule and Declaration level.
    
 |   Directive   |   Description
 |:--------------|:-----------------------
-|   `/*rtl:ignore*/`    |   Ignores processing of this rule.
+|   `/*rtl:ignore*/`    |   Ignores processing of this declaration.
 |   `/*rtl:{value}*/`    |   Replaces the declaration property value with `{value}`.
 |   `/*rtl:append:{value}*/`    |   Appends `{value}` to the end of the declaration property value.
 |   `/*rtl:prepend:{value}*/`    |   Prepends `{value}` to the begining of the declaration property value.
