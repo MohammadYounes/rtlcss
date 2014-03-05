@@ -35,7 +35,7 @@ rtlcss.process(css [, options , rules, declarations, properties]);
 |**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
 |**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
 |**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
-|**`greedy`** | `false`  | When set to `true`, ignores word boundary when renaming a selector or updating a url, for example:`.ultra{url(content/bright.png)}` will become `.urtla{(content/bleft.png)}`
+|**`greedy`** | `false`  | When set to `true`, ignores word boundary when renaming a selector or updating a url, for example:`.ultra{url(content/bright.png)}` becomes `.urtla{(content/bleft.png)}`
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 
 ##### rules (array)
