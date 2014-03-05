@@ -87,7 +87,7 @@ body{
 ```javascript
 rtlcss.process(css [, options , rules, declarations, properties]);
 ```
-> Built on top of [PostCss](https://github.com/ai/postcss), an awesome framework, providing you with the power of manipulating CSS via a JS API.
+> Built on top of [PostCSS](https://github.com/ai/postcss), an awesome framework, providing you with the power of manipulating CSS via a JS API.
 
 ### options (object)
 
@@ -114,7 +114,7 @@ Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS 
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the rules PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `rule` node. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
 
-> visit [postcss](https://github.com/ai/postcss) to find out more about [`rule`](https://github.com/ai/postcss#rule-node) node.
+> visit [PostCSS](https://github.com/ai/postcss) to find out more about [`rule`](https://github.com/ai/postcss#rule-node) node.
 
 ##### **Example**
 ``` JAVASCRIPT
@@ -139,7 +139,7 @@ Array of RTLCSS declaration Processing Instructions (PI), these are applied on t
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `decl` node. the functions is expected to return a boolean, `true` to stop further processing of the declaration, otherwise `false`.
 
-> visit [postcss](https://github.com/ai/postcss) to find out more about [`decl`](https://github.com/ai/postcss#declaration-node) object.
+> visit [PostCSS](https://github.com/ai/postcss) to find out more about [`decl`](https://github.com/ai/postcss#declaration-node) node.
 
 ##### **Example**
 
@@ -187,3 +187,14 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 ## Bugs and Issues
 
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
+
+
+## Release Notes
+
+* **v0.1.2** [5 Mar. 2014]
+  * New option: Minify output CSS. 
+  * Updated README.md
+
+* **v0.1.1** [4 Mar. 2014]
+  * Initial commit.
+ 
