@@ -20,7 +20,7 @@ var result = rtlcss.process("body { direction:ltr; }");
 
 ### Supported CSS Properties (a-z)
 
-`background-image` `background-position` `background` `border-bottom-left-radius` `border-bottom-right-radius` `border-left-color` `border-left-style` `border-left-width` `border-left` `border-radius` `border-right-color` `border-right-style` `border-right-width` `border-right` `border-top-left-radius` `border-top-right-radius` `border-width` `box-shadow` `clear` `cursor`, `direction` `float` `margin-left` `margin` `nav-left` `nav-right` `padding-left` `padding-right` `padding` `right` `text-align` `text-shadow` `transform-origin` `transform` `transition-property` `transition` `left` `margin-right`
+`background-image` `background-position` `background` `border-bottom-left-radius` `border-bottom-right-radius` `border-left-color` `border-left-style` `border-left-width` `border-left` `border-radius` `border-right-color` `border-right-style` `border-right-width` `border-right` `border-top-left-radius` `border-top-right-radius` `border-width` `box-shadow` `clear` `cursor` `direction` `float` `margin-left` `margin` `nav-left` `nav-right` `padding-left` `padding-right` `padding` `right` `text-align` `text-shadow` `transform-origin` `transform` `transition-property` `transition` `left` `margin-right`
 
 ### Supported Processing Directives
 
