@@ -18,7 +18,7 @@ var result = rtlcss.process("body { direction:ltr; }");
 //result == body { direction:rtl; }
 ```
 
-> RTLCSS will preserves original input formatting and indentations.
+> RTLCSS preserves original input formatting and indentations.
 
 
 ### Supported CSS Properties (a-z)
