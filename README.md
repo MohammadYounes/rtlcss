@@ -194,6 +194,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 
+* **v0.1.3** [7 Mar. 2014]
+  * Fix missing include in rules.js
+
 * **v0.1.2** [5 Mar. 2014]
   * New option: minify output CSS. 
   * Updated README.md
