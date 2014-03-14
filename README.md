@@ -64,10 +64,10 @@ Two sets of processing directives are available, on Rule and Declaration level.
 |   Directive   |   Description
 |:--------------|:-----------------------
 |   `/*rtl:ignore*/`    |   Ignores processing of this declaration.
-|   `/*rtl:{value}*/`    |   Replaces the declaration property value with `{value}`.
-|   `/*rtl:append:{value}*/`    |   Appends `{value}` to the end of the declaration property value.
-|   `/*rtl:prepend:{value}*/`    |   Prepends `{value}` to the begining of the declaration property value.
-|   `/*rtl:insert:{value}*/`    |   Inserts `{value}` to where the directive is located inside the declaration property value.
+|   `/*rtl:{value}*/`    |   Replaces the declaration value with `{value}`.
+|   `/*rtl:append:{value}*/`    |   Appends `{value}` to the end of the declaration value.
+|   `/*rtl:prepend:{value}*/`    |   Prepends `{value}` to the begining of the declaration value.
+|   `/*rtl:insert:{value}*/`    |   Inserts `{value}` to where the directive is located inside the declaration value.
 
    **Example**
 
