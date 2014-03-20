@@ -202,7 +202,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
-
+* **v0.2.1** [20 Mar. 2014]
+  * Upgrade to [POSTCSS] v0.3.4
+  
 * **v0.2.0** [20 Mar. 2014]
   * Support combining with other processors.
   * Support rad, grad & turn angle units when flipping linear-gradient
