@@ -90,7 +90,15 @@ body{
 ```javascript
 rtlcss.process(css [, options , rules, declarations, properties]);
 ```
-> Built on top of [PostCSS](https://github.com/ai/postcss), an awesome framework, providing you with the power of manipulating CSS via a JS API.
+> Built on top of [PostCSS], an awesome framework, providing you with the power of manipulating CSS via a JS API.
+
+> It can be combined with other processors, such as autoprefixer:
+```javascript
+var processed = postcss()
+  .use(rtlcss(/* options , rules, declarations, properties*/).postcss)
+  .use(autoprefixer().postcss)
+  .process(css);
+```
 
 ### options (object)
 
@@ -106,6 +114,7 @@ rtlcss.process(css [, options , rules, declarations, properties]);
 |**`greedy`** | `false`  | Forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}` 
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 |**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
+|**`postcssOptions`** | `{}`  | POSTCSS options object.
 
 ### rules (array)
 Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS rule level:
@@ -117,7 +126,7 @@ Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS 
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the rules PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `rule` node. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
 
-> Visit [PostCSS](https://github.com/ai/postcss) to find out more about [`rule`](https://github.com/ai/postcss#rule-node) node.
+> Visit [PostCSS] to find out more about [`rule`](https://github.com/ai/postcss#rule-node) node.
 
 ##### **Example**
 ``` JAVASCRIPT
@@ -142,7 +151,7 @@ Array of RTLCSS declaration Processing Instructions (PI), these are applied on t
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `decl` node. the functions is expected to return a boolean, `true` to stop further processing of the declaration, otherwise `false`.
 
-> Visit [PostCSS](https://github.com/ai/postcss) to find out more about [`decl`](https://github.com/ai/postcss#declaration-node) node.
+> Visit [PostCSS] to find out more about [`decl`](https://github.com/ai/postcss#declaration-node) node.
 
 ##### **Example**
 
@@ -194,6 +203,11 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 
+* **v0.2.0** [20 Mar. 2014]
+  * Support combining with other processors.
+  * Support rad, grad & turn angle units when flipping linear-gradient
+  * Fix typo in config.js
+  
 * **v0.1.3** [7 Mar. 2014]
   * Fix missing include in rules.js
 
@@ -204,3 +218,4 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 * **v0.1.1** [4 Mar. 2014]
   * Initial commit.
  
+[PostCSS]: https://github.com/ai/postcss
