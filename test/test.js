@@ -222,7 +222,75 @@ var tests = {
         'reversable': true
       },		
   ],
- 'Transoforms:': [
+ 'Mirrored Values (N Value Syntax):': [
+      {
+        'should'    : 'Should mirror property value: border-radius (4 values)',
+        'expected'  : 'div { border-radius: 40px 10px 10px 40px; }',
+        'input'     : 'div { border-radius: 10px 40px 40px 10px; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: border-radius (3 values)',
+        'expected'  : 'div { border-radius: 40px 10px 40px 40px; }',
+        'input'     : 'div { border-radius: 10px 40px 40px; }',
+        'reversable': false
+      },
+      {
+        'should'    : 'Should mirror property value: border-radius (2 values)',
+        'expected'  : 'div { border-radius: 40px 10px; }',
+        'input'     : 'div { border-radius: 10px 40px; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: border-radius (4 values - double)',
+        'expected'  : 'div { border-radius: 40px 10px 10px 40px / 4em 1em 1em 4em; }',
+        'input'     : 'div { border-radius: 10px 40px 40px 10px / 1em 4em 4em 1em; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: border-radius (3 values - double)',
+        'expected'  : 'div { border-radius: 40px 10px 40px 40px /4em  1em 4em 3em; }',
+        'input'     : 'div { border-radius: 10px 40px 40px / 1em 4em 3em; }',
+        'reversable': false
+      },
+      {
+        'should'    : 'Should mirror property value: border-radius (2 values- double)',
+        'expected'  : 'div { border-radius: 40px 10px / 2em 1em; }',
+        'input'     : 'div { border-radius: 10px 40px / 1em 2em; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: border-width',
+        'expected'  : 'div { border-width: 1px 4px 3px 2px; }',
+        'input'     : 'div { border-width: 1px 2px 3px 4px; }',
+        'reversable': true
+      },    
+      {
+        'should'    : 'Should mirror property value: margin',
+        'expected'  : 'div { margin: 1px 4px 3px 2px; }',
+        'input'     : 'div { margin: 1px 2px 3px 4px; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: padding',
+        'expected'  : 'div { padding: 1px 4px 3px 2px; }',
+        'input'     : 'div { padding: 1px 2px 3px 4px; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: box-shadow',
+        'expected'  : 'div { box-shadow: -60px -16px teal, -10px 5px 5px red,inset -5em 1em 0 white; }',
+        'input'     : 'div { box-shadow: 60px -16px teal, 10px 5px 5px red,inset 5em 1em 0 white; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror property value: text-shadow',
+        'expected'  : 'div { text-shadow: -60px -16px teal, -10px 5px 5px red,inset -5em 1em 0 white; }',
+        'input'     : 'div { text-shadow: 60px -16px teal, 10px 5px 5px red,inset 5em 1em 0 white; }',
+        'reversable': true
+      },    
+  ],    
+ 'Transforms:': [
 			{
         'should'    : 'Should mirror transform : matrix',
         'expected'  : 'div { transform: matrix(2, 0.1, 2, 2, 2, 2); }',
@@ -297,7 +365,8 @@ var tests = {
       },
 	],
 };
-
+//TODO: transform-origin.
+   
 (function Run() {
   for (key in tests) {
     var group = tests[key];
