@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss)
+
 RTLCSS
 ======
 RTLCSS is a framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL). 
@@ -202,6 +204,14 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.3.0** [5 Apr. 2014]
+  * Support flipping rotateZ.
+  * Fix flipping rotate3d.
+  * Fix flipping skew, skewX and skewY.
+  * Fix flipping cursor value.
+  * Fix flipping translate3d.  
+  * Update flipping background horizontal position to treat 0 as 0%
+  
 * **v0.2.1** [20 Mar. 2014]
   * Upgrade to [POSTCSS] v0.3.4
   
