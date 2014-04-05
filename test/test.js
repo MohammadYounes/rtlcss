@@ -462,6 +462,165 @@ var tests = {
         'reversable': true
       },
 	],
+  'RTLCSS (Options):': [
+      {
+        'should'    : 'Should not rename selectors having directional decl. (default)',
+        'expected'  : '.right .rtl .east .bright .ultra .least { display:block; right:0; }',
+        'input'     : '.right .rtl .east .bright .ultra .least { display:block; left:0; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should auto rename selectors having no directional decl. (default)',
+        'expected'  : '.left .ltr .west .bright .ultra .least { display:block; }',
+        'input'     : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': true
+      },  
+      {
+        'should'    : 'Should auto rename selectors having no directional decl. (greedy)',
+        'expected'  : '.left .ltr .west .bleft .urtla .lwest { display:block; }',
+        'input'     : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': true,
+        'options'   : {'greedy':true}
+      },
+      {
+        'should'    : 'Should not auto rename selectors having no directional decl. (autoRename:false)',
+        'expected'  : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'input'     : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': true,
+        'options'   : {'autoRename': false }
+      },
+      {
+        'should'    : 'Should not auto rename selectors having no directional decl. (autoRename:false,greedy)',
+        'expected'  : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'input'     : '.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': true,
+        'options'   : {'autoRename': false, 'greedy': true }
+      },
+      {
+        'should'    : 'Should not preserve processing directive. (default)',
+        'expected'  : 'div { left:0; }',
+        'input'     : '/*rtl:ignore*/div { left:0; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should preserve processing directive. (preserveDirectives:true)',
+        'expected'  : '/*rtl:ignore*/div { left:0; }',
+        'input'     : '/*rtl:ignore*/div { left:0; }',
+        'reversable': false,
+        'options'   : {'preserveDirectives':true}
+      },
+      {
+        'should'    : 'Should swap left with right in url (defult)',
+        'expected'  : 'div { background-image: url(rtl/west/right.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should not swap left with right in url (swapLeftRightInUrl:false)',
+        'expected'  : 'div { background-image: url(rtl/west/left.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': true,
+        'options'   : {'swapLeftRightInUrl':false}
+      },
+      {
+        'should'    : 'Should swap ltr with rtl in url (defult)',
+        'expected'  : 'div { background-image: url(rtl/west/right.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should not swap ltr with rtl in url (swapLtrRtlInUrl:false)',
+        'expected'  : 'div { background-image: url(ltr/west/right.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': false,
+        'options'   : {'swapLtrRtlInUrl':false}
+      },
+      {
+        'should'    : 'Should swap east with west in url (defult)',
+        'expected'  : 'div { background-image: url(rtl/west/right.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should not swap east with west in url (swapWestEastInUrl:false)',
+        'expected'  : 'div { background-image: url(rtl/east/right.png); right:0; }',
+        'input'     : 'div { background-image: url(ltr/east/left.png); left:0; }',
+        'reversable': false,
+        'options'   : {'swapWestEastInUrl':false}
+      },
+      {
+        'should'    : 'Should minify (minify:true)',
+        'expected'  : 'div{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
+        'input'     : 'div\n {\n font-family: "Droid Arabic Kufi"; \npadding:10px 10px 5px 5px; \ncolor:red; \n } /*comment*/ .div2{ /*comment*/ \n display:none; /*comment*/ \n /*comment*/}',
+        'reversable': false,
+        'options'   : {'minify':true}
+      },
+  ],
+  'RTLCSS (Directives):': [
+      {
+        'should'    : 'Should auto rename selectors having no directional decl. unless forced to ignore. (default)',
+        'expected'  : ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'input'     : '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should auto rename selectors having no directional decl. unless forced to ignore. (greedy)',
+        'expected'  : ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'input'     : '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options'   : {'greedy':true}
+      },      
+      {
+        'should'    : 'Should rename selectors when forced. (autoRename:false)',
+        'expected'  : '.left .ltr .west .bright .ultra .least { display:block; }',
+        'input'     : '/*rtl:rename*/.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options'   : {'autoRename': false }
+      },
+      {
+        'should'    : 'Should rename selectors when forced. (autoRename:false,greedy)',
+        'expected'  : '.left .ltr .west .bleft .urtla .lwest { display:block; }',
+        'input'     : '/*rtl:rename*/.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options'   : {'autoRename': false, 'greedy': true }
+      },
+      {
+        'should'    : 'Should prepend value.',
+        'expected'  : 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
+        'input'     : 'div { font-family: "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should replace value.',
+        'expected'  : 'div { font-family: "Droid Arabic Kufi"; }',
+        'input'     : 'div { font-family: "Droid Sans", Tahoma/*rtl:"Droid Arabic Kufi"*/; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should append value.',
+        'expected'  : 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
+        'input'     : 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should insert value.',
+        'expected'  : 'div { font-family: "Droid Sans", "Droid Arabic Kufi", Tahoma; }',
+        'input'     : 'div { font-family: "Droid Sans"/*rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should ignore flipping (rule level)',
+        'expected'  : 'div { left:10px; text-align:right;}',
+        'input'     : '/*rtl:ignore*/div { left:10px; text-align:right;}',
+        'reversable': false,
+      },
+      {
+        'should'    : 'Should ignore flipping (decl. level)',
+        'expected'  : 'div { left:10px;text-align:left;}',
+        'input'     : 'div { left:10px/*rtl:ignore*/;text-align:right;}',
+        'reversable': false,
+      },
+  ]
 };
    
 (function Run() {
