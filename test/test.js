@@ -289,7 +289,105 @@ var tests = {
         'input'     : 'div { text-shadow: 60px -16px teal, 10px 5px 5px red,inset 5em 1em 0 white; }',
         'reversable': true
       },    
-  ],    
+  ],
+ 'Transform Origin:': [
+      {
+        'should'    : 'Should mirror (x-offset: 0 means 0%)',
+        'expected'  : 'div { transform-origin:100%; }',
+        'input'     : 'div { transform-origin:0; }',
+        'reversable': false
+      },
+      {
+        'should'    : 'Should mirror (x-offset)',
+        'expected'  : 'div { transform-origin:90%; }',
+        'input'     : 'div { transform-origin:10%; }',
+        'reversable': true
+      },   
+      {
+        'should'    : 'Should not mirror (x-offset: not percent)',
+        'expected'  : 'div { transform-origin:10px; }',
+        'input'     : 'div { transform-origin:10px; }',
+        'reversable': false
+      },   
+      {
+        'should'    : 'Should mirror (offset-keyword)',
+        'expected'  : 'div { transform-origin:right; }',
+        'input'     : 'div { transform-origin:left; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror (x-offset y-offset: 0 means 0%)',
+        'expected'  : 'div { transform-origin:100% 0; }',
+        'input'     : 'div { transform-origin:0 0; }',
+        'reversable': false
+      },
+      {
+        'should'    : 'Should mirror (x-offset y-offset)',
+        'expected'  : 'div { transform-origin:30% 10%; }',
+        'input'     : 'div { transform-origin:70% 10%; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror (y-offset x-offset-keyword)',
+        'expected'  : 'div { transform-origin:70% right; }',
+        'input'     : 'div { transform-origin:70% left; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror (x-offset-keyword y-offset)',
+        'expected'  : 'div { transform-origin:right 70%; }',
+        'input'     : 'div { transform-origin:left 70%; }',
+        'reversable': true
+      }, 
+      {
+        'should'    : 'Should mirror (y-offset-keyword x-offset)',
+        'expected'  : 'div { transform-origin:top 30%; }',
+        'input'     : 'div { transform-origin:top 70%; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror (x-offset-keyword y-offset-keyword)',
+        'expected'  : 'div { transform-origin:right top; }',
+        'input'     : 'div { transform-origin:left top; }',
+        'reversable': true
+      },      
+      {
+        'should'    : 'Should mirror (y-offset-keyword x-offset-keyword)',
+        'expected'  : 'div { transform-origin:top right; }',
+        'input'     : 'div { transform-origin:top left; }',
+        'reversable': true
+      },   
+      {
+        'should'    : 'Should mirror (x-offset y-offset z-offset)',
+        'expected'  : 'div { transform-origin:80% 30% 10%; }',
+        'input'     : 'div { transform-origin:20% 30% 10%; }',
+        'reversable': true
+      },   
+      {
+        'should'    : 'Should mirror (y-offset x-offset-keyword z-offset)',
+        'expected'  : 'div { transform-origin:20% right 10%; }',
+        'input'     : 'div { transform-origin:20% left 10%; }',
+        'reversable': true
+      },   
+      {
+        'should'    : 'Should mirror (x-offset-keyword y-offset z-offset)',
+        'expected'  : 'div { transform-origin:left 20% 10%; }',
+        'input'     : 'div { transform-origin:right 20% 10%; }',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should mirror (x-offset-keyword y-offset-keyword z-offset)',
+        'expected'  : 'div { transform-origin:left bottom 10%; }',
+        'input'     : 'div { transform-origin:right bottom 10%; }',
+        'reversable': true
+      },   
+      {
+        'should'    : 'Should mirror (y-offset-keyword x-offset-keyword z-offset)',
+        'expected'  : 'div { transform-origin:bottom left 10%; }',
+        'input'     : 'div { transform-origin:bottom right 10%; }',
+        'reversable': true
+      },   
+ ],
  'Transforms:': [
 			{
         'should'    : 'Should mirror transform : matrix',
@@ -365,7 +463,6 @@ var tests = {
       },
 	],
 };
-//TODO: transform-origin.
    
 (function Run() {
   for (key in tests) {
