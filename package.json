@@ -1,11 +1,11 @@
 {
   "author": "Mohammad Younes",
   "name": "rtlcss",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)",  
   "bugs": "https://github.com/MohammadYounes/rtlcss/issues?state=open",
   "license": "MIT",
-  "keywords": ["rtl","css","ltr","rtlcss", "framework","style", "mirror", "flip"],
+  "keywords": ["rtl","css","ltr","rtlcss", "framework","style", "mirror", "flip", "convert", "transform"],
   "repository": {
     "type": "git",
     "url": "https://github.com/MohammadYounes/rtlcss.git"    

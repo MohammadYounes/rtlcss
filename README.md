@@ -204,6 +204,10 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.4.0** [5 Apr. 2014]
+  * Fix flipping transform-origin.
+  * Update autoRename to search for all swappable words.
+  
 * **v0.3.0** [5 Apr. 2014]
   * Support flipping rotateZ.
   * Fix flipping rotate3d.
