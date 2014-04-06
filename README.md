@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss)
+<img title="RTL CSS" width="96" src="https://cloud.githubusercontent.com/assets/4712046/2626144/fdcdec7c-bdbe-11e3-8e3a-c88b6d8a7dfe.png" align="right">
 
 RTLCSS
 ======
 RTLCSS is a framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL). 
-
 > #### CSS Syntax
 > A CSS rule has two main parts: a selector, and one or more declarations : 
 
