@@ -628,18 +628,18 @@ var tests = {
     var group = tests[key];
     describe(key, function () {
       for(var i=0;i<group.length;i++){
-				var item = group[i];
+	var item = group[i];
         (function (test) {
           it(test.should, function () {
-            	assert.equal(rtlcss.process(test.input,test.options), test.expected);
+            assert.equal(rtlcss.process(test.input,test.options), test.expected);
           });
-        })(item);				
-				if(item.reversable)
-					(function (test) {          
-						it(test.should + " <REVERESE>", function () {
-								assert.equal(rtlcss.process(test.expected,test.options), test.input);
-						});
-					})(item);
+        })(item);
+	if(item.reversable)
+	  (function (test) {
+	    it(test.should + " <REVERESE>", function () {
+	      assert.equal(rtlcss.process(test.expected,test.options), test.input);
+	    });
+	  })(item);
       };
     });
   }
