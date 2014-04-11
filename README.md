@@ -3,7 +3,7 @@
 
 RTLCSS
 ======
-RTLCSS is a framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL). 
+RTL CSS is a framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL). 
 > #### CSS Syntax
 > A CSS rule has two main parts: a selector, and one or more declarations : 
 
@@ -112,7 +112,7 @@ var processed = postcss()
 |**`swapLeftRightInUrl`** | `true`  | Swaps ***left*** and ***right*** in URLs.
 |**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
 |**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
-|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
+|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.([more info](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
 |**`greedy`** | `false`  | Forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}` 
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 |**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
