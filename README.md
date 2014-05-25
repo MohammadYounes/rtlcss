@@ -25,7 +25,7 @@ var result = rtlcss.process("body { direction:ltr; }");
 > RTLCSS preserves original input formatting and indentations.
 
 
-## Powered by RTLCSS
+### Powered by RTLCSS
 
 * [Semantic] a UI library implemented using a set of specifications designed around natural language.
 [Semantic]:http://www.semantic-ui.com
