@@ -3,9 +3,9 @@
 [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss)
 <img title="RTL CSS" width="72" src="https://cloud.githubusercontent.com/assets/4712046/2626144/fdcdec7c-bdbe-11e3-8e3a-c88b6d8a7dfe.png" align="right">
 
-RTL CSS
+RTLCSS
 ======
-RTL CSS is a framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL). 
+RTLCSS is a framework for converting LTR CSS to RTL.
 > #### CSS Syntax
 > A CSS rule has two main parts: a selector, and one or more declarations : 
 
@@ -24,6 +24,12 @@ var result = rtlcss.process("body { direction:ltr; }");
 
 > RTLCSS preserves original input formatting and indentations.
 
+
+## Powered by RTLCSS
+
+* [Semantic] a UI library implemented using a set of specifications designed around natural language.
+[Semantic]:http://www.semantic-ui.com
+---
 
 ### Supported CSS Properties (a-z)
 
