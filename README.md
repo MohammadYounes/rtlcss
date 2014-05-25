@@ -13,6 +13,12 @@ RTLCSS is a framework for converting LTR CSS to RTL.
 
 > The selector is normally the HTML element you want to style. Each declaration consists of a property and a value. The property is the style attribute you want to change. Each property has a value. 
 
+### Powered by RTLCSS
+
+* [Semantic] a UI library implemented using a set of specifications designed around natural language.
+[Semantic]:http://www.semantic-ui.com
+
+
 ## Install
     npm install rtlcss
 ## Basic usage
@@ -24,12 +30,6 @@ var result = rtlcss.process("body { direction:ltr; }");
 
 > RTLCSS preserves original input formatting and indentations.
 
-
-### Powered by RTLCSS
-
-* [Semantic] a UI library implemented using a set of specifications designed around natural language.
-[Semantic]:http://www.semantic-ui.com
----
 
 ### Supported CSS Properties (a-z)
 
