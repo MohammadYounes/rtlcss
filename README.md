@@ -15,7 +15,7 @@ RTLCSS is a framework for converting LTR CSS to RTL.
 
 ### Powered by RTLCSS
 
-* [Semantic] a UI component library implemented using a set of specifications designed around natural language [RTL Version].
+* [Semantic] a UI component library implemented using a set of specifications designed around natural language. ([RTL Version])
 [Semantic]:http://www.semantic-ui.com
 [RTL Version]:http://semantic-ui.me/ 
 
