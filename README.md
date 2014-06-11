@@ -31,6 +31,14 @@ var result = rtlcss.process("body { direction:ltr; }");
 
 > RTLCSS preserves original input formatting and indentations.
 
+## CLI
+Convert LTR CSS files to RTL using the command line. 
+```
+$ rtlcss input.css output.rtl.css
+```
+For usage and available options see [CLI documentaion](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md).
+
+
 
 ### Supported CSS Properties (a-z)
 
@@ -213,6 +221,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.5.0** [11 Jun. 2014]
+  * Add CLI support.
+
 * **v0.4.0** [5 Apr. 2014]
   * Fix flipping transform-origin.
   * Update autoRename to search for all swappable words.

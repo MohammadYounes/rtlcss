@@ -1,0 +1,17 @@
+﻿{
+    "options": {
+        "preserveComments": true,
+        "preserveDirectives": false,
+        "swapLeftRightInUrl": true,
+        "swapLtrRtlInUrl": true,
+        "swapWestEastInUrl": true,
+        "autoRename": true,
+        "greedy": false,
+        "enableLogging": false,
+        "minify": false
+    },
+    "rules": [ ],
+    "declarations": [ ],
+    "properties": [ ],
+    "map": false
+}
