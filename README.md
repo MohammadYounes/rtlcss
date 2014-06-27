@@ -197,7 +197,7 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 |   **`name`**  | `string`  | Name of the PI (used in logging).
 |   **`expr`**  | `RegExp`  | Regular expression object that will be matched against the declaration raw value.
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
-|   **`action`**    | `function`    | The action to be called when a match is found, it will be passed a `prop` (string holding the CSS property name) and `value` (string holding the CSS property raw value). If `options.preserveComments == true`, comments in the raw value will be replaced by the Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD) &#xfffd; to simplify pattern matching. The functions is expected to return an object containing the modified version of the property and its value.
+|   **`action`**    | `function`    | The action to be called when a match is found, it will be passed a `prop` (string holding the CSS property name) and `value` (string holding the CSS property raw value). If `options.preserveComments == true`, comments in the raw value will be replaced by the Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD) &#xfffd; (this is to simplify pattern matching). The function is expected to return an object containing the modified version of the property and its value.
 
 
 
