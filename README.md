@@ -221,6 +221,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.7.0** [4 Jul. 2014]
+  * Fix flipping linear-gradient.
+  
 * **v0.6.0** [4 Jul. 2014]
   * Allow additional comments inside `ignore`/`rename` rule level directives.
 

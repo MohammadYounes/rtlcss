@@ -70,7 +70,19 @@ var tests = {
         'expected'  : 'div { background-image: url(images/west.png), url(images/east.png);}',
         'input'     : 'div { background-image: url(images/east.png), url(images/west.png);}',
         'reversable': true
-      },		
+      },
+      {
+        'should'    : 'Should not negate color value for linear gradient',
+        'expected'  : 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);}',
+        'input'     : 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);}',
+        'reversable': true
+      },
+      {
+        'should'    : 'Should negate angle value for linear gradient',
+        'expected'  : 'div { background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+        'input'     : 'div { background-image: linear-gradient(-135deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+        'reversable': true
+      }
   ],
   'Background Position:': [
       {
