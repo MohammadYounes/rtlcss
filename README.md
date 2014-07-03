@@ -221,6 +221,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.6.0** [4 Jul. 2014]
+  * Allow additional comments inside `ignore`/`rename` rule level directives.
+
 * **v0.5.0** [11 Jun. 2014]
   * Add CLI support.
 
