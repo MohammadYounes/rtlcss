@@ -133,7 +133,7 @@ var processed = postcss()
 |**`greedy`** | `false`  | Forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}` 
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 |**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
-|**`postcssOptions`** | `{}`  | POSTCSS options object.
+
 
 ### rules (array)
 Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS rule level:
