@@ -1,4 +1,4 @@
-﻿RTLCSS CLI
+RTLCSS CLI
 ======
 
 > Convert LTR CSS files to RTL using the command line.
@@ -39,13 +39,13 @@ $ rtlcss --version
 ```
 
 ### Config
-Set the configuration settings `config.json` path
+Set the configuration file path 
 ```
 $ rtlcss -c
 $ rtlcss --config <path>
 ```
 
-Default `config.json` 
+Default `.rtlcssrc`
 ```JAVASCRIPT
 {
     "options": {
