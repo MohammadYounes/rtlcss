@@ -108,20 +108,18 @@ body{
 
 ```javascript
 // directly processes css and return a string containing the processed css
-var output = rtlcss.process(css [, options , rules, declarations, properties]);
+output = rtlcss.process(css [, options , rules, declarations, properties]);
 output // processed CSS
 
 // create a new RTLCSS instance, then process css with postcss options (such as source map)
-var result = rtlcss([options , rules, declarations, properties]).process(css, postcssOptions);
+result = rtlcss([options , rules, declarations, properties]).process(css, postcssOptions);
 result.css // Processed CSS
 result.map // Source map
-
 
 // you can also group all configuration settings into a single object
-var result = rtlcss.configure(config).process(css, postcssOptions);
+result = rtlcss.configure(config).process(css, postcssOptions);
 result.css // Processed CSS
 result.map // Source map
-
 
 ```
 > Built on top of [PostCSS], an awesome framework, providing you with the power of manipulating CSS via a JS API.
