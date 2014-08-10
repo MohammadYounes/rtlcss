@@ -39,7 +39,12 @@ $ rtlcss --version
 ```
 
 ### Config
-Set the configuration file path 
+Configuration can be set using one of the following methods:
+
+* Specify the configuration file manually via the --config flag.
+* Put your config into your projects package.json file under the `rtlcssConfig` property.
+* Use a special file `.rtlcssrc` or `.rtlcssrc.json`.
+
 ```
 $ rtlcss -c
 $ rtlcss --config <path>

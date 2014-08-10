@@ -234,6 +234,13 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+* **v0.9.0** [10 Aug. 2014]
+  * New configuration loader.
+  * CLI configuration can be set using one of the following methods: 
+    * Specify the configuration file manually via the --config flag.
+	* Put your config into your projects package.json file under the `rtlcssConfig` property
+	* Use a special file `.rtlcssrc` or `.rtlcssrc.json` 	
+
 * **v0.8.0** [8 Aug. 2014]
   * Fix source map generation.
   
