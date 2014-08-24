@@ -16,8 +16,13 @@ RTLCSS is a framework for converting LTR CSS to RTL.
 ### Powered by RTLCSS
 
 * [Semantic] a UI component library implemented using a set of specifications designed around natural language. ([RTL Version])
-[Semantic]:http://www.semantic-ui.com
+* [AlertifyJS]  a javascript framework for developing pretty browser dialogs and notifications.
+* [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years (now uses RTLCSS for converting LTR CSS to RTL).
+
+[Semantic]:http://www.semantic-ui.com/
 [RTL Version]:http://semantic-ui.me/ 
+[AlertifyJS]:http://www.alertifyjs.com/
+[WebEssentials2013]:http://vswebessentials.com
 
 
 ## Install
@@ -234,6 +239,13 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 
 ## Release Notes
+
+* **v1.0.0** [24 Aug. 2014]
+  * Upgrade to [POSTCSS] v2.2.1
+  * Support flipping urls in '@import' rule. 
+  * Fix JSON parse error when configuration file is UTF-8 encoded.
+  * Better minification.
+
 * **v0.9.0** [10 Aug. 2014]
   * New configuration loader.
   * CLI configuration can be set using one of the following methods: 
