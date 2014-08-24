@@ -560,13 +560,76 @@ var tests = {
         'reversable': false,
         'options'   : {'swapWestEastInUrl':false}
       },
+	  {
+        'should'    : 'Should swap left with right in @import url (swapLeftRightInUrl:true)',
+        'expected'  : 'div{display:none;} @import url("right.css");',
+        'input'     : 'div{display:none;} @import url("left.css");',
+        'reversable': true,
+        'options'   : {'swapLeftRightInUrl':true}
+      },
+	  {
+        'should'    : 'Should not swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:false)',
+        'expected'  : 'div{display:none;} @import url("bright.css");',
+        'input'     : 'div{display:none;} @import url("bright.css");',
+        'reversable': true,
+        'options'   : {'swapLeftRightInUrl':true, 'greedy':false}
+      },
+	  {
+        'should'    : 'Should swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:true)',
+        'expected'  : 'div{display:none;} @import url("bleft.css");',
+        'input'     : 'div{display:none;} @import url("bright.css");',
+        'reversable': true,
+        'options'   : {'swapLeftRightInUrl':true, 'greedy':true}
+      },
+	  {
+        'should'    : 'Should swap ltr with rtl in @import url (swapLtrRtlInUrl:true)',
+        'expected'  : 'div{display:none;} @import url("rtl.css");',
+        'input'     : 'div{display:none;} @import url("ltr.css");',
+        'reversable': true,
+        'options'   : {'swapLtrRtlInUrl':true}
+      },
+	  {
+        'should'    : 'Should not swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:false)',
+        'expected'  : 'div{display:none;} @import url("ultra.css");',
+        'input'     : 'div{display:none;} @import url("ultra.css");',
+        'reversable': true,
+        'options'   : {'swapLtrRtlInUrl':true, 'greedy':false}
+      },
+	  {
+        'should'    : 'Should swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:true)',
+        'expected'  : 'div{display:none;} @import url("urtla.css");',
+        'input'     : 'div{display:none;} @import url("ultra.css");',
+        'reversable': true,
+        'options'   : {'swapLtrRtlInUrl':true, 'greedy':true}
+      },
+	  {
+        'should'    : 'Should swap west with east in @import url (swapWestEastInUrl:true)',
+        'expected'  : 'div{display:none;} @import url("east.css");',
+        'input'     : 'div{display:none;} @import url("west.css");',
+        'reversable': true,
+        'options'   : {'swapWestEastInUrl':true}
+      },
+	  {
+        'should'    : 'Should not swap western with eastern in @import url (swapWestEastInUrl:true,greedy:false)',
+        'expected'  : 'div{display:none;} @import url("western.css");',
+        'input'     : 'div{display:none;} @import url("western.css");',
+        'reversable': true,
+        'options'   : {'swapWestEastInUrl':true, 'greedy':false}
+      },
+	  {
+        'should'    : 'Should swap western with eastern in @import url (swapWestEastInUrl:true,greedy:true)',
+        'expected'  : 'div{display:none;} @import url("eastern.css");',
+        'input'     : 'div{display:none;} @import url("western.css");',
+        'reversable': true,
+        'options'   : {'swapWestEastInUrl':true, 'greedy':true}
+      },	  
       {
         'should'    : 'Should minify (minify:true)',
         'expected'  : 'div{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
-        'input'     : 'div\n {\n font-family: "Droid Arabic Kufi"; \npadding:10px 10px 5px 5px; \ncolor:red; \n } /*comment*/ .div2{ /*comment*/ \n display:none; /*comment*/ \n /*comment*/}',
+        'input'     : '\n/*comment*/\ndiv\n/*comment*/\n {\n/*comment*/\n font-family:\n/*comment*/\n "Droid Arabic Kufi";\n/*comment*/\n padding:10px 10px 5px 5px;\n/*comment*/\n color:red; \n/*comment*/\n } \n/*comment*/\n .div2{ /*comment*/ \n display:none; /*comment*/ \n /*comment*/}',
         'reversable': false,
         'options'   : {'minify':true}
-      },
+      }
   ],
   'RTLCSS (Directives):': [
       {
