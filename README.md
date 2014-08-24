@@ -1,7 +1,8 @@
 [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss)
 [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss)
 [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss)
-[![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)
+![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)
+
 <img title="RTL CSS" width="72" src="https://cloud.githubusercontent.com/assets/4712046/2626144/fdcdec7c-bdbe-11e3-8e3a-c88b6d8a7dfe.png" align="right">
 
 RTLCSS
