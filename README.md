@@ -53,7 +53,44 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 
 ### Supported CSS Properties (a-z)
 
-`background-image` `background-position` `background` `border-bottom-left-radius` `border-bottom-right-radius` `border-left-color` `border-left-style` `border-left-width` `border-left` `border-radius` `border-right-color` `border-right-style` `border-right-width` `border-right` `border-top-left-radius` `border-top-right-radius` `border-width` `box-shadow` `clear` `cursor` `direction` `float` `margin-left` `margin` `nav-left` `nav-right` `padding-left` `padding-right` `padding` `right` `text-align` `text-shadow` `transform-origin` `transform` `transition-property` `transition` `left` `margin-right`
+`background`
+`background-image`
+`background-position`
+`border-bottom-left-radius`
+`border-bottom-right-radius`
+`border-left`
+`border-left-color`
+`border-left-style`
+`border-left-width`
+`border-radius`
+`border-right`
+`border-right-color`
+`border-right-style`
+`border-right-width`
+`border-top-left-radius`
+`border-top-right-radius`
+`border-width`
+`box-shadow`
+`clear`
+`cursor`
+`direction`
+`float`
+`left`
+`margin`
+`margin-left`
+`margin-right`
+`nav-left`
+`nav-right`
+`padding`
+`padding-left`
+`padding-right`
+`right`
+`text-align`
+`text-shadow`
+`transform`
+`transform-origin`
+`transition`
+`transition-property`
 
 ### Supported Processing Directives
 
