@@ -56,6 +56,7 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 `background`
 `background-image`
 `background-position`
+`background-position-x`
 `border-bottom-left-radius`
 `border-bottom-right-radius`
 `border-left`

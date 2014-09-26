@@ -103,6 +103,30 @@ var tests = {
         'input'     : 'div {background-position:left 75%, right top;}',
         'reversable': true
       },
+      {
+        'should': 'Should complement percentage: position-x (treat 0 as 0%)',
+        'expected': 'div {background-position-x:100%, 0%;}',
+        'input': 'div {background-position-x:0, 100%;}',
+        'reversable': false
+      },
+      {
+        'should': 'Should complement percentage: position-x',
+        'expected': 'div {background-position-x:81%, 11%;}',
+        'input': 'div {background-position-x:19%, 89%;}',
+        'reversable': true
+      },
+      {
+        'should': 'Should swap left with right: position-x',
+        'expected': 'div {background-position-x:right, left;}',
+        'input': 'div {background-position-x:left, right;}',
+        'reversable': true
+      },
+      {
+        'should': 'Should keep as is: position-x',
+        'expected': 'div {background-position-x:100px, 0px;}',
+        'input': 'div {background-position-x:100px, 0px;}',
+        'reversable': true
+      }
   ],
 	'Mirrored Properties:': [
       {
