@@ -82,8 +82,6 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 `margin`
 `margin-left`
 `margin-right`
-`nav-left`
-`nav-right`
 `padding`
 `padding-left`
 `padding-right`
