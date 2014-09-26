@@ -300,11 +300,41 @@ var tests = {
         'expected'  : 'div { border-width: 1px 4px 3px 2px; }',
         'input'     : 'div { border-width: 1px 2px 3px 4px; }',
         'reversable': true
-      },    
+      },
+      {
+        'should': 'Should mirror property value: border-width (none length)',
+        'expected': 'div { border-width: thin medium thick none; }',
+        'input': 'div { border-width: thin none thick medium; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: border-style (4 values)',
+        'expected': 'div { border-style: none dashed dotted solid; }',
+        'input': 'div { border-style: none solid dotted dashed; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: border-color (4 values)',
+        'expected': 'div { border-color: rgba(255, 255, 255, 1) rgb( 0, 0, 0) #000 hsla(0, 100%, 50%, 1); }',
+        'input': 'div { border-color: rgba(255, 255, 255, 1) hsla(0, 100%, 50%, 1) #000 rgb( 0, 0, 0); }',
+        'reversable': true
+      },
+      {
+        'should': 'Should not mirror property value: border-color (3 values)',
+        'expected': 'div { border-color: #000 rgb( 0, 0, 0) hsla(0, 100%, 50%, 1); }',
+        'input': 'div { border-color: #000 rgb( 0, 0, 0) hsla(0, 100%, 50%, 1); }',
+        'reversable': false
+      },
+      {
+        'should': 'Should not mirror property value: border-color (2 values)',
+        'expected': 'div { border-color:rgb( 0, 0, 0) hsla(0, 100%, 50%, 1); }',
+        'input': 'div { border-color:rgb( 0, 0, 0) hsla(0, 100%, 50%, 1); }',
+        'reversable': false
+      },
       {
         'should'    : 'Should mirror property value: margin',
-        'expected'  : 'div { margin: 1px 4px 3px 2px; }',
-        'input'     : 'div { margin: 1px 2px 3px 4px; }',
+        'expected'  : 'div { margin: 1px auto 3px 2px; }',
+        'input'     : 'div { margin: 1px 2px 3px auto; }',
         'reversable': true
       },
       {

@@ -59,6 +59,7 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 `background-position-x`
 `border-bottom-left-radius`
 `border-bottom-right-radius`
+`border-color`
 `border-left`
 `border-left-color`
 `border-left-style`
@@ -68,6 +69,7 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 `border-right-color`
 `border-right-style`
 `border-right-width`
+`border-style`
 `border-top-left-radius`
 `border-top-right-radius`
 `border-width`
