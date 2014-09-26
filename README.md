@@ -289,6 +289,10 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 
+* **v1.1.0** [26 Sep. 2014]
+  * Upgrade to [POSTCSS] v2.2.5
+  * Support flipping `border-color`, `border-style` and `background-position-x`
+
 * **v1.0.0** [24 Aug. 2014]
   * Upgrade to [POSTCSS] v2.2.1
   * Support flipping urls in '@import' rule.
