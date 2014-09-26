@@ -289,6 +289,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 
+* **v1.2.0** [26 Sep. 2014]
+  * Support !important comments for directives (enbles flipping minified stylesheets).
+
 * **v1.1.0** [26 Sep. 2014]
   * Upgrade to [POSTCSS] v2.2.5
   * Support flipping `border-color`, `border-style` and `background-position-x`
