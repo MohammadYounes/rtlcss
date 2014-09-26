@@ -693,18 +693,38 @@ var tests = {
         'reversable': false,
       },
       {
+        'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (default, !important comment)',
+        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'input': '/*!rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+      },
+      {
         'should'    : 'Should auto rename selectors having no directional decl. unless forced to ignore. (greedy)',
         'expected'  : ' .right .rtl .east .bright .ultra .least { display:block; }',
         'input'     : '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
         'options'   : {'greedy':true}
-      },      
+      },
+      {
+        'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (greedy, !important comment)',
+        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'input': '/*!rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options': { 'greedy': true }
+      },
       {
         'should'    : 'Should rename selectors when forced. (autoRename:false)',
         'expected'  : '.left .ltr .west .bright .ultra .least { display:block; }',
         'input'     : '/*rtl:rename*/.right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
         'options'   : {'autoRename': false }
+      },
+      {
+        'should': 'Should rename selectors when forced. (autoRename:false, !important comment)',
+        'expected': '.left .ltr .west .bright .ultra .least { display:block; }',
+        'input': '/*!rtl:rename*/.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options': { 'autoRename': false }
       },
       {
         'should'    : 'Should rename selectors when forced. (autoRename:false,greedy)',
@@ -714,9 +734,22 @@ var tests = {
         'options'   : {'autoRename': false, 'greedy': true }
       },
       {
+        'should': 'Should rename selectors when forced. (autoRename:false,greedy, !important comment)',
+        'expected': '.left .ltr .west .bleft .urtla .lwest { display:block; }',
+        'input': '/*!rtl:rename*/.right .rtl .east .bright .ultra .least { display:block; }',
+        'reversable': false,
+        'options': { 'autoRename': false, 'greedy': true }
+      },
+      {
         'should'    : 'Should prepend value.',
         'expected'  : 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
         'input'     : 'div { font-family: "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
+        'reversable': false,
+      },
+      {
+        'should': 'Should prepend value (!important comment)',
+        'expected': 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
+        'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:prepend:"Droid Arabic Kufi", */; }',
         'reversable': false,
       },
       {
@@ -726,9 +759,21 @@ var tests = {
         'reversable': false,
       },
       {
+        'should': 'Should replace value. (!important comment)',
+        'expected': 'div { font-family: "Droid Arabic Kufi"; }',
+        'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:"Droid Arabic Kufi"*/; }',
+        'reversable': false,
+      },
+      {
         'should'    : 'Should append value.',
         'expected'  : 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
         'input'     : 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/; }',
+        'reversable': false,
+      },
+      {
+        'should': 'Should append value. (!important comment)',
+        'expected': 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
+        'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
         'reversable': false,
       },
       {
@@ -738,9 +783,21 @@ var tests = {
         'reversable': false,
       },
       {
+        'should': 'Should insert value. (!important comment)',
+        'expected': 'div { font-family: "Droid Sans", "Droid Arabic Kufi", Tahoma; }',
+        'input': 'div { font-family: "Droid Sans"/*!rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
+        'reversable': false,
+      },
+      {
         'should'    : 'Should ignore flipping (rule level)',
         'expected'  : 'div { left:10px; text-align:right;}',
         'input'     : '/*rtl:ignore*/div { left:10px; text-align:right;}',
+        'reversable': false,
+      },
+      {
+        'should': 'Should ignore flipping (rule level, !important comment)',
+        'expected': 'div { left:10px; text-align:right;}',
+        'input': '/*!rtl:ignore*/div { left:10px; text-align:right;}',
         'reversable': false,
       },
       {
@@ -749,6 +806,12 @@ var tests = {
         'input'     : 'div { left:10px/*rtl:ignore*/;text-align:right;}',
         'reversable': false,
       },
+      {
+        'should': 'Should ignore flipping (decl. level, !important comment)',
+        'expected': 'div { left:10px;text-align:left;}',
+        'input': 'div { left:10px/*!rtl:ignore*/;text-align:right;}',
+        'reversable': false,
+      }
   ]
 };
    
