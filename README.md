@@ -198,7 +198,7 @@ var processed = postcss()
 |**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
 |**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.([more info](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
 |**`greedy`** | `false`  | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
-|**`stringMap`** | see [String Map](#string-map-array)  | Applies to string replacement in renamed selectors and updated URLs
+|**`stringMap`** | see [String Map](#stringmap-array)  | Applies to string replacement in renamed selectors and updated URLs
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 |**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
 
