@@ -197,9 +197,83 @@ var processed = postcss()
 |**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
 |**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
 |**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.([more info](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
-|**`greedy`** | `false`  | Forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
+|**`greedy`** | `false`  | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
+|**`stringMap`** | see [String Map](#string-map-array)  | Applies to string replacement in renamed selectors and updated URLs
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
 |**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
+
+### stringMap (Array)
+
+String map is a collection of map objects, each defines mapping between directional strings, it is used in selectors renaming and URL updates. The following is the default string map:
+```javascript
+[
+  {
+    'name'    :	'left-right',
+    'search'  :	['left', 'Left', 'LEFT'],
+    'replace' :	['right', 'Right', 'RIGHT'],
+    'options' : {
+        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'ignoreCase': false 
+      }
+  },
+  {
+    'name'    : 'ltr-rtl',
+    'search'  : ['ltr', 'Ltr', 'LTR'],
+    'replace' : ['rtl', 'Rtl', 'RTL'],
+    'options' :	{
+        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'ignoreCase': false
+      }
+  },
+  {
+    'name':'west-east',
+    'search': ['west', 'West', 'WEST'],
+    'replace': ['east', 'East', 'EAST'],
+    'options' :	{
+        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'ignoreCase': false
+      }
+  } 
+]
+```
+To override any of the default maps, just add your own with the same name. A map object consists of the following:
+
+|   Property    |   Type    |   Description
+|:--------------|:----------|:--------------
+|   **`name`**  | `string`  | Name of the map object
+|   **`search`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
+|   **`replace`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
+|   **`options`**  | `object`  | Defines map options.
+
+The map `options` is optional, and consists of the following:
+
+|   Property    |   Type    |   Default |   Description
+|:--------------|:----------|:--------------|:--------------
+|   **`scope`**  | `string`  | `*`  | Defines the scope in which this map is allowed, 'selector' for selector renaming, 'url' for url updates and '*' for both.
+|   **`ignoreCase`**  | `Boolean`  | `true`  | Indicates if the search is case-insensitive or not.
+|   **`greedy`**  | `Boolean`  | reverts to `options.greedy`  | A false value forces selector renaming and url updates to respect word boundaries.
+
+   **Example**
+   
+```javascript
+
+// a simple map, for swapping "prev" with "next" and vice versa.
+{
+  "name"    : "prev-next",
+  "search"  : "prev",
+  "replace" : "next"
+}
+
+// a more detailed version, considering the convention used in the authored CSS document.
+{
+  "name"    : "prev-next",
+  "search"  : ["prev", "Prev", "PREV"],
+  "replace" : ["next", "Next", "NEXT"],
+  options   : {"ignoreCase":false} 
+}
+
+```
+
 
 ### rules (array)
 
@@ -288,7 +362,10 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
-
+* **v1.3.0** [28 Sep. 2014]
+  * New feature - String Maps. Add your own set of swappable strings, for example (prev/next).
+  * Preserves lowercase, UPPERCASE and Capitalization when swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
+  
 * **v1.2.0** [26 Sep. 2014]
   * Support !important comments for directives (enables flipping minified stylesheets).
 
