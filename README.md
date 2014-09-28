@@ -95,7 +95,7 @@ For usage and available options see [CLI documentaion](https://github.com/Mohamm
 
 ### Supported Processing Directives
 
-When RTLing a CSS document, there are cases where its impossible to know if the property value should be mirrored or not! If the rule selector need to be changed! Or a none directional property have to be updated. In such cases, RTLCSS provides processing directives in the form of CSS comments ```/*rtl:...*/```:
+When RTLing a CSS document, there are cases where its impossible to know if the property value should be mirrored or not! If the rule selector need to be changed! Or a none directional property have to be updated. In such cases, RTLCSS provides processing directives in the form of CSS comments, both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
 
 Two sets of processing directives are available, on Rule and Declaration level.
 
@@ -290,7 +290,7 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 ## Release Notes
 
 * **v1.2.0** [26 Sep. 2014]
-  * Support !important comments for directives (enbles flipping minified stylesheets).
+  * Support !important comments for directives (enables flipping minified stylesheets).
 
 * **v1.1.0** [26 Sep. 2014]
   * Upgrade to [POSTCSS] v2.2.5
