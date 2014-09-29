@@ -362,6 +362,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.3.1** [29 Sep. 2014]
+  * Update README.md (typos).
+  
 * **v1.3.0** [28 Sep. 2014]
   * New feature - String Maps. Add your own set of swappable strings, for example (prev/next).
   * Preserves lowercase, UPPERCASE and Capitalization when swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
