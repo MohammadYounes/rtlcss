@@ -212,7 +212,7 @@ String map is a collection of map objects, each defines mapping between directio
     'search'  :	['left', 'Left', 'LEFT'],
     'replace' :	['right', 'Right', 'RIGHT'],
     'options' : {
-        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'scope': options.swapLeftRightInUrl ? '*' : 'selector',
         'ignoreCase': false 
       }
   },
@@ -221,7 +221,7 @@ String map is a collection of map objects, each defines mapping between directio
     'search'  : ['ltr', 'Ltr', 'LTR'],
     'replace' : ['rtl', 'Rtl', 'RTL'],
     'options' :	{
-        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'scope': options.swapLtrRtlInUrl ? '*' : 'selector',
         'ignoreCase': false
       }
   },
