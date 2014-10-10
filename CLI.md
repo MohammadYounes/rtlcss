@@ -80,7 +80,7 @@ $ rtlcss --stdin
 > - If no destination is specificed, the output will be written to  `stdout`.
 
 ### Directory
-Used to indicate input is a directory and not a file.
+Used to indicate source/destination are directories - source directory will be processed recursively.
 ```
 $ rtlcss -d
 $ rtlcss --directory
