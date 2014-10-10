@@ -362,6 +362,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.4.0** [10 Oct. 2014]
+  * CLI: Support processing a directory. see [CLI documentation](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md#directory)
+
 * **v1.3.1** [29 Sep. 2014]
   * Update README.md (typos).
   
