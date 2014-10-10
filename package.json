@@ -17,7 +17,8 @@
     "postcss": "2.2.5",
     "chalk": "0.5.1",
     "findup": "0.1.5",
-    "strip-json-comments": "1.0.1"
+    "strip-json-comments": "1.0.1",
+    "mkdirp":  "0.5.0"
   },
   "devDependencies": {
     "mocha": "1.21.4"

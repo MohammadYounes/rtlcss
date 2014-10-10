@@ -79,8 +79,16 @@ $ rtlcss --stdin
 ```
 > - If no destination is specificed, the output will be written to  `stdout`.
 
+### Directory
+Used to indicate input is a directory and not a file.
+```
+$ rtlcss -d
+$ rtlcss --directory
+```
 
-
-
-
-
+### Silent
+Silent mode, no warnings or errors will be printed.
+```
+$ rtlcss -s
+$ rtlcss --silent
+```

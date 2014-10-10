@@ -1,14 +1,19 @@
 #!/usr/bin/env node
+
 var path = require('path'),
     fs = require('fs'),
     sys = require('util'),
+    chalk = require('chalk'),
+    mkdirp = require('mkdirp'),
     rtlcss = require('../lib/rtlcss'),
-    configLoader = require('../lib/config-loader'),
-    chalk = require('chalk')
+    configLoader = require('../lib/config-loader')
 ;
 
-var shouldBreak = false, inputFile,outputFile,config;
-var currentErrorcode, arg, args = process.argv.slice(2);
+var input, output, directory,
+    config, silent, currentErrorcode,
+    arg, args = process.argv.slice(2),
+    shouldBreak = false
+;
 
 process.on('exit', function() { process.reallyExit(currentErrorcode) });
 
@@ -24,24 +29,26 @@ function printError (){
   console.log(chalk.red.apply(this,printError.arguments));
 }
 
-function printHelp(){    
+function printHelp(){
   console.log('Usage: rtlcss [option option=parameter ...] [source] [destination]');
   console.log('');
   var options = 
   [
-      'Option '       ,'Description ',
-      '--------------','----------------------------------------------',
-      '-h,--help'     ,'Print help (this message) and exit.',
-      '-v,--version'  ,'Print version number and exit.',
-      '-c,--config'   ,'Path to configuration settings file.',
-      '- ,--stdin'    ,'RTLCSS will read from stdin stream.'
+      'Option '         , 'Description ',
+      '--------------'  , '----------------------------------------------',
+      '-h,--help'       , 'Print help (this message) and exit.',
+      '-v,--version'    , 'Print version number and exit.',
+      '-c,--config'     , 'Path to configuration settings file.',
+      '- ,--stdin'      , 'Read from stdin stream.',
+      '-d,--dirctory'   , 'Process all *.css files from input directory (recursive).',
+      '-s,--silent'     , 'Silent mode, no warnings or errors are printed.'
   ];
 
-  for(var x=0;x<options.length;x++)
+  for(var x=0;x<options.length;x++){
     console.log(options[x++],'\t',options[x]);
-
+  }
   console.log('');
-  console.log('*If no destination is specified, output will written to {source name}.rtl.{ext} ');
+  console.log('*If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}');
   console.log('');
   printInfo('RTLCSS version: ' + require('../package.json').version);
   printInfo('Report issues to: https://github.com/MohammadYounes/rtlcss/issues');        
@@ -73,37 +80,50 @@ while(arg = args.shift()){
         currentErrorcode = 1;
       }
       break;
+    case '-d':
+    case '--directory':
+      directory = true;
+      break;
+    case '-s':
+    case '--silent':
+      console.log = function(){};
+      break;
     case '-':
     case '--stdin':
-      inputFile = '-';
+      input = '-';
       break;
     default:
       if(arg[0] == '-'){
         printError('rtlcss: unknown option. ' + arg);
         shouldBreak = true;
       }else{
-        if(!inputFile)
-          inputFile  = path.resolve(arg);
-        else if(!outputFile)
-          outputFile = path.resolve(arg);
+        if(!input)
+          input  = path.resolve(arg);
+        else if(!output)
+          output = path.resolve(arg);
       }
       break;
   }
 }
 
-if(shouldBreak)
+if(shouldBreak){
   return;
+}
 
-if (!inputFile) {
+if (!directory && !input) {
   printError('rtlcss: no input file');
   console.log('');
   printHelp();
   return;
 }
-if(!config && inputFile !== '-'){
-  try{
-		
-    config = configLoader.load(null, path.dirname(inputFile));
+if(!config && input !== '-'){
+  try
+  {
+    var cwd = input;
+    if(directory !== true){
+      cwd = path.dirname(input);
+    }
+    config = configLoader.load(null, cwd);
   }catch(e){
     printError('rtlcss: invalid config file. ', e);
     currentErrorcode = 1;
@@ -111,10 +131,16 @@ if(!config && inputFile !== '-'){
   }
 }
 
-if(!outputFile && inputFile !== '-')
-  outputFile = path.extname(inputFile) ? inputFile.replace(/\.[^.]*$/, function(ext){ return '.rtl' + ext;}) : inputFile + '.rtl';
+if(!output && input !== '-'){
+  if(directory !== true){
+    output = path.extname(input) ? input.replace(/\.[^.]*$/, function(ext){ return '.rtl' + ext;}) : input + '.rtl';
+  }
+  else{
+    output = input;
+  }    
+}
 
-var processCSSFile = function (e, data) {
+var processCSSFile = function (e, data, outputName) {
   if (e) {
     printError('rtlcss: ' + e.message);
     return;
@@ -124,31 +150,91 @@ var processCSSFile = function (e, data) {
     printWarning('rtlcss: Warning! No config present, using defaults.');
     result = rtlcss().process(data, opt);
   }else{
-
-    if(config.map === true && inputFile !== '-'){
+    if(config.map === true && input !== '-'){
       opt.map = config.map;
-      opt.from = inputFile;
-      opt.to = outputFile;
+      opt.from = input;
+      opt.to = output;
     }
-
     result = rtlcss(config.options,
                     config.rules,
                     config.declarations,
                     config.properties).process(data, opt);
   }
     
-  if (outputFile) {
-    fs.writeFileSync(outputFile, result.css, 'utf8');
-    if(opt.map == true){
-      fs.writeFileSync(outputFile + '.map', result.map, 'utf8');
+  if (output) {
+    var savePath = outputName;
+    if(directory !== true){
+      savePath = output;
     }
+    printInfo('Saving:', savePath);
+    fs.writeFile(savePath, result.css, 'utf8', function(err){ err && printError(err); });
+    if(opt.map == true){
+      fs.writeFile(savePath + '.map', result.map, 'utf8', function(err){  err && printError(err); } );
+    }      
   } else {
     sys.print(result.css);
   }
 };
 
-if (inputFile != '-') {
-  fs.readFile(inputFile, 'utf8', processCSSFile);
+var walk = function(dir, done) {
+  fs.readdir(dir, function (error, list) {
+    if (error) {
+      return done(error);
+    }
+    var i = 0;
+    (function next() {
+      var file = list[i++];
+      if (!file) {
+        return done(null);
+      }
+      file = dir + path.sep  + file;
+      fs.stat(file, function (error, stat) {
+        if (stat && stat.isDirectory()) {
+          walk(file, function (error) {
+            next();
+          });
+        } else {
+          //process only *.css
+          if (/\.(css)$/.test(file)) {          
+            //compute output directory
+            var relativePath = path.relative(input,file).split(path.sep);
+            relativePath.pop();
+            relativePath.push(path.basename(file).replace(".css", ".rtl.css"));
+
+            //set rtl file name
+            var rtlFile = path.join(output,relativePath.join(path.sep));
+
+            //create output directory if it does not exist
+            var dirName = path.dirname(rtlFile);
+            if(!fs.existsSync(dirName))
+              mkdirp.sync(dirName);
+
+            //read and process the file.
+            fs.readFile(file, 'utf8',function(e,data){ processCSSFile(e,data,rtlFile);});
+          }
+          next();
+        }
+      });
+    })();
+  });
+};
+
+
+if (input != '-') {
+  if(directory !== true){
+    fs.stat(input, function (error, stat) {
+      if (stat && stat.isDirectory()){
+        printError('rtlcss: Input expected to be a file, use -d option to process a directory.');
+      }else{
+        fs.readFile(input, 'utf8', processCSSFile);
+      }
+    });    
+  }else{
+    walk(input, function(error){
+      if(error)
+        printError('rtlcss: '+ error);
+    });
+  }
 } else {
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
