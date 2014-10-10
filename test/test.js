@@ -38,19 +38,19 @@ var tests = {
         'input': '.banner { background: 10px top url(west-banner.png) #00D repeat-y fixed; }',
         'reversable': true
       },
-			{
-			  'should': 'Should not swap bright:bleft, ultra:urtla, westing:easting',
-			  'expected': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
-			  'input': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should swap bright:bleft, ultra:urtla, westing:easting (greedy)',
-			  'expected': '.banner { background: 10px top url(urtla/easting/bleft.png) #00D repeat-y fixed; }',
-			  'input': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
-			  'reversable': true,
-			  'options': { 'greedy': true }
-			},
+      {
+        'should': 'Should not swap bright:bleft, ultra:urtla, westing:easting',
+        'expected': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
+        'input': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should swap bright:bleft, ultra:urtla, westing:easting (greedy)',
+        'expected': '.banner { background: 10px top url(urtla/easting/bleft.png) #00D repeat-y fixed; }',
+        'input': '.banner { background: 10px top url(ultra/westing/bright.png) #00D repeat-y fixed; }',
+        'reversable': true,
+        'options': { 'greedy': true }
+      }
   ],
   'Background Image:': [
       {
@@ -203,60 +203,60 @@ var tests = {
         'input': 'div { direction:rtl; }',
         'reversable': true
       },
-			{
-			  'should': 'Should mirror property value: float',
-			  'expected': 'div { float:right; }',
-			  'input': 'div { float:left; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: text-align',
-			  'expected': 'div { text-align:right; }',
-			  'input': 'div { text-align:left; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: cursor nw',
-			  'expected': 'div { cursor:nw-resize; }',
-			  'input': 'div { cursor:ne-resize; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: cursor sw',
-			  'expected': 'div { cursor:sw-resize; }',
-			  'input': 'div { cursor:se-resize; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: cursor nesw',
-			  'expected': 'div { cursor:nesw-resize; }',
-			  'input': 'div { cursor:nwse-resize; }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should keep property value as is: cursor ns',
-			  'expected': 'div { cursor:ns-resize; }',
-			  'input': 'div { cursor:ns-resize; }',
-			  'reversable': false
-			},
-			{
-			  'should': 'Should swap left,ltr,west in url: cursor',
-			  'expected': '.foo { cursor: url(right.cur), url(rtl.cur), url(east.cur), se-resize, auto }',
-			  'input': '.foo { cursor: url(left.cur), url(ltr.cur), url(west.cur), sw-resize, auto }',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: transition',
-			  'expected': '.foo { transition: right .3s ease .1s, left .3s ease .1s, margin-right .3s ease, margin-left .3s ease, padding-right .3s ease, padding-left .3s ease}',
-			  'input': '.foo { transition: left .3s ease .1s, right .3s ease .1s, margin-left .3s ease, margin-right .3s ease, padding-left .3s ease, padding-right .3s ease}',
-			  'reversable': true
-			},
-			{
-			  'should': 'Should mirror property value: transition-property',
-			  'expected': '.foo { transition-property: right; }',
-			  'input': '.foo { transition-property: left; }',
-			  'reversable': true
-			},
+      {
+        'should': 'Should mirror property value: float',
+        'expected': 'div { float:right; }',
+        'input': 'div { float:left; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: text-align',
+        'expected': 'div { text-align:right; }',
+        'input': 'div { text-align:left; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: cursor nw',
+        'expected': 'div { cursor:nw-resize; }',
+        'input': 'div { cursor:ne-resize; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: cursor sw',
+        'expected': 'div { cursor:sw-resize; }',
+        'input': 'div { cursor:se-resize; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: cursor nesw',
+        'expected': 'div { cursor:nesw-resize; }',
+        'input': 'div { cursor:nwse-resize; }',
+        'reversable': true
+      },
+      {
+        'should': 'Should keep property value as is: cursor ns',
+        'expected': 'div { cursor:ns-resize; }',
+        'input': 'div { cursor:ns-resize; }',
+        'reversable': false
+      },
+      {
+        'should': 'Should swap left,ltr,west in url: cursor',
+        'expected': '.foo { cursor: url(right.cur), url(rtl.cur), url(east.cur), se-resize, auto }',
+        'input': '.foo { cursor: url(left.cur), url(ltr.cur), url(west.cur), sw-resize, auto }',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: transition',
+        'expected': '.foo { transition: right .3s ease .1s, left .3s ease .1s, margin-right .3s ease, margin-left .3s ease, padding-right .3s ease, padding-left .3s ease}',
+        'input': '.foo { transition: left .3s ease .1s, right .3s ease .1s, margin-left .3s ease, margin-right .3s ease, padding-left .3s ease, padding-right .3s ease}',
+        'reversable': true
+      },
+      {
+        'should': 'Should mirror property value: transition-property',
+        'expected': '.foo { transition-property: right; }',
+        'input': '.foo { transition-property: left; }',
+        'reversable': true
+      }
   ],
   'Mirrored Values (N Value Syntax):': [
        {
@@ -614,69 +614,69 @@ var tests = {
         'reversable': false,
         'options': { 'swapWestEastInUrl': false }
       },
-	  {
-	    'should': 'Should swap left with right in @import url (swapLeftRightInUrl:true)',
-	    'expected': 'div{display:none;} @import url("right.css");',
-	    'input': 'div{display:none;} @import url("left.css");',
-	    'reversable': true,
-	    'options': { 'swapLeftRightInUrl': true }
-	  },
-	  {
-	    'should': 'Should not swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:false)',
-	    'expected': 'div{display:none;} @import url("bright.css");',
-	    'input': 'div{display:none;} @import url("bright.css");',
-	    'reversable': true,
-	    'options': { 'swapLeftRightInUrl': true, 'greedy': false }
-	  },
-	  {
-	    'should': 'Should swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:true)',
-	    'expected': 'div{display:none;} @import url("bleft.css");',
-	    'input': 'div{display:none;} @import url("bright.css");',
-	    'reversable': true,
-	    'options': { 'swapLeftRightInUrl': true, 'greedy': true }
-	  },
-	  {
-	    'should': 'Should swap ltr with rtl in @import url (swapLtrRtlInUrl:true)',
-	    'expected': 'div{display:none;} @import url("rtl.css");',
-	    'input': 'div{display:none;} @import url("ltr.css");',
-	    'reversable': true,
-	    'options': { 'swapLtrRtlInUrl': true }
-	  },
-	  {
-	    'should': 'Should not swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:false)',
-	    'expected': 'div{display:none;} @import url("ultra.css");',
-	    'input': 'div{display:none;} @import url("ultra.css");',
-	    'reversable': true,
-	    'options': { 'swapLtrRtlInUrl': true, 'greedy': false }
-	  },
-	  {
-	    'should': 'Should swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:true)',
-	    'expected': 'div{display:none;} @import url("urtla.css");',
-	    'input': 'div{display:none;} @import url("ultra.css");',
-	    'reversable': true,
-	    'options': { 'swapLtrRtlInUrl': true, 'greedy': true }
-	  },
-	  {
-	    'should': 'Should swap west with east in @import url (swapWestEastInUrl:true)',
-	    'expected': 'div{display:none;} @import url("east.css");',
-	    'input': 'div{display:none;} @import url("west.css");',
-	    'reversable': true,
-	    'options': { 'swapWestEastInUrl': true }
-	  },
-	  {
-	    'should': 'Should not swap western with eastern in @import url (swapWestEastInUrl:true,greedy:false)',
-	    'expected': 'div{display:none;} @import url("western.css");',
-	    'input': 'div{display:none;} @import url("western.css");',
-	    'reversable': true,
-	    'options': { 'swapWestEastInUrl': true, 'greedy': false }
-	  },
-	  {
-	    'should': 'Should swap western with eastern in @import url (swapWestEastInUrl:true,greedy:true)',
-	    'expected': 'div{display:none;} @import url("eastern.css");',
-	    'input': 'div{display:none;} @import url("western.css");',
-	    'reversable': true,
-	    'options': { 'swapWestEastInUrl': true, 'greedy': true }
-	  },
+      {
+        'should': 'Should swap left with right in @import url (swapLeftRightInUrl:true)',
+        'expected': 'div{display:none;} @import url("right.css");',
+        'input': 'div{display:none;} @import url("left.css");',
+        'reversable': true,
+        'options': { 'swapLeftRightInUrl': true }
+      },
+      {
+        'should': 'Should not swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:false)',
+        'expected': 'div{display:none;} @import url("bright.css");',
+        'input': 'div{display:none;} @import url("bright.css");',
+        'reversable': true,
+        'options': { 'swapLeftRightInUrl': true, 'greedy': false }
+      },
+      {
+        'should': 'Should swap bright with bleft in @import url (swapLeftRightInUrl:true,greedy:true)',
+        'expected': 'div{display:none;} @import url("bleft.css");',
+        'input': 'div{display:none;} @import url("bright.css");',
+        'reversable': true,
+        'options': { 'swapLeftRightInUrl': true, 'greedy': true }
+      },
+      {
+        'should': 'Should swap ltr with rtl in @import url (swapLtrRtlInUrl:true)',
+        'expected': 'div{display:none;} @import url("rtl.css");',
+        'input': 'div{display:none;} @import url("ltr.css");',
+        'reversable': true,
+        'options': { 'swapLtrRtlInUrl': true }
+      },
+      {
+        'should': 'Should not swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:false)',
+        'expected': 'div{display:none;} @import url("ultra.css");',
+        'input': 'div{display:none;} @import url("ultra.css");',
+        'reversable': true,
+        'options': { 'swapLtrRtlInUrl': true, 'greedy': false }
+      },
+      {
+        'should': 'Should swap ultra with urtla in @import url (swapLtrRtlInUrl:true,greedy:true)',
+        'expected': 'div{display:none;} @import url("urtla.css");',
+        'input': 'div{display:none;} @import url("ultra.css");',
+        'reversable': true,
+        'options': { 'swapLtrRtlInUrl': true, 'greedy': true }
+      },
+      {
+        'should': 'Should swap west with east in @import url (swapWestEastInUrl:true)',
+        'expected': 'div{display:none;} @import url("east.css");',
+        'input': 'div{display:none;} @import url("west.css");',
+        'reversable': true,
+        'options': { 'swapWestEastInUrl': true }
+      },
+      {
+        'should': 'Should not swap western with eastern in @import url (swapWestEastInUrl:true,greedy:false)',
+        'expected': 'div{display:none;} @import url("western.css");',
+        'input': 'div{display:none;} @import url("western.css");',
+        'reversable': true,
+        'options': { 'swapWestEastInUrl': true, 'greedy': false }
+      },
+      {
+        'should': 'Should swap western with eastern in @import url (swapWestEastInUrl:true,greedy:true)',
+        'expected': 'div{display:none;} @import url("eastern.css");',
+        'input': 'div{display:none;} @import url("western.css");',
+        'reversable': true,
+        'options': { 'swapWestEastInUrl': true, 'greedy': true }
+      },
       {
         'should': 'Should minify (minify:true)',
         'expected': 'div{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
@@ -929,7 +929,7 @@ var tests = {
         'should': 'Should rename "left", "Left", "LEFT" (default). ',
         'expected': 'div.right, div.Right, div.RIGHT, div.respectLeft { width:10px;}',
         'input': 'div.left, div.Left, div.LEFT, div.respectLeft { width:10px;}',
-        'reversable':true
+        'reversable': true
       },
       {
         'should': 'Should rename "left", "Left", "LEFT" (greedy). ',
@@ -937,7 +937,7 @@ var tests = {
         'input': 'div.left, div.Left, div.LEFT, div.respectLeft { width:10px;}',
         'reversable': true,
         'options': {
-          'greedy':true
+          'greedy': true
         }
       },
       {
@@ -974,7 +974,7 @@ var tests = {
         'should': 'Should rename "prev"/"next"',
         'expected': 'div.next, div.Right { width:10px;}',
         'input': 'div.prev, div.Left { width:10px;}',
-        'reversable':true,
+        'reversable': true,
         'options': { 'stringMap': [{ "search": "prev", "replace": "next", 'options': { scope: 'selector' } }] }
       },
       {
@@ -995,7 +995,7 @@ var tests = {
         'should': 'Should rename "previous" to "nextious" (autoRename:true, greedy: true)',
         'expected': 'div.nextious{ width:10px;}',
         'input': 'div.previous{ width:10px;}',
-        'reversable':true,
+        'reversable': true,
         'options': { 'stringMap': [{ "name": "prev-next", "search": "prev", "replace": "next", options: { greedy: true } }] }
       }
   ]
@@ -1012,12 +1012,13 @@ var tests = {
             assert.equal(rtlcss.process(test.input, test.options), test.expected);
           });
         })(item);
-        if (item.reversable)
+        if (item.reversable) {
           (function (test) {
             it(test.should + " <REVERESE>", function () {
               assert.equal(rtlcss.process(test.expected, test.options), test.input);
             });
           })(item);
+        }
       };
     });
   }
