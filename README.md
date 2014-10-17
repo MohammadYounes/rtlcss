@@ -106,7 +106,7 @@ Two sets of processing directives are available, on Rule and Declaration level.
 |   Directive   |   Description
 |:--------------|:-----------------------
 |   `/*rtl:ignore*/`    |   Ignores processing of this rule.
-|   `/*rtl:rename*/`    |   Forces selector renaming by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
+|   `/*rtl:rename*/`    |   Forces selector renaming by applying [String Map](#stringmap-array).
 
    **Example**
 
@@ -196,7 +196,7 @@ var processed = postcss()
 |**`swapLeftRightInUrl`** | `true`  | Swaps ***left*** and ***right*** in URLs.
 |**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
 |**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
-|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.([more info](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
+|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Map](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
 |**`greedy`** | `false`  | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
 |**`stringMap`** | see [String Map](#stringmap-array)  | Applies to string replacement in renamed selectors and updated URLs
 |**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
