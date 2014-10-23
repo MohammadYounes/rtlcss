@@ -362,6 +362,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.4.2** [24 Oct. 2014]
+  * CLI: Switch to Unix line endings (Fixes [#14](https://github.com/MohammadYounes/rtlcss/issues/14))
+
 * **v1.4.1** [24 Oct. 2014]
   * CLI: Print processing errors.
 
