@@ -213,7 +213,7 @@ String map is a collection of map objects, each defines mapping between directio
     'replace' :	['right', 'Right', 'RIGHT'],
     'options' : {
         'scope': options.swapLeftRightInUrl ? '*' : 'selector',
-        'ignoreCase': false 
+        'ignoreCase': false
       }
   },
   {
@@ -233,7 +233,7 @@ String map is a collection of map objects, each defines mapping between directio
         'scope': options.swapWestEastInUrl ? '*' : 'selector',
         'ignoreCase': false
       }
-  } 
+  }
 ]
 ```
 To override any of the default maps, just add your own with the same name. A map object consists of the following:
@@ -254,7 +254,7 @@ The map `options` is optional, and consists of the following:
 |   **`greedy`**  | `Boolean`  | reverts to `options.greedy`  | A false value forces selector renaming and url updates to respect word boundaries.
 
    **Example**
-   
+
 ```javascript
 
 // a simple map, for swapping "prev" with "next" and vice versa.
@@ -269,7 +269,7 @@ The map `options` is optional, and consists of the following:
   "name"    : "prev-next",
   "search"  : ["prev", "Prev", "PREV"],
   "replace" : ["next", "Next", "NEXT"],
-  options   : {"ignoreCase":false} 
+  options   : {"ignoreCase":false}
 }
 
 ```
@@ -367,11 +367,11 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 * **v1.3.1** [29 Sep. 2014]
   * Update README.md (typos).
-  
+
 * **v1.3.0** [28 Sep. 2014]
   * New feature - String Maps. Add your own set of swappable strings, for example (prev/next).
   * Preserves lowercase, UPPERCASE and Capitalization when swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
-  
+
 * **v1.2.0** [26 Sep. 2014]
   * Support !important comments for directives (enables flipping minified stylesheets).
 

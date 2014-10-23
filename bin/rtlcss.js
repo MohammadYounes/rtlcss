@@ -32,7 +32,7 @@ function printError (){
 function printHelp(){
   console.log('Usage: rtlcss [option option=parameter ...] [source] [destination]');
   console.log('');
-  var options = 
+  var options =
   [
       'Option '         , 'Description ',
       '--------------'  , '----------------------------------------------',
@@ -51,7 +51,7 @@ function printHelp(){
   console.log('*If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}');
   console.log('');
   printInfo('RTLCSS version: ' + require('../package.json').version);
-  printInfo('Report issues to: https://github.com/MohammadYounes/rtlcss/issues');        
+  printInfo('Report issues to: https://github.com/MohammadYounes/rtlcss/issues');
 }
 
 while(arg = args.shift()){
@@ -137,7 +137,7 @@ if(!output && input !== '-'){
   }
   else{
     output = input;
-  }    
+  }
 }
 
 var processCSSFile = function (e, data, outputName) {
@@ -160,7 +160,7 @@ var processCSSFile = function (e, data, outputName) {
                     config.declarations,
                     config.properties).process(data, opt);
   }
-    
+
   if (output) {
     var savePath = outputName;
     if(directory !== true){
@@ -170,7 +170,7 @@ var processCSSFile = function (e, data, outputName) {
     fs.writeFile(savePath, result.css, 'utf8', function(err){ err && printError(err); });
     if(opt.map == true){
       fs.writeFile(savePath + '.map', result.map, 'utf8', function(err){  err && printError(err); } );
-    }      
+    }
   } else {
     sys.print(result.css);
   }
@@ -195,7 +195,7 @@ var walk = function(dir, done) {
           });
         } else {
           //process only *.css
-          if (/\.(css)$/.test(file)) {          
+          if (/\.(css)$/.test(file)) {
             //compute output directory
             var relativePath = path.relative(input,file).split(path.sep);
             relativePath.pop();
@@ -228,7 +228,7 @@ if (input != '-') {
       }else{
         fs.readFile(input, 'utf8', processCSSFile);
       }
-    });    
+    });
   }else{
     walk(input, function(error){
       if(error)

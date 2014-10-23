@@ -8,14 +8,14 @@ In order to get started, you'll want to install RTLCSS's command line interface 
 
 ## Install
     npm install -g rtlcss
-    
+
 ## Command line usage
 ```
 $ rtlcss [option option=parameter ...] [source] [destination]
 ```
 > If no destination is specified, output will written to `{source name}.rtl.{source ext}`
 
- 
+
 ### Example
 Convert input.css to output.rtl.css
 ```
@@ -71,7 +71,7 @@ Default `.rtlcssrc`
 }
 ```
 
-### STDIN 
+### STDIN
 Read input from `stdin`
 ```
 $ rtlcss -
