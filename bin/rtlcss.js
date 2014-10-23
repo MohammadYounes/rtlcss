@@ -210,7 +210,14 @@ var walk = function(dir, done) {
               mkdirp.sync(dirName);
 
             //read and process the file.
-            fs.readFile(file, 'utf8',function(e,data){ processCSSFile(e,data,rtlFile);});
+            fs.readFile(file, 'utf8',function(e,data){
+                try{
+                  processCSSFile(e,data,rtlFile);
+                }catch(e){
+                  printError('rtlcss: error processing file',file);
+                  printError(e);
+                }
+              });
           }
           next();
         }
@@ -226,7 +233,14 @@ if (input != '-') {
       if (stat && stat.isDirectory()){
         printError('rtlcss: Input expected to be a file, use -d option to process a directory.');
       }else{
-        fs.readFile(input, 'utf8', processCSSFile);
+        fs.readFile(input, 'utf8', function(e,data){
+          try{
+            processCSSFile(e,data);
+          }catch(e){
+            printError('rtlcss: error processing file',input);
+            printError(e);
+          }
+        });
       }
     });
   }else{
