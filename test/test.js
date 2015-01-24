@@ -679,7 +679,7 @@ var tests = {
       },
       {
         'should': 'Should minify (minify:true)',
-        'expected': 'div{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
+        'expected': '\ndiv{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
         'input': '\n/*comment*/\ndiv\n/*comment*/\n {\n/*comment*/\n font-family:\n/*comment*/\n "Droid Arabic Kufi";\n/*comment*/\n padding:10px 10px 5px 5px;\n/*comment*/\n color:red; \n/*comment*/\n } \n/*comment*/\n .div2{ /*comment*/ \n display:none; /*comment*/ \n /*comment*/}',
         'reversable': false,
         'options': { 'minify': true }
@@ -688,7 +688,7 @@ var tests = {
   'RTLCSS (Directives):': [
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (default)',
-        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
       },
@@ -701,7 +701,7 @@ var tests = {
       },
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (default, !important comment)',
-        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*!rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
       },
@@ -714,14 +714,14 @@ var tests = {
       },
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (greedy)',
-        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
         'options': { 'greedy': true }
       },
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (greedy, !important comment)',
-        'expected': ' .right .rtl .east .bright .ultra .least { display:block; }',
+        'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*!rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
         'reversable': false,
         'options': { 'greedy': true }
