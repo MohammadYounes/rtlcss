@@ -61,6 +61,7 @@ Default `.rtlcssrc`
         "swapWestEastInUrl": true,
         "autoRename": true,
         "greedy": false,
+        "stringMap":[...],
         "enableLogging": false,
         "minify": false
     },
