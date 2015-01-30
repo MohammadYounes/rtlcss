@@ -22,11 +22,11 @@ Convert input.css to output.rtl.css
 $ rtlcss input.css output.rtl.css
 ```
 
-
+## Options
 ### Help
 Print a help message with available options and exits.
 ```
-$ rtlcss -help
+$ rtlcss -h
 $ rtlcss --help
 
 ```
@@ -86,6 +86,14 @@ Used to indicate source/destination are directories - source directory will be p
 $ rtlcss -d
 $ rtlcss --directory
 ```
+
+### Extension
+Used with `Directory` option to set the output files extension. **Default** `.rtl.css`
+```
+$ rtlcss -e ".ext"
+$ rtlcss --ext ".ext"
+```
+
 
 ### Silent
 Silent mode, no warnings or errors will be printed.

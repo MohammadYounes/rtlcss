@@ -9,7 +9,7 @@ var path = require('path'),
     configLoader = require('../lib/config-loader')
 ;
 
-var input, output, directory,
+var input, output, directory, ext,
     config, silent, currentErrorcode,
     arg, args = process.argv.slice(2),
     shouldBreak = false
@@ -41,6 +41,7 @@ function printHelp(){
       '-c,--config'     , 'Path to configuration settings file.',
       '- ,--stdin'      , 'Read from stdin stream.',
       '-d,--dirctory'   , 'Process all *.css files from input directory (recursive).',
+      '-e,--ext'        , 'Used with -d option to set the output files extension.\n\t\t Default: ".rtl.css".',
       '-s,--silent'     , 'Silent mode, no warnings or errors are printed.'
   ];
 
@@ -83,6 +84,10 @@ while(arg = args.shift()){
     case '-d':
     case '--directory':
       directory = true;
+      break;
+    case '-e':
+    case '--ext':
+      ext = args.shift();
       break;
     case '-s':
     case '--silent':
@@ -199,7 +204,7 @@ var walk = function(dir, done) {
             //compute output directory
             var relativePath = path.relative(input,file).split(path.sep);
             relativePath.pop();
-            relativePath.push(path.basename(file).replace(".css", ".rtl.css"));
+            relativePath.push(path.basename(file).replace(".css", ext || ".rtl.css"));
 
             //set rtl file name
             var rtlFile = path.join(output,relativePath.join(path.sep));
