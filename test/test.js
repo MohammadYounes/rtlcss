@@ -366,7 +366,7 @@ var tests = {
          'expected': 'div { text-shadow: 1px -1px 0 #fff, -1px -1px 0 #fff, 1px 1px 0 #fff, -1px 1px 0 #fff; }',
          'input': 'div { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }',
          'reversable': true
-       },
+       }
   ],
   'Transform Origin:': [
        {
