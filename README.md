@@ -362,6 +362,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.5.1** [14 Feb. 2015]
+  * Fix flipping multiple shadows when a hex color was used. **Thanks @ocean90**
+
 * **v1.5.0** [30 Jan. 2015]
   * CLI: New option `-e,--ext` to set output files extension when processing a directory.
 
