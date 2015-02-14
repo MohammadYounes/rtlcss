@@ -345,28 +345,22 @@ var tests = {
        },
        {
          'should': 'Should mirror property value: box-shadow',
-         'expected': 'div { box-shadow: -60px -16px teal, -10px 5px 5px red,inset -5em 1em 0 white; }',
-         'input': 'div { box-shadow: 60px -16px teal, 10px 5px 5px red,inset 5em 1em 0 white; }',
+         'expected': 'div { box-shadow: -60px -16px teal, -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
+         'input': 'div { box-shadow: 60px -16px teal, 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
          'reversable': true
        },
        {
-         'should': 'Should mirror property value: box-shadow (hex colors)',
-         'expected': 'div { box-shadow: -60px -16px #ff0, -10px 5px 5px #f00, inset -5em 1em 0 #fff; }',
-         'input': 'div { box-shadow: 60px -16px #ff0, 10px 5px 5px #f00, inset 5em 1em 0 #fff; }',
+         'should': 'Should mirror property value: box-shadow',
+         'expected': 'div { box-shadow: -60px -16px teal, -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
+         'input': 'div { box-shadow: 60px -16px teal, 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: text-shadow',
-         'expected': 'div { text-shadow: -60px -16px teal, -10px 5px 5px red,inset -5em 1em 0 white; }',
-         'input': 'div { text-shadow: 60px -16px teal, 10px 5px 5px red,inset 5em 1em 0 white; }',
+         'expected': 'div { text-shadow: -60px -16px teal, -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
+         'input': 'div { text-shadow: 60px -16px teal, 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
          'reversable': true
        },
-       {
-         'should': 'Should mirror property value: text-shadow (hex colors)',
-         'expected': 'div { text-shadow: 1px -1px 0 #fff, -1px -1px 0 #fff, 1px 1px 0 #fff, -1px 1px 0 #fff; }',
-         'input': 'div { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }',
-         'reversable': true
-       }
   ],
   'Transform Origin:': [
        {
