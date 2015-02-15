@@ -350,17 +350,11 @@ var tests = {
          'reversable': true
        },
        {
-         'should': 'Should mirror property value: box-shadow',
-         'expected': 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
-         'input': 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
-         'reversable': true
-       },
-       {
          'should': 'Should mirror property value: text-shadow',
          'expected': 'div { text-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
          'input': 'div { text-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
          'reversable': true
-       },
+       }
   ],
   'Transform Origin:': [
        {
@@ -458,7 +452,7 @@ var tests = {
          'expected': 'div { transform-origin:bottom left 10%; }',
          'input': 'div { transform-origin:bottom right 10%; }',
          'reversable': true
-       },
+       }
   ],
   'Transforms:': [
        {
@@ -532,7 +526,7 @@ var tests = {
          'expected': 'div { transform: skewY(-10grad); }',
          'input': 'div { transform: skewY(10grad); }',
          'reversable': true
-       },
+       }
   ],
   'RTLCSS (Options):': [
       {
@@ -572,7 +566,7 @@ var tests = {
         'should': 'Should not preserve processing directive. (default)',
         'expected': 'div { left:0; }',
         'input': '/*rtl:ignore*/div { left:0; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should preserve processing directive. (preserveDirectives:true)',
@@ -696,7 +690,7 @@ var tests = {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (default)',
         'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (preserveDirectives)',
@@ -709,7 +703,7 @@ var tests = {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (default, !important comment)',
         'expected': '.right .rtl .east .bright .ultra .least { display:block; }',
         'input': '/*!rtl:ignore*/ .right .rtl .east .bright .ultra .least { display:block; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (preserveDirectives, !important comment)',
@@ -778,7 +772,7 @@ var tests = {
         'should': 'Should prepend value. (default)',
         'expected': 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should prepend value. (preserveDirectives)',
@@ -791,7 +785,7 @@ var tests = {
         'should': 'Should prepend value (!important comment)',
         'expected': 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:prepend:"Droid Arabic Kufi", */; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should prepend value (preserveDirectives, !important comment)',
@@ -804,7 +798,7 @@ var tests = {
         'should': 'Should replace value.',
         'expected': 'div { font-family: "Droid Arabic Kufi"; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:"Droid Arabic Kufi"*/; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should replace value.(preserveDirectives)',
@@ -817,7 +811,7 @@ var tests = {
         'should': 'Should replace value. (!important comment)',
         'expected': 'div { font-family: "Droid Arabic Kufi"; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:"Droid Arabic Kufi"*/; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should replace value. (preserveDirectives, !important comment)',
@@ -830,7 +824,7 @@ var tests = {
         'should': 'Should append value. (default)',
         'expected': 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should append value. (preserveDirectives)',
@@ -843,7 +837,7 @@ var tests = {
         'should': 'Should append value. (!important comment)',
         'expected': 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
         'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should append value. (preserveDirectives, !important comment)',
@@ -856,7 +850,7 @@ var tests = {
         'should': 'Should insert value. (default)',
         'expected': 'div { font-family: "Droid Sans", "Droid Arabic Kufi", Tahoma; }',
         'input': 'div { font-family: "Droid Sans"/*rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should insert value. (preserveDirectives)',
@@ -869,7 +863,7 @@ var tests = {
         'should': 'Should insert value. (!important comment)',
         'expected': 'div { font-family: "Droid Sans", "Droid Arabic Kufi", Tahoma; }',
         'input': 'div { font-family: "Droid Sans"/*!rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should insert value. (preserveDirectives, !important comment)',
@@ -882,7 +876,7 @@ var tests = {
         'should': 'Should ignore flipping - rule level (default)',
         'expected': 'div { left:10px; text-align:right;}',
         'input': '/*rtl:ignore*/div { left:10px; text-align:right;}',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should ignore flipping - rule level (preserveDirectives)',
@@ -895,7 +889,7 @@ var tests = {
         'should': 'Should ignore flipping - rule level (default, !important comment)',
         'expected': 'div { left:10px; text-align:right;}',
         'input': '/*!rtl:ignore*/div { left:10px; text-align:right;}',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should ignore flipping - rule level (preserveDirectives , !important comment)',
@@ -908,7 +902,7 @@ var tests = {
         'should': 'Should ignore flipping - decl. level (default)',
         'expected': 'div { left:10px;text-align:left;}',
         'input': 'div { left:10px/*rtl:ignore*/;text-align:right;}',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should ignore flipping - decl. level (preserveDirectives)',
@@ -921,14 +915,14 @@ var tests = {
         'should': 'Should ignore flipping - decl. level (default, !important comment)',
         'expected': 'div { left:10px;text-align:left;}',
         'input': 'div { left:10px/*!rtl:ignore*/;text-align:right;}',
-        'reversable': false,
+        'reversable': false
       },
       {
         'should': 'Should ignore flipping - decl. level (preserveDirectives, !important comment)',
         'expected': 'div { left:10px/*!rtl:ignore*/;text-align:left;}',
         'input': 'div { left:10px/*!rtl:ignore*/;text-align:right;}',
         'options': { 'preserveDirectives': true }
-      },
+      }
   ],
   'RTLCSS (String Map):': [
       {
@@ -1025,7 +1019,7 @@ var tests = {
             });
           })(item);
         }
-      };
+      }
     });
   }
 })();
