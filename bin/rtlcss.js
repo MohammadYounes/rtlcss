@@ -10,7 +10,7 @@ var path = require('path'),
 ;
 
 var input, output, directory, ext,
-    config, silent, currentErrorcode,
+    config, currentErrorcode,
     arg, args = process.argv.slice(2),
     shouldBreak = false
 ;
