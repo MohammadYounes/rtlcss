@@ -19,12 +19,11 @@ RTLCSS is a framework for converting LTR CSS to RTL.
 
 ### Powered by RTLCSS
 
-* [Semantic] a UI component library implemented using a set of specifications designed around natural language. ([RTL Version])
+* [Semantic] a UI component library implemented using a set of specifications designed around natural language.
 * [AlertifyJS]  a javascript framework for developing pretty browser dialogs and notifications.
 * [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years (now uses RTLCSS for converting LTR CSS to RTL).
 
 [Semantic]:http://www.semantic-ui.com/
-[RTL Version]:http://semantic-ui.me/
 [AlertifyJS]:http://www.alertifyjs.com/
 [WebEssentials2013]:http://vswebessentials.com
 
