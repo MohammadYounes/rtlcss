@@ -248,7 +248,7 @@ The map `options` is optional, and consists of the following:
 
 |   Property    |   Type    |   Default |   Description
 |:--------------|:----------|:--------------|:--------------
-|   **`scope`**  | `string`  | `*`  | Defines the scope in which this map is allowed, 'selector' for selector renaming, 'url' for url updates and '*' for both.
+|   **`scope`**  | `string`  | `*`  | Defines the scope in which this map is allowed, `'selector'` for selector renaming, `'url'` for url updates and `'*'` for both.
 |   **`ignoreCase`**  | `Boolean`  | `true`  | Indicates if the search is case-insensitive or not.
 |   **`greedy`**  | `Boolean`  | reverts to `options.greedy`  | A false value forces selector renaming and url updates to respect word boundaries.
 
