@@ -997,6 +997,13 @@ var tests = {
         'input': 'div.previous{ width:10px;}',
         'reversable': true,
         'options': { 'stringMap': [{ "name": "prev-next", "search": "prev", "replace": "next", options: { greedy: true } }] }
+      },
+      {
+        'should': 'Should escape strings used in stringMap',
+        'expected': '@import url("//a.b/c-rtl.css"); @import url("//a.b/css");',
+        'input': '@import url("//a.b/c.css"); @import url("//a.b/css");',
+        'reversable': true,
+        'options': { 'swapLtrRtlInUrl': false, 'stringMap': [ { name: 'import-rtl-stylesheet', search: [ '.css' ], replace: [ '-rtl.css' ], options: { scope: 'url'} }] }
       }
   ]
 };
