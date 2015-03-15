@@ -462,6 +462,12 @@ var tests = {
          'reversable': true
        },
        {
+         'should': 'Should mirror transform : matrix3d',
+         'expected': 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, -165, 67, 0, 1); }',
+         'input': 'div { transform:matrix3d(0.227114470162179, -0.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, 165, 67, 0, 1); }',
+         'reversable': true
+       },
+       {
          'should': 'Should mirror transform : translate',
          'expected': 'div { transform: translate(-100px); }',
          'input': 'div { transform: translate(100px); }',
