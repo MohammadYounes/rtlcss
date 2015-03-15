@@ -361,6 +361,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.6.0** [15 Mar. 2015]
+  * Support flipping `matrix3d` transform.
+
 * **v1.5.2** [28 Feb. 2015]
   * Fix flipping string maps containing regular expressions special characters (Fixes [#24](https://github.com/MohammadYounes/rtlcss/issues/24)).
 

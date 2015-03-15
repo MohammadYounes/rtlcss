@@ -1,7 +1,7 @@
 {
   "author": "Mohammad Younes",
   "name": "rtlcss",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)",
   "bugs": "https://github.com/MohammadYounes/rtlcss/issues?state=open",
   "license": "MIT",
@@ -15,13 +15,13 @@
   },
   "dependencies": {
     "postcss": "^4.0.0",
-    "chalk": "0.5.1",
+    "chalk": "^1.0.0",
     "findup": "0.1.5",
-    "strip-json-comments": "1.0.1",
+    "strip-json-comments": "^1.0.0",
     "mkdirp":  "0.5.0"
   },
   "devDependencies": {
-    "mocha": "1.21.4"
+    "mocha": "^2.0.0"
   },
   "scripts": {
     "test": "mocha -R spec"
