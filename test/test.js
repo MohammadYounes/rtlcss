@@ -79,8 +79,8 @@ var tests = {
       },
       {
         'should': 'Should negate angle value for linear gradient',
-        'expected': 'div { background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
-        'input': 'div { background-image: linear-gradient(-135deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+        'expected': 'div { background-image: linear-gradient(13.25deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+        'input': 'div { background-image: linear-gradient(-13.25deg, rgba(255, 255, 255, .15) 25%, transparent 25%);}',
         'reversable': true
       }
   ],
@@ -93,8 +93,8 @@ var tests = {
       },
       {
         'should': 'Should complement percentage horizontal position ',
-        'expected': 'div {background-position:81% 75%, 11% top;}',
-        'input': 'div {background-position:19% 75%, 89% top;}',
+        'expected': 'div {background-position:81.25% 75%, 10.75% top;}',
+        'input': 'div {background-position:18.75% 75%, 89.25% top;}',
         'reversable': true
       },
       {
@@ -111,8 +111,8 @@ var tests = {
       },
       {
         'should': 'Should complement percentage: position-x',
-        'expected': 'div {background-position-x:81%, 11%;}',
-        'input': 'div {background-position-x:19%, 89%;}',
+        'expected': 'div {background-position-x:81.75%, 11%;}',
+        'input': 'div {background-position-x:18.25%, 89%;}',
         'reversable': true
       },
       {
@@ -261,44 +261,44 @@ var tests = {
   'Mirrored Values (N Value Syntax):': [
        {
          'should': 'Should mirror property value: border-radius (4 values)',
-         'expected': 'div { border-radius: 40px 10px 10px 40px; }',
-         'input': 'div { border-radius: 10px 40px 40px 10px; }',
+         'expected': 'div { border-radius: 40.25px 10.5px 10.75px 40.3px; }',
+         'input': 'div { border-radius: 10.5px 40.25px 40.3px 10.75px; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: border-radius (3 values)',
-         'expected': 'div { border-radius: 40px 10px 40px 40px; }',
-         'input': 'div { border-radius: 10px 40px 40px; }',
+         'expected': 'div { border-radius: 40.75px 10.75px 40.75px 40.3px; }',
+         'input': 'div { border-radius: 10.75px 40.75px 40.3px; }',
          'reversable': false
        },
        {
          'should': 'Should mirror property value: border-radius (2 values)',
-         'expected': 'div { border-radius: 40px 10px; }',
-         'input': 'div { border-radius: 10px 40px; }',
+         'expected': 'div { border-radius: 40.25px 10.75px; }',
+         'input': 'div { border-radius: 10.75px 40.25px; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: border-radius (4 values - double)',
-         'expected': 'div { border-radius: 40px 10px 10px 40px / 4em 1em 1em 4em; }',
-         'input': 'div { border-radius: 10px 40px 40px 10px / 1em 4em 4em 1em; }',
+         'expected': 'div { border-radius: 40.25px 10.75px .5px 40.75px / .4em 1em 1em 4.5em; }',
+         'input': 'div { border-radius: 10.75px 40.25px 40.75px .5px / 1em .4em 4.5em 1em; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: border-radius (3 values - double)',
-         'expected': 'div { border-radius: 40px 10px 40px 40px /4em  1em 4em 3em; }',
-         'input': 'div { border-radius: 10px 40px 40px / 1em 4em 3em; }',
+         'expected': 'div { border-radius: .40px 10.5px .40px 40px /4em  1em 4em 3em; }',
+         'input': 'div { border-radius: 10.5px .40px 40px / 1em 4em 3em; }',
          'reversable': false
        },
        {
          'should': 'Should mirror property value: border-radius (2 values- double)',
-         'expected': 'div { border-radius: 40px 10px / 2em 1em; }',
-         'input': 'div { border-radius: 10px 40px / 1em 2em; }',
+         'expected': 'div { border-radius: 40px 10px / 2.5em .75em; }',
+         'input': 'div { border-radius: 10px 40px / .75em 2.5em; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: border-width',
-         'expected': 'div { border-width: 1px 4px 3px 2px; }',
-         'input': 'div { border-width: 1px 2px 3px 4px; }',
+         'expected': 'div { border-width: 1px 4px .3em 2.5em; }',
+         'input': 'div { border-width: 1px 2.5em .3em 4px; }',
          'reversable': true
        },
        {
@@ -333,27 +333,33 @@ var tests = {
        },
        {
          'should': 'Should mirror property value: margin',
-         'expected': 'div { margin: 1px auto 3px 2px; }',
-         'input': 'div { margin: 1px 2px 3px auto; }',
+         'expected': 'div { margin: .1em auto 3.5rem 2px; }',
+         'input': 'div { margin: .1em 2px 3.5rem auto; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: padding',
-         'expected': 'div { padding: 1px 4px 3px 2px; }',
-         'input': 'div { padding: 1px 2px 3px 4px; }',
+         'expected': 'div { padding: 1px 4px .3rem 2.5em; }',
+         'input': 'div { padding: 1px 2.5em .3rem 4px; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: box-shadow',
-         'expected': 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
-         'input': 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
+         'expected': 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
+         'input': 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: text-shadow',
-         'expected': 'div { text-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10px 5px 5px #ff0, inset -5em 1em 0 white; }',
-         'input': 'div { text-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10px 5px 5px #ff0, inset 5em 1em 0 white; }',
+         'expected': 'div { text-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
+         'input': 'div { text-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror property value (no digit before the dot): box-shadow, text-shadow',
+         'expected': 'div { box-shadow: inset -0.5em 1em 0 white; text-shadow: inset -0.5em 1em 0 white; }',
+         'input': 'div { box-shadow: inset .5em 1em 0 white; text-shadow: inset .5em 1em 0 white; }',
+         'reversable': false
        }
   ],
   'Transform Origin:': [
@@ -365,14 +371,14 @@ var tests = {
        },
        {
          'should': 'Should mirror (x-offset)',
-         'expected': 'div { transform-origin:90%; }',
-         'input': 'div { transform-origin:10%; }',
+         'expected': 'div { transform-origin:90.25%; }',
+         'input': 'div { transform-origin:9.75%; }',
          'reversable': true
        },
        {
          'should': 'Should not mirror (x-offset: not percent)',
-         'expected': 'div { transform-origin:10px; }',
-         'input': 'div { transform-origin:10px; }',
+         'expected': 'div { transform-origin:10.75px; }',
+         'input': 'div { transform-origin:10.75px; }',
          'reversable': false
        },
        {
@@ -389,8 +395,8 @@ var tests = {
        },
        {
          'should': 'Should mirror (x-offset y-offset)',
-         'expected': 'div { transform-origin:30% 10%; }',
-         'input': 'div { transform-origin:70% 10%; }',
+         'expected': 'div { transform-origin:30.25% 10%; }',
+         'input': 'div { transform-origin:69.75% 10%; }',
          'reversable': true
        },
        {
@@ -407,8 +413,8 @@ var tests = {
        },
        {
          'should': 'Should mirror (y-offset-keyword x-offset)',
-         'expected': 'div { transform-origin:top 30%; }',
-         'input': 'div { transform-origin:top 70%; }',
+         'expected': 'div { transform-origin:top 30.25%; }',
+         'input': 'div { transform-origin:top 69.75%; }',
          'reversable': true
        },
        {
@@ -425,8 +431,8 @@ var tests = {
        },
        {
          'should': 'Should mirror (x-offset y-offset z-offset)',
-         'expected': 'div { transform-origin:80% 30% 10%; }',
-         'input': 'div { transform-origin:20% 30% 10%; }',
+         'expected': 'div { transform-origin:80.25% 30% 10%; }',
+         'input': 'div { transform-origin:19.75% 30% 10%; }',
          'reversable': true
        },
        {
@@ -457,9 +463,15 @@ var tests = {
   'Transforms:': [
        {
          'should': 'Should mirror transform : matrix',
-         'expected': 'div { transform: matrix(2, 0.1, 2, 2, 2, 2); }',
-         'input': 'div { transform: matrix(2, -0.1, -2, 2, -2, 2); }',
+         'expected': 'div { transform: matrix(2, 0.1, 20.75, 2, 2, 2); }',
+         'input': 'div { transform: matrix(2, -0.1, -20.75, 2, -2, 2); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): matrix',
+         'expected': 'div { transform: matrix(2, 0.1, 0.75, 2, 2, 2); }',
+         'input': 'div { transform: matrix(2, -0.1, -.75, 2, -2, 2); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : matrix3d',
@@ -468,34 +480,70 @@ var tests = {
          'reversable': true
        },
        {
+         'should': 'Should mirror transform (with no digits before dot): matrix3d',
+         'expected': 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, -165, 67, 0, 1); }',
+         'input': 'div { transform:matrix3d(0.227114470162179, -.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, 165, 67, 0, 1); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : translate',
-         'expected': 'div { transform: translate(-100px); }',
-         'input': 'div { transform: translate(100px); }',
+         'expected': 'div { transform: translate(-10.75px); }',
+         'input': 'div { transform: translate(10.75px); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): translate',
+         'expected': 'div { transform: translate(-0.75px); }',
+         'input': 'div { transform: translate(.75px); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : translateX',
-         'expected': 'div { transform: translateX(-50px); }',
-         'input': 'div { transform: translateX(50px); }',
+         'expected': 'div { transform: translateX(-50.25px); }',
+         'input': 'div { transform: translateX(50.25px); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): translateX',
+         'expected': 'div { transform: translateX(-0.25px); }',
+         'input': 'div { transform: translateX(.25px); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : translate3d',
-         'expected': 'div { transform: translate3d(-12px, 50%, 3em); }',
-         'input': 'div { transform: translate3d(12px, 50%, 3em); }',
+         'expected': 'div { transform: translate3d(-12.75px, 50%, 3em); }',
+         'input': 'div { transform: translate3d(12.75px, 50%, 3em); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): translate3d',
+         'expected': 'div { transform: translate3d(-0.75px, 50%, 3em); }',
+         'input': 'div { transform: translate3d(.75px, 50%, 3em); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : rotate',
-         'expected': 'div { transform: rotate(-20deg); }',
-         'input': 'div { transform: rotate(20deg); }',
+         'expected': 'div { transform: rotate(-20.75deg); }',
+         'input': 'div { transform: rotate(20.75deg); }',
          'reversable': true
        },
        {
+         'should': 'Should mirror transform (with no digits before dot): rotate',
+         'expected': 'div { transform: rotate(-0.75deg); }',
+         'input': 'div { transform: rotate(.75deg); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : rotate3d',
-         'expected': 'div { transform: rotate3d(10, -20, 10, -45deg); }',
-         'input': 'div { transform: rotate3d(10, 20, 10, 45deg); }',
+         'expected': 'div { transform: rotate3d(10, -20.15, 10, -45.14deg); }',
+         'input': 'div { transform: rotate3d(10, 20.15, 10, 45.14deg); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): rotate3d',
+         'expected': 'div { transform: rotate3d(10, -20, 10, -0.14deg); }',
+         'input': 'div { transform: rotate3d(10, 20, 10, .14deg); }',
+         'reversable': false
        },
        {
          'should': 'Should not mirror transform : rotateX',
@@ -511,27 +559,51 @@ var tests = {
        },
        {
          'should': 'Should mirror transform : rotateZ',
-         'expected': 'div { transform: rotateZ(-45deg); }',
-         'input': 'div { transform: rotateZ(45deg); }',
+         'expected': 'div { transform: rotateZ(-45.75deg); }',
+         'input': 'div { transform: rotateZ(45.75deg); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): rotateZ',
+         'expected': 'div { transform: rotateZ(-0.75deg); }',
+         'input': 'div { transform: rotateZ(.75deg); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : skew',
-         'expected': 'div { transform: skew(-20rad,-30deg); }',
-         'input': 'div { transform: skew(20rad,30deg); }',
+         'expected': 'div { transform: skew(-20.25rad,-30deg); }',
+         'input': 'div { transform: skew(20.25rad,30deg); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): skew',
+         'expected': 'div { transform: skew(-0.25rad,-30deg); }',
+         'input': 'div { transform: skew(.25rad,30deg); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror transform : skewX',
-         'expected': 'div { transform: skewX(-20rad); }',
-         'input': 'div { transform: skewX(20rad); }',
+         'expected': 'div { transform: skewX(-20.75rad); }',
+         'input': 'div { transform: skewX(20.75rad); }',
          'reversable': true
        },
        {
+         'should': 'Should mirror transform (with no digits before dot): skewX',
+         'expected': 'div { transform: skewX(-0.75rad); }',
+         'input': 'div { transform: skewX(.75rad); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : skewY',
-         'expected': 'div { transform: skewY(-10grad); }',
-         'input': 'div { transform: skewY(10grad); }',
+         'expected': 'div { transform: skewY(-10.75grad); }',
+         'input': 'div { transform: skewY(10.75grad); }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror transform (with no digits before dot): skewY',
+         'expected': 'div { transform: skewY(-0.75grad); }',
+         'input': 'div { transform: skewY(.75grad); }',
+         'reversable': false
        }
   ],
   'RTLCSS (Options):': [
