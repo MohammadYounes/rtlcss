@@ -22,10 +22,12 @@ RTLCSS is a framework for converting LTR CSS to RTL.
 * [Semantic] a UI component library implemented using a set of specifications designed around natural language.
 * [AlertifyJS]  a javascript framework for developing pretty browser dialogs and notifications.
 * [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years (now uses RTLCSS for converting LTR CSS to RTL).
+* [WordPress] WordPress is web software you can use to create a beautiful website or blog.
 
 [Semantic]:http://www.semantic-ui.com/
 [AlertifyJS]:http://www.alertifyjs.com/
 [WebEssentials2013]:http://vswebessentials.com
+[WordPress]:http://wordpress.org/
 
 ## Install
     npm install rtlcss
@@ -361,6 +363,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.6.1** [17 Mar. 2015]
+  * Fixed flipping units having more than 1 digit before the decimal point.
+
 * **v1.6.0** [15 Mar. 2015]
   * Support flipping `matrix3d` transform.
 
