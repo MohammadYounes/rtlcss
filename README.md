@@ -8,7 +8,7 @@
 RTLCSS
 ======
 
-RTLCSS is a framework for converting LTR CSS to RTL.
+RTLCSS is a framework for converting Left-To-Right (LTR) CSS to Right-To-Left (RTL).
 
 > #### CSS Syntax
 > A CSS rule has two main parts: a selector, and one or more declarations:
