@@ -4,19 +4,21 @@
 
 RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
 
+[Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [Advacned Usage](#advanced-usage) | [Options](#options-object)
+--- | --- | --- | --- | --- | 
+
+
 In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) ( which is the most widespread RTL writing system in modern times ).
 
 Web development depends heavily on CSS to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications. CSS defines how HTML elements are to be displayed via Positioning, Box model, Typographic and Visual properties, such as `left:10px`, `padding-left:1em`, `text-align:right`, ... etc.
 
 Browsers will apply these properties AS IS regardless of the document language direction. This means in order for an international website to support RTL languages, it should adjust the entire CSS to render from right to left.
 
-This how github looks like:
-![github ltr](https://cloud.githubusercontent.com/assets/4712046/7550689/463a6550-f674-11e4-9f7b-e2d43bf72f1b.png)
+For example, this how different github would be if was to be viewed in an RTL language:
 
+<img width="384" src="https://cloud.githubusercontent.com/assets/4712046/7550689/463a6550-f674-11e4-9f7b-e2d43bf72f1b.png" align="left"/>
 
-But if it was to be viewed in an RTL language, it would look like this: 
-
-![github rtl](https://cloud.githubusercontent.com/assets/4712046/7550690/463dd410-f674-11e4-8a4a-7b26025b79b5.png)
+<img width="384" src="https://cloud.githubusercontent.com/assets/4712046/7550690/463dd410-f674-11e4-8a4a-7b26025b79b5.png" align="right"/>
 
 
 Just like a mirror, where everything gets flipped.
