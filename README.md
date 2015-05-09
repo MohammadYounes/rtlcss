@@ -8,10 +8,6 @@ RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(
 | [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advacned Usage](#advanced-usage) | [Options](#options-object)
 | --- | --- | --- | --- | --- | --- | 
 
-
-
-
-
 ## Introduction
 
 In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) ( which is the most widespread RTL writing system in modern times ).
@@ -83,24 +79,12 @@ var result = rtlcss.process("body { direction:ltr; }");
 //result == body { direction:rtl; }
 ```
 
-> RTLCSS preserves original input formatting and indentations.
-
-## CLI
-
-Convert LTR CSS files to RTL using the command line.
-
-```
-$ rtlcss input.css output.rtl.css
-```
-
-For usage and available options see [CLI documentaion](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md).
-
+RTLCSS preserves original input formatting and indentations.
 
 > #### CSS Syntax
 > A CSS rule has two main parts: a selector, and one or more declarations:
 
 > ![CSS Syntax](http://www.w3schools.com/css/selector.gif "CSS Syntax")
-
 
 
 ### Supported CSS Properties (a-z)
@@ -208,6 +192,17 @@ body{
   font-size:14px;
 }
 ```
+
+## CLI
+
+Convert LTR CSS files to RTL using the command line.
+
+```
+$ rtlcss input.css output.rtl.css
+```
+
+For usage and available options see [CLI documentaion](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md).
+
 
 ---
 ## Advanced usage
