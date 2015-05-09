@@ -14,7 +14,7 @@ This how github looks like:
 ![github ltr](https://cloud.githubusercontent.com/assets/4712046/7550689/463a6550-f674-11e4-9f7b-e2d43bf72f1b.png)
 
 
-But if it was to be viewed in a RTL language, it would look like this: 
+But if it was to be viewed in an RTL language, it would look like this: 
 
 ![github rtl](https://cloud.githubusercontent.com/assets/4712046/7550690/463dd410-f674-11e4-8a4a-7b26025b79b5.png)
 
