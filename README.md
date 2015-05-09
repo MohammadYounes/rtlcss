@@ -1,27 +1,58 @@
-<img  title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
-[![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss)
-[![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss)
-[![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss)
-[![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss)
+# RTLCSS [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss) [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss) [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss) [![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss)
+
+<img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
+
+RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
+
+In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) ( which is the most widespread RTL writing system in modern times ).
+
+Web development depends heavily on CSS to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications. CSS defines how HTML elements are to be displayed via Positioning, Box model, Typographic and Visual properties, such as `left:10px`, `padding-left:1em`, `text-align:right`, ... etc.
+
+Browsers will apply these properties AS IS regardless of the document language direction. This means in order for an international website to support RTL languages, it should adjust the entire CSS to render from right to left.
 
 
-RTLCSS
-======
+![ltr-rtl](https://cloud.githubusercontent.com/assets/4712046/7549952/9826c1ac-f655-11e4-8c1a-9bead6e43863.png)
 
-RTLCSS is a framework for converting Left-To-Right (LTR) CSS to Right-To-Left (RTL).
 
-> #### CSS Syntax
-> A CSS rule has two main parts: a selector, and one or more declarations:
+Just like a mirror, where everything gets flipped.
 
-> ![CSS Syntax](http://www.w3schools.com/css/selector.gif "CSS Syntax")
 
-> The selector is normally the HTML element you want to style. Each declaration consists of a property and a value. The property is the style attribute you want to change. Each property has a value.
+## Why RTLCSS
 
-### Powered by RTLCSS
+Instead of authoring two sets of CSS, one for each language direction. Now you can author the LTR version and RTLCSS will automatically create the RTL counterpart for you!
 
-* [Semantic] a UI component library implemented using a set of specifications designed around natural language.
+```CSS
+.example {
+  display:inline-block;
+  padding:5px 10px 15px 20px;
+  margin:5px 10px 15px 20px;
+  border-style:dotted dashed double solid;
+  border-width:1px 2px 3px 4px;
+  border-color:red green blue black;
+  box-shadow: -1em 0 0.4em gray, 3px 3px 30px black;
+}
+```
+
+Will be transformed into:
+
+```CSS
+.example {
+  display:inline-block;
+  padding:5px 20px 15px 10px;
+  margin:5px 20px 15px 10px;
+  border-style:dotted solid double dashed;
+  border-width:1px 4px 3px 2px;
+  border-color:red black blue green;
+  box-shadow: 1em 0 0.4em gray, -3px 3px 30px black;
+}
+```
+
+
+##Who's using RTLCSS
+
 * [AlertifyJS]  a javascript framework for developing pretty browser dialogs and notifications.
-* [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years (now uses RTLCSS for converting LTR CSS to RTL).
+* [Semantic] a UI component library implemented using a set of specifications designed around natural language.
+* [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years.
 * [WordPress] WordPress is web software you can use to create a beautiful website or blog.
 
 [Semantic]:http://www.semantic-ui.com/
@@ -29,7 +60,8 @@ RTLCSS is a framework for converting Left-To-Right (LTR) CSS to Right-To-Left (R
 [WebEssentials2013]:http://vswebessentials.com
 [WordPress]:http://wordpress.org/
 
-## Install
+
+# Install
     npm install rtlcss
 
 ## Basic usage
