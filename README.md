@@ -4,6 +4,11 @@
 
 RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
 
+> #### CSS Syntax
+> A CSS rule has two main parts: a selector, and one or more declarations:
+
+> ![CSS Syntax](http://www.w3schools.com/css/selector.gif "CSS Syntax")
+
 In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) ( which is the most widespread RTL writing system in modern times ).
 
 Web development depends heavily on CSS to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications. CSS defines how HTML elements are to be displayed via Positioning, Box model, Typographic and Visual properties, such as `left:10px`, `padding-left:1em`, `text-align:right`, ... etc.
