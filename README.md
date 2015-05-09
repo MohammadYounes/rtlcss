@@ -10,8 +10,13 @@ Web development depends heavily on CSS to create visually engaging webpages, use
 
 Browsers will apply these properties AS IS regardless of the document language direction. This means in order for an international website to support RTL languages, it should adjust the entire CSS to render from right to left.
 
+This how github looks like:
+![github ltr](https://cloud.githubusercontent.com/assets/4712046/7550689/463a6550-f674-11e4-9f7b-e2d43bf72f1b.png)
 
-![ltr-rtl](https://cloud.githubusercontent.com/assets/4712046/7549952/9826c1ac-f655-11e4-8c1a-9bead6e43863.png)
+
+But if it was to be viewed in a RTL language, it would look like this: 
+
+![github rtl](https://cloud.githubusercontent.com/assets/4712046/7550690/463dd410-f674-11e4-8a4a-7b26025b79b5.png)
 
 
 Just like a mirror, where everything gets flipped.
