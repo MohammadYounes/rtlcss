@@ -10,7 +10,7 @@ RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(
 
 ## Introduction
 
-In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) ( which is the most widespread RTL writing system in modern times ).
+In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) (the most widespread RTL writing system in modern times ).
 
 Web development depends heavily on CSS to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications. CSS defines how HTML elements are to be displayed via Positioning, Box model, Typographic and Visual properties, such as `left:10px`, `padding-left:1em`, `text-align:right`, ... etc.
 
@@ -26,7 +26,7 @@ Just like a mirror, where everything gets flipped.
 
 ## Why RTLCSS
 
-Instead of authoring two sets of CSS, one for each language direction. Now you can author the LTR version and RTLCSS will automatically create the RTL counterpart for you!
+Instead of authoring two sets of CSS files, one for each language direction. Now you can author the LTR version and RTLCSS will automatically create the RTL counterpart for you!
 
 ```CSS
 .example {
