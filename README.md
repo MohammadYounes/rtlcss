@@ -17,17 +17,12 @@ Web development depends heavily on CSS to create visually engaging webpages, use
 
 Browsers will apply these properties AS IS regardless of the document language direction. This means in order for an international website to support RTL languages, it should adjust the entire CSS to render from right to left.
 
-For example, this how different github would be if was to be viewed in an RTL language:
-
+For example, this how different github would be if it was to be viewed in an RTL language:
 
 <img width="320" src="https://cloud.githubusercontent.com/assets/4712046/7550690/463dd410-f674-11e4-8a4a-7b26025b79b5.png" align="right"/>
 <img width="320" src="https://cloud.githubusercontent.com/assets/4712046/7550689/463a6550-f674-11e4-9f7b-e2d43bf72f1b.png" />
 
-
-
-
 Just like a mirror, where everything gets flipped.
-
 
 ## Why RTLCSS
 
