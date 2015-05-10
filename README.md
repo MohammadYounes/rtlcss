@@ -333,7 +333,7 @@ Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS 
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the rules PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `rule` node. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
 
-Visit [PostCSS] to find out more about [`rule`](https://github.com/postcss/postcss/blob/master/API.md#rule-node) node.
+Visit [PostCSS] to find out more about [`rule`](https://github.com/postcss/postcss/blob/master/docs/api.md#rule-node) node.
 
 ##### **Example**
 
@@ -360,7 +360,7 @@ Array of RTLCSS declaration Processing Instructions (PI), these are applied on t
 |   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
 |   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `decl` node. the functions is expected to return a boolean, `true` to stop further processing of the declaration, otherwise `false`.
 
-Visit [PostCSS] to find out more about [`decl`](https://github.com/postcss/postcss/blob/master/API.md#declaration-node) node.
+Visit [PostCSS] to find out more about [`decl`](https://github.com/postcss/postcss/blob/master/docs/api.md#declaration-node) node.
 
 ##### **Example**
 
