@@ -409,6 +409,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.6.2** [21 Jul. 2015]
+  * CLI: fix loading custom configuration file manually via the --config flag. **Thanks @KeyKaKiTO**
+
 * **v1.6.1** [17 Mar. 2015]
   * Fixed flipping units having more than 1 digit before the decimal point.
 
