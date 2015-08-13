@@ -131,7 +131,7 @@ RTLCSS preserves original input formatting and indentations.
 
 ### Supported Processing Directives
 
-When RTLing a CSS document, there are cases where it's impossible to know if the property value should be mirrored or not: if the rule selector need to be changed - or a non-directional property has to be updated. In such cases, RTLCSS provides processing directives in the form of CSS comments. Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
+When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments. Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
 
 Two sets of processing directives are available, on Rule and Declaration level.
 
