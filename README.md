@@ -131,7 +131,7 @@ RTLCSS preserves original input formatting and indentations.
 
 ### Supported Processing Directives
 
-When RTLing a CSS document, there are cases where it's impossible to know if the property value should be mirrored or not! If the rule selector need to be changed! Or a none directional property have to be updated. In such cases, RTLCSS provides processing directives in the form of CSS comments, both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
+When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments. Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
 
 Two sets of processing directives are available, on Rule and Declaration level.
 
@@ -251,7 +251,7 @@ var processed = postcss()
 
 ### stringMap (Array)
 
-String map is a collection of map objects, each defines mapping between directional strings, it is used in selectors renaming and URL updates. The following is the default string map:
+String map is a collection of map objects, where each defines a mapping between directional strings. It is used in  renaming selectors and URL updates. The following is the default string map:
 ```javascript
 [
   {
