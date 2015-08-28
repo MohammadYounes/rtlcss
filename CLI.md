@@ -72,6 +72,8 @@ Default `.rtlcssrc`
 }
 ```
 
+Source Map generation is disabled by default, you can enable it by setting `map` config to `true`. If you want more control over source map generation, visit  [postcss](https://github.com/postcss/postcss/blob/4.1.16/README.md#source-map) for more details on the available options.
+
 ### STDIN
 Read input from `stdin`
 ```

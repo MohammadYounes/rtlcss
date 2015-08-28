@@ -150,15 +150,17 @@ var processCSSFile = function (e, data, outputName) {
     printError('rtlcss: ' + e.message);
     return;
   }
-  var result, opt = { map: undefined, from:undefined, to:undefined};
+  var result, opt = { map: false };
+  if(input !== '-'){
+    opt.from = input;
+    opt.to = output;
+  }  
   if(!config){
     printWarning('rtlcss: Warning! No config present, using defaults.');
     result = rtlcss().process(data, opt);
   }else{
-    if(config.map === true && input !== '-'){
+    if('map' in config === true && input !== '-'){
       opt.map = config.map;
-      opt.from = input;
-      opt.to = output;
     }
     result = rtlcss(config.options,
                     config.rules,
@@ -173,7 +175,7 @@ var processCSSFile = function (e, data, outputName) {
     }
     printInfo('Saving:', savePath);
     fs.writeFile(savePath, result.css, 'utf8', function(err){ err && printError(err); });
-    if(opt.map == true){
+    if(result.map){
       fs.writeFile(savePath + '.map', result.map, 'utf8', function(err){  err && printError(err); } );
     }
   } else {
