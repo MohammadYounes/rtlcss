@@ -14,7 +14,7 @@
     "rtlcss": "./bin/rtlcss.js"
   },
   "dependencies": {
-    "postcss": "^4.0.0",
+    "postcss": "^5.0.0",
     "chalk": "^1.0.0",
     "findup": "0.1.5",
     "strip-json-comments": "^1.0.0",
