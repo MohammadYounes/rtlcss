@@ -247,8 +247,8 @@ var tests = {
       },
       {
         'should': 'Should mirror property value: transition',
-        'expected': '.foo { transition: right .3s ease .1s, left .3s ease .1s, margin-right .3s ease, margin-left .3s ease, padding-right .3s ease, padding-left .3s ease}',
-        'input': '.foo { transition: left .3s ease .1s, right .3s ease .1s, margin-left .3s ease, margin-right .3s ease, padding-left .3s ease, padding-right .3s ease}',
+        'expected': '.foo { transition: right .3s ease .1s,left .3s ease .1s,margin-right .3s ease,margin-left .3s ease,padding-right .3s ease,padding-left .3s ease}',
+        'input': '.foo { transition: left .3s ease .1s,right .3s ease .1s,margin-left .3s ease,margin-right .3s ease,padding-left .3s ease,padding-right .3s ease}',
         'reversable': true
       },
       {
@@ -261,8 +261,8 @@ var tests = {
   'Mirrored Values (N Value Syntax):': [
        {
          'should': 'Should mirror property value: border-radius (4 values)',
-         'expected': 'div { border-radius: 40.25px 10.5px 10.75px 40.3px; }',
-         'input': 'div { border-radius: 10.5px 40.25px 40.3px 10.75px; }',
+         'expected': 'div { border-radius: 40.25px calc(10.5px / 2) 10.75px 40.3px; }',
+         'input': 'div { border-radius: calc(10.5px / 2) 40.25px 40.3px 10.75px; }',
          'reversable': true
        },
        {
@@ -279,20 +279,20 @@ var tests = {
        },
        {
          'should': 'Should mirror property value: border-radius (4 values - double)',
-         'expected': 'div { border-radius: 40.25px 10.75px .5px 40.75px / .4em 1em 1em 4.5em; }',
-         'input': 'div { border-radius: 10.75px 40.25px 40.75px .5px / 1em .4em 4.5em 1em; }',
+         'expected': 'div { border-radius: 40.25px 10.75px .5px 40.75px/.4em 1em 1em 4.5em; }',
+         'input': 'div { border-radius: 10.75px 40.25px 40.75px .5px/1em .4em 4.5em 1em; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: border-radius (3 values - double)',
-         'expected': 'div { border-radius: .40px 10.5px .40px 40px /4em  1em 4em 3em; }',
+         'expected': 'div { border-radius: .40px 10.5px .40px 40px/4em 1em 4em 3em; }',
          'input': 'div { border-radius: 10.5px .40px 40px / 1em 4em 3em; }',
          'reversable': false
        },
        {
          'should': 'Should mirror property value: border-radius (2 values- double)',
-         'expected': 'div { border-radius: 40px 10px / 2.5em .75em; }',
-         'input': 'div { border-radius: 10px 40px / .75em 2.5em; }',
+         'expected': 'div { border-radius: calc(40px / 2) 10px/2.5em .75em; }',
+         'input': 'div { border-radius: 10px calc(40px / 2)/.75em 2.5em; }',
          'reversable': true
        },
        {
@@ -344,21 +344,39 @@ var tests = {
          'reversable': true
        },
        {
+         'should': 'Should mirror property value: padding with functions',
+         'expected': 'div { padding: calc((1px + 3%) * 2) -ms-calc((((((((((((((((4px)))))))))))))))) -moz-calc(7*.3rem) -webkit-calc((2.5em - 1%) / 2); }',
+         'input': 'div { padding: calc((1px + 3%) * 2) -webkit-calc((2.5em - 1%) / 2) -moz-calc(7*.3rem) -ms-calc((((((((((((((((4px)))))))))))))))); }',
+         'reversable': true
+       },
+       {
          'should': 'Should mirror property value: box-shadow',
-         'expected': 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
-         'input': 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',
+         'expected': 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98),-10.25px 5px 5px #ff0,inset -0.5em 1em 0 white; }',
+         'input': 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98),10.25px 5px 5px #ff0,inset 0.5em 1em 0 white; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value: text-shadow',
-         'expected': 'div { text-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
-         'input': 'div { text-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',
+         'expected': 'div { text-shadow: -60px -16px rgba(127, 128, 129, 0.98),-10.25px 5px 5px #ff8,-0.5em 1em 0 white; }',
+         'input': 'div { text-shadow: 60px -16px rgba(127, 128, 129, 0.98),10.25px 5px 5px #ff8,0.5em 1em 0 white; }',
+         'reversable': true
+       },
+       {
+         'should': 'Should mirror property value: text-shadow (color in front)',
+         'expected': 'div { text-shadow: rgba(127, 128, 129, 0.98) -60px -16px,#ff8 -10.25px 5px 5px,white -0.5em 1em 0; }',
+         'input': 'div { text-shadow: rgba(127, 128, 129, 0.98) 60px -16px,#ff8 10.25px 5px 5px,white 0.5em 1em 0; }',
          'reversable': true
        },
        {
          'should': 'Should mirror property value (no digit before the dot): box-shadow, text-shadow',
-         'expected': 'div { box-shadow: inset -0.5em 1em 0 white; text-shadow: inset -0.5em 1em 0 white; }',
-         'input': 'div { box-shadow: inset .5em 1em 0 white; text-shadow: inset .5em 1em 0 white; }',
+         'expected': 'div { box-shadow: inset -0.5em 1em 0 white; text-shadow: -0.5em 1em 0 white; }',
+         'input': 'div { box-shadow: inset .5em 1em 0 white; text-shadow: .5em 1em 0 white; }',
+         'reversable': false
+       },
+       {
+         'should': 'Should no touch special values: box-shadow, text-shadow',
+         'expected': 'div { box-shadow: none; text-shadow: inherit; }',
+         'input': 'div { box-shadow: none; text-shadow: inherit; }',
          'reversable': false
        }
   ],
