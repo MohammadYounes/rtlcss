@@ -757,7 +757,7 @@ var tests = {
       },
       {
         'should': 'Should minify (minify:true)',
-        'expected': '\ndiv{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
+        'expected': 'div{font-family:"Droid Arabic Kufi";padding:10px 5px 5px 10px;color:red;}.div2{display:none;}',
         'input': '\n/*comment*/\ndiv\n/*comment*/\n {\n/*comment*/\n font-family:\n/*comment*/\n "Droid Arabic Kufi";\n/*comment*/\n padding:10px 10px 5px 5px;\n/*comment*/\n color:red; \n/*comment*/\n } \n/*comment*/\n .div2{ /*comment*/ \n display:none; /*comment*/ \n /*comment*/}',
         'reversable': false,
         'options': { 'minify': true }
