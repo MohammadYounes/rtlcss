@@ -641,6 +641,13 @@ var tests = {
         'options': { 'autoRename': false, 'greedy': true }
       },
       {
+        'should': 'Should not auto rename when rules are flipped via decl directives',
+        'expected': 'div.right { display:block; font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
+        'input': 'div.right { display:block; font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
+        'reversable': false,
+        'options': { 'autoRename': true }
+      },
+      {
         'should': 'Should not preserve processing directive. (default)',
         'expected': 'div { left:0; }',
         'input': '/*rtl:ignore*/div { left:0; }',
