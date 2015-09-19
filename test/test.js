@@ -15,6 +15,12 @@ var tests = {
         'reversable': true
       },
       {
+        'should': 'Should complement calc horizontal position',
+        'expected': '.banner { background: calc(100%-(19% + 2px)) top url(topbanner.png) #00D repeat-y fixed; }',
+        'input': '.banner { background: calc(19% + 2px) top url(topbanner.png) #00D repeat-y fixed; }',
+        'reversable': false
+      },
+      {
         'should': 'Should mirror keyword horizontal position',
         'expected': '.banner { background: right top url(topbanner.png) #00D repeat-y fixed; }',
         'input': '.banner { background: left top url(topbanner.png) #00D repeat-y fixed; }',
@@ -73,8 +79,14 @@ var tests = {
       },
       {
         'should': 'Should not negate color value for linear gradient',
-        'expected': 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);}',
-        'input': 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);}',
+        'expected': 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, #ff8 100%);}',
+        'input': 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, #ff8 100%);}',
+        'reversable': true
+      },
+      {
+        'should': 'Should not negate color value for linear gradient with calc',
+        'expected': 'div { background-image: linear-gradient(rgba(255, 255, calc((125 * 2) + 5), 0.3) 0%, #ff8 100%);}',
+        'input': 'div { background-image: linear-gradient(rgba(255, 255, calc((125 * 2) + 5), 0.3) 0%, #ff8 100%);}',
         'reversable': true
       },
       {
@@ -92,15 +104,33 @@ var tests = {
         'reversable': false
       },
       {
+        'should': 'Should complement percentage horizontal position with calc',
+        'expected': 'div {background-position:calc(100%-(30% + 50px)) 75%;}',
+        'input': 'div {background-position:calc(30% + 50px) 75%;}',
+        'reversable': false
+      },
+      {
         'should': 'Should complement percentage horizontal position ',
         'expected': 'div {background-position:81.25% 75%, 10.75% top;}',
         'input': 'div {background-position:18.75% 75%, 89.25% top;}',
         'reversable': true
       },
       {
+        'should': 'Should complement percentage horizontal position with calc',
+        'expected': 'div {background-position:calc(100%-(30% + 50px)) calc(30% + 50px), 10.75% top;}',
+        'input': 'div {background-position:calc(30% + 50px) calc(30% + 50px), 89.25% top;}',
+        'reversable': false
+      },
+      {
         'should': 'Should swap left with right',
         'expected': 'div {background-position:right 75%, left top;}',
         'input': 'div {background-position:left 75%, right top;}',
+        'reversable': true
+      },
+      {
+        'should': 'Should swap left with right wit calc',
+        'expected': 'div {background-position:right -ms-calc(30% + 50px), left top;}',
+        'input': 'div {background-position:left -ms-calc(30% + 50px), right top;}',
         'reversable': true
       },
       {
@@ -114,6 +144,12 @@ var tests = {
         'expected': 'div {background-position-x:81.75%, 11%;}',
         'input': 'div {background-position-x:18.25%, 89%;}',
         'reversable': true
+      },
+      {
+        'should': 'Should complement percentage with calc: position-x',
+        'expected': 'div {background-position-x:calc(100%-(30% + 50px)), -webkit-calc(100%-(30% + 50px));}',
+        'input': 'div {background-position-x:calc(30% + 50px), -webkit-calc(30% + 50px);}',
+        'reversable': false
       },
       {
         'should': 'Should swap left with right: position-x',
@@ -285,7 +321,7 @@ var tests = {
        },
        {
          'should': 'Should mirror property value: border-radius (3 values - double)',
-         'expected': 'div { border-radius: .40px 10.5px .40px 40px /4em  1em 4em 3em; }',
+         'expected': 'div { border-radius: .40px 10.5px .40px 40px / 4em 1em 4em 3em; }',
          'input': 'div { border-radius: 10.5px .40px 40px / 1em 4em 3em; }',
          'reversable': false
        },
@@ -376,7 +412,13 @@ var tests = {
          'reversable': true
        },
        {
-         'should': 'Should not mirror (x-offset: not percent)',
+         'should': 'Should mirror calc (x-offset)',
+         'expected': 'div { transform-origin: -moz-calc(100%-(((25%/2) * 10px))) ; }',
+         'input': 'div { transform-origin: -moz-calc(((25%/2) * 10px)) ; }',
+         'reversable': false
+       },
+       {
+         'should': 'Should not mirror (x-offset: not percent, not calc)',
          'expected': 'div { transform-origin:10.75px; }',
          'input': 'div { transform-origin:10.75px; }',
          'reversable': false
@@ -394,9 +436,27 @@ var tests = {
          'reversable': false
        },
        {
-         'should': 'Should mirror (x-offset y-offset)',
+         'should': 'Should mirror with y being calc (x-offset y-offset: 0 means 0%)',
+         'expected': 'div { transform-origin:100% -webkit-calc(15% * (3/2)); }',
+         'input': 'div { transform-origin:0 -webkit-calc(15% * (3/2)); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror percent (x-offset y-offset)',
          'expected': 'div { transform-origin:30.25% 10%; }',
          'input': 'div { transform-origin:69.75% 10%; }',
+         'reversable': true
+       },
+       {
+         'should': 'Should mirror with x being calc (x-offset y-offset)',
+         'expected': 'div { transform-origin: -webkit-calc(100%-(15% * (3/2))) 30.25% ; }',
+         'input': 'div { transform-origin: -webkit-calc(15% * (3/2)) 30.25% ; }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror with y being calc (x-offset y-offset)',
+         'expected': 'div { transform-origin:30.25% calc(15% * (3/2)); }',
+         'input': 'div { transform-origin:69.75% calc(15% * (3/2)); }',
          'reversable': true
        },
        {
@@ -406,9 +466,21 @@ var tests = {
          'reversable': true
        },
        {
+         'should': 'Should mirror with calc (y-offset x-offset-keyword)',
+         'expected': 'div { transform-origin:-ms-calc(140%/2) right; }',
+         'input': 'div { transform-origin:-ms-calc(140%/2) left; }',
+         'reversable': true
+       },
+       {
          'should': 'Should mirror (x-offset-keyword y-offset)',
          'expected': 'div { transform-origin:right 70%; }',
          'input': 'div { transform-origin:left 70%; }',
+         'reversable': true
+       },
+       {
+         'should': 'Should mirror with calc (x-offset-keyword y-offset)',
+         'expected': 'div { transform-origin:right -moz-calc(((140%/2))); }',
+         'input': 'div { transform-origin:left -moz-calc(((140%/2))); }',
          'reversable': true
        },
        {
@@ -416,6 +488,12 @@ var tests = {
          'expected': 'div { transform-origin:top 30.25%; }',
          'input': 'div { transform-origin:top 69.75%; }',
          'reversable': true
+       },
+       {
+         'should': 'Should not mirror with x being calc (y-offset-keyword x-offset)',
+         'expected': 'div { transform-origin:top calc(100%-(((140%/2)))); }',
+         'input': 'div { transform-origin:top calc(((140%/2))); }',
+         'reversable': false
        },
        {
          'should': 'Should mirror (x-offset-keyword y-offset-keyword)',
@@ -434,6 +512,12 @@ var tests = {
          'expected': 'div { transform-origin:80.25% 30% 10%; }',
          'input': 'div { transform-origin:19.75% 30% 10%; }',
          'reversable': true
+       },
+       {
+         'should': 'Should mirror with x being calc (x-offset y-offset z-offset)',
+         'expected': 'div { transform-origin: calc(100%-(25% * 3 + 20px)) 30% 10%; }',
+         'input': 'div { transform-origin: calc(25% * 3 + 20px) 30% 10%; }',
+         'reversable': false
        },
        {
          'should': 'Should mirror (y-offset x-offset-keyword z-offset)',
@@ -474,6 +558,12 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: matrix',
+         'expected': 'div { transform: matrix( -moz-calc(((25%/2) * 10px)), calc(-1*(((25%/2) * 10px))), 20.75, 2, 2, 2 ); }',
+         'input': 'div { transform: matrix( -moz-calc(((25%/2) * 10px)), calc(((25%/2) * 10px)), -20.75, 2, -2, 2 ); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : matrix3d',
          'expected': 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, -165, 67, 0, 1); }',
          'input': 'div { transform:matrix3d(0.227114470162179, -0.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, 165, 67, 0, 1); }',
@@ -483,6 +573,12 @@ var tests = {
          'should': 'Should mirror transform (with no digits before dot): matrix3d',
          'expected': 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, -165, 67, 0, 1); }',
          'input': 'div { transform:matrix3d(0.227114470162179, -.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, 165, 67, 0, 1); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror transform with calc : matrix3d',
+         'expected': 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, calc(-1*(((25%/2) * 10px))), 67, 0, 1); }',
+         'input': 'div { transform:matrix3d(0.227114470162179, -0.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, calc(((25%/2) * 10px)), 67, 0, 1); }',
          'reversable': false
        },
        {
@@ -498,6 +594,12 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: translate',
+         'expected': 'div { transform: translate(-moz-calc(-1*(((25%/2) * 10px)))); }',
+         'input': 'div { transform: translate(-moz-calc(((25%/2) * 10px))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : translateX',
          'expected': 'div { transform: translateX(-50.25px); }',
          'input': 'div { transform: translateX(50.25px); }',
@@ -507,6 +609,12 @@ var tests = {
          'should': 'Should mirror transform (with no digits before dot): translateX',
          'expected': 'div { transform: translateX(-0.25px); }',
          'input': 'div { transform: translateX(.25px); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror transform with calc : translateX',
+         'expected': 'div { transform: translateX(-ms-calc(-1*(((25%/2) * 10px))))); }',
+         'input': 'div { transform: translateX(-ms-calc(((25%/2) * 10px)))); }',
          'reversable': false
        },
        {
@@ -522,6 +630,12 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: translate3d',
+         'expected': 'div { transform: translate3d(-webkit-calc(-1*(((25%/2) * 10px))))), 50%, calc(((25%/2) * 10px))))); }',
+         'input': 'div { transform: translate3d(-webkit-calc(((25%/2) * 10px)))), 50%, calc(((25%/2) * 10px))))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : rotate',
          'expected': 'div { transform: rotate(-20.75deg); }',
          'input': 'div { transform: rotate(20.75deg); }',
@@ -531,6 +645,12 @@ var tests = {
          'should': 'Should mirror transform (with no digits before dot): rotate',
          'expected': 'div { transform: rotate(-0.75deg); }',
          'input': 'div { transform: rotate(.75deg); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror transform with calc: rotate',
+         'expected': 'div { transform: rotate(calc(-1*(((25%/2) * 10deg)))); }',
+         'input': 'div { transform: rotate(calc(((25%/2) * 10deg))); }',
          'reversable': false
        },
        {
@@ -546,15 +666,33 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: rotate3d',
+         'expected': 'div { transform: rotate3d(10, -20.15, 10, calc(-1*(((25%/2) * 10deg)))); }',
+         'input': 'div { transform: rotate3d(10, 20.15, 10, calc(((25%/2) * 10deg))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should not mirror transform : rotateX',
          'expected': 'div { transform: rotateX(45deg); }',
          'input': 'div { transform: rotateX(45deg); }',
          'reversable': false
        },
        {
+         'should': 'Should not mirror transform with calc: rotateX',
+         'expected': 'div { transform: rotateX(calc(((25%/2) * 10deg))); }',
+         'input': 'div { transform: rotateX(calc(((25%/2) * 10deg))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should not mirror transform : rotateY',
          'expected': 'div { transform: rotateY(45deg); }',
          'input': 'div { transform: rotateY(45deg); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should not mirror transform with calc: rotateY',
+         'expected': 'div { transform: rotateY(calc(((25%/2) * 10deg))); }',
+         'input': 'div { transform: rotateY(calc(((25%/2) * 10deg))); }',
          'reversable': false
        },
        {
@@ -570,6 +708,12 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: rotateZ',
+         'expected': 'div { transform: rotateZ(-ms-calc(-1*(((25%/2) * 10deg)))); }',
+         'input': 'div { transform: rotateZ(-ms-calc(((25%/2) * 10deg))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : skew',
          'expected': 'div { transform: skew(-20.25rad,-30deg); }',
          'input': 'div { transform: skew(20.25rad,30deg); }',
@@ -579,6 +723,12 @@ var tests = {
          'should': 'Should mirror transform (with no digits before dot): skew',
          'expected': 'div { transform: skew(-0.25rad,-30deg); }',
          'input': 'div { transform: skew(.25rad,30deg); }',
+         'reversable': false
+       },
+       {
+         'should': 'Should mirror transform with calc: skew',
+         'expected': 'div { transform: skew(calc(-1*(((25%/2) * 10rad))),calc(-1*(((25%/2) * 10deg)))); }',
+         'input': 'div { transform: skew(calc(((25%/2) * 10rad)),calc(((25%/2) * 10deg))); }',
          'reversable': false
        },
        {
@@ -594,6 +744,12 @@ var tests = {
          'reversable': false
        },
        {
+         'should': 'Should mirror transform with calc: skewX',
+         'expected': 'div { transform: skewX(-moz-calc(-1*(((25%/2) * 10rad)))); }',
+         'input': 'div { transform: skewX(-moz-calc(((25%/2) * 10rad))); }',
+         'reversable': false
+       },
+       {
          'should': 'Should mirror transform : skewY',
          'expected': 'div { transform: skewY(-10.75grad); }',
          'input': 'div { transform: skewY(10.75grad); }',
@@ -604,7 +760,13 @@ var tests = {
          'expected': 'div { transform: skewY(-0.75grad); }',
          'input': 'div { transform: skewY(.75grad); }',
          'reversable': false
-       }
+       },
+       {
+         'should': 'Should mirror transform with calc: skewY',
+         'expected': 'div { transform: skewY(calc(-1*(((25%/2) * 10grad)))); }',
+         'input': 'div { transform: skewY(calc(((25%/2) * 10grad))); }',
+         'reversable': false
+       },
   ],
   'RTLCSS (Options):': [
       {
