@@ -409,6 +409,11 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.7.0** [19 Sep. 2015]
+  * Add `calc` support.
+  * Mark rule as flipped when values are updated by decl. directives.
+  * Allow further processing for rules that uses `rename` directive.
+  
 * **v1.6.3** [28 Aug. 2015]
   * CLI: fix source map option (issue #40).
   * Upgrade to [POSTCSS] v5.0.x 
