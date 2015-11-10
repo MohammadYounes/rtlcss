@@ -410,7 +410,7 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 * **v1.7.1** [10 Nov. 2015]
-  * Fixed a bug in flipping backgrounds having functions (Issue #45).
+  * Fixed a bug in flipping backgrounds having functions (Issue [#45](https://github.com/MohammadYounes/rtlcss/issues/45)).
   
 * **v1.7.0** [19 Sep. 2015]
   * Add `calc` support.
