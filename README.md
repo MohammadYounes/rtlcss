@@ -409,6 +409,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
+* **v1.7.1** [10 Nov. 2015]
+  * Fixed a bug in flipping backgrounds having functions (Issue #45).
+  
 * **v1.7.0** [19 Sep. 2015]
   * Add `calc` support.
   * Mark rule as flipped when values are updated by decl. directives.
