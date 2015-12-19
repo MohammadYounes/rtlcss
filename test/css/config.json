@@ -1,10 +1,10 @@
-﻿{
+{
     "options": {
         "preserveComments": true,
-        "preserveDirectives": false,
-        "processUrls": false,
-        "autoRename": false,
-        "greedy": false,
+        "preserveDirectives": true,
+        "processUrls": true,
+        "autoRename": true,
+        "greedy": true,
         "log": false,
         "stringMap":[
         ]

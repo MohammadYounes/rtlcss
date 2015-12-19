@@ -1,4 +1,6 @@
-# RTLCSS [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss) [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss) [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss) [![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss) [![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
+# RTLCSS
+[![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss) [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss) [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss) [![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-blue.svg)](http://standardjs.com/) [![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
+
 
 <img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
 
@@ -6,7 +8,7 @@ RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(
 
 ---
 | [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object)
-| --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- |
 ---
 ## Introduction
 
@@ -408,122 +410,6 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
-## Release Notes
-* **v1.7.3** [30 Jan. 2016]
-  * Fixes a bug in flipping N-Values containing comments.
-  
-* **v1.7.2** [04 Dec. 2015]
-  * Fixes a compatibility issue with postcss-js (Fixes [#48](https://github.com/MohammadYounes/rtlcss/issues/48)).
 
-* **v1.7.1** [10 Nov. 2015]
-  * Fixed a bug in flipping backgrounds having functions (Issue [#45](https://github.com/MohammadYounes/rtlcss/issues/45)).
-  
-* **v1.7.0** [19 Sep. 2015]
-  * Add `calc` support.
-  * Mark rule as flipped when values are updated by decl. directives.
-  * Allow further processing for rules that uses `rename` directive.
-  
-* **v1.6.3** [28 Aug. 2015]
-  * CLI: fix source map option (issue #40).
-  * Upgrade to [POSTCSS] v5.0.x 
-
-* **v1.6.2** [21 Jul. 2015]
-  * CLI: fix loading custom configuration file manually via the --config flag. **Thanks @KeyKaKiTO**
-
-* **v1.6.1** [17 Mar. 2015]
-  * Fixed flipping units having more than 1 digit before the decimal point.
-
-* **v1.6.0** [15 Mar. 2015]
-  * Support flipping `matrix3d` transform.
-
-* **v1.5.2** [28 Feb. 2015]
-  * Fix flipping string maps containing regular expressions special characters (Fixes [#24](https://github.com/MohammadYounes/rtlcss/issues/24)).
-
-* **v1.5.1** [14 Feb. 2015]
-  * Fix flipping multiple shadows when a hex color was used. **Thanks @ocean90**
-
-* **v1.5.0** [30 Jan. 2015]
-  * CLI: New option `-e,--ext` to set output files extension when processing a directory.
-
-* **v1.4.3** [24 Jan. 2015]
-  * Upgrade to [POSTCSS] v4.0.x **Thanks @necolas**
-
-* **v1.4.2** [24 Oct. 2014]
-  * CLI: Switch to Unix line endings (Fixes [#14](https://github.com/MohammadYounes/rtlcss/issues/14))
-
-* **v1.4.1** [24 Oct. 2014]
-  * CLI: Print processing errors.
-
-* **v1.4.0** [10 Oct. 2014]
-  * CLI: Support processing a directory. see [CLI documentation](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md#directory)
-
-* **v1.3.1** [29 Sep. 2014]
-  * Update README.md (typos).
-
-* **v1.3.0** [28 Sep. 2014]
-  * New feature - String Maps. Add your own set of swappable strings, for example (prev/next).
-  * Preserves lowercase, UPPERCASE and Capitalization when swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
-
-* **v1.2.0** [26 Sep. 2014]
-  * Support !important comments for directives (enables flipping minified stylesheets).
-
-* **v1.1.0** [26 Sep. 2014]
-  * Upgrade to [POSTCSS] v2.2.5
-  * Support flipping `border-color`, `border-style` and `background-position-x`
-
-* **v1.0.0** [24 Aug. 2014]
-  * Upgrade to [POSTCSS] v2.2.1
-  * Support flipping urls in '@import' rule.
-  * Fix JSON parse error when configuration file is UTF-8 encoded.
-  * Better minification.
-
-* **v0.9.0** [10 Aug. 2014]
-  * New configuration loader.
-  * CLI configuration can be set using one of the following methods:
-    * Specify the configuration file manually via the --config flag.
-    * Put your config into your projects package.json file under the `rtlcssConfig` property
-    * Use a special file `.rtlcssrc` or `.rtlcssrc.json`
-
-* **v0.8.0** [8 Aug. 2014]
-  * Fix source map generation.
-
-* **v0.7.0** [4 Jul. 2014]
-  * Fix flipping linear-gradient.
-
-* **v0.6.0** [4 Jul. 2014]
-  * Allow additional comments inside `ignore`/`rename` rule level directives.
-
-* **v0.5.0** [11 Jun. 2014]
-  * Add CLI support.
-
-* **v0.4.0** [5 Apr. 2014]
-  * Fix flipping transform-origin.
-  * Update autoRename to search for all swappable words.
-
-* **v0.3.0** [5 Apr. 2014]
-  * Support flipping rotateZ.
-  * Fix flipping rotate3d.
-  * Fix flipping skew, skewX and skewY.
-  * Fix flipping cursor value.
-  * Fix flipping translate3d.
-  * Update flipping background horizontal position to treat 0 as 0%
-
-* **v0.2.1** [20 Mar. 2014]
-  * Upgrade to [POSTCSS] v0.3.4
-
-* **v0.2.0** [20 Mar. 2014]
-  * Support combining with other processors.
-  * Support rad, grad & turn angle units when flipping linear-gradient
-  * Fix typo in config.js
-
-* **v0.1.3** [7 Mar. 2014]
-  * Fix missing include in rules.js
-
-* **v0.1.2** [5 Mar. 2014]
-  * New option: minify output CSS.
-  * Updated README.md
-
-* **v0.1.1** [4 Mar. 2014]
-  * Initial commit.
 
 [PostCSS]: https://github.com/postcss/postcss

@@ -5,7 +5,18 @@
   "description": "Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)",
   "bugs": "https://github.com/MohammadYounes/rtlcss/issues?state=open",
   "license": "MIT",
-  "keywords": [ "rtl", "css", "ltr", "rtlcss", "framework", "style", "mirror", "flip", "convert", "transform" ],
+  "keywords": [
+    "rtl",
+    "css",
+    "ltr",
+    "rtlcss",
+    "framework",
+    "style",
+    "mirror",
+    "flip",
+    "convert",
+    "transform"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/MohammadYounes/rtlcss.git"
@@ -21,10 +32,12 @@
     "strip-json-comments": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.0.0"
+    "mocha": "^2.0.0",
+    "standard": "^5.4.1"
   },
   "scripts": {
-    "test": "mocha -R spec"
+    "lint": "standard && node ./lib/rtlcss.js",
+    "test": "npm run lint && mocha -R spec"
   },
-  "main": "./lib/rtlcss"
+  "main": "./lib/rtlcss.js"
 }

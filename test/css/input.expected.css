@@ -1,0 +1,46 @@
+/*
+
+Preserves orignal formatting
+
+ */
+
+/*rtl:begin:options:{"preserveComments": true}*/
+
+/* comment before rule */
+body/* comment after rule name */{
+	/* comment before decl */
+	padding /*  comment after prop */ : /*  comment before val */ 0 /*  comment after val */ 1px 2px 3px;
+	/* comment after decl */
+}
+
+/* comment after rule  */
+
+/* should not process urls - default */
+@import url("rtl-right-east.css");
+
+/*rtl:end:options*/
+
+/*rtl:begin:options:
+{
+  "autoRename": true,
+  "stringMap":[
+    {
+      "name"    : "prev-next",
+      "search"  : ["prev", "Prev", "PREV"],
+      "replace" : ["next", "Next", "NEXT"],
+      "options" : {"ignoreCase":false}
+    }]
+}
+*/
+
+.demo-next, .demo-Next, .demo-NEXT { content: 'p'; }
+.demo-prev, .demo-Prev, .demo-PREV { content: 'n'; }
+
+/*rtl:end:options*/
+
+
+div {
+  /*rtl:remove*/
+  text-align: left;
+  padding: 10px;
+}

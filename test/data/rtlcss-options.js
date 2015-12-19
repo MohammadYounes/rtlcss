@@ -1,0 +1,89 @@
+module.exports = [
+  {
+    'should': 'Should not rename selectors having directional decl. (default)',
+    'expected': '.right .rtl .bright .ultra { display:block; right:0; }',
+    'input': '.right .rtl .bright .ultra { display:block; left:0; }',
+    'reversable': true
+  },
+  {
+    'should': 'Should not auto rename selectors having no directional decl. (default)',
+    'expected': '.right .rtl .bright .ultra { display:block; }',
+    'input': '.right .rtl .bright .ultra { display:block; }',
+    'reversable': true
+  },
+  {
+    'should': 'Should not auto rename selectors having no directional decl. (greedy)',
+    'expected': '.right .rtl .bright .ultra { display:block; }',
+    'input': '.right .rtl .bright .ultra { display:block; }',
+    'reversable': true,
+    'options': { 'greedy': true }
+  },
+  {
+    'should': 'Should auto rename selectors having no directional decl. (autoRename:true)',
+    'expected': '.left .ltr .bright .ultra { display:block; }',
+    'input': '.right .rtl .bright .ultra { display:block; }',
+    'reversable': true,
+    'options': { 'autoRename': true }
+  },
+  {
+    'should': 'Should auto rename selectors having no directional decl. (autoRename:true,greedy)',
+    'expected': '.left .ltr .bleft .urtla { display:block; }',
+    'input': '.right .rtl .bright .ultra { display:block; }',
+    'reversable': true,
+    'options': { 'autoRename': true, 'greedy': true }
+  },
+  {
+    'should': 'Should not auto rename when rules are flipped via decl directives (autoRename:true)',
+    'expected': 'div.right { display:block; font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
+    'input': 'div.right { display:block; font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
+    'reversable': false,
+    'options': { 'autoRename': true }
+  },
+  {
+    'should': 'Should not preserve processing directive. (default)',
+    'expected': 'div { left:0; }',
+    'input': '/*rtl:ignore*/div { left:0; }',
+    'reversable': false
+  },
+  {
+    'should': 'Should preserve processing directive. (preserveDirectives:true)',
+    'expected': '/*rtl:ignore*/div { left:0; }',
+    'input': '/*rtl:ignore*/div { left:0; }',
+    'reversable': false,
+    'options': { 'preserveDirectives': true }
+  },
+  {
+    'should': 'Should not process string map in url (default)',
+    'expected': 'div { background-image: url(ltr/left.png); right:0; }',
+    'input': 'div { background-image: url(ltr/left.png); left:0; }',
+    'reversable': true
+  },
+  {
+    'should': 'Should process urls (processUrls:true)',
+    'expected': 'div { background-image: url(rtl/right.png); right:0; }',
+    'input': 'div { background-image: url(ltr/left.png); left:0; }',
+    'reversable': true,
+    'options': { 'processUrls': true }
+  },
+  {
+    'should': 'Should process @import url (processUrls:true)',
+    'expected': 'div{display:none;} @import url("rtl/right.css");',
+    'input': 'div{display:none;} @import url("ltr/left.css");',
+    'reversable': true,
+    'options': { 'processUrls': true }
+  },
+  {
+    'should': 'Should respect word boundaries when processing @import url (processUrls:true,greedy:false)',
+    'expected': 'div{display:none;} @import url("ultr/bright.css");',
+    'input': 'div{display:none;} @import url("ultr/bright.css");',
+    'reversable': true,
+    'options': { 'processUrls': true, 'greedy': false }
+  },
+  {
+    'should': 'Should not respect word boundaries when processing @import url (processUrls:true,greedy:true)',
+    'expected': 'div{display:none;} @import url("urtla/bleft.css");',
+    'input': 'div{display:none;} @import url("ultra/bright.css");',
+    'reversable': true,
+    'options': { 'processUrls': true, 'greedy': true }
+  }
+]
