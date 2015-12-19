@@ -8,7 +8,7 @@ module.exports = [
       {
         'name': 'test',
         'control': [],
-        'properties': [
+        'property': [
           {
             'name': 'content',
             'expr': /content/im,
@@ -20,7 +20,7 @@ module.exports = [
             }
           }
         ],
-        'values': []
+        'value': []
       }
     ]
   },
@@ -32,8 +32,8 @@ module.exports = [
       {
         'name': 'rtlcss',
         'control': [],
-        'properties': [],
-        'values': []
+        'property': [],
+        'value': []
       }
     ]
   }

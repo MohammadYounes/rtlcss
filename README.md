@@ -133,21 +133,12 @@ RTLCSS preserves original input formatting and indentations.
 
 ### Supported Processing Directives
 
-When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments. Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
+When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments.
+Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported. Two sets of processing directives are available. **Control** and **Value**.
 
-Two sets of processing directives are available, on Rule and Declaration level.
+##### Control Directives:
 
-##### Rule Level Directives:
-
-> Rule level directives are placed before the CSS rule.
-
-|   Directive   |   Description
-|:--------------|:-----------------------
-|   `/*rtl:ignore*/`    |   Ignores processing of this rule.
-|   `/*rtl:rename*/`    |   Forces selector renaming by applying [String Map](#stringmap-array).
-
-   **Example**
-
+Control directives are placed before the CSS rule or declaration, such as:
 ```css
 /*rtl:ignore*/
 .code{
@@ -155,27 +146,64 @@ Two sets of processing directives are available, on Rule and Declaration level.
   text-align:left;
 }
 ```
-
-   **Output**
-
+Or using block style :
 ```css
+/*rtl:begin:ignore*/
 .code{
   direction:ltr;
   text-align:left;
 }
+/*rtl:end:ignore*/
+```
+Most Control directives support block style with some exceptions due to the nature of the directive.
+
+**Available Control Directives:**
+
+| Directive          |  Block Style | Target   | Description
+|:-------------------|:------------:|:------------:|:-------------
+| `/*rtl:ignore*/`          |  Yes         | `rule`,`decl`| Ignores processing of the target rule(s) or declaration(s).
+| `/*rtl:rename*/`          |  Yes         | `rule`       | Forces selector renaming by applying [String Map](#stringmap-array).
+| `/*rtl:raw:{CSS}*/`       |  No          | N/A          | Parses the `{CSS}` parameter and inserts it before the directive.
+| `/*rtl:remove*/`          |  Yes         | `rule`,`decl`| Removes the target rule(s) or declaration(s).
+| `/*rtl:options:{JSON}*/`  |  Yes         | N/A          | Parses the `{JSON}` parameter and updates RTLCSS options.
+
+   **Example**
+
+```css
+/*rtl:begin:options:
+{
+  "preserveComments": false
+}
+*/
+/* Example CSS */
+.example{
+  direction:ltr;
+}
+
+/*rtl:end:options*/
 ```
 
-##### Declaration Level Directives:
+   **Output**
 
-> Declaration level directives are  placed any where inside the declaration value.
+```css
+.example{
+  direction:rtl;
+}
+```
 
-|   Directive   |   Description
-|:--------------|:-----------------------
-|   `/*rtl:ignore*/`    |   Ignores processing of this declaration.
-|   `/*rtl:{value}*/`    |   Replaces the declaration value with `{value}`.
-|   `/*rtl:append:{value}*/`    |   Appends `{value}` to the end of the declaration value.
-|   `/*rtl:prepend:{value}*/`    |   Prepends `{value}` to the begining of the declaration value.
-|   `/*rtl:insert:{value}*/`    |   Inserts `{value}` to where the directive is located inside the declaration value.
+##### Value Directives:
+
+Value directives are placed any where inside the declaration value.
+
+**Available Value Directives:**
+
+|   Directive                 |   Description
+|:----------------------------|:-----------------------
+|   `/*rtl:ignore*/`          |   Ignores processing of this declaration.
+|   `/*rtl:{value}*/`         |   Replaces the declaration value with `{value}`.
+|   `/*rtl:append:{value}*/`  |   Appends `{value}` to the end of the declaration value.
+|   `/*rtl:prepend:{value}*/` |   Prepends `{value}` to the begining of the declaration value.
+|   `/*rtl:insert:{value}*/`  |   Inserts `{value}` to where the directive is located inside the declaration value.
 
    **Example**
 
@@ -238,18 +266,16 @@ var processed = postcss()
 
 ### options (object)
 
-|    Option    |    Default |   Description
-|:--------------|:------------|:--------------
-|**`preserveComments`** | `true`  | Preserves modified declarations comments as much as possible.
-|**`preserveDirectives`** | `false`  | Preserves processing directives.
-|**`swapLeftRightInUrl`** | `true`  | Swaps ***left*** and ***right*** in URLs.
-|**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
-|**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
-|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Map](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
-|**`greedy`** | `false`  | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
-|**`stringMap`** | see [String Map](#stringmap-array)  | Applies to string replacement in renamed selectors and updated URLs
-|**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
-|**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
+| Option                  | Default | Description
+|:------------------------|:------------|:--------------
+|**`autoRename`**         | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Map](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
+|**`greedy`**             | `false` | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
+|**`log`**                | `false` | Outputs information about processed CSS to the console.
+|**`preserveComments`**   | `true`  | Preserves modified declarations comments as much as possible.
+|**`preserveDirectives`** | `false` | Preserves processing directives.
+|**`processUrls`**        | `false` | Applies [String Map](#stringmap-array) to processed URLs.
+|**`stringMap`**          | see [String Map](#stringmap-array)  | Applies to string replacement in renamed selectors and updated URLs
+
 
 ### stringMap (Array)
 
@@ -261,7 +287,7 @@ String map is a collection of map objects, where each defines a mapping between 
     'search'  :	['left', 'Left', 'LEFT'],
     'replace' :	['right', 'Right', 'RIGHT'],
     'options' : {
-        'scope': options.swapLeftRightInUrl ? '*' : 'selector',
+        'scope': options.processUrls ? '*' : 'selector',
         'ignoreCase': false
       }
   },
@@ -270,16 +296,7 @@ String map is a collection of map objects, where each defines a mapping between 
     'search'  : ['ltr', 'Ltr', 'LTR'],
     'replace' : ['rtl', 'Rtl', 'RTL'],
     'options' :	{
-        'scope': options.swapLtrRtlInUrl ? '*' : 'selector',
-        'ignoreCase': false
-      }
-  },
-  {
-    'name':'west-east',
-    'search': ['west', 'West', 'WEST'],
-    'replace': ['east', 'East', 'EAST'],
-    'options' :	{
-        'scope': options.swapWestEastInUrl ? '*' : 'selector',
+        'scope': options.processUrls ? '*' : 'selector',
         'ignoreCase': false
       }
   }
@@ -287,20 +304,20 @@ String map is a collection of map objects, where each defines a mapping between 
 ```
 To override any of the default maps, just add your own with the same name. A map object consists of the following:
 
-|   Property    |   Type    |   Description
-|:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the map object
+|  Property       |  Type     |  Description
+|:----------------|:----------|:--------------
+|   **`name`**    | `string`  | Name of the map object
 |   **`search`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
-|   **`replace`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
-|   **`options`**  | `object`  | Defines map options.
+|   **`replace`** | `string` or `Array`  | The string or list of strings to search for or replace with.
+|   **`options`** | `object`  | Defines map options.
 
 The map `options` is optional, and consists of the following:
 
-|   Property    |   Type    |   Default |   Description
-|:--------------|:----------|:--------------|:--------------
-|   **`scope`**  | `string`  | `*`  | Defines the scope in which this map is allowed, `'selector'` for selector renaming, `'url'` for url updates and `'*'` for both.
-|   **`ignoreCase`**  | `Boolean`  | `true`  | Indicates if the search is case-insensitive or not.
-|   **`greedy`**  | `Boolean`  | reverts to `options.greedy`  | A false value forces selector renaming and url updates to respect word boundaries.
+|  Property           |  Type     |  Default  |  Description
+|:--------------------|:----------|:----------|:--------------
+|   **`scope`**       | `string`  | `*`       | Defines the scope in which this map is allowed, `'selector'` for selector renaming, `'url'` for url updates and `'*'` for both.
+|   **`ignoreCase`**  | `Boolean` | `true`    | Indicates if the search is case-insensitive or not.
+|   **`greedy`**      | `Boolean` | reverts to `options.greedy`  | A `false` value forces selector renaming and url updates to respect word boundaries.
 
    **Example**
 
@@ -323,31 +340,50 @@ The map `options` is optional, and consists of the following:
 
 ```
 
+### plugins (array)
 
-### rules (array)
+Array of plugins to add more functionality to RTLCSS, or even change it's entire behavior. A plugin is a javascript object consiting of :
 
-Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS rule level:
+|   Property        |   Type    |   Description
+|:------------------|:----------|:--------------
+|   **`name`**      | `string`  | Name of the plugin.
+|   **`priority`**  | `number`  | Used to sort the plugins array before processing the CSS.
+|   **`control`**   | `object`  | Object containing control directives.
+|   **`property`**  | `array`   | Array containing properties processing directives.
+|   **`value`**     | `array`   | Array containing value processing directives.
+
+
+RTLCSS core functionailty is written as a plugin, and it can be replaced by adding your own with the same name.
+
+### control directive
+
+Control directives are triggered by CSS comments and they consist of the following:
 
 |   Property    |   Type    |   Description
 |:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the PI (used in logging).
-|   **`expr`**  | `RegExp`  | Regular expression object that will be matched against the comment preceeding the rule.
-|   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the rules PIs list.
-|   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `rule` node. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
+|   **`expect`**| `object`  | an object containing the node types this directive is able to process.
+|   **`begin`** | `function`| The function to be called when a comment triggers the start of the directive, it will be passed a `node` and a `context` parameters. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
+|   **`end`**   | `function`| The function to be called when a comment triggers the end of the directive, it will be passed a `node` and a `context` parameters. the functions is expected to return a boolean, `true` to indicate if it has finished, otherwise `false`.
 
-Visit [PostCSS] to find out more about [`rule`](https://github.com/postcss/postcss/blob/master/docs/api.md#rule-node) node.
+Visit [PostCSS] to find out more about [`rule`](https://github.com/postcss/postcss/blob/master/docs/api.md#rule-node) and  [`decl`](https://github.com/postcss/postcss/blob/master/docs/api.md#decl-node) nodes.
 
 ##### **Example**
 
 ```javascript
-// RTLCSS rule processing instruction
-{
-  "name"        : "ignore",
-  "expr"        : /\/\*rtl:ignore\*\//img,
-  "important"   : true,
-  "action"      : function (rule) {
-                    return  true;
-                  }
+// RTLCSS control directive
+'ignore': {
+  'expect': {'rule': true, 'decl': true},
+  'begin': function (node, cxt) {
+    cxt.lockContainer()
+    return true
+  },
+  'end': function (node, cxt) {
+    if (cxt.meta.begin !== cxt.meta.end && cxt.util.isLastDecl(node)) {
+      cxt.unlockContainer()
+      return true
+    }
+    return false
+  }
 }
 ```
 

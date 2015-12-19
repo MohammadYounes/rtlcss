@@ -1,17 +1,18 @@
 
-# 2.0.0 beta 
+# 2.0.0 beta
   * Rename `enableLogging` option to `log`.
   * Change `autoRename` default to `false`.
   * Add `processUrls` option with `false` default.
   * Remove `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl`.
   * Remove `east` and `west` from default string map.
   * Remove `minify` option.
-  * Replace constructor arguments  `rules`, `declarations` and `properties` with `plugins`.
-  * Support for control directives blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
-  * New set of directives:
+  * Group directives into plugins, constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
+  * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
+  * New directives:
     * `options`: Ability to set or override RTLCSS options with support for nested options, e.g. `/*rtl:options: {"autoRename": true}  ... */`
     * `raw`: Add rules or declarations to the output RTL version, e.g. `/*rtl:raw: { font-family: 'Droid Arabic Kufi'; }*/`
     * `remove`: Removes rule(s) or declaration(s) from the output RTL version, e.g. `/*rtl:remove lang["en"] .help:before { content:'Help'; } */`.
+
 
 
 ### 1.7.2 - 04 Dec. 2015
