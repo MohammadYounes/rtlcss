@@ -55,18 +55,32 @@ module.exports = [
     'options': { 'autoRename': true, 'stringMap': [{ 'search': 'prev', 'replace': 'next', 'options': { scope: 'url' } }] }
   },
   {
-    'should': 'Should swap "prev"/"next" in Url (autoRename:true)',
-    'expected': 'div.prev { background-image: url(/content/pix/next.png);}',
+    'should': 'Should not swap "prev"/"next" in Url or Selector (autoRename:true, custom stringMap - url)',
+    'expected': 'div.prev { background-image: url(/content/pix/prev.png);}',
     'input': 'div.prev { background-image: url(/content/pix/prev.png);}',
     'reversable': true,
     'options': { 'autoRename': true, 'stringMap': [{ 'search': 'prev', 'replace': 'next', 'options': { scope: 'url' } }] }
   },
   {
-    'should': 'Should swap "prev"/"next" in Url and Rename in selector (autoRename:true)',
-    'expected': 'div.next { display:block }; div.prev { background-image: url(/content/pix/prev.png);}',
+    'should': 'Should not swap "prev"/"next" in Url and Rename in selector (autoRename:true, custom stringMap - *)',
+    'expected': 'div.next { display:block }; div.next { background-image: url(/content/pix/next.png);}',
     'input': 'div.prev { display:block }; div.prev { background-image: url(/content/pix/next.png);}',
     'reversable': true,
     'options': { 'autoRename': true, 'stringMap': [{ 'search': 'prev', 'replace': 'next', 'options': { scope: '*' } }] }
+  },
+  {
+    'should': 'Should swap "prev"/"next" in Url (autoRename:true, processUrls:true)',
+    'expected': 'div.prev { background-image: url(/content/pix/next.png);}',
+    'input': 'div.prev { background-image: url(/content/pix/prev.png);}',
+    'reversable': true,
+    'options': { 'autoRename': true, 'processUrls': true, 'stringMap': [{ 'search': 'prev', 'replace': 'next', 'options': { scope: 'url' } }] }
+  },
+  {
+    'should': 'Should swap "prev"/"next" in Url and Rename in selector (autoRename:true, processUrls:true)',
+    'expected': 'div.next { display:block }; div.prev { background-image: url(/content/pix/prev.png);}',
+    'input': 'div.prev { display:block }; div.prev { background-image: url(/content/pix/next.png);}',
+    'reversable': true,
+    'options': { 'autoRename': true, 'processUrls': true, 'stringMap': [{ 'search': 'prev', 'replace': 'next', 'options': { scope: '*' } }] }
   },
   {
     'should': 'Should rename "previous" to "nextious" (autoRename:true, greedy: true)',
@@ -76,10 +90,10 @@ module.exports = [
     'options': { 'autoRename': true, 'stringMap': [{ 'name': 'prev-next', 'search': 'prev', 'replace': 'next', 'options': { 'greedy': true } }] }
   },
   {
-    'should': 'Should escape strings used in stringMap (processUrls: false, custom stringMap)',
+    'should': 'Should escape strings used in stringMap (processUrls: true, custom stringMap)',
     'expected': '@import url("//a.b/c-rtl.css"); @import url("//a.b/css");',
     'input': '@import url("//a.b/c.css"); @import url("//a.b/css");',
     'reversable': true,
-    'options': { 'processUrls': false, 'stringMap': [{ 'name': 'import-rtl-stylesheet', 'search': ['.css'], 'replace': ['-rtl.css'], 'options': { 'scope': 'url' } }] }
+    'options': { 'processUrls': true, 'stringMap': [{ 'name': 'import-stylesheet', 'priority': 1, 'exclusive': true, 'search': ['.css'], 'replace': ['-rtl.css'], 'options': { 'scope': 'url' } }] }
   }
 ]

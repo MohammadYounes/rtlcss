@@ -44,3 +44,9 @@ div {
   text-align: left;
   padding: 10px;
 }
+
+/*rtl:begin:ignore*/
+.sample {
+    text-align: left;
+}
+/*rtl:end:ignore*/

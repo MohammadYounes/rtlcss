@@ -265,14 +265,14 @@ module.exports = [
     'options': { 'preserveDirectives': true }
   },
   {
-    'should': 'Should support begin/end',
+    'should': 'Should support block-style',
     'expected': ' div {left:10px; text-align:right;}',
     'input': ' div {/*rtl:begin:ignore*/left:10px;/*rtl:end:ignore*/ text-align:left;}',
     'reversable': false,
     'options': { 'preserveDirectives': false }
   },
   {
-    'should': 'Should support begin/end',
+    'should': 'Should support none block-style',
     'expected': ' div {left:10px; text-align:left;}',
     'input': ' /*rtl:ignore*/div {left:10px; text-align:left;}',
     'reversable': false,

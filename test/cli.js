@@ -20,7 +20,7 @@ var expectedPath = './test/css/input.expected.css'
 var outputPath = './test/css/input.rtl.css'
 
 describe('# CLI', function () {
-  it('cli test', function (done) {
+  it('Should succeed', function (done) {
     run_cmd('node', ['./bin/rtlcss.js', inputPath, '--config', configPath, '--silent', ''], function (err, resp) {
       if (err) throw new Error(err)
       fs.readFile(expectedPath, 'utf-8', function (err, expected) {

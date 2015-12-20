@@ -12,8 +12,8 @@
     * `options`: Ability to set or override RTLCSS options with support for nested options, e.g. `/*rtl:options: {"autoRename": true}  ... */`
     * `raw`: Add rules or declarations to the output RTL version, e.g. `/*rtl:raw: { font-family: 'Droid Arabic Kufi'; }*/`
     * `remove`: Removes rule(s) or declaration(s) from the output RTL version, e.g. `/*rtl:remove lang["en"] .help:before { content:'Help'; } */`.
-
-
+  * Update `stringMap`, now maps are sorted by `priority` and `exclusive` flag determines if a map execution should stop iterating over other maps.
+  * No Url will be processed unless `processUrls` is set to `true`.
 
 ### 1.7.2 - 04 Dec. 2015
   * Fixes a compatibility issue with postcss-js (Fixes [#48](https://github.com/MohammadYounes/rtlcss/issues/48)).
