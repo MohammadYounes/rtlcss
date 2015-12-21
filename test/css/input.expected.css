@@ -8,9 +8,15 @@ Preserves orignal formatting
 
 /* comment before rule */
 body/* comment after rule name */{
-	/* comment before decl */
-	padding /*  comment after prop */ : /*  comment before val */ 0 /*  comment after val */ 1px 2px 3px;
-	/* comment after decl */
+    /* comment before decl */
+    padding /*  comment after prop */ : /*  comment before val */ 0 /*  comment after val */ 3px /* another comment */ 2px /* one more */ 1px /* last one*/;
+    /* comment after decl */
+
+    margin:
+        0 /*top*/
+        3px /*right*/
+        2px /*bottom*/
+        1px /*left*/
 }
 
 /* comment after rule  */
