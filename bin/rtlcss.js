@@ -5,6 +5,7 @@ var fs = require('fs')
 var sys = require('util')
 var chalk = require('chalk')
 var mkdirp = require('mkdirp')
+var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
@@ -149,12 +150,12 @@ if (!shouldBreak) {
     }
     if (!config) {
       printWarning('rtlcss: Warning! No config present, using defaults.')
-      result = rtlcss().process(data, opt)
+      result = postcss([rtlcss]).process(data, opt)
     } else {
       if ('map' in config === true && input !== '-') {
         opt.map = config.map
       }
-      result = rtlcss(config.options, config.plugins).process(data, opt)
+      result = postcss([rtlcss.configure(config)]).process(data, opt)
     }
 
     if (output) {
