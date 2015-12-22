@@ -4,8 +4,6 @@ Preserves orignal formatting
 
  */
 
-/*rtl:begin:options:{"preserveComments": true}*/
-
 /* comment before rule */
 body/* comment after rule name */{
     /* comment before decl */
@@ -24,35 +22,14 @@ body/* comment after rule name */{
 /* should not process urls - default */
 @import url("rtl-right-east.css");
 
-/*rtl:end:options*/
-
-/*rtl:begin:options:
-{
-  "autoRename": true,
-  "stringMap":[
-    {
-      "name"    : "prev-next",
-      "search"  : ["prev", "Prev", "PREV"],
-      "replace" : ["next", "Next", "NEXT"],
-      "options" : {"ignoreCase":false}
-    }]
-}
-*/
-
 .demo-next, .demo-Next, .demo-NEXT { content: 'p'; }
 .demo-prev, .demo-Prev, .demo-PREV { content: 'n'; }
 
-/*rtl:end:options*/
-
 
 div {
-  /*rtl:remove*/
   text-align: left;
   padding: 10px;
 }
-
-/*rtl:begin:ignore*/
 .sample {
     text-align: left;
 }
-/*rtl:end:ignore*/
