@@ -57,3 +57,12 @@ div {
     text-align: left;
 }
 /*rtl:end:ignore*/
+
+
+/*rtl:begin:options:{"autoRename":false, "preserveDirectives": true}*/
+.right { display:inline;}
+/*rtl:begin:options:{"autoRename":true, "greedy": true}*/
+.bright { display:inline;}
+/*rtl:end:options*/
+.brighter { display:inline;}
+/*rtl:end:options*/

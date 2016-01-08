@@ -1,7 +1,7 @@
 {
     "options": {
         "preserveComments": true,
-        "preserveDirectives": true,
+        "preserveDirectives": false,
         "processUrls": true,
         "autoRename": true,
         "greedy": true,

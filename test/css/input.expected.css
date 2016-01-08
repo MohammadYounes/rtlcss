@@ -33,3 +33,8 @@ div {
 .sample {
     text-align: left;
 }
+.right { display:inline;}
+/*rtl:begin:options:{"autoRename":true, "greedy": true}*/
+.bleft { display:inline;}
+/*rtl:end:options*/
+.brighter { display:inline;}
