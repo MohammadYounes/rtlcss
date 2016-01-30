@@ -1,7 +1,7 @@
 {
   "author": "Mohammad Younes",
   "name": "rtlcss",
-  "version": "1.7.3",
+  "version": "2.0.0",
   "description": "Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)",
   "bugs": "https://github.com/MohammadYounes/rtlcss/issues?state=open",
   "license": "MIT",
