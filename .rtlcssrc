@@ -4,6 +4,7 @@
         "preserveDirectives": false,
         "processUrls": false,
         "autoRename": false,
+        "autoRenameStrict": false,
         "greedy": false,
         "log": false,
         "stringMap":[
