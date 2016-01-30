@@ -276,6 +276,7 @@ var result = postcss().use(rtlcss([options , plugins]))
 | Option                  | Type                 | Default  | Description
 |:------------------------|:--------------------:|:--------:|:--------------
 |**`autoRename`**         | `boolean`            | `false`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Maps](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
+|**`autoRenameStrict`**   | `boolean`            | `false`  | Ensurs `autoRename` is applied only if pair exists.
 |**`greedy`**             | `boolean`            | `false`  | Forces applied [String Maps](#stringmap-array) to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
 |**`log`**                | `boolean`            | `false`  | Outputs information about processed CSS to the console.
 |**`preserveComments`**   | `boolean`            | `true`   | Preserves existing CSS comments as much as possible.

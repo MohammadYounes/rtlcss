@@ -1,5 +1,19 @@
 module.exports = [
   {
+    'should': 'Should not rename selectors unless a pair exits (autoRename:true,autoRenameStrict:true )',
+    'expected': '.right .rtl .bright .ultra { display:block; }',
+    'input': '.right .rtl .bright .ultra { display:block; }',
+    'reversable': true,
+    'options': { 'autoRename': true, 'autoRenameStrict': true }
+  },
+  {
+    'should': 'Should rename selectors only if a pair exits (autoRename:true,autoRenameStrict:true )',
+    'expected': '.left { display:block; } .right { display:none; }',
+    'input': '.right { display:block; } .left { display:none; }',
+    'reversable': true,
+    'options': { 'autoRename': true, 'autoRenameStrict': true }
+  },
+  {
     'should': 'Should not rename selectors having directional decl. (default)',
     'expected': '.right .rtl .bright .ultra { display:block; right:0; }',
     'input': '.right .rtl .bright .ultra { display:block; left:0; }',

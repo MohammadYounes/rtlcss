@@ -38,3 +38,12 @@ div {
 .bleft { display:inline;}
 /*rtl:end:options*/
 .brighter { display:inline;}
+
+/* auto rename only if a pair exists */
+
+/* The following should not be renamed */
+.ltr{ display: inline-flex;}
+
+/* But these should */
+.left{ display: inline-flex;}
+.right { display: block;}
