@@ -2,6 +2,7 @@
 # 2.0.0 beta
   * Rename `enableLogging` option to `log`.
   * Change `autoRename` default to `false`.
+  * Add `autoRenameStrict` option to apply auto rename only when a pair exists. 
   * Add `processUrls` option with `false` default.
   * Remove `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl`.
   * Remove `east` and `west` from default string map.
@@ -13,7 +14,8 @@
     * `raw`: Add rules or declarations to the output RTL version, e.g. `/*rtl:raw: { font-family: 'Droid Arabic Kufi'; }*/`
     * `remove`: Removes rule(s) or declaration(s) from the output RTL version, e.g. `/*rtl:remove lang["en"] .help:before { content:'Help'; } */`.
   * Update `stringMap`, now maps are sorted by `priority` and `exclusive` flag determines if a map execution should stop iterating over other maps.
-  * No Url will be processed unless `processUrls` is set to `true`.
+  * No Url will be processed unless `processUrls` is set to `true` or `{'atrule': true, 'decl': true}`.
+  
 
 ### 1.7.2 - 04 Dec. 2015
   * Fixes a compatibility issue with postcss-js (Fixes [#48](https://github.com/MohammadYounes/rtlcss/issues/48)).
