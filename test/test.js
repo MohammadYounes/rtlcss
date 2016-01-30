@@ -297,8 +297,8 @@ var tests = {
   'Mirrored Values (N Value Syntax):': [
        {
          'should': 'Should mirror property value: border-radius (4 values)',
-         'expected': 'div { border-radius: 40.25px 10.5px 10.75px 40.3px; }',
-         'input': 'div { border-radius: 10.5px 40.25px 40.3px 10.75px; }',
+         'expected': 'div { border-radius: 40.25px 10.5px /*comment*/ 10.75px 40.3px; }',
+         'input': 'div { border-radius: 10.5px 40.25px /*comment*/ 40.3px 10.75px; }',
          'reversable': true
        },
        {
@@ -315,8 +315,8 @@ var tests = {
        },
        {
          'should': 'Should mirror property value: border-radius (4 values - double)',
-         'expected': 'div { border-radius: 40.25px 10.75px .5px 40.75px / .4em 1em 1em 4.5em; }',
-         'input': 'div { border-radius: 10.75px 40.25px 40.75px .5px / 1em .4em 4.5em 1em; }',
+         'expected': 'div { border-radius: 40.25px 10.75px .5px 40.75px /*comment*/ / /*comment*/ .4em 1em 1em 4.5em; }',
+         'input': 'div { border-radius: 10.75px 40.25px 40.75px .5px /*comment*/ / /*comment*/ 1em .4em 4.5em 1em; }',
          'reversable': true
        },
        {
