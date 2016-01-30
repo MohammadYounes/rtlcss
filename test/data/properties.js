@@ -52,11 +52,5 @@ module.exports = [
     'expected': 'div { padding-right:2em; }',
     'input': 'div { padding-left:2em; }',
     'reversable': true
-  },
-  {
-    'should': 'Should mirror property name: nav-left',
-    'expected': 'div { nav-right:#b4; }',
-    'input': 'div { nav-left:#b4; }',
-    'reversable': true
   }
 ]

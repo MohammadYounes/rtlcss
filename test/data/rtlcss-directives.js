@@ -56,28 +56,28 @@ module.exports = [
   },
   {
     'should': 'Should rename selectors when forced. (!important comment)',
-    'expected': '.left .ltr .bright .ultra { display:block; }',
-    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; }',
+    'expected': '.left .ltr .bright .ultra { display:block; left:0; }',
+    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; right:0; }',
     'reversable': false
   },
   {
     'should': 'Should rename selectors when forced. (preserveDirectives, !important comment)',
-    'expected': '/*!rtl:rename*/.left .ltr .bright .ultra { display:block; }',
-    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; }',
+    'expected': '/*!rtl:rename*/.left .ltr .bright .ultra { display:block; left:0; }',
+    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; right:0; }',
     'reversable': false,
     'options': { 'preserveDirectives': true }
   },
   {
     'should': 'Should rename selectors when forced. (greedy)',
-    'expected': '.left .ltr .bleft .urtla { display:block; }',
-    'input': '/*rtl:rename*/.right .rtl .bright .ultra { display:block; }',
+    'expected': '.left .ltr .bleft .urtla { display:block; left:0; }',
+    'input': '/*rtl:rename*/.right .rtl .bright .ultra { display:block; right:0; }',
     'reversable': false,
     'options': { 'greedy': true }
   },
   {
     'should': 'Should rename selectors when forced. (greedy, !important comment)',
-    'expected': '.left .ltr .bleft .urtla { display:block; }',
-    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; }',
+    'expected': '.left .ltr .bleft .urtla { display:block; left:0; }',
+    'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; right:0; }',
     'reversable': false,
     'options': { 'greedy': true }
   },
@@ -279,7 +279,7 @@ module.exports = [
     'options': { 'preserveDirectives': false }
   },
   {
-    'should': 'Should remove rules',
+    'should': 'Should remove rules (block-style)',
     'expected': ' b{float:right;}',
     'input': ' /*rtl:begin:remove*/div {left:10px; text-align:left;} a { display:block;} /*rtl:end:remove*/ b{float:left;}',
     'reversable': false,
@@ -300,7 +300,7 @@ module.exports = [
     'options': { 'preserveDirectives': false }
   },
   {
-    'should': 'Should remove declarations',
+    'should': 'Should remove declarations (block-style)',
     'expected': ' div { display:inline;}',
     'input': ' div {/*rtl:begin:remove*/left:10px; text-align:left;/*rtl:end:remove*/ display:inline;}',
     'reversable': false,
@@ -320,5 +320,4 @@ module.exports = [
     'reversable': false,
     'options': { 'autoRename': true }
   }
-
 ]

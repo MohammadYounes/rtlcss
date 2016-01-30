@@ -37,6 +37,20 @@ module.exports = [
     'options': { 'processUrls': true }
   },
   {
+    'should': 'Should process string map in url (processUrls:{decl:true})',
+    'expected': '.banner { background: 10px top url(rtl-top-left-banner.png) #00D repeat-y fixed; }',
+    'input': '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
+    'reversable': true,
+    'options': { 'processUrls': { 'decl': true } }
+  },
+  {
+    'should': 'Should not process string map in url (processUrls:{atrule:true})',
+    'expected': '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
+    'input': '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
+    'reversable': true,
+    'options': { 'processUrls': { 'atrule': true } }
+  },
+  {
     'should': 'Should not swap bright:bleft, ultra:urtla',
     'expected': '.banner { background: 10px top url(ultra/bright.png) #00D repeat-y fixed; }',
     'input': '.banner { background: 10px top url(ultra/bright.png) #00D repeat-y fixed; }',

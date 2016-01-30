@@ -2,12 +2,12 @@ module.exports = [
   {
     'should': 'Should support plugins',
     'expected': 'div:before { content: "ABC";} div:after { content: "B";}',
-    'input': '/*rtl:options: {"autoRename": true}*/ div:before { content: "A";} div:after { content: "B";}',
-    'reversable': false,
+    'input': 'div:before { content: "A";} div:after { content: "B";}',
+    'reversable': true,
     'plugins': [
       {
         'name': 'test',
-        'control': [],
+        'control': {},
         'property': [
           {
             'name': 'content',
@@ -15,6 +15,8 @@ module.exports = [
             'action': function (prop, value, cxt) {
               if (value === '"A"') {
                 return { 'prop': prop, 'value': '"ABC"' }
+              } else if (value === '"ABC"') {
+                return { 'prop': prop, 'value': '"A"' }
               }
               return { 'prop': prop, 'value': value }
             }

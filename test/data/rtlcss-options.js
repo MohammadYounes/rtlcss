@@ -33,7 +33,7 @@ module.exports = [
     'options': { 'autoRename': true, 'greedy': true }
   },
   {
-    'should': 'Should not auto rename when rules are flipped via decl directives (autoRename:true)',
+    'should': 'Should not auto rename when rules are flipped via directives (autoRename:true)',
     'expected': 'div.right { display:block; font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
     'input': 'div.right { display:block; font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
     'reversable': false,
@@ -66,11 +66,25 @@ module.exports = [
     'options': { 'processUrls': true }
   },
   {
+    'should': 'Should process urls in declarations (processUrls:{decl:true})',
+    'expected': 'div { background-image: url(rtl/right.png); right:0; }',
+    'input': 'div { background-image: url(ltr/left.png); left:0; }',
+    'reversable': true,
+    'options': { 'processUrls': { 'decl': true } }
+  },
+  {
     'should': 'Should process @import url (processUrls:true)',
     'expected': 'div{display:none;} @import url("rtl/right.css");',
     'input': 'div{display:none;} @import url("ltr/left.css");',
     'reversable': true,
     'options': { 'processUrls': true }
+  },
+  {
+    'should': 'Should process url in atrule (processUrls:{atrule:true})',
+    'expected': 'div{display:none;} @import url("rtl/right.css");',
+    'input': 'div{display:none;} @import url("ltr/left.css");',
+    'reversable': true,
+    'options': { 'processUrls': { 'atrule': true } }
   },
   {
     'should': 'Should respect word boundaries when processing @import url (processUrls:true,greedy:false)',
