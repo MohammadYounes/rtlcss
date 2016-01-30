@@ -29,7 +29,7 @@
     "chalk": "^1.0.0",
     "findup": "^0.1.5",
     "mkdirp": "^0.5.1",
-    "strip-json-comments": "^1.0.0"
+    "strip-json-comments": "^2.0.0"
   },
   "devDependencies": {
     "mocha": "^2.0.0",
