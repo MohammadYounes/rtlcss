@@ -14,7 +14,10 @@ body/* comment after rule name */{
 
     margin:
         0 /*top*/
-        1px /*right*/
+        1px /*right
+        multi-line
+        comment
+        */
         2px /*bottom*/
         3px /*left*/
 }
