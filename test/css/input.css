@@ -44,6 +44,13 @@ body/* comment after rule name */{
 
 /*rtl:end:options*/
 
+/*!rtl:begin:remove*/
+@import url(/test.css);
+i {
+  color: blue;  
+}
+/*rtl:end:remove*/
+
 
 div {
   /*rtl:remove*/
