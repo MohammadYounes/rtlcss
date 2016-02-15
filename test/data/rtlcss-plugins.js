@@ -7,8 +7,11 @@ module.exports = [
     'plugins': [
       {
         'name': 'test',
-        'control': {},
-        'property': [
+        'directives': {
+          'control': {},
+          'value': []
+        },
+        'processors': [
           {
             'name': 'content',
             'expr': /content/im,
@@ -21,8 +24,7 @@ module.exports = [
               return { 'prop': prop, 'value': value }
             }
           }
-        ],
-        'value': []
+        ]
       }
     ]
   },
@@ -33,9 +35,11 @@ module.exports = [
     'plugins': [
       {
         'name': 'rtlcss',
-        'control': [],
-        'property': [],
-        'value': []
+        'directives': {
+          'control': {},
+          'value': []
+        },
+        'processors': []
       }
     ]
   }

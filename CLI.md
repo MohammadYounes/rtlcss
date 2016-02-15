@@ -54,20 +54,15 @@ Default `.rtlcssrc`
 ```JAVASCRIPT
 {
     "options": {
-        "preserveComments": true,
-        "preserveDirectives": false,
-        "swapLeftRightInUrl": true,
-        "swapLtrRtlInUrl": true,
-        "swapWestEastInUrl": true,
-        "autoRename": true,
+        "autoRename": false,
+        "autoRenameStrict": false,
+        "blacklist":{},
+        "clean": true,
         "greedy": false,
-        "stringMap":[...],
-        "enableLogging": false,
-        "minify": false
+        "processUrls": false,
+        "stringMap":[]
     },
-    "rules": [ ],
-    "declarations": [ ],
-    "properties": [ ],
+    "plugins": [ ],
     "map": false
 }
 ```

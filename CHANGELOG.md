@@ -1,20 +1,30 @@
+# 2.0.0 RC1
+  * New Options:
+    * `autoRenameStrict` option to apply auto rename only when a pair exists.
+    * `blacklist` option to prevent execution of certian directives.
+    * `clean` option with `true` default, to remove directives from output CSS.
+    * `processUrls` option  with `false` default, No Url will be processed unless `processUrls` is set to `true` or `{'atrule': true, 'decl': true}`.
 
-# 2.0.0 beta
-  * Rename `enableLogging` option to `log`.
-  * Change `autoRename` default to `false`.
-  * Add `autoRenameStrict` option to apply auto rename only when a pair exists.
-  * Add `processUrls` option with `false` default.
-  * Remove `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl`.
-  * Remove `east` and `west` from default string map.
-  * Remove `minify` option.
-  * Group directives into plugins, constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
+  * Updated Options:
+    * `autoRename` new default is `false`.
+    * `stringMap`:
+      * Now maps are sorted by `priority` and `exclusive` flag determines if a map execution should stop iterating over other maps.
+      * Removed `east` and `west` from default string map.
+
+  * Removed Options:
+    * `enableLogging`, still warnings and errors are reported directly to postcss. 
+    * `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl` in favor of `processUrls` option.
+    * `minify`.
+    * `preserveComments`, comments inside declaration values will always be preserved.
+    * `preserveDirectives`, in favor of `clean` option.
+
+  * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
   * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
   * New directives:
-    * `options`: Ability to set or override RTLCSS options with support for nested options, e.g. `/*rtl:options: {"autoRename": true}  ... */`
-    * `raw`: Add rules or declarations to the output RTL version, e.g. `/*rtl:raw: { font-family: 'Droid Arabic Kufi'; }*/`
-    * `remove`: Removes rule(s) or declaration(s) from the output RTL version, e.g. `/*rtl:remove lang["en"] .help:before { content:'Help'; } */`.
-  * Update `stringMap`, now maps are sorted by `priority` and `exclusive` flag determines if a map execution should stop iterating over other maps.
-  * No Url will be processed unless `processUrls` is set to `true` or `{'atrule': true, 'decl': true}`.
+    * `config`
+    * `options`
+    * `raw`
+    * `remove`
 
 ### 1.7.2 - 30 Jan. 2016
   * Fixes a bug in flipping N-Values containing comments.

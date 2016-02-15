@@ -7,11 +7,11 @@ module.exports = [
     'options': { 'autoRename': true }
   },
   {
-    'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true, preserveDirectives)',
+    'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true, clean: false)',
     'expected': '/*rtl:ignore*/ .right .rtl .bright .ultra { display:block; }',
     'input': '/*rtl:ignore*/ .right .rtl .bright .ultra { display:block; }',
     'reversable': false,
-    'options': { 'autoRename': true, 'preserveDirectives': true }
+    'options': { 'autoRename': true, 'clean': false }
   },
   {
     'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true, !important comment)',
@@ -21,11 +21,11 @@ module.exports = [
     'options': { 'autoRename': true }
   },
   {
-    'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true, preserveDirectives, !important comment)',
+    'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true, clean:false, !important comment)',
     'expected': '/*!rtl:ignore*/ .right .rtl .bright .ultra { display:block; }',
     'input': '/*!rtl:ignore*/ .right .rtl .bright .ultra { display:block; }',
     'reversable': false,
-    'options': { 'autoRename': true, 'preserveDirectives': true }
+    'options': { 'autoRename': true, 'clean': false }
   },
   {
     'should': 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true,greedy)',
@@ -48,11 +48,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should rename selectors when forced. (preserveDirectives)',
+    'should': 'Should rename selectors when forced. (clean:false)',
     'expected': '/*rtl:rename*/.left .ltr .bright .ultra { display:block; left:0;}',
     'input': '/*rtl:rename*/.right .rtl .bright .ultra { display:block; right:0;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should rename selectors when forced. (!important comment)',
@@ -61,11 +61,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should rename selectors when forced. (preserveDirectives, !important comment)',
+    'should': 'Should rename selectors when forced. (clean:false, !important comment)',
     'expected': '/*!rtl:rename*/.left .ltr .bright .ultra { display:block; left:0; }',
     'input': '/*!rtl:rename*/.right .rtl .bright .ultra { display:block; right:0; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should rename selectors when forced. (greedy)',
@@ -88,11 +88,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should prepend value. (preserveDirectives)',
+    'should': 'Should prepend value. (clean:false)',
     'expected': 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should prepend value (!important comment)',
@@ -101,11 +101,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should prepend value (preserveDirectives, !important comment)',
+    'should': 'Should prepend value (clean:false, !important comment)',
     'expected': 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma/*!rtl:prepend:"Droid Arabic Kufi", */; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:prepend:"Droid Arabic Kufi", */; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should replace value.',
@@ -114,11 +114,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should replace value.(preserveDirectives)',
+    'should': 'Should replace value.(clean:false)',
     'expected': 'div { font-family: "Droid Arabic Kufi"/*rtl:"Droid Arabic Kufi"*/; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:"Droid Arabic Kufi"*/; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should replace value. (!important comment)',
@@ -127,11 +127,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should replace value. (preserveDirectives, !important comment)',
+    'should': 'Should replace value. (clean:false, !important comment)',
     'expected': 'div { font-family: "Droid Arabic Kufi"/*!rtl:"Droid Arabic Kufi"*/; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:"Droid Arabic Kufi"*/; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should append value. (default)',
@@ -140,11 +140,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should append value. (preserveDirectives)',
+    'should': 'Should append value. (clean:false)',
     'expected': 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/, "Droid Arabic Kufi"; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should append value. (!important comment)',
@@ -153,11 +153,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should append value. (preserveDirectives, !important comment)',
+    'should': 'Should append value. (clean:false, !important comment)',
     'expected': 'div { font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/, "Droid Arabic Kufi"; }',
     'input': 'div { font-family: "Droid Sans", Tahoma/*!rtl:append:, "Droid Arabic Kufi"*/; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should insert value. (default)',
@@ -166,11 +166,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should insert value. (preserveDirectives)',
+    'should': 'Should insert value. (clean:false)',
     'expected': 'div { font-family: "Droid Sans", "Droid Arabic Kufi"/*rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
     'input': 'div { font-family: "Droid Sans"/*rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should insert value. (!important comment)',
@@ -179,11 +179,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should insert value. (preserveDirectives, !important comment)',
+    'should': 'Should insert value. (clean:false, !important comment)',
     'expected': 'div { font-family: "Droid Sans", "Droid Arabic Kufi"/*!rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
     'input': 'div { font-family: "Droid Sans"/*!rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should ignore flipping - rule level (default)',
@@ -192,11 +192,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should ignore flipping - rule level (preserveDirectives)',
+    'should': 'Should ignore flipping - rule level (clean:false)',
     'expected': '/*rtl:ignore*/div { left:10px; text-align:right;}',
     'input': '/*rtl:ignore*/div { left:10px; text-align:right;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should ignore flipping - rule level (default, !important comment)',
@@ -205,11 +205,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should ignore flipping - rule level (preserveDirectives , !important comment)',
+    'should': 'Should ignore flipping - rule level (clean:false , !important comment)',
     'expected': '/*!rtl:ignore*/div { left:10px; text-align:right;}',
     'input': '/*!rtl:ignore*/div { left:10px; text-align:right;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should ignore flipping - decl. level (default)',
@@ -218,11 +218,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should ignore flipping - decl. level (preserveDirectives)',
+    'should': 'Should ignore flipping - decl. level (clean:false)',
     'expected': 'div { left:10px/*rtl:ignore*/;text-align:left;}',
     'input': 'div { left:10px/*rtl:ignore*/;text-align:right;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should ignore flipping - decl. level (default, !important comment)',
@@ -231,80 +231,72 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should ignore flipping - decl. level (preserveDirectives, !important comment)',
+    'should': 'Should ignore flipping - decl. level (clean:false, !important comment)',
     'expected': 'div { left:10px/*!rtl:ignore*/;text-align:left;}',
     'input': 'div { left:10px/*!rtl:ignore*/;text-align:right;}',
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should add raw css rules',
     'expected': 'div {left:10px;text-align:right;} a {display:block;}',
     'input': '/*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should add raw css declarations',
     'expected': 'div { font-family:"Droid Kufi Arabic"; right:10px;text-align:left;}',
     'input': 'div { /*rtl:raw: font-family: "Droid Kufi Arabic";*/ left:10px;text-align:right;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
-    'should': 'Should add raw css (preserve directives)',
+    'should': 'Should add raw css (clean:false)',
     'expected': 'div {left:10px;text-align:right;} /*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
     'input': '/*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
-    'should': 'Should add raw css declarations (preserve directives)',
+    'should': 'Should add raw css declarations (clean:false)',
     'expected': 'div { font-family:"Droid Kufi Arabic"; /*rtl:raw: font-family: "Droid Kufi Arabic";*/ right:10px;text-align:left;}',
     'input': 'div { /*rtl:raw: font-family: "Droid Kufi Arabic";*/ left:10px;text-align:right;}',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should support block-style',
     'expected': ' div {left:10px; text-align:right;}',
     'input': ' div {/*rtl:begin:ignore*/left:10px;/*rtl:end:ignore*/ text-align:left;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should support none block-style',
     'expected': ' div {left:10px; text-align:left;}',
     'input': ' /*rtl:ignore*/div {left:10px; text-align:left;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should remove rules (block-style)',
     'expected': ' b{float:right;}',
     'input': ' /*rtl:begin:remove*/div {left:10px; text-align:left;} a { display:block;} /*rtl:end:remove*/ b{float:left;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should remove rules',
     'expected': ' a { display:block;} b{float:right;}',
     'input': ' /*rtl:remove*/div {left:10px; text-align:left;} a { display:block;} b{float:left;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should remove declarations',
     'expected': ' div { text-align:right;}',
     'input': ' div {/*rtl:remove*/left:10px; text-align:left;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should remove declarations (block-style)',
     'expected': ' div { display:inline;}',
     'input': ' div {/*rtl:begin:remove*/left:10px; text-align:left;/*rtl:end:remove*/ display:inline;}',
-    'reversable': false,
-    'options': { 'preserveDirectives': false }
+    'reversable': false
   },
   {
     'should': 'Should override options',

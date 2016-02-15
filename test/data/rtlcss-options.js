@@ -60,11 +60,11 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should preserve processing directive. (preserveDirectives:true)',
+    'should': 'Should preserve processing directive. (clean:false)',
     'expected': '/*rtl:ignore*/div { left:0; }',
     'input': '/*rtl:ignore*/div { left:0; }',
     'reversable': false,
-    'options': { 'preserveDirectives': true }
+    'options': { 'clean': false }
   },
   {
     'should': 'Should not process string map in url (default)',
@@ -113,5 +113,11 @@ module.exports = [
     'input': 'div{display:none;} @import url("ultra/bright.css");',
     'reversable': true,
     'options': { 'processUrls': true, 'greedy': true }
+  },
+  {
+    'should': 'Should preserve comments inside declarations',
+    'expected': 'div { border-radius: 40.25px 10.5px /*comment*/ 10.75px 40.3px; }',
+    'input': 'div { border-radius: 10.5px 40.25px /*comment*/ 40.3px 10.75px; }',
+    'reversable': true
   }
 ]

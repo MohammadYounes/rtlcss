@@ -1,14 +1,16 @@
 ﻿{
     "options": {
-        "preserveComments": true,
-        "preserveDirectives": false,
-        "processUrls": false,
         "autoRename": false,
         "autoRenameStrict": false,
+        "blacklist":{
+          "rtlcss":{
+            "config":true
+          }
+        },
+        "clean": true,
         "greedy": false,
-        "log": false,
-        "stringMap":[
-        ]
+        "processUrls": false,
+        "stringMap":[]
     },
     "plugins": [ ],
     "map": false

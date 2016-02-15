@@ -13,8 +13,8 @@ module.exports = [
   },
   {
     'should': 'Should mirror calc (x-offset)',
-    'expected': 'div { transform-origin: -moz-calc(100%-(((25%/2) * 10px))) ; }',
-    'input': 'div { transform-origin: -moz-calc(((25%/2) * 10px)) ; }',
+    'expected': 'div { transform-origin: -moz-calc(100%-(((25%/2) * 10px))); }',
+    'input': 'div { transform-origin: -moz-calc(((25%/2) * 10px)); }',
     'reversable': false
   },
   {
@@ -49,8 +49,8 @@ module.exports = [
   },
   {
     'should': 'Should mirror with x being calc (x-offset y-offset)',
-    'expected': 'div { transform-origin: -webkit-calc(100%-(15% * (3/2))) 30.25% ; }',
-    'input': 'div { transform-origin: -webkit-calc(15% * (3/2)) 30.25% ; }',
+    'expected': 'div { transform-origin: -webkit-calc(100%-(15% * (3/2))) 30.25%; }',
+    'input': 'div { transform-origin: -webkit-calc(15% * (3/2)) 30.25%; }',
     'reversable': false
   },
   {

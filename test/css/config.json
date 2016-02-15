@@ -1,14 +1,10 @@
 {
-    "options": {
-        "preserveComments": true,
-        "preserveDirectives": false,
-        "processUrls": true,
-        "autoRename": true,
-        "greedy": true,
-        "log": false,
-        "stringMap":[
-        ]
-    },
-    "plugins": [ ],
-    "map": false
+  "options": {
+    "autoRename": true,
+    "processUrls": true,
+    "greedy": true,
+    "stringMap": []
+  },
+  "plugins": [],
+  "map": true // used by CLI
 }

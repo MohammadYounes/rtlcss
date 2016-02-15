@@ -4,8 +4,6 @@ Preserves orignal formatting
 
  */
 
-/*rtl:begin:options:{"preserveComments": true}*/
-
 /* comment before rule */
 body/* comment after rule name */{
     /* comment before decl */
@@ -19,33 +17,60 @@ body/* comment after rule name */{
         comment
         */
         2px /*bottom*/
-        3px /*left*/
+        3px /*left*/;
+
+    border-left/*  comment after prop */: none;
 }
 
-/* comment after rule  */
-
+/* empty options forces defaults */
+/*rtl:begin:options: {}*/
 /* should not process urls - default */
 @import url("rtl-right-east.css");
-
 /*rtl:end:options*/
 
-/*rtl:begin:options:
+/*rtl:begin:config:
 {
-  "autoRename": true,
-  "stringMap":[
-    {
-      "name"    : "prev-next",
-      "search"  : ["prev", "Prev", "PREV"],
-      "replace" : ["next", "Next", "NEXT"],
-      "options" : {"ignoreCase":false}
-    }]
-}
-*/
+    "options":{
+        "autoRename": true,
+        "stringMap":[
+            {
+            "name"    : "prev-next",
+            "search"  : ["prev", "Prev", "PREV"],
+            "replace" : ["next", "Next", "NEXT"],
+            "options" : {"ignoreCase":false}
+            }
+        ]
+    },
+    "plugins":[
+      {
+        "name": "test",
+        "directives":{
+          "control": {},
+          "value": []
+        },
+        "processors": [
+          {
+            "name": "content",
+            "expr": /content/im,
+            "action": function (prop, value, cxt) {
+              if (value === '"A"') {
+                return { 'prop': prop, 'value': '"ABC"' }
+              } else if (value === '"ABC"') {
+                return { 'prop': prop, 'value': '"A"' }
+              }
+              return { 'prop': prop, 'value': value }
+            }
+          }
+        ]
+      }
+    ]
+}*/
+div:before { content: "A";} div:after { content: "ABC";}
 
 .demo-prev, .demo-Prev, .demo-PREV { content: 'p'; }
 .demo-next, .demo-Next, .demo-NEXT { content: 'n'; }
 
-/*rtl:end:options*/
+/*rtl:end:config*/
 
 /*!rtl:begin:remove*/
 @import url(/test.css);
@@ -69,7 +94,7 @@ div {
 /*rtl:end:ignore*/
 
 
-/*rtl:begin:options:{"autoRename":false, "preserveDirectives": true}*/
+/*rtl:begin:options:{"autoRename":false, "clean": false}*/
 .right { display:inline;}
 /*rtl:begin:options:{"autoRename":true, "greedy": true}*/
 .bright { display:inline;}
