@@ -32,11 +32,11 @@ The attributes are:
 
 * `directives` `{object}`
 
-  The object holding both [control](#control directives) & [value](#value directives) directives.
+  The object holding both [control](#control-directives) & [value](#value-directives) directives.
 
     * `control` `{object}`
 
-    An object map of [control directives](#control directives) where keys are the names and values are the [control directives definition object](#Control directive defintion object).
+    An object map of [control directives](#control-directives) where keys are the names and values are the [control directives definition object](#control-directive-defintion-object).
 
     The key itself act as the trigger of the directive.
     ```js
@@ -50,7 +50,7 @@ The attributes are:
     
     * `value` `{array}`
 
-    An array of [value directives](#value directives) where items are [value directive definition object](#Value directive defintion object).
+    An array of [value directives](#value-directives) where items are [value directive definition object](#value-directive-defintion-object).
 
     The name itself act as the trigger of the directive.
 
@@ -66,7 +66,7 @@ The attributes are:
 
 * `processors` `{array}`
 
- An array of [declaration processors](#declaration processors) where items are [declaration processor definition object](#declaration processor defintion object).
+ An array of [declaration processors](#declaration-processors) where items are [declaration processor definition object](#declaration-processor-defintion-object).
 
  These are triggered by matching CSS properties against processor `expr` attribute.
  ```js
@@ -132,8 +132,8 @@ The definition of a control directive has the following attributes:
   'begin': function (node, metadata, context) { ... }
   ```
     * `node` `{node}`: [PostCSS] node to be processed.
-    * `metadata` `{metadata}`: The [metadata object](#Metadata Object) associated with the directive.
-    * `context` `{context}`: The current RTLCSS [context object](#Context Object).
+    * `metadata` `{metadata}`: The [metadata object](#metadata-object) associated with the directive.
+    * `context` `{context}`: The current RTLCSS [context object](#context-object).
 
  It must return a `boolean` value to indicate if it is allowed to process this node by other directives or not.
     * `true`: prevent further processing.
@@ -146,8 +146,8 @@ The definition of a control directive has the following attributes:
   'end': function (node, metadata, context) { ... }
   ```
     * `node` `{node}`: [PostCSS] node to be processed.
-    * `metadata` `{metadata}`: The [metadata object](#Metadata Object) associated with the directive.
-    * `context` `{context}`: The current RTLCSS [context object](#Context Object).
+    * `metadata` `{metadata}`: The [metadata object](#metadata-object) associated with the directive.
+    * `context` `{context}`: The current RTLCSS [context object](#context-object).
 
  It must return a `boolean` value to indicate if the directive has finished and should be deactivated or not.
     * `true`: deactivate.
@@ -232,7 +232,7 @@ The definition of a value directive has the following attributes:
         }
     }
     ```
-    * `context` `{context}`: The current RTLCSS [context object](#Context Object).
+    * `context` `{context}`: The current RTLCSS [context object](#context-object).
 
   It must return a `boolean` value to indicate if it is allowed to process this `decl` by other directives or not.
     * `true`: prevent further processing.
@@ -255,7 +255,7 @@ The definition of a value directive has the following attributes:
 }
 ```
 #### Remarks
-You might wonder why such difference exists between [control](#control directives) and [value](#value directives) directives. Well, this is due:
+You might wonder why such difference exists between [control](#control-directives) and [value](#value-directives) directives. Well, this is due:
 1. Backward compatibility, I wanted users to be able to upgrade to v2 without having to revisit their CSS files, they only need to change RTLCSS configuration. 
 So, In order to support the "Replace" directive `/*rtl:{value}*/`, all directives names need to be known in advance.
 2. [PostCSS] does not treat CSS comments found inside delcaration values as nodes.
@@ -285,7 +285,7 @@ The definition of a property processor has the following attributes:
   ```
     * `prop` `{string}`: The CSS property name.
     * `value` `{string}`: The CSS property raw value, Note that comments in the raw value will be replaced by the Unicode Character `'REPLACEMENT CHARACTER' (U+FFFD) �` (this is to preserve original formatting and simplify pattern matching).
-    * `context` `{context}`: The current RTLCSS [context object](#Context Object).
+    * `context` `{context}`: The current RTLCSS [context object](#context-object).
 
   It must return an object containing two keys (`prop` and `value`).
   ```js
@@ -335,7 +335,7 @@ The metadata object provides access to directive related information.
 | **`end`**     | `boolean`     | Indicates the end of the directive scope*<sup>1</sup>.
 
 #### Remarks
-  *<sup>1</sup> Self-closing [control directives](#control directives) will have both `begin` and `end` set to `true`.
+  *<sup>1</sup> Self-closing [control directives](#control-directives) will have both `begin` and `end` set to `true`.
 
 
 
