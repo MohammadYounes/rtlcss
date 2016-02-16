@@ -255,7 +255,8 @@ The definition of a value directive has the following attributes:
 }
 ```
 #### Remarks
-You might wonder why such difference exists between [control](#control-directives) and [value](#value-directives) directives. Well, this is due:
+You might wonder why such difference exists between [control](#control-directives) and [value](#value-directives) directives. Well, This is due to:
+
 1. Backward compatibility, I wanted users to be able to upgrade to v2 without having to revisit their CSS files, they only need to change RTLCSS configuration. 
 So, In order to support the "Replace" directive `/*rtl:{value}*/`, all directives names need to be known in advance.
 2. [PostCSS] does not treat CSS comments found inside delcaration values as nodes.
