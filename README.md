@@ -234,11 +234,6 @@ $ rtlcss input.css output.rtl.css
 output = rtlcss.process(css [, options , plugins]);
 output // processed CSS
 
-// create a new RTLCSS instance, then process css with postcss options (such as source map)
-result = rtlcss([options , plugins]).process(css, postcssOptions);
-result.css // Processed CSS
-result.map // Source map
-
 // you can also group all configuration settings into a single object
 result = rtlcss.configure(config).process(css, postcssOptions);
 result.css // Processed CSS
