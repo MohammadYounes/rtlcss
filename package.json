@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "mocha": "^2.0.0",
-    "standard": "^5.4.1"
+    "standard": "^6.0.0"
   },
   "scripts": {
     "lint": "standard && node ./lib/rtlcss.js",
