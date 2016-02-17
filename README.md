@@ -1,4 +1,4 @@
-# RTLCSS 2.x
+# RTLCSS
 
 <img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
 

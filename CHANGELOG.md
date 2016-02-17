@@ -1,4 +1,4 @@
-# 2.0.0 RC1
+# 2.0.0 - 18 Feb. 2016
 
   * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.  
   * Suppor for strict auto renaming, Which ensures `autoRename` is applied only when a pair exists.
