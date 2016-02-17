@@ -350,7 +350,7 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 ## Release Notes
 
-To view changes in recent versions, see the [CHANGELOG](#CHANGELOG.md).
+To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
 [PostCSS]: https://github.com/postcss/postcss
 [CLI documentaion]: docs/CLI.md
