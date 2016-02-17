@@ -1,13 +1,23 @@
-# RTLCSS [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss) [![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss) [![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss) [![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss) [![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
+# RTLCSS 2.x
 
 <img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
+
+[![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss)
+[![NPM version](https://badge.fury.io/js/rtlcss.svg)](http://badge.fury.io/js/rtlcss)
+[![Build Status](https://travis-ci.org/MohammadYounes/rtlcss.svg?branch=master)](https://travis-ci.org/MohammadYounes/rtlcss)
+[![DEPENDENCIES](https://david-dm.org/MohammadYounes/rtlcss.svg)](https://david-dm.org/MohammadYounes/rtlcss)
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-blue.svg)](http://standardjs.com/)
+[![editor](https://img.shields.io/badge/editor-vscode-blue.svg)](https://code.visualstudio.com/)
+[![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
 
 RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
 
 ---
-| [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object)
-| --- | --- | --- | --- | --- | --- | 
+| [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object) |
+|---------------------------|---------------------|-----------------------------|-------------|-----------------------------------|----------------------------|
 ---
+
 ## Introduction
 
 In a right-to-left, top-to-bottom script (commonly shortened to **right to left** or abbreviated **RTL**), writing starts from the right of the page and continues to the left. For example [Arabic script](http://en.wikipedia.org/wiki/Arabic_script) (the most widespread RTL writing system in modern times ).
@@ -87,95 +97,111 @@ RTLCSS preserves original input formatting and indentations.
 > ![CSS Syntax](http://www.w3schools.com/css/selector.gif "CSS Syntax")
 
 
-### Supported CSS Properties (a-z)
+### Supported CSS Properties
+|                             |                             |                        |
+|:----------------------------|:----------------------------|:-----------------------|
+| `background`                | `border-right-color`        | `margin`               |
+| `background-image`          | `border-right-style`        | `margin-left`          |
+| `background-position`       | `border-right-width`        | `margin-right`         |
+| `background-position-x`     | `border-style`              | `padding`              |
+| `border-bottom-left-radius` | `border-top-left-radius`    | `padding-left`         |
+| `border-bottom-right-radius`| `border-top-right-radius`   | `padding-right`        |
+| `border-color`              | `border-width`              | `right`                |
+| `border-left`               | `box-shadow`                | `text-align`           |
+| `border-left-color`         | `clear`                     | `text-shadow`          | 
+| `border-left-style`         | `cursor`                    | `transform`            |
+| `border-left-width`         | `direction`                 | `transform-origin`     |
+| `border-radius`             | `float`                     | `transition`           |
+| `border-right`              | `left`                      | `transition-property`  |
+  
+### Supported Directives
 
-`background`
-`background-image`
-`background-position`
-`background-position-x`
-`border-bottom-left-radius`
-`border-bottom-right-radius`
-`border-color`
-`border-left`
-`border-left-color`
-`border-left-style`
-`border-left-width`
-`border-radius`
-`border-right`
-`border-right-color`
-`border-right-style`
-`border-right-width`
-`border-style`
-`border-top-left-radius`
-`border-top-right-radius`
-`border-width`
-`box-shadow`
-`clear`
-`cursor`
-`direction`
-`float`
-`left`
-`margin`
-`margin-left`
-`margin-right`
-`padding`
-`padding-left`
-`padding-right`
-`right`
-`text-align`
-`text-shadow`
-`transform`
-`transform-origin`
-`transition`
-`transition-property`
+When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments.
+Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported. 
 
-### Supported Processing Directives
+Two sets of directives are available. **Control** and **Value**.
 
-When RTLing a CSS document, there are cases where it's impossible to know whether to mirror a property value, whether to change a rule selector, or whether to update a non-directional property. In such cases, RTLCSS provides processing directives in the form of CSS comments. Both standard ```/*rtl:...*/``` and special/important ```/*!rtl:...*/``` notations are supported.
+#### Control Directives:
 
-Two sets of processing directives are available, on Rule and Declaration level.
+Control directives are placed between declarations or statements (rules and at-rules), They can target one node (self-closing) or a set of nodes (block-syntax).
 
-##### Rule Level Directives:
-
-> Rule level directives are placed before the CSS rule.
-
-|   Directive   |   Description
-|:--------------|:-----------------------
-|   `/*rtl:ignore*/`    |   Ignores processing of this rule.
-|   `/*rtl:rename*/`    |   Forces selector renaming by applying [String Map](#stringmap-array).
-
-   **Example**
-
+* Self-closing
 ```css
-/*rtl:ignore*/
-.code{
+.code {
+  /*rtl:ignore*/
   direction:ltr;
+  /*rtl:ignore*/
   text-align:left;
 }
 ```
-
-   **Output**
-
+* Block-syntax
 ```css
-.code{
+.code {
+  /*rtl:begin:ignore*/
   direction:ltr;
   text-align:left;
+  /*rtl:end:ignore*/
 }
 ```
 
-##### Declaration Level Directives:
+**Available Control Directives:**
 
-> Declaration level directives are  placed any where inside the declaration value.
+|  Name        | Syntax                    | Description
+|:-------------|:--------------------------|:-----------
+|  Ignore      | `/*rtl:ignore*/`          | Ignores processing of the following node (self-closing) or nodes within scope (block-syntax).
+|  Config      | `/*rtl:config:{OBJECT}*/` | Evaluates the `{OBJECT}` parameter and updates current RTLCSS config<sup>*1</sup>.
+|  Options     | `/*rtl:options:{JSON}*/`  | Parses the `{JSON}` parameter and updates current RTLCSS options<sup>*2</sup>.
+|  Raw         | `/*rtl:raw:{CSS}*/`       | Parses the `{CSS}` parameter and inserts it before the comment node that triggered the directive<sup>*3</sup>.
+|  Remove      | `/*rtl:remove*/`          | Removes the following node (self-closing) or nodes within scope (block-syntax).
+|  Rename      | `/*rtl:rename*/`          | Renames the selector of the following rule (self-closing) or rules within scope (block-syntax) by applying [String Maps](#stringmap-array).
 
-|   Directive   |   Description
-|:--------------|:-----------------------
-|   `/*rtl:ignore*/`    |   Ignores processing of this declaration.
-|   `/*rtl:{value}*/`    |   Replaces the declaration value with `{value}`.
-|   `/*rtl:append:{value}*/`    |   Appends `{value}` to the end of the declaration value.
-|   `/*rtl:prepend:{value}*/`    |   Prepends `{value}` to the begining of the declaration value.
-|   `/*rtl:insert:{value}*/`    |   Inserts `{value}` to where the directive is located inside the declaration value.
+#### Remarks
 
-   **Example**
+ * **<sup>1</sup>** Config is evaluated using `eval`, and it can be disabled by adding it to the `blacklist`. 
+ * **<sup>2</sup>** Options parsing is done via `JSON.parse`, and requires a valid json. The new options will override the defaults (not the current context). Plugins will be carried over from the current context.
+ * **<sup>3</sup>** Due to the nature of *RAW* directive, block-syntax is not supported.
+
+**Example**
+
+```css
+/*rtl:begin:options:
+{
+  "autoRename": true,
+  "stringMap":[
+    {
+      "name"    : "prev-next",
+      "search"  : ["prev", "Prev", "PREV"],
+      "replace" : ["next", "Next", "NEXT"],
+      "options" : {"ignoreCase":false}
+    }]
+}*/
+.demo-prev, .demo-Prev, .demo-PREV { content: 'p'; }
+.demo-next, .demo-Next, .demo-NEXT { content: 'n'; }
+/*rtl:end:options*/
+```
+
+**Output**
+
+```css
+.demo-next, .demo-Next, .demo-NEXT { content: 'p'; }
+.demo-prev, .demo-Prev, .demo-PREV { content: 'n'; }
+```
+
+#### Value Directives:
+
+Value directives are placed any where inside the declaration value. They target the containing declaration node.
+
+**Available Value Directives:**
+
+|  Name        |    Syntax                   |   Description
+|:-------------|:----------------------------|:-----------------------
+| Append       |   `/*rtl:append:{value}*/`  |   Appends `{value}` to the end of the declaration value.
+| Ignore       |   `/*rtl:ignore*/`          |   Ignores processing of this declaration.
+| Insert       |   `/*rtl:insert:{value}*/`  |   Inserts `{value}` to where the directive is located inside the declaration value.
+| Prepend      |   `/*rtl:prepend:{value}*/` |   Prepends `{value}` to the begining of the declaration value.
+| Replace      |   `/*rtl:{value}*/`         |   Replaces the declaration value with `{value}`.
+
+**Example**
 
 ```css
 body{
@@ -184,7 +210,7 @@ body{
 }
 ```
 
-   **Output**
+**Output**
 
 ```css
 body{
@@ -195,25 +221,21 @@ body{
 
 ## CLI
 
-Convert LTR CSS files to RTL using the command line.
+Convert LTR CSS files to RTL using the command line. For usage and available options see [CLI documentaion].
 
 ```
 $ rtlcss input.css output.rtl.css
 ```
-
-For usage and available options see [CLI documentaion](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md).
-
-
 ---
 ## Advanced usage
 
 ```javascript
 // directly processes css and return a string containing the processed css
-output = rtlcss.process(css [, options , rules, declarations, properties]);
+output = rtlcss.process(css [, options , plugins]);
 output // processed CSS
 
 // create a new RTLCSS instance, then process css with postcss options (such as source map)
-result = rtlcss([options , rules, declarations, properties]).process(css, postcssOptions);
+result = rtlcss([options , plugins]).process(css, postcssOptions);
 result.css // Processed CSS
 result.map // Source map
 
@@ -228,77 +250,73 @@ Built on top of [PostCSS], an awesome framework, providing you with the power of
 It can be combined with other processors, such as autoprefixer:
 
 ```javascript
-var processed = postcss()
-  .use(rtlcss([options , rules, declarations, properties]).postcss)
-  .use(autoprefixer().postcss)
-  .process(css);
+var result = postcss().use(rtlcss([options , plugins]))
+                      .use(autoprefixer())
+                      .process(css);
 ```
 
 ### options (object)
 
-|    Option    |    Default |   Description
-|:--------------|:------------|:--------------
-|**`preserveComments`** | `true`  | Preserves modified declarations comments as much as possible.
-|**`preserveDirectives`** | `false`  | Preserves processing directives.
-|**`swapLeftRightInUrl`** | `true`  | Swaps ***left*** and ***right*** in URLs.
-|**`swapLtrRtlInUrl`** | `true`  | Swaps ***ltr*** and ***rtl*** in URLs.
-|**`swapWestEastInUrl`** | `true`  | Swaps ***west*** and ***east*** in URLs.
-|**`autoRename`** | `true`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Map](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
-|**`greedy`** | `false`  | A `false` value forces selector renaming and url updates to respect word boundaries, for example: `.ultra { ...}` will not be changed to `.urtla {...}`
-|**`stringMap`** | see [String Map](#stringmap-array)  | Applies to string replacement in renamed selectors and updated URLs
-|**`enableLogging`** | `false`  | Outputs information about mirrored declarations to the console.
-|**`minify`** | `false`  | Minifies output CSS, when set to `true` both `preserveDirectives` and `preserveComments` will be set to `false` .
+| Option                  | Type                 | Default  | Description
+|:------------------------|:--------------------:|:--------:|:--------------
+|**`autoRename`**         | `boolean`            | `false`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Maps](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
+|**`autoRenameStrict`**   | `boolean`            | `false`  | Ensures `autoRename` is applied only if pair exists.
+|**`blacklist`**          | `object`             | `{}`     | An object map of disabled plugins directives, where keys are plugin names and value are object hash of disabled directives. e.g. `{'rtlcss':{'config':true}}`.
+|**`clean`**              | `boolean`            | `true`   | Removes directives comments from output CSS.
+|**`greedy`**             | `boolean`            | `false`  | Fallback value for [String Maps](#stringmap-array) options.
+|**`processUrls`**        | `boolean` or `object`| `false`  | Applies [String Maps](#stringmap-array) to URLs. You can also target specific node types using an object literal. e.g. `{'atrule': true, 'decl': false}`.
+|**`stringMap`**          | `array`              |          | The default array of [String Maps](#stringmap-array).
+
 
 ### stringMap (Array)
 
-String map is a collection of map objects, where each defines a mapping between directional strings. It is used in  renaming selectors and URL updates. The following is the default string map:
+String map is a collection of map objects, where each defines a mapping between directional strings. It is used in renaming selectors and URL updates.
+
+The following is the default string map:
 ```javascript
 [
   {
-    'name'    :	'left-right',
-    'search'  :	['left', 'Left', 'LEFT'],
-    'replace' :	['right', 'Right', 'RIGHT'],
+    'name'    : 'left-right',
+    'priority': 100,
+    'search'  : ['left', 'Left', 'LEFT'],
+    'replace' : ['right', 'Right', 'RIGHT'],
     'options' : {
-        'scope': options.swapLeftRightInUrl ? '*' : 'selector',
-        'ignoreCase': false
+        'scope' : '*',
+        'ignoreCase' : false
       }
   },
   {
     'name'    : 'ltr-rtl',
+    'priority': 100,
     'search'  : ['ltr', 'Ltr', 'LTR'],
     'replace' : ['rtl', 'Rtl', 'RTL'],
     'options' :	{
-        'scope': options.swapLtrRtlInUrl ? '*' : 'selector',
-        'ignoreCase': false
-      }
-  },
-  {
-    'name':'west-east',
-    'search': ['west', 'West', 'WEST'],
-    'replace': ['east', 'East', 'EAST'],
-    'options' :	{
-        'scope': options.swapWestEastInUrl ? '*' : 'selector',
-        'ignoreCase': false
+        'scope' : '*',
+        'ignoreCase' : false
       }
   }
 ]
 ```
 To override any of the default maps, just add your own with the same name. A map object consists of the following:
 
-|   Property    |   Type    |   Description
-|:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the map object
-|   **`search`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
+|  Property        |  Type     |  Description
+|:-----------------|:----------|:--------------
+|   **`name`**     | `string`  | Name of the map object
+|   **`priority`** | `number`  | Maps are sorted according to prioirity.
+|   **`exclusive`**| `boolean` | When enabled, prevents applying the remaining maps.
+|   **`search`**   | `string` or `Array`  | The string or list of strings to search for or replace with.
 |   **`replace`**  | `string` or `Array`  | The string or list of strings to search for or replace with.
 |   **`options`**  | `object`  | Defines map options.
 
-The map `options` is optional, and consists of the following:
+The map `options` attribute is optional, and consists of the following:
 
-|   Property    |   Type    |   Default |   Description
-|:--------------|:----------|:--------------|:--------------
-|   **`scope`**  | `string`  | `*`  | Defines the scope in which this map is allowed, `'selector'` for selector renaming, `'url'` for url updates and `'*'` for both.
-|   **`ignoreCase`**  | `Boolean`  | `true`  | Indicates if the search is case-insensitive or not.
-|   **`greedy`**  | `Boolean`  | reverts to `options.greedy`  | A false value forces selector renaming and url updates to respect word boundaries.
+|  Property           |  Type     |  Default  |  Description
+|:--------------------|:----------|:----------|:--------------
+|   **`scope`**       | `string`  | `*`       | Defines the scope in which this map is allowed, `'selector'` for selector renaming, `'url'` for url updates and `'*'` for both.
+|   **`ignoreCase`**  | `boolean` | `true`    | Indicates if the search is case-insensitive or not.
+|   **`greedy`**      | `boolean` | `options.greedy`   | When enabled, string replacement will NOT respect word boundaries. i.e. `.ultra { ...}` will be changed to `.urtla {...}`
+
+
 
    **Example**
 
@@ -321,87 +339,9 @@ The map `options` is optional, and consists of the following:
 
 ```
 
+### plugins (array)
 
-### rules (array)
-
-Array of RTLCSS rule Processing Instructions (PI), these are applied on the CSS rule level:
-
-|   Property    |   Type    |   Description
-|:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the PI (used in logging).
-|   **`expr`**  | `RegExp`  | Regular expression object that will be matched against the comment preceeding the rule.
-|   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the rules PIs list.
-|   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `rule` node. the functions is expected to return a boolean, `true` to stop further processing of the rule, otherwise `false`.
-
-Visit [PostCSS] to find out more about [`rule`](https://github.com/postcss/postcss/blob/master/docs/api.md#rule-node) node.
-
-##### **Example**
-
-```javascript
-// RTLCSS rule processing instruction
-{
-  "name"        : "ignore",
-  "expr"        : /\/\*rtl:ignore\*\//img,
-  "important"   : true,
-  "action"      : function (rule) {
-                    return  true;
-                  }
-}
-```
-
-### declarations (array)
-
-Array of RTLCSS declaration Processing Instructions (PI), these are applied on the CSS declaration level:
-
-|   Property    |   Type    |   Description
-|:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the PI (used in logging).
-|   **`expr`**  | `RegExp`  | Regular expression object that will be matched against the declaration raw value.
-|   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
-|   **`action`**    | `function`    | The action to be called when a match is found, and it will be passed a `decl` node. the functions is expected to return a boolean, `true` to stop further processing of the declaration, otherwise `false`.
-
-Visit [PostCSS] to find out more about [`decl`](https://github.com/postcss/postcss/blob/master/docs/api.md#declaration-node) node.
-
-##### **Example**
-
-```javascript
-// RTLCSS declaration processing instruction
-{
-    "name"      : "ignore",
-    "expr"      : /(?:[^]*)(?:\/\*rtl:ignore)([^]*?)(?:\*\/)/img,
-    "important" : true,
-    "action"    : function (decl) {
-                    if (!config.preserveDirectives)
-                        decl._value.raw = decl._value.raw.replace(/\/\*rtl:[^]*?\*\//img, "");
-                    return true;
-                  }
-},
-```
-
-### properties (array)
-
-Array of RTLCSS properties Processing Instructions (PI), these are applied on the CSS property level:
-
-|   Property    |   Type    |   Description
-|:--------------|:----------|:--------------
-|   **`name`**  | `string`  | Name of the PI (used in logging).
-|   **`expr`**  | `RegExp`  | Regular expression object that will be matched against the declaration property name.
-|   **`important`** | `boolean` |   Controls whether to insert the PI at the start or end of the declarations PIs list.
-|   **`action`**    | `function`    | The action to be called when a match is found, it will be passed a `prop` (string holding the CSS property name) and `value` (string holding the CSS property raw value). If `options.preserveComments == true`, comments in the raw value will be replaced by the Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD) &#xfffd; (this is to simplify pattern matching). The function is expected to return an object containing the modified version of the property and its value.
-
-##### **Example**
-
-```javascript
-// RTLCSS property processing instruction
-{
-    "name"      : "direction",
-    "expr"      : /direction/im,
-    "important" : true,
-    "action"    : function (prop, value) {
-                    return { 'prop': prop, 'value': util.swapLtrRtl(value) };
-                  }
-}
-```
+Array of plugins to add more functionality to RTLCSS, or even change it's entire behavior. See [Writing an RTLCSS Plugin].
 
 ---
 ## Bugs and Issues
@@ -409,121 +349,9 @@ Array of RTLCSS properties Processing Instructions (PI), these are applied on th
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
 ## Release Notes
-* **v1.7.3** [30 Jan. 2016]
-  * Fixes a bug in flipping N-Values containing comments.
-  
-* **v1.7.2** [04 Dec. 2015]
-  * Fixes a compatibility issue with postcss-js (Fixes [#48](https://github.com/MohammadYounes/rtlcss/issues/48)).
 
-* **v1.7.1** [10 Nov. 2015]
-  * Fixed a bug in flipping backgrounds having functions (Issue [#45](https://github.com/MohammadYounes/rtlcss/issues/45)).
-  
-* **v1.7.0** [19 Sep. 2015]
-  * Add `calc` support.
-  * Mark rule as flipped when values are updated by decl. directives.
-  * Allow further processing for rules that uses `rename` directive.
-  
-* **v1.6.3** [28 Aug. 2015]
-  * CLI: fix source map option (issue #40).
-  * Upgrade to [POSTCSS] v5.0.x 
-
-* **v1.6.2** [21 Jul. 2015]
-  * CLI: fix loading custom configuration file manually via the --config flag. **Thanks @KeyKaKiTO**
-
-* **v1.6.1** [17 Mar. 2015]
-  * Fixed flipping units having more than 1 digit before the decimal point.
-
-* **v1.6.0** [15 Mar. 2015]
-  * Support flipping `matrix3d` transform.
-
-* **v1.5.2** [28 Feb. 2015]
-  * Fix flipping string maps containing regular expressions special characters (Fixes [#24](https://github.com/MohammadYounes/rtlcss/issues/24)).
-
-* **v1.5.1** [14 Feb. 2015]
-  * Fix flipping multiple shadows when a hex color was used. **Thanks @ocean90**
-
-* **v1.5.0** [30 Jan. 2015]
-  * CLI: New option `-e,--ext` to set output files extension when processing a directory.
-
-* **v1.4.3** [24 Jan. 2015]
-  * Upgrade to [POSTCSS] v4.0.x **Thanks @necolas**
-
-* **v1.4.2** [24 Oct. 2014]
-  * CLI: Switch to Unix line endings (Fixes [#14](https://github.com/MohammadYounes/rtlcss/issues/14))
-
-* **v1.4.1** [24 Oct. 2014]
-  * CLI: Print processing errors.
-
-* **v1.4.0** [10 Oct. 2014]
-  * CLI: Support processing a directory. see [CLI documentation](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md#directory)
-
-* **v1.3.1** [29 Sep. 2014]
-  * Update README.md (typos).
-
-* **v1.3.0** [28 Sep. 2014]
-  * New feature - String Maps. Add your own set of swappable strings, for example (prev/next).
-  * Preserves lowercase, UPPERCASE and Capitalization when swapping ***left***, ***right***, ***ltr***, ***rtl***, ***west*** and ***east***.
-
-* **v1.2.0** [26 Sep. 2014]
-  * Support !important comments for directives (enables flipping minified stylesheets).
-
-* **v1.1.0** [26 Sep. 2014]
-  * Upgrade to [POSTCSS] v2.2.5
-  * Support flipping `border-color`, `border-style` and `background-position-x`
-
-* **v1.0.0** [24 Aug. 2014]
-  * Upgrade to [POSTCSS] v2.2.1
-  * Support flipping urls in '@import' rule.
-  * Fix JSON parse error when configuration file is UTF-8 encoded.
-  * Better minification.
-
-* **v0.9.0** [10 Aug. 2014]
-  * New configuration loader.
-  * CLI configuration can be set using one of the following methods:
-    * Specify the configuration file manually via the --config flag.
-    * Put your config into your projects package.json file under the `rtlcssConfig` property
-    * Use a special file `.rtlcssrc` or `.rtlcssrc.json`
-
-* **v0.8.0** [8 Aug. 2014]
-  * Fix source map generation.
-
-* **v0.7.0** [4 Jul. 2014]
-  * Fix flipping linear-gradient.
-
-* **v0.6.0** [4 Jul. 2014]
-  * Allow additional comments inside `ignore`/`rename` rule level directives.
-
-* **v0.5.0** [11 Jun. 2014]
-  * Add CLI support.
-
-* **v0.4.0** [5 Apr. 2014]
-  * Fix flipping transform-origin.
-  * Update autoRename to search for all swappable words.
-
-* **v0.3.0** [5 Apr. 2014]
-  * Support flipping rotateZ.
-  * Fix flipping rotate3d.
-  * Fix flipping skew, skewX and skewY.
-  * Fix flipping cursor value.
-  * Fix flipping translate3d.
-  * Update flipping background horizontal position to treat 0 as 0%
-
-* **v0.2.1** [20 Mar. 2014]
-  * Upgrade to [POSTCSS] v0.3.4
-
-* **v0.2.0** [20 Mar. 2014]
-  * Support combining with other processors.
-  * Support rad, grad & turn angle units when flipping linear-gradient
-  * Fix typo in config.js
-
-* **v0.1.3** [7 Mar. 2014]
-  * Fix missing include in rules.js
-
-* **v0.1.2** [5 Mar. 2014]
-  * New option: minify output CSS.
-  * Updated README.md
-
-* **v0.1.1** [4 Mar. 2014]
-  * Initial commit.
+To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
 [PostCSS]: https://github.com/postcss/postcss
+[CLI documentaion]: docs/CLI.md
+[Writing an RTLCSS Plugin]: docs/writing-a-plugin.md
