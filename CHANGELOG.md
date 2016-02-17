@@ -11,7 +11,7 @@
 
 #### Upgrading from version 1.0
 
-The options and config settings have changed, But all directives are backward compatible, so you don't have to worry about your CSS files.
+Options and config settings have changed. However, you need not to worry about your CSS files as all directives are backward-compatible. This is a summary of what's changed:
 
   * New Options:
     * `autoRenameStrict` (default: `false`) to apply auto rename only when a pair exists.
