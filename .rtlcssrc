@@ -2,11 +2,7 @@
     "options": {
         "autoRename": false,
         "autoRenameStrict": false,
-        "blacklist":{
-          "rtlcss":{
-            "config":true
-          }
-        },
+        "blacklist":{},
         "clean": true,
         "greedy": false,
         "processUrls": false,

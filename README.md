@@ -221,15 +221,11 @@ body{
 
 ## CLI
 
-Convert LTR CSS files to RTL using the command line.
+Convert LTR CSS files to RTL using the command line. For usage and available options see [CLI documentaion].
 
 ```
 $ rtlcss input.css output.rtl.css
 ```
-
-For usage and available options see [CLI documentaion](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md).
-
-
 ---
 ## Advanced usage
 
@@ -264,7 +260,7 @@ var result = postcss().use(rtlcss([options , plugins]))
 | Option                  | Type                 | Default  | Description
 |:------------------------|:--------------------:|:--------:|:--------------
 |**`autoRename`**         | `boolean`            | `false`  | Applies to CSS rules containing no directional properties, it will update the selector by applying [String Maps](#stringmap-array).(See [Why Auto-Rename?](https://github.com/MohammadYounes/rtlcss/wiki/Why-Auto-Rename%3F))
-|**`autoRenameStrict`**   | `boolean`            | `false`  | Ensurs `autoRename` is applied only if pair exists.
+|**`autoRenameStrict`**   | `boolean`            | `false`  | Ensures `autoRename` is applied only if pair exists.
 |**`blacklist`**          | `object`             | `{}`     | An object map of disabled plugins directives, where keys are plugin names and value are object hash of disabled directives. e.g. `{'rtlcss':{'config':true}}`.
 |**`clean`**              | `boolean`            | `true`   | Removes directives comments from output CSS.
 |**`greedy`**             | `boolean`            | `false`  | Fallback value for [String Maps](#stringmap-array) options.
@@ -352,7 +348,10 @@ Array of plugins to add more functionality to RTLCSS, or even change it's entire
 
 Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
 
+## Release Notes
 
+To view changes in recent versions, see the [CHANGELOG](#CHANGELOG.md).
 
 [PostCSS]: https://github.com/postcss/postcss
+[CLI documentaion]: docs/CLI.md
 [Writing an RTLCSS Plugin]: docs/writing-a-plugin.md

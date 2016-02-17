@@ -1,30 +1,40 @@
 # 2.0.0 RC1
-  * New Options:
-    * `autoRenameStrict` option to apply auto rename only when a pair exists.
-    * `blacklist` option to prevent execution of certian directives.
-    * `clean` option with `true` default, to remove directives from output CSS.
-    * `processUrls` option  with `false` default, No Url will be processed unless `processUrls` is set to `true` or `{'atrule': true, 'decl': true}`.
 
-  * Updated Options:
-    * `autoRename` new default is `false`.
-    * `stringMap`:
-      * Now maps are sorted by `priority` and `exclusive` flag determines if a map execution should stop iterating over other maps.
-      * Removed `east` and `west` from default string map.
-
-  * Removed Options:
-    * `enableLogging`, still warnings and errors are reported directly to postcss. 
-    * `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl` in favor of `processUrls` option.
-    * `minify`.
-    * `preserveComments`, comments inside declaration values will always be preserved.
-    * `preserveDirectives`, in favor of `clean` option.
-
-  * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
-  * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
+  * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.  
+  * Suppor for strict auto renaming, Which ensures `autoRename` is applied only when a pair exists.
   * New directives:
     * `config`
     * `options`
     * `raw`
     * `remove`
+  * Support for [Plugins](docs/writing-a-plugin.md).
+
+#### Upgrading from version 1.0
+
+The options and config settings have changed, But all directives are backward compatible, so you don't have to worry about your CSS files.
+
+  * New Options:
+    * `autoRenameStrict` (default: `false`) to apply auto rename only when a pair exists.
+    * `blacklist` to prevent execution of certian directives.
+    * `clean` (default: `true`), to remove directives from output CSS.
+    * `processUrls` (default: `false`) to control URL updates. You can also target specific node types using an object literal. e.g. `{'atrule': true, 'decl': false}`.
+
+  * Updated Options:
+    * `autoRename` new default is `false`.
+    * `stringMap`:
+      * `priority` attribute to control maps execution order. 
+      * `exclusive` attributes, which determines if a map execution should stop iterating over other maps.
+      * dropped 'west-east' map from the default map collection.
+
+  * Removed Options:
+    * `enableLogging`, still warnings and errors are reported directly to postcss. 
+    * `minify`, it wasn't actual minification after all!
+    * `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl` in favor of `processUrls` option.
+    * `preserveComments`, comments inside declaration values will always be preserved.
+    * `preserveDirectives`, in favor of `clean` option.
+
+  * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
+
 
 ### 1.7.2 - 30 Jan. 2016
   * Fixes a bug in flipping N-Values containing comments.
