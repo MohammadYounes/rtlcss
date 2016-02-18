@@ -226,6 +226,11 @@ Convert LTR CSS files to RTL using the command line. For usage and available opt
 ```
 $ rtlcss input.css output.rtl.css
 ```
+
+## Task Runners
+ * **Grunt**: [grunt-rtlcss](https://github.com/MohammadYounes/grunt-rtlcss)
+ * **Gulp**: [gulp-rtlcss](https://github.com/jjlharrison/gulp-rtlcss)
+
 ---
 ## Advanced usage
 
