@@ -154,7 +154,7 @@ The definition of a control directive has the following attributes:
     * `false`: keep active.
 
 #### Example
-```javascript
+```js
  // a control directive definition to ignore processing one node or a set of nodes.
  // triggered via: /*rtl:ignore*/ or /*rtl:begin:ignore*/
 'ignore': {
@@ -213,12 +213,13 @@ The definition of a value directive has the following attributes:
 * `action` `{function}`
 
   The action function is responsible for processing the declaration value, It is executed each time a matching comment is found inside the declaration value.
-  ```javascript
+  ```js
   'action': function (decl, expr, context) { ... }
   ```
     * `decl` `{node}`: [PostCSS `decl`] node to be processed.
     * `expr` `{RegExp}`: The constructed regular expression used to match the directive, it has one capturing group matching the value of the directive.
-    ```javascript
+    
+    ```js
     {
         'name': 'custom',
         'action': function (decl, expr, context) {
@@ -239,7 +240,7 @@ The definition of a value directive has the following attributes:
     * `false`: allow further processing.
 
 #### Example
-```javascript
+```js
 // a value directive definition to replace the declaration value
 // triggered via: /*rtl: ... */
 {
@@ -294,7 +295,7 @@ The definition of a property processor has the following attributes:
   ```
 
 #### Example
-```javascript
+```js
 {
   // match any CSS property ending in 'transition' or 'transition-property'
   'expr': /transition(-property)?$/i,
@@ -312,7 +313,7 @@ The definition of a property processor has the following attributes:
 
 The context object provides access to [postcss], current configuration and internal utilities.
 
-```javascript
+```js
 context = {
   // provides access to postcss
   'postcss': postcss,
