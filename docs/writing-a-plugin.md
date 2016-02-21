@@ -308,22 +308,6 @@ The definition of a property processor has the following attributes:
 
 
 ----------------
-
-## Context object
-
-The context object provides access to [postcss], current configuration and internal utilities.
-
-```js
-context = {
-  // provides access to postcss
-  'postcss': postcss,
-  // provides access to the current configuration
-  'config': configuration,
-  // provides access to utilities object
-  'util': util.configure(configuration)
-}
-```
-
 ## Metadata object
 
 The metadata object provides access to directive related information.
@@ -338,8 +322,21 @@ The metadata object provides access to directive related information.
 
 #### Remarks
   *<sup>1</sup> Self-closing [control directives](#control-directives) will have both `begin` and `end` set to `true`.
+  
+## Context object
 
+The context object provides access to [postcss], current configuration and internal utilities.
 
+```js
+context = {
+  // provides access to postcss
+  'postcss': postcss,
+  // provides access to the current configuration
+  'config': configuration,
+  // provides access to utilities object
+  'util': util.configure(configuration)
+}
+```
 
 [PostCSS]: https://github.com/postcss/postcss
 [PostCSS API]: https://github.com/postcss/postcss/blob/master/docs/api.md
