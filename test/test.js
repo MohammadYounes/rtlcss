@@ -767,6 +767,18 @@ var tests = {
          'input': 'div { transform: skewY(calc(((25%/2) * 10grad))); }',
          'reversable': false
        },
+       {
+         'should': 'Should mirror multiple transforms : translateX translateY Rotate',
+         'expected': 'div { transform: translateX(-50.25px) translateY(50.25px) rotate(-20.75deg); }',
+         'input': 'div { transform: translateX(50.25px) translateY(50.25px) rotate(20.75deg); }',
+         'reversable': true
+       },
+       {
+         'should': 'Should mirror multiple transforms with calc : translateX translateY Rotate',
+         'expected': 'div { transform: translateX(-ms-calc(-1*(((25%/2) * 10px)))) translateY(-moz-calc(((25%/2) * 10rad))) rotate(calc(-1*(((25%/2) * 10grad)))); }',
+         'input': 'div { transform: translateX(-ms-calc(((25%/2) * 10px))) translateY(-moz-calc(((25%/2) * 10rad))) rotate(calc(((25%/2) * 10grad))); }',
+         'reversable': false
+       }
   ],
   'RTLCSS (Options):': [
       {
