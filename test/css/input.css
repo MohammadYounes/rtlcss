@@ -3,6 +3,10 @@
 Preserves orignal formatting
 
  */
+/* declarations can exist inside atrules */
+@font-face {
+  font-family: 'Test font';
+}
 
 /* comment before rule */
 body/* comment after rule name */{
