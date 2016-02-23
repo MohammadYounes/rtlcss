@@ -1,6 +1,10 @@
+### 2.0.1 - 23 Feb. 2016
+  * Fixes a bug when having `decl` nodes inside `atrule`s and `autoRename` enabled.
+  * Fixes a bug in flipping multi-valued transforms.
+
 # 2.0.0 - 18 Feb. 2016
 
-  * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.  
+  * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
   * Suppor for strict auto renaming, Which ensures `autoRename` is applied only when a pair exists.
   * New directives:
     * `config`
@@ -22,12 +26,12 @@ Options and config settings have changed. However, you need not to worry about y
   * Updated Options:
     * `autoRename` new default is `false`.
     * `stringMap`:
-      * `priority` attribute to control maps execution order. 
+      * `priority` attribute to control maps execution order.
       * `exclusive` attributes, which determines if a map execution should stop iterating over other maps.
       * dropped 'west-east' map from the default map collection.
 
   * Removed Options:
-    * `enableLogging`, still warnings and errors are reported directly to postcss. 
+    * `enableLogging`, still warnings and errors are reported directly to postcss.
     * `minify`, it wasn't actual minification after all!
     * `swapLeftRightInUrl`, `swapLtrRtlInUrl` and `swapWestEastInUrl` in favor of `processUrls` option.
     * `preserveComments`, comments inside declaration values will always be preserved.
@@ -35,6 +39,11 @@ Options and config settings have changed. However, you need not to worry about y
 
   * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
 
+### v1.7.4 [23 Feb. 2016]
+  * Fixes a bug in flipping multiple transforms.
+
+### v1.7.3 [30 Jan. 2016]
+  * Fixes a bug in flipping N-Values containing comments.
 
 ### 1.7.2 - 30 Jan. 2016
   * Fixes a bug in flipping N-Values containing comments.
