@@ -62,5 +62,11 @@ module.exports = [
     'input': '.banner { background: 10px top url(ultra/bright.png) #00D repeat-y fixed; }',
     'reversable': true,
     'options': { 'processUrls': true, 'greedy': true }
+  },
+  {
+    'should': 'Should not flip hex colors ',
+    'expected': '.banner { background: #ff0; }',
+    'input': '.banner { background: #ff0; }',
+    'reversable': true
   }
 ]
