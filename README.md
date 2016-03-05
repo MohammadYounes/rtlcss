@@ -14,8 +14,8 @@
 RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
 
 ---
-| [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object) |
-|---------------------------|---------------------|-----------------------------|-------------|-----------------------------------|----------------------------|
+| [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object) | [:coffee::satisfied:](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC)|
+|---------------------------|---------------------|-----------------------------|-------------|-----------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------|
 ---
 
 ## Introduction

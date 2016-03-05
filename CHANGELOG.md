@@ -1,3 +1,6 @@
+### 2.0.2 - 05 Mar. 2016
+  * Fixes a bug in flipping background with a hex color value (Fixes [#60](https://github.com/MohammadYounes/rtlcss/issues/60)).
+  
 ### 2.0.1 - 23 Feb. 2016
   * Fixes a bug when having `decl` nodes inside `atrule`s and `autoRename` enabled.
   * Fixes a bug in flipping multi-valued transforms.
@@ -39,10 +42,10 @@ Options and config settings have changed. However, you need not to worry about y
 
   * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
 
-### v1.7.4 [23 Feb. 2016]
+### v1.7.4 - 23 Feb. 2016
   * Fixes a bug in flipping multiple transforms.
 
-### v1.7.3 [30 Jan. 2016]
+### v1.7.3 - 30 Jan. 2016
   * Fixes a bug in flipping N-Values containing comments.
 
 ### 1.7.2 - 30 Jan. 2016
