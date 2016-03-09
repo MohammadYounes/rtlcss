@@ -147,7 +147,7 @@ Options and config settings have changed. However, you need not to worry about y
   * Fix flipping translate3d.
   * Update flipping background horizontal position to treat 0 as 0%
 
-## 0.2.1 - 20 Mar. 2014
+### 0.2.1 - 20 Mar. 2014
   * Upgrade to [POSTCSS] v0.3.4
 
 ## 0.2.0 - 20 Mar. 2014
@@ -155,12 +155,12 @@ Options and config settings have changed. However, you need not to worry about y
   * Support rad, grad & turn angle units when flipping linear-gradient
   * Fix typo in config.js
 
-## 0.1.3 - 7 Mar. 2014
+### 0.1.3 - 7 Mar. 2014
   * Fix missing include in rules.js
 
-## 0.1.2 - 5 Mar. 2014
+### 0.1.2 - 5 Mar. 2014
   * New option: minify output CSS.
   * Updated README.md
 
-## 0.1.1 - 4 Mar. 2014
+### 0.1.1 - 4 Mar. 2014
   * Initial commit.
