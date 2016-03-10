@@ -29,8 +29,8 @@ Options and config settings have changed. However, you need not to worry about y
   * Updated Options:
     * `autoRename` new default is `false`.
     * `stringMap`:
-      * `priority` attribute to control maps execution order.
-      * `exclusive` attributes, which determines if a map execution should stop iterating over other maps.
+      * added `priority` attribute to control maps execution order.
+      * added `exclusive` attribute, which determines if a map execution should stop iterating over other maps.
       * dropped 'west-east' map from the default map collection.
 
   * Removed Options:
