@@ -70,7 +70,7 @@ The attributes are:
 
  These are triggered by matching CSS properties against processor `expr` attribute.
  ```js
- 'property': [
+ 'processors': [
     {
       // triggered via content property
       'expr': /content/i,
