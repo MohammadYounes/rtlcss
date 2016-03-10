@@ -67,7 +67,7 @@ The attributes are:
 
 * `processors` `{array}`
 
- An array of [declaration processors](#declaration-processors) where items are [declaration processor definition object](#declaration-processor-defintion-object).
+ An array of [declaration processors](#declaration-processors) where items are [declaration processor definition object](#declaration-processor-definition-object).
 
  These are triggered by matching CSS properties against processor `expr` attribute.
  ```js
