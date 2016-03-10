@@ -9,6 +9,7 @@ Add more functionality to RTLCSS, or even change it's entire behavior. In fact, 
 A plugin is an object, that defines the plugin properties :
 
 ```js
+// minimal plugin definition
 {
   'name': 'sample plugin',
   'priority': 100,
