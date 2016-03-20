@@ -14,7 +14,8 @@ var tests = {
   '# RTLCSS (Options):': require('./data/rtlcss-options.js'),
   '# RTLCSS (Directives):': require('./data/rtlcss-directives.js'),
   '# RTLCSS (String Map):': require('./data/rtlcss-stringMap.js'),
-  '# RTLCSS (Plugins):': require('./data/rtlcss-plugins.js')
+  '# RTLCSS (Plugins):': require('./data/rtlcss-plugins.js'),
+  '# Special:': require('./data/special.js')
 }
 var key
 for (key in tests) {
