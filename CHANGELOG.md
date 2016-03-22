@@ -1,3 +1,6 @@
+### 2.0.3 - 23 Mar. 2016
+  * Guard against flipping tokens, e.g: [shadows starting with a color function](https://github.com/MohammadYounes/rtlcss/blob/master/test/data/special.js#L2-L7).
+  
 ### 2.0.2 - 05 Mar. 2016
   * Fixes a bug in flipping background with a hex color value (Fixes [#60](https://github.com/MohammadYounes/rtlcss/issues/60)).
   
