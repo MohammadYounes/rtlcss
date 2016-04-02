@@ -67,15 +67,17 @@ Will be transformed into:
 
 ## Who's using RTLCSS
 
-* [AlertifyJS]  a javascript framework for developing pretty browser dialogs and notifications.
+* [AlertifyJS] a javascript framework for developing pretty browser dialogs and notifications.
+* [GlobaLeaks] a whistleblowing framework built using AngularJS, Bootstrap and Twisted.
 * [Semantic] a UI component library implemented using a set of specifications designed around natural language.
 * [WebEssentials2013] Web Essentials extends Visual Studio with a lot of new features that web developers have been missing for many years.
 * [WordPress] WordPress is web software you can use to create a beautiful website or blog.
 
-[Semantic]:http://www.semantic-ui.com/
 [AlertifyJS]:http://www.alertifyjs.com/
+[GlobaLeaks]:https://github.com/globaleaks/GlobaLeaks
+[Semantic]:http://www.semantic-ui.com/
 [WebEssentials2013]:http://vswebessentials.com
-[WordPress]:http://wordpress.org/
+[WordPress]:https://wordpress.org/
 
 
 # Install
