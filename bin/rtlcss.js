@@ -9,7 +9,7 @@ var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
-var input, output, directory, ext, config, currentErrorcode, arg
+var input, output, directory, ext, config, currentErrorcode, arg, exclude
 var args = process.argv.slice(2)
 var shouldBreak = false
 
@@ -85,7 +85,15 @@ while ((arg = args.shift())) {
       break
     case '-s':
     case '--silent':
-      console.log = console.info = console.warn = function () {}
+      console.info = console.warn = function () {}
+      break
+    case '-x':
+    case '--exclude':
+      exclude = args.shift().split(',').map(function(str) {
+        return str.trim()
+      }).filter(function(str) {
+        return str != '';
+      })
       break
     case '-':
     case '--stdin':
@@ -180,11 +188,11 @@ if (!shouldBreak) {
       }
       var i = 0
       ;(function next () {
-        var file = list[i++]
-        if (!file) {
+        var filename = list[i++]
+        if (!filename) {
           return done(null)
         }
-        file = dir + path.sep + file
+        file = dir + path.sep + filename
         fs.stat(file, function (err, stat) {
           if (err) {
             printError(err)
@@ -197,8 +205,9 @@ if (!shouldBreak) {
               }
             })
           } else {
-            // process only *.css
-            if (/\.(css)$/.test(file)) {
+            // process only *.css and ignore RTLed files
+            var patt = new RegExp('('+ext+')', 'gm');
+            if (/\.(css)$/.test(file) && !(patt.test(file)) && (exclude.indexOf(filename) < 0)) {
               // compute output directory
               var relativePath = path.relative(input, file).split(path.sep)
               relativePath.pop()
