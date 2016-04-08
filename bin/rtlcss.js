@@ -9,7 +9,7 @@ var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
-var input, output, directory, ext, config, exclude, currentErrorcode, arg
+var input, output, directory, ext, config, currentErrorcode, arg, exclude
 var args = process.argv.slice(2)
 var shouldBreak = false
 
@@ -187,11 +187,11 @@ if (!shouldBreak) {
       }
       var i = 0
       ;(function next () {
-        var file = list[i++]
-        if (!file) {
+        var filename = list[i++]
+        if (!filename) {
           return done(null)
         }
-        file = dir + path.sep + file
+        file = dir + path.sep + filename
         fs.stat(file, function (err, stat) {
           if (err) {
             printError(err)
