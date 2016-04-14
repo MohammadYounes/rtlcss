@@ -9,7 +9,7 @@ var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
-var input, output, directory, ext, config, currentErrorcode, arg, exclude
+var input, output, directory, ext, config, exclude, currentErrorcode, arg
 var args = process.argv.slice(2)
 var shouldBreak = false
 
@@ -187,11 +187,11 @@ if (!shouldBreak) {
       }
       var i = 0
       ;(function next () {
-        var filename = list[i++]
-        if (!filename) {
+        var file = list[i++]
+        if (!file) {
           return done(null)
         }
-        file = dir + path.sep + filename
+        file = dir + path.sep + file
         fs.stat(file, function (err, stat) {
           if (err) {
             printError(err)
@@ -205,7 +205,7 @@ if (!shouldBreak) {
             })
           } else {
             // process only *.css and ignore RTLed files
-            var patt = new RegExp('('+ext.replace('.', '\.')+')', 'gm')
+            var patt = new RegExp('('+escapeRegExp(ext)+')', 'gm')
             if (/\.(css)$/.test(file) && !(patt.test(file)) && (exclude.indexOf(path.basename(file)) < 0)) {
               // compute output directory
               var relativePath = path.relative(input, file).split(path.sep)
