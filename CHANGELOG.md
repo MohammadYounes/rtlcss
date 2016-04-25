@@ -1,3 +1,6 @@
+### 2.0.4 - 25 Apr. 2016
+  * Fixes a bug in flipping cursor value (Fixes [#68](https://github.com/MohammadYounes/rtlcss/issues/68)).
+
 ### 2.0.3 - 23 Mar. 2016
   * Guard against flipping tokens, e.g: [shadows starting with a color function](https://github.com/MohammadYounes/rtlcss/blob/master/test/data/special.js#L2-L7).
   
