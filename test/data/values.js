@@ -42,9 +42,9 @@ module.exports = [
     'reversable': true
   },
   {
-    'should': 'Should keep property value as is: cursor ns',
-    'expected': 'div { cursor:ns-resize; }',
-    'input': 'div { cursor:ns-resize; }',
+    'should': 'Should keep property value as is: cursor ew',
+    'expected': 'div { cursor:ew-resize; }',
+    'input': 'div { cursor:ew-resize; }',
     'reversable': false
   },
   {
