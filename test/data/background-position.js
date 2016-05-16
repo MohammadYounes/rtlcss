@@ -7,7 +7,7 @@ module.exports = [
   },
   {
     'should': 'Should complement percentage horizontal position with calc',
-    'expected': 'div {background-position:calc(100%-(30% + 50px)) 75%;}',
+    'expected': 'div {background-position:calc(100% - (30% + 50px)) 75%;}',
     'input': 'div {background-position:calc(30% + 50px) 75%;}',
     'reversable': false
   },
@@ -19,7 +19,7 @@ module.exports = [
   },
   {
     'should': 'Should complement percentage horizontal position with calc',
-    'expected': 'div {background-position:calc(100%-(30% + 50px)) calc(30% + 50px), 10.75% top;}',
+    'expected': 'div {background-position:calc(100% - (30% + 50px)) calc(30% + 50px), 10.75% top;}',
     'input': 'div {background-position:calc(30% + 50px) calc(30% + 50px), 89.25% top;}',
     'reversable': false
   },
@@ -49,7 +49,7 @@ module.exports = [
   },
   {
     'should': 'Should complement percentage with calc: position-x',
-    'expected': 'div {background-position-x:calc(100%-(30% + 50px)), -webkit-calc(100%-(30% + 50px));}',
+    'expected': 'div {background-position-x:calc(100% - (30% + 50px)), -webkit-calc(100% - (30% + 50px));}',
     'input': 'div {background-position-x:calc(30% + 50px), -webkit-calc(30% + 50px);}',
     'reversable': false
   },

@@ -13,7 +13,7 @@ module.exports = [
   },
   {
     'should': 'Should complement calc horizontal position',
-    'expected': '.banner { background: calc(100%-(19% + 2px)) top url(topbanner.png) #00D repeat-y fixed; }',
+    'expected': '.banner { background: calc(100% - (19% + 2px)) top url(topbanner.png) #00D repeat-y fixed; }',
     'input': '.banner { background: calc(19% + 2px) top url(topbanner.png) #00D repeat-y fixed; }',
     'reversable': false
   },
