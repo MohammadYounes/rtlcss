@@ -1,3 +1,6 @@
+### 2.0.5 - 17 May. 2016
+  * Fixes a bug in complementing calc values (Fixes [#71](https://github.com/MohammadYounes/rtlcss/issues/71)).
+  
 ### 2.0.4 - 25 Apr. 2016
   * Fixes a bug in flipping cursor value (Fixes [#68](https://github.com/MohammadYounes/rtlcss/issues/68)).
 
