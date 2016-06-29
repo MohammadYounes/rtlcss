@@ -11,12 +11,7 @@
 [![editor](https://img.shields.io/badge/editor-vscode-blue.svg)](https://code.visualstudio.com/)
 [![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
 
-RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
-
----
-| [Why RTLCSS](#why-rtlcss) | [Install](#install) | [Basic Usage](#basic-usage) | [CLI](#cli) | [Advanced Usage](#advanced-usage) | [Options](#options-object) | [:coffee::satisfied:](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC)|
-|---------------------------|---------------------|-----------------------------|-------------|-----------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------|
----
+RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL). 
 
 ## Documentation
 
@@ -33,6 +28,9 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 ## Release Notes
 
 To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
+
+
+[Support RTLCSS Development](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC)
 
 [PostCSS]: https://github.com/postcss/postcss
 [CLI documentaion]: docs/CLI.md
