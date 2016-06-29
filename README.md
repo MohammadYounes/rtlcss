@@ -29,9 +29,7 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
+## Support RTLCSS Development
 
-[Support RTLCSS Development](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC)
+Submit a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC) :)
 
-[PostCSS]: https://github.com/postcss/postcss
-[CLI documentaion]: docs/CLI.md
-[Writing an RTLCSS Plugin]: docs/writing-a-plugin.md
