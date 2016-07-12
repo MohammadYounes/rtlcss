@@ -1,3 +1,6 @@
+### 2.0.6 - 12 Jul. 2016
+  * README updates.
+
 ### 2.0.5 - 17 May. 2016
   * Fixes a bug in complementing calc values (Fixes [#71](https://github.com/MohammadYounes/rtlcss/issues/71)).
   
