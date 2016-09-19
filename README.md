@@ -1,5 +1,7 @@
 # RTLCSS
 
+[![Join the chat at https://gitter.im/MohammadYounes/rtlcss](https://badges.gitter.im/MohammadYounes/rtlcss.svg)](https://gitter.im/MohammadYounes/rtlcss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right"/>
 
 [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Frtlcss.svg)](http://badge.fury.io/gh/MohammadYounes%2Frtlcss)
