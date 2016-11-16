@@ -68,5 +68,17 @@ module.exports = [
     'expected': '.banner { background: #ff0; }',
     'input': '.banner { background: #ff0; }',
     'reversable': true
+  },
+  {
+    'should': 'Should treat 0 as 0% (url first)',
+    'expected': '.banner { background: url(topbanner.png) 100% top #00D repeat-y fixed; }',
+    'input': '.banner { background: url(topbanner.png) 0 top #00D repeat-y fixed; }',
+    'reversable': false
+  },
+  {
+    'should': 'Should complement calc horizontal position (url first)',
+    'expected': '.banner { background: url(topbanner.png) calc(100% - (19% + 2px)) top #00D repeat-y fixed; }',
+    'input': '.banner { background: url(topbanner.png) calc(19% + 2px) top #00D repeat-y fixed; }',
+    'reversable': false
   }
 ]
