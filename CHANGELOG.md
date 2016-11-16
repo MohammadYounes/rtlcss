@@ -1,3 +1,7 @@
+### 2.0.7 - 16 Nov. 2016
+  * Fixes a bug in flipping backgrounds having url placed first (Fixes [#84](https://github.com/MohammadYounes/rtlcss/issues/84)).
+  * Update `node.value` so changes will be picked up by other processors (Closes [#85](https://github.com/MohammadYounes/rtlcss/issues/85)).
+
 ### 2.0.6 - 12 Jul. 2016
   * README updates.
 
