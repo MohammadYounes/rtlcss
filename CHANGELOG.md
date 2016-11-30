@@ -1,3 +1,6 @@
+## 2.1.0 - 30 Nov. 2016
+  * Support CSS `background-position` edge offsets.
+
 ### 2.0.7 - 16 Nov. 2016
   * Fixes a bug in flipping backgrounds having url placed first (Fixes [#84](https://github.com/MohammadYounes/rtlcss/issues/84)).
   * Update `node.value` so changes will be picked up by other processors (Closes [#85](https://github.com/MohammadYounes/rtlcss/issues/85)).
