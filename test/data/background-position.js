@@ -24,13 +24,13 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should swap left with right',
+    'should': 'Should mirror background-position',
     'expected': 'div {background-position:right 75%, left top;}',
     'input': 'div {background-position:left 75%, right top;}',
     'reversable': true
   },
   {
-    'should': 'Should swap left with right wit calc',
+    'should': 'Should mirror background-position (calc)',
     'expected': 'div {background-position:right -ms-calc(30% + 50px), left top;}',
     'input': 'div {background-position:left -ms-calc(30% + 50px), right top;}',
     'reversable': true
@@ -54,15 +54,33 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should swap left with right: position-x',
+    'should': 'Should mirror position-x',
     'expected': 'div {background-position-x:right, left;}',
     'input': 'div {background-position-x:left, right;}',
     'reversable': true
   },
   {
+    'should': 'Should mirror position-x (calc)',
+    'expected': 'div {background-position-x:calc(100% - (30% + 50px)), calc(100% - (50px * 5));}',
+    'input': 'div {background-position-x:calc(30% + 50px), calc(50px * 5);}',
+    'reversable': false
+  },
+  {
     'should': 'Should keep as is: position-x',
     'expected': 'div {background-position-x:100px, 0px;}',
     'input': 'div {background-position-x:100px, 0px;}',
+    'reversable': true
+  },
+  {
+    'should': 'Should mirror background-position edge offsets (4 values)',
+    'expected': 'div {background-position: left 5px bottom 5px, bottom 15px right 15px;}',
+    'input': 'div {background-position: right 5px bottom 5px, bottom 15px left 15px;}',
+    'reversable': true
+  },
+  {
+    'should': 'Should mirror background-position edge offsets (3 values)',
+    'expected': 'div {background-position: left 5px bottom, top 15px right;}',
+    'input': 'div {background-position: right 5px bottom, top 15px left;}',
     'reversable': true
   }
 ]
