@@ -311,5 +311,98 @@ module.exports = [
     'input': '/*rtl:begin:options:{"autoRename":false}*/ .right { display:inline;} /*rtl:begin:options:{"autoRename":true, "greedy": true}*/.bright { display:inline;}/*rtl:end:options*//*rtl:end:options*/',
     'reversable': false,
     'options': { 'autoRename': true }
+  },
+  {
+    'should': 'Should ignore the target node (decl)',
+    'expected': `
+    .code {
+      direction:ltr;
+      text-align:left;
+      float: right;
+      text-align: left;
+    }
+    `,
+    'input': `
+    .code {
+      /*rtl:ignore*/
+      direction:ltr;
+      /*rtl:ignore*/
+      text-align:left;
+      /*rtl:ignore*/
+      float: right;
+      /*rtl:ignore*/
+      text-align: left;
+    }
+    `,
+    'reversable': false
+  },
+  {
+    'should': 'Should ignore the target node (rule)',
+    'expected': `
+      .example-1 {
+        text-align:right;
+        left:10px;
+      }
+      .example-2 {
+        left:10px;
+        text-align:right;
+      }
+      .example-3 {
+        right:10px;
+        text-align:left;
+      }
+    `,
+    'input': `
+      /*rtl:ignore*/
+      .example-1 {
+        text-align:right;
+        left:10px;
+      }
+      /*rtl:ignore*/
+      .example-2 {
+        left:10px;
+        text-align:right;
+      }
+      .example-3 {
+        left:10px;
+        text-align:right;
+      }
+    `,
+    'reversable': false
+  },
+  {
+    'should': 'Should ignore the target node (atrule)',
+    'expected': `
+      @media screen and (max-width: 568px) {
+        .example {
+          left:10px;
+          text-align:right;
+        }
+      }
+
+      @media screen and (max-width: 568px) {
+        .example {
+          right:10px;
+          text-align:left;
+        }
+      }
+    `,
+    'input': `
+      /*rtl:ignore*/
+      @media screen and (max-width: 568px) {
+        .example {
+          left:10px;
+          text-align:right;
+        }
+      }
+
+      @media screen and (max-width: 568px) {
+        .example {
+          left:10px;
+          text-align:right;
+        }
+      }
+    `,
+    'reversable': false
   }
 ]
