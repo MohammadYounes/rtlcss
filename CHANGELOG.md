@@ -1,3 +1,6 @@
+## 2.1.1 - 28 Dec. 2016
+  * Fixes a bug in self closing ignore directive (Fixes [#88](https://github.com/MohammadYounes/rtlcss/issues/88)).
+
 ## 2.1.0 - 30 Nov. 2016
   * Support CSS `background-position` edge offsets.
 
