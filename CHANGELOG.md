@@ -1,3 +1,6 @@
+## 2.1.2 - 31 Dec. 2016
+  * Internal code update.
+
 ## 2.1.1 - 28 Dec. 2016
   * Fixes a bug in self closing ignore directive (Fixes [#88](https://github.com/MohammadYounes/rtlcss/issues/88)).
 
