@@ -33,7 +33,4 @@ To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
 ## Support RTLCSS Development
 
-Submit a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC) :)
-
-> If you get a message that I can't accept funds right now or I need to setup my account or something! You can send the donation directly to the email address mentioned in the donations page. 
-
+Submit a [donation](https://www.paypal.me/MohammadYounes) :)
