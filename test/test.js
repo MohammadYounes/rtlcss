@@ -15,6 +15,7 @@ var tests = {
   '# RTLCSS (Directives):': require('./data/rtlcss-directives.js'),
   '# RTLCSS (String Map):': require('./data/rtlcss-stringMap.js'),
   '# RTLCSS (Plugins):': require('./data/rtlcss-plugins.js'),
+  '# RTLCSS (Hooks):': require('./data/rtlcss-hooks.js'),
   '# Special:': require('./data/special.js')
 }
 var key
@@ -25,14 +26,14 @@ for (key in tests) {
       var item = group[i]
       ;(function (test) {
         it(test.should, function (done) {
-          assert.equal(rtlcss.process(test.input, test.options, test.plugins), test.expected)
+          assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
           done()
         })
       })(item)
       if (item.reversable) {
         (function (test) {
           it(test.should + ' <REVERESE>', function (done) {
-            assert.equal(rtlcss.process(test.expected, test.options, test.plugins), test.input)
+            assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
             done()
           })
         })(item)

@@ -238,26 +238,26 @@ module.exports = [
   },
   {
     'should': 'Should add raw css rules',
-    'expected': 'div {left:10px;text-align:right;} a {display:block;}',
-    'input': '/*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
+    'expected': 'div { left:10px;text-align:right;} a {display:block;}',
+    'input': '/*rtl:raw:div { left:10px;text-align:right;}*/ a {display:block;}',
     'reversable': false
   },
   {
     'should': 'Should add raw css declarations',
-    'expected': 'div { font-family:"Droid Kufi Arabic"; right:10px;text-align:left;}',
+    'expected': 'div { font-family: "Droid Kufi Arabic"; right:10px;text-align:left;}',
     'input': 'div { /*rtl:raw: font-family: "Droid Kufi Arabic";*/ left:10px;text-align:right;}',
     'reversable': false
   },
   {
     'should': 'Should add raw css (clean:false)',
-    'expected': 'div {left:10px;text-align:right;} /*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
-    'input': '/*rtl:raw: div { left:10px;text-align:right;}*/ a {display:block;}',
+    'expected': 'div { left:10px;text-align:right;} /*rtl:raw:div { left:10px;text-align:right;}*/ a {display:block;}',
+    'input': '/*rtl:raw:div { left:10px;text-align:right;}*/ a {display:block;}',
     'reversable': false,
     'options': { 'clean': false }
   },
   {
     'should': 'Should add raw css declarations (clean:false)',
-    'expected': 'div { font-family:"Droid Kufi Arabic"; /*rtl:raw: font-family: "Droid Kufi Arabic";*/ right:10px;text-align:left;}',
+    'expected': 'div { font-family: "Droid Kufi Arabic"; /*rtl:raw: font-family: "Droid Kufi Arabic";*/ right:10px;text-align:left;}',
     'input': 'div { /*rtl:raw: font-family: "Droid Kufi Arabic";*/ left:10px;text-align:right;}',
     'reversable': false,
     'options': { 'clean': false }

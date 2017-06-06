@@ -31,9 +31,6 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
-## Support RTLCSS Development
+## Support
 
-Submit a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YC28CZLKL4LMC) :)
-
-> If you get a message that I can't accept funds right now or I need to setup my account or something! You can send the donation directly to the email address mentioned in the donations page. 
-
+RTLCSS is saving you and your team a tremendous amount of time and effort?  [Buy Me a Coffee ☕](https://www.paypal.me/MohammadYounes)
