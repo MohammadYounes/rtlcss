@@ -1,3 +1,7 @@
+## 2.2.0 - 7 Jun. 2017
+  * Support for pre/post hooks.
+  * Upgrade to [POSTCSS] v6.x
+
 ## 2.1.2 - 31 Dec. 2016
   * Internal code update.
 

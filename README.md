@@ -31,6 +31,6 @@ Have a bug or a feature request? please feel free to [open a new issue](https://
 
 To view changes in recent versions, see the [CHANGELOG](CHANGELOG.md).
 
-## Support RTLCSS Development
+## Support
 
-Submit a [donation](https://www.paypal.me/MohammadYounes) :)
+RTLCSS is saving you and your team a tremendous amount of time and effort?  [Buy Me a Coffee ☕](https://www.paypal.me/MohammadYounes)
