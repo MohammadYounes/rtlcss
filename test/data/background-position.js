@@ -1,5 +1,17 @@
 module.exports = [
   {
+    'should': 'Should mirror position (keywords only)',
+    'expected': 'div {background-position:top left, right bottom}',
+    'input': 'div {background-position:top right, left bottom}',
+    'reversable': true
+  },
+  {
+    'should': 'Should ignore mirroring invalid position',
+    'expected': 'div {background-position:25% left, right 25%;}',
+    'input': 'div {background-position:75% left, left 25%;}',
+    'reversable': true
+  },
+  {
     'should': 'Should complement percentage horizontal position ',
     'expected': 'div {background-position:100% 75%;}',
     'input': 'div {background-position:0 75%;}',
