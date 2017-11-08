@@ -1,3 +1,6 @@
+## 2.2.1 - 9 Nov. 2017
+  * Fixes a bug in flipping `background-position` having keywords only (Fixes [#107](https://github.com/MohammadYounes/rtlcss/issues/107)).
+
 ## 2.2.0 - 7 Jun. 2017
   * Support for pre/post hooks.
   * Upgrade to [POSTCSS] v6.x
