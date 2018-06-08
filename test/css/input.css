@@ -26,6 +26,18 @@ body/* comment after rule name */{
     border-left/*  comment after prop */: none;
 }
 
+/* should never process variables */
+:root {
+  --left-margin: 10px;
+  --brightest: blue;
+}
+
+div.variable-demo {
+  margin-left: var(--left-margin);
+  color: var(--brightest);
+}
+/* end: should never process variables */
+
 /* empty options forces defaults */
 /*rtl:begin:options: {}*/
 /* should not process urls - default */
