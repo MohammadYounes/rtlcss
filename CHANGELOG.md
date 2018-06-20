@@ -1,3 +1,7 @@
+## 2.4.0 - 20 Jun. 2018
+  * New Option:
+    * `useCalc` (default: `false`) to flip unit based `background-position` using `calc`. **Thanks @zoreet**
+
 ## 2.3.0 - 9 Jun. 2018
   * Skip processing CSS variables. **Thanks @danfooo**
 

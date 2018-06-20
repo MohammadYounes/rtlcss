@@ -121,7 +121,7 @@ module.exports = [
     'reversable': true
   },
   {
-    'should': 'Should flip background-position when expressed in units',
+    'should': 'Should flip background-position when expressed in units (useCalc:true)',
     'expected': 'div { background-position: calc(100% - 10px) 0 }',
     'input': 'div { background-position: 10px 0 }',
     'reversable': false,
