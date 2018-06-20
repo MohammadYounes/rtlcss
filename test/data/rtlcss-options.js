@@ -119,5 +119,12 @@ module.exports = [
     'expected': 'div { border-radius: 40.25px 10.5px /*comment*/ 10.75px 40.3px; }',
     'input': 'div { border-radius: 10.5px 40.25px /*comment*/ 40.3px 10.75px; }',
     'reversable': true
+  },
+  {
+    'should': 'Should flip background-position when expressed in units',
+    'expected': 'div { background-position: calc(100% - 10px) 0 }',
+    'input': 'div { background-position: 10px 0 }',
+    'reversable': false,
+    'options': { 'useCalc': true }
   }
 ]
