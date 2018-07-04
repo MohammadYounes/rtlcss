@@ -33,7 +33,7 @@ for (key in tests) {
       })(item)
       if (item.reversable) {
         (function (test) {
-          it(test.should + ' <REVERESE>', function (done) {
+          it(test.should + ' <REVERSED>', function (done) {
             assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
             done()
           })
