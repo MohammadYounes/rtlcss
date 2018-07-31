@@ -24,6 +24,12 @@ module.exports = [
     'reversable': true
   },
   {
+    'should': 'Should mirror keyword horizontal position (with value)',
+    'expected': '.banner { background: #00D url(topbanner.png) no-repeat top 50% left 16px; }',
+    'input': '.banner { background: #00D url(topbanner.png) no-repeat top 50% right 16px; }',
+    'reversable': true
+  },
+  {
     'should': 'Should not process string map in url (default)',
     'expected': '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
     'input': '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
