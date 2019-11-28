@@ -404,5 +404,29 @@ module.exports = [
       }
     `,
     'reversable': false
+  },
+  {
+    'should': 'Should ignore white spaces before value directive prefix',
+    'expected': ' div { direction:ltr; text-align:right;}',
+    'input': ' div { direction:ltr/*  rtl:ignore*/; text-align:left;}',
+    'reversable': false
+  },
+  {
+    'should': 'Should ignore white spaces before value directive perfix (!important comment)',
+    'expected': ' div { direction:ltr; text-align:right;}',
+    'input': ' div { direction:ltr/*  !rtl:ignore*/; text-align:left;}',
+    'reversable': false
+  },
+  {
+    'should': 'Should ignore white spaces before directive prefix (block-style) ',
+    'expected': ' div { direction:ltr; text-align:right;}',
+    'input': ' div {/*  rtl:begin:ignore*/ direction:ltr;/*  rtl:end:ignore*/ text-align:left;}',
+    'reversable': false
+  },
+  {
+    'should': 'Should ignore white spaces before directive prefix (block-style, !important comment) ',
+    'expected': ' div { direction:ltr; text-align:right;}',
+    'input': ' div {/*  !rtl:begin:ignore*/ direction:ltr;/*  ! rtl:end:ignore*/ text-align:left;}',
+    'reversable': false
   }
 ]
