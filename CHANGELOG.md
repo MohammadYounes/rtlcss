@@ -1,3 +1,6 @@
+## 2.4.1 - 28 Nov. 2019
+  * Ignore white spaces before directives prefix.
+
 ## 2.4.0 - 20 Jun. 2018
   * New Option:
     * `useCalc` (default: `false`) to flip unit based `background-position` using `calc`. **Thanks @zoreet**
