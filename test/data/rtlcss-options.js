@@ -122,8 +122,22 @@ module.exports = [
   },
   {
     'should': 'Should flip background-position when expressed in units (useCalc:true)',
-    'expected': 'div { background-position: calc(100% - 10px) 0 }',
-    'input': 'div { background-position: 10px 0 }',
+    'expected': 'div { background-position: calc(100% - 10px) 0; transform-origin:calc(100% - 0.5rem) 0; }',
+    'input': 'div { background-position: 10px 0; transform-origin:0.5rem 0; }',
+    'reversable': false,
+    'options': { 'useCalc': true }
+  },
+  {
+    'should': 'Should flip background-position-x when expressed in units (useCalc:true)',
+    'expected': 'div { background-position-x: calc(100% - 10px); }',
+    'input': 'div { background-position-x: 10px; }',
+    'reversable': false,
+    'options': { 'useCalc': true }
+  },
+  {
+    'should': 'Should flip transform-origin when expressed in units (useCalc:true)',
+    'expected': 'div { transform-origin:calc(100% - 0.5rem) 2rem; }',
+    'input': 'div { transform-origin:0.5rem 2rem; }',
     'reversable': false,
     'options': { 'useCalc': true }
   }
