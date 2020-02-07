@@ -2,7 +2,6 @@
 
 var path = require('path')
 var fs = require('fs')
-var sys = require('util')
 var chalk = require('chalk')
 var mkdirp = require('mkdirp')
 var postcss = require('postcss')
@@ -169,7 +168,7 @@ if (!shouldBreak) {
         fs.writeFile(savePath + '.map', result.map, 'utf8', function (err) { err && printError(err) })
       }
     } else {
-      sys.print(result.css)
+      console.log(result.css)
     }
   }
 
