@@ -6,7 +6,8 @@
         "clean": true,
         "greedy": false,
         "processUrls": false,
-        "stringMap":[]
+        "stringMap":[],
+        "useCalc":false
     },
     "plugins": [ ],
     "map": false
