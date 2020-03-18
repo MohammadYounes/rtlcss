@@ -28,7 +28,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "findup": "^0.1.5",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.3",
     "postcss": "^6.0.23",
     "strip-json-comments": "^2.0.0"
   },
