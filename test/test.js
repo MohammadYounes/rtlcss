@@ -11,6 +11,7 @@ var tests = {
   '# Values (N Value Syntax):': require('./data/values-n-syntax.js'),
   '# Transforms:': require('./data/transforms.js'),
   '# Transform Origin:': require('./data/transform-origin.js'),
+  '# Perspective Origin:': require('./data/perspective-origin.js'),
   '# RTLCSS (Options):': require('./data/rtlcss-options.js'),
   '# RTLCSS (Directives):': require('./data/rtlcss-directives.js'),
   '# RTLCSS (String Map):': require('./data/rtlcss-stringMap.js'),
