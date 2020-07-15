@@ -168,7 +168,7 @@ if (!shouldBreak) {
         fs.writeFile(savePath + '.map', result.map, 'utf8', function (err) { err && printError(err) })
       }
     } else {
-      console.log(result.css)
+      process.stdout.write(result.css + '\n')
     }
   }
 
