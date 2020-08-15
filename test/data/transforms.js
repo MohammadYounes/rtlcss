@@ -109,19 +109,19 @@ module.exports = [
   },
   {
     'should': 'Should mirror transform : rotate3d',
-    'expected': 'div { transform: rotate3d(10, -20.15, 10, -45.14deg); }',
+    'expected': 'div { transform: rotate3d(-10, 20.15, 10, -45.14deg); }',
     'input': 'div { transform: rotate3d(10, 20.15, 10, 45.14deg); }',
     'reversable': true
   },
   {
     'should': 'Should mirror transform (with no digits before dot): rotate3d',
-    'expected': 'div { transform: rotate3d(10, -20, 10, -0.14deg); }',
+    'expected': 'div { transform: rotate3d(-10, 20, 10, -0.14deg); }',
     'input': 'div { transform: rotate3d(10, 20, 10, .14deg); }',
     'reversable': false
   },
   {
     'should': 'Should mirror transform with calc: rotate3d',
-    'expected': 'div { transform: rotate3d(10, -20.15, 10, calc(-1*(((25%/2) * 10deg)))); }',
+    'expected': 'div { transform: rotate3d(-10, 20.15, 10, calc(-1*(((25%/2) * 10deg)))); }',
     'input': 'div { transform: rotate3d(10, 20.15, 10, calc(((25%/2) * 10deg))); }',
     'reversable': false
   },
@@ -138,14 +138,14 @@ module.exports = [
     'reversable': false
   },
   {
-    'should': 'Should not mirror transform : rotateY',
-    'expected': 'div { transform: rotateY(45deg); }',
+    'should': 'Should mirror transform : rotateY',
+    'expected': 'div { transform: rotateY(-45deg); }',
     'input': 'div { transform: rotateY(45deg); }',
     'reversable': false
   },
   {
-    'should': 'Should not mirror transform with calc: rotateY',
-    'expected': 'div { transform: rotateY(calc(((25%/2) * 10deg))); }',
+    'should': 'Should mirror transform with calc: rotateY',
+    'expected': 'div { transform: rotateY(calc(-1*(((25%/2) * 10deg)))); }',
     'input': 'div { transform: rotateY(calc(((25%/2) * 10deg))); }',
     'reversable': false
   },
