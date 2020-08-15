@@ -1,3 +1,9 @@
+## 2.6.0 - 15 Aug. 2020
+  * Support flipping `perspective-origin` ([#167](https://github.com/MohammadYounes/rtlcss/pull/167)).
+  * CLI: Fix empty output when `--silent` and `--stdin` flags are used together (Fixes [#170](https://github.com/MohammadYounes/rtlcss/issues/88)).
+  * Enable flipping `rotateY`.
+  * Fix flipping `rotate3d`.
+
 ## 2.5.0 - 08 Feb. 2020
   * `useCalc` to flip unit based `transform-origin`.
   * CLI: use `console.log` instead of the [deprecated](https://nodejs.org/docs/latest-v10.x/api/util.html#util_util_print_strings) `util.print`(issue #156).
