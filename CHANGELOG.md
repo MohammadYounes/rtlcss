@@ -1,3 +1,6 @@
+## 2.6.1 - 15 Oct. 2020
+  * Remove colors dependency from findup ([#177](https://github.com/MohammadYounes/rtlcss/pull/177)).
+
 ## 2.6.0 - 15 Aug. 2020
   * Support flipping `perspective-origin` ([#167](https://github.com/MohammadYounes/rtlcss/pull/167)).
   * CLI: Fix empty output when `--silent` and `--stdin` flags are used together (Fixes [#169](https://github.com/MohammadYounes/rtlcss/issues/169)).
