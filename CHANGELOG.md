@@ -1,3 +1,6 @@
+## 2.6.2 - 01 Dec. 2020
+  * Set input source to same file in raw directive  ([#180](https://github.com/MohammadYounes/rtlcss/issues/180)).
+
 ## 2.6.1 - 15 Oct. 2020
   * Remove colors dependency from findup ([#177](https://github.com/MohammadYounes/rtlcss/pull/177)).
 
