@@ -8,7 +8,7 @@ var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
 
-var input, output, directory, ext, config, currentErrorcode, arg
+var input, output, directory, ext, config, exclude, currentErrorcode, arg
 var args = process.argv.slice(2)
 var shouldBreak = false
 
@@ -86,6 +86,14 @@ while ((arg = args.shift())) {
     case '--silent':
       console.log = console.info = console.warn = function () {}
       break
+    case '-x':
+    case '--exclude':
+      exclude = args.shift().split(',').map( function (str) {
+        return str.trim()
+      }).filter( function (str) {
+        return str !== ''
+      })
+      break
     case '-':
     case '--stdin':
       input = '-'
@@ -108,7 +116,6 @@ while ((arg = args.shift())) {
 if (!shouldBreak) {
   if (!directory && !input) {
     printError('rtlcss: no input file')
-    console.log('')
     printHelp()
     shouldBreak = true
   }
@@ -196,8 +203,9 @@ if (!shouldBreak) {
               }
             })
           } else {
-            // process only *.css
-            if (/\.(css)$/.test(file)) {
+            // process only *.css and ignore RTLed files
+            var patt = new RegExp('('+escapeRegExp(ext)+')', 'gm')
+            if (/\.(css)$/.test(file) && !(patt.test(file)) && (exclude.indexOf(path.basename(file)) < 0)) {
               // compute output directory
               var relativePath = path.relative(input, file).split(path.sep)
               relativePath.pop()
