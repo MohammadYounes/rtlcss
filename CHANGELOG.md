@@ -1,3 +1,7 @@
+# 3.0.0 - 10 Dec. 2020
+  * Upgrade to [POSTCSS] 8.
+  * Dropped **Node.js 6.x, 8.x, 11.x, and 13.x** versions.
+
 ## 2.6.2 - 01 Dec. 2020
   * Set input source to same file in raw directive  ([#180](https://github.com/MohammadYounes/rtlcss/issues/180)).
 
@@ -222,3 +226,5 @@ Options and config settings have changed. However, you need not to worry about y
 
 ### 0.1.1 - 4 Mar. 2014
   * Initial commit.
+
+[POSTCSS]: https://postcss.org/

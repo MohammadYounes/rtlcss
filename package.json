@@ -1,7 +1,7 @@
 {
   "author": "Mohammad Younes",
   "name": "rtlcss",
-  "version": "2.6.2",
+  "version": "3.0.0",
   "description": "Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)",
   "homepage": "http://rtlcss.com/",
   "bugs": "https://github.com/MohammadYounes/rtlcss/issues?state=open",
@@ -26,15 +26,18 @@
     "rtlcss": "./bin/rtlcss.js"
   },
   "dependencies": {
-    "@choojs/findup": "^0.2.1",
-    "chalk": "^2.4.2",
-    "mkdirp": "^0.5.1",
-    "postcss": "^6.0.23",
-    "strip-json-comments": "^2.0.0"
+    "chalk": "^4.1.0",
+    "find-up": "^5.0.0",
+    "mkdirp": "^1.0.4",
+    "postcss": "^8.2.1",
+    "strip-json-comments": "^3.1.1"
   },
   "devDependencies": {
-    "mocha": "^5.0.0",
-    "standard": "^6.0.0"
+    "mocha": "^8.2.1",
+    "standard": "^16.0.3"
+  },
+  "peerDependencies": {
+    "postcss": "^8.2.1"
   },
   "scripts": {
     "lint": "standard && node ./lib/rtlcss.js",

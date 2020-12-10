@@ -1,8 +1,8 @@
 /* global describe */
 /* global it */
-var assert = require('assert')
-var rtlcss = require('../lib/rtlcss.js')
-var tests = {
+const assert = require('assert')
+const rtlcss = require('../lib/rtlcss.js')
+const tests = {
   '# Background:': require('./data/background.js'),
   '# Background Image:': require('./data/background-image.js'),
   '# Background Position:': require('./data/background-position.js'),
@@ -20,12 +20,11 @@ var tests = {
   '# Special:': require('./data/special.js'),
   '# Variables:': require('./data/variables.js')
 }
-var key
-for (key in tests) {
-  var group = tests[key]
+for (const key in tests) {
+  const group = tests[key]
   describe(key, function () {
-    for (var i = 0; i < group.length; i++) {
-      var item = group[i]
+    for (let i = 0; i < group.length; i++) {
+      const item = group[i]
       ;(function (test) {
         it(test.should, function (done) {
           assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
