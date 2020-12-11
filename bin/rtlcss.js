@@ -31,15 +31,15 @@ function printHelp () {
   console.log('')
   /*eslint-disable*/
   const options = [
-    'Option '       , 'Description ',
-    '--------------', '----------------------------------------------',
-    '-h,--help'     , 'Print help (this message) and exit.',
-    '-v,--version'  , 'Print version number and exit.',
-    '-c,--config'   , 'Path to configuration settings file.',
-    '- ,--stdin'    , 'Read from stdin stream.',
-    '-d,--dirctory' , 'Process all *.css files from input directory (recursive).',
-    '-e,--ext'      , 'Used with -d option to set the output files extension.\n\t\t Default: ".rtl.css".',
-    '-s,--silent'   , 'Silent mode, no warnings or errors are printed.'
+    'Option '         , 'Description ',
+    '--------------'  , '----------------------------------------------',
+    '-h, --help'      , 'Print help (this message) and exit.',
+    '-v, --version'   , 'Print version number and exit.',
+    '-c, --config'    , 'Path to configuration settings file.',
+    '- , --stdin'     , 'Read from stdin stream.',
+    '-d, --directory' , 'Process all *.css files from input directory (recursive).',
+    '-e, --ext'       , 'Used with -d option to set the output files extension.\n\t\t Default: ".rtl.css".',
+    '-s, --silent'    , 'Silent mode, no warnings or errors are printed.'
   ]
   /* eslint-enable */
   for (let x = 0; x < options.length; x++) {
