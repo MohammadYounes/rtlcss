@@ -3,7 +3,7 @@ Writing an RTLCSS Plugin
 
 ## Documentation
 
-Visit http://rtlcss.com/learn/extending-rtlcss/writing-a-plugin/
+Visit https://rtlcss.com/learn/extending-rtlcss/writing-a-plugin/
 
 ## Support RTLCSS Development
 
