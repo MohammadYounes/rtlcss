@@ -40,8 +40,11 @@
     "postcss": "^8.2.1"
   },
   "scripts": {
-    "lint": "standard && node ./lib/rtlcss.js",
-    "test": "npm run lint && mocha -R spec"
+    "main": "node ./lib/rtlcss.js",
+    "lint": "standard",
+    "lint:fix": "npm run lint -- --fix",
+    "mocha": "mocha -R spec",
+    "test": "npm run lint && npm run main && npm run mocha"
   },
   "main": "./lib/rtlcss.js"
 }
