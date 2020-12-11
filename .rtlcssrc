@@ -1,14 +1,14 @@
-﻿{
-    "options": {
-        "autoRename": false,
-        "autoRenameStrict": false,
-        "blacklist":{},
-        "clean": true,
-        "greedy": false,
-        "processUrls": false,
-        "stringMap":[],
-        "useCalc":false
-    },
-    "plugins": [ ],
-    "map": false
+{
+  "options": {
+    "autoRename": false,
+    "autoRenameStrict": false,
+    "blacklist": {},
+    "clean": true,
+    "greedy": false,
+    "processUrls": false,
+    "stringMap": [],
+    "useCalc": false
+  },
+  "plugins": [],
+  "map": false
 }
