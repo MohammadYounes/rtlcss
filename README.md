@@ -6,14 +6,14 @@
 
 [![GitHub version](https://img.shields.io/github/v/tag/MohammadYounes/rtlcss)](https://github.com/MohammadYounes/rtlcss/releases)
 [![npm version](https://img.shields.io/npm/v/rtlcss)](https://www.npmjs.com/package/rtlcss)
-[![Build Status](https://img.shields.io/travis/MohammadYounes/rtlcss/master)](https://travis-ci.org/MohammadYounes/rtlcss)
+[![Build Status](https://github.com/MohammadYounes/rtlcss/workflows/CI/badge.svg?branch=master)](https://github.com/MohammadYounes/rtlcss/actions?query=workflow%3ACI+branch%3Amaster)
 [![Dependencies](https://img.shields.io/david/MohammadYounes/rtlcss)](https://david-dm.org/MohammadYounes/rtlcss)
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-blue.svg)](https://standardjs.com/)
 [![editor](https://img.shields.io/badge/editor-vscode-blue.svg)](https://code.visualstudio.com/)
 [![Twitter](https://img.shields.io/badge/follow-%40rtlcss-blue.svg)](https://twitter.com/rtlcss)
 
-RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL). 
+RTLCSS is a framework for converting Left-To-Right (LTR) Cascading Style Sheets(CSS) to Right-To-Left (RTL).
 
 ## Documentation
 
