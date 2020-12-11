@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+'use strict'
 var path = require('path')
 var fs = require('fs')
 var chalk = require('chalk')
@@ -15,16 +16,16 @@ var shouldBreak = false
 
 process.on('exit', function () { process.reallyExit(currentErrorcode) })
 
-function printWarning () {
-  console.warn(chalk.yellow.apply(this, printWarning.arguments))
+function printWarning (...args) {
+  console.warn(chalk.yellow(...args))
 }
 
-function printInfo () {
-  console.info(chalk.green.apply(this, printInfo.arguments))
+function printInfo (...args) {
+  console.info(chalk.green(...args))
 }
 
-function printError () {
-  console.error(chalk.red.apply(this, printError.arguments))
+function printError (...args) {
+  console.error(chalk.red(...args))
 }
 
 function printHelp () {
