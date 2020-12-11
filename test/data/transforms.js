@@ -1,3 +1,4 @@
+'use strict'
 module.exports = [
   {
     should: 'Should mirror transform : matrix',

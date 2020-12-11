@@ -1,3 +1,4 @@
+'use strict'
 module.exports = [
   {
     should: 'Should treat 0 as 0%',

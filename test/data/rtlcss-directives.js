@@ -1,3 +1,4 @@
+'use strict'
 module.exports = [
   {
     should: 'Should auto rename selectors having no directional decl. unless forced to ignore. (autoRename:true)',

@@ -1,3 +1,4 @@
+'use strict'
 module.exports = [
   {
     should: 'Should not rename selectors unless a pair exits (autoRename:true,autoRenameStrict:true )',

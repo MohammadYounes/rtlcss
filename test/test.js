@@ -1,4 +1,5 @@
 /* eslint-env mocha */
+'use strict'
 const assert = require('assert')
 const rtlcss = require('..')
 const tests = {
