@@ -1,4 +1,5 @@
 /* eslint-env mocha */
+'use strict'
 const assert = require('assert')
 const spawn = require('child_process').spawn
 const fs = require('fs')
