@@ -46,5 +46,9 @@
     "mocha": "mocha -R spec",
     "test": "npm run lint && npm run main && npm run mocha"
   },
-  "main": "./lib/rtlcss.js"
+  "main": "./lib/rtlcss.js",
+  "files": [
+    "bin/*.js",
+    "lib/*.js"
+  ]
 }
