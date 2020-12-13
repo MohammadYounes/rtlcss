@@ -29,7 +29,7 @@ function printError () {
 function printHelp () {
   console.log('Usage: rtlcss [option option=parameter ...] [source] [destination]')
   console.log('')
-  /*eslint-disable*/
+  /* eslint-disable no-multi-spaces, comma-spacing */
   const options = [
     'Option '       , 'Description ',
     '--------------', '----------------------------------------------',
@@ -41,7 +41,7 @@ function printHelp () {
     '-e,--ext'      , 'Used with -d option to set the output files extension.\n\t\t Default: ".rtl.css".',
     '-s,--silent'   , 'Silent mode, no warnings or errors are printed.'
   ]
-  /* eslint-enable */
+  /* eslint-enable no-multi-spaces, comma-spacing */
   for (let x = 0; x < options.length; x++) {
     console.log(options[x++], '\t', options[x])
   }

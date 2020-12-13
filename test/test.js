@@ -1,5 +1,4 @@
-/* global describe */
-/* global it */
+/* eslint-env mocha */
 const assert = require('assert')
 const rtlcss = require('../lib/rtlcss.js')
 const tests = {
