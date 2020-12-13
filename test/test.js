@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 'use strict'
-const assert = require('assert')
+const assert = require('assert').strict
 const rtlcss = require('..')
 const tests = {
   '# Background:': require('./data/background.js'),
