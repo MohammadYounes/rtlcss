@@ -1,6 +1,4 @@
-/* global process */
-/* global describe */
-/* global it */
+/* eslint-env mocha */
 var assert = require('assert')
 var spawn = require('child_process').spawn
 var fs = require('fs')
