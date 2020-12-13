@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 'use strict'
-const assert = require('assert')
+const assert = require('assert').strict
 const spawn = require('child_process').spawn
 const fs = require('fs')
 const bin = require('../package.json').bin.rtlcss
