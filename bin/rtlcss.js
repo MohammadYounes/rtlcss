@@ -96,12 +96,10 @@ while ((arg = args.shift())) {
       if (arg[0] === '-') {
         printError('rtlcss: unknown option. ' + arg)
         shouldBreak = true
-      } else {
-        if (!input) {
-          input = path.resolve(arg)
-        } else if (!output) {
-          output = path.resolve(arg)
-        }
+      } else if (!input) {
+        input = path.resolve(arg)
+      } else if (!output) {
+        output = path.resolve(arg)
       }
       break
   }
