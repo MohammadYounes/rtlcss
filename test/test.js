@@ -21,24 +21,26 @@ const tests = {
   '# Variables:': require('./data/variables.js')
 }
 for (const key in tests) {
-  const group = tests[key]
-  describe(key, function () {
-    for (let i = 0; i < group.length; i++) {
-      const item = group[i]
+  if (Object.prototype.hasOwnProperty.call(tests, key)) {
+    const group = tests[key]
+    describe(key, function () {
+      for (let i = 0; i < group.length; i++) {
+        const item = group[i]
       ;(function (test) {
-        it(test.should, function (done) {
-          assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
-          done()
-        })
-      })(item)
-      if (item.reversable) {
-        (function (test) {
-          it(test.should + ' <REVERSED>', function (done) {
-            assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
+          it(test.should, function (done) {
+            assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
             done()
           })
         })(item)
+        if (item.reversable) {
+          (function (test) {
+            it(test.should + ' <REVERSED>', function (done) {
+              assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
+              done()
+            })
+          })(item)
+        }
       }
-    }
-  })
+    })
+  }
 }
