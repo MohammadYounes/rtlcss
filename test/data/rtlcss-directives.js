@@ -84,8 +84,8 @@ module.exports = [
   },
   {
     should: 'Should prepend value. (default)',
-    expected: 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
-    input: 'div { font-family: "Droid Sans", Tahoma/*rtl:prepend:"Droid Arabic Kufi", */; }',
+    expected: 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma }',
+    input: 'div { font-family: /*rtl:prepend:"Droid Arabic Kufi", */"Droid Sans", Tahoma }',
     reversable: false
   },
   {
@@ -97,8 +97,8 @@ module.exports = [
   },
   {
     should: 'Should prepend value (!important comment)',
-    expected: 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma; }',
-    input: 'div { font-family: "Droid Sans", Tahoma/*!rtl:prepend:"Droid Arabic Kufi", */; }',
+    expected: 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma!important; }',
+    input: 'div { font-family: "Droid Sans", Tahoma!important/*!rtl:prepend:"Droid Arabic Kufi", */; }',
     reversable: false
   },
   {
@@ -110,8 +110,8 @@ module.exports = [
   },
   {
     should: 'Should replace value.',
-    expected: 'div { font-family: "Droid Arabic Kufi"; }',
-    input: 'div { font-family: "Droid Sans", Tahoma/*rtl:"Droid Arabic Kufi"*/; }',
+    expected: 'div { font-family: "Droid Arabic Kufi" }',
+    input: 'div { font-family: /*rtl:"Droid Arabic Kufi"*/"Droid Sans", Tahoma }',
     reversable: false
   },
   {
@@ -136,8 +136,8 @@ module.exports = [
   },
   {
     should: 'Should append value. (default)',
-    expected: 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi"; }',
-    input: 'div { font-family: "Droid Sans", Tahoma/*rtl:append:, "Droid Arabic Kufi"*/; }',
+    expected: 'div { font-family: "Droid Sans", Tahoma, "Droid Arabic Kufi" }',
+    input: 'div { font-family: /*rtl:append:, "Droid Arabic Kufi"*/"Droid Sans", Tahoma }',
     reversable: false
   },
   {
@@ -162,8 +162,8 @@ module.exports = [
   },
   {
     should: 'Should insert value. (default)',
-    expected: 'div { font-family: "Droid Sans", "Droid Arabic Kufi", Tahoma; }',
-    input: 'div { font-family: "Droid Sans"/*rtl:insert:, "Droid Arabic Kufi"*/, Tahoma; }',
+    expected: 'div { font-family: "Droid Arabic Kufi", "Droid Sans", Tahoma }',
+    input: 'div { font-family: /*rtl:insert:"Droid Arabic Kufi", */"Droid Sans", Tahoma }',
     reversable: false
   },
   {
@@ -214,8 +214,8 @@ module.exports = [
   },
   {
     should: 'Should ignore flipping - decl. level (default)',
-    expected: 'div { left:10px;text-align:left;}',
-    input: 'div { left:10px/*rtl:ignore*/;text-align:right;}',
+    expected: 'div { left:10px;text-align:right}',
+    input: 'div { left:10px/*rtl:ignore*/;text-align:/*rtl:ignore*/right}',
     reversable: false
   },
   {
