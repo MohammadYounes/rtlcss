@@ -19,7 +19,8 @@ module.exports = [
             action: function (prop, value, cxt) {
               if (value === '"A"') {
                 return { prop, value: '"ABC"' }
-              } else if (value === '"ABC"') {
+              }
+              if (value === '"ABC"') {
                 return { prop, value: '"A"' }
               }
               return { prop, value: value }
