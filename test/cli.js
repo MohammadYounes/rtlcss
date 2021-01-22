@@ -20,7 +20,7 @@ const outputPath = './test/css/input.rtl.css'
 
 describe('# CLI', function () {
   it('Should succeed', function (done) {
-    runCommand('node', [bin, inputPath, '--config', configPath, '--silent', ''], function (err, resp) {
+    runCommand('node', [bin, inputPath, '--config', configPath, '--silent'], function (err, resp) {
       if (err) throw new Error(err)
       fs.readFile(expectedPath, 'utf-8', function (err, expected) {
         if (err) throw new Error(err)
