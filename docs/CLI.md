@@ -1,9 +1,8 @@
-RTLCSS CLI
-======
+# RTLCSS CLI
 
 ## Documentation
 
-Visit https://rtlcss.com/learn/usage-guide/cli/
+Visit <https://rtlcss.com/learn/usage-guide/cli/>
 
 ## Support RTLCSS Development
 
