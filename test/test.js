@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 const assert = require('assert')
-const rtlcss = require('../lib/rtlcss.js')
+const rtlcss = require('..')
 const tests = {
   '# Background:': require('./data/background.js'),
   '# Background Image:': require('./data/background-image.js'),
