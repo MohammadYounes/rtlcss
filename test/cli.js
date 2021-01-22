@@ -2,6 +2,7 @@
 const assert = require('assert')
 const spawn = require('child_process').spawn
 const fs = require('fs')
+const bin = require('../package.json').bin.rtlcss
 
 function runCommand (cmd, args, done) {
   const child = spawn(cmd, args)
@@ -19,7 +20,7 @@ const outputPath = './test/css/input.rtl.css'
 
 describe('# CLI', function () {
   it('Should succeed', function (done) {
-    runCommand('node', ['./bin/rtlcss.js', inputPath, '--config', configPath, '--silent', ''], function (err, resp) {
+    runCommand('node', [bin, inputPath, '--config', configPath, '--silent', ''], function (err, resp) {
       if (err) throw new Error(err)
       fs.readFile(expectedPath, 'utf-8', function (err, expected) {
         if (err) throw new Error(err)
