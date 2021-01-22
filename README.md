@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/MohammadYounes/rtlcss](https://img.shields.io/gitter/room/MohammadYounes/rtlcss?color=%2340aa8b)](https://gitter.im/MohammadYounes/rtlcss)
 
-<img style="margin:15px" title="RTL CSS" src="https://cloud.githubusercontent.com/assets/4712046/5889219/190f366a-a425-11e4-8ef5-8b5f60a9e903.png" align="right">
+<img style="margin:15px" title="RTLCSS" src="https://github.com/MohammadYounes/rtlcss/blob/master/.github/logo.png" align="right">
 
 [![GitHub version](https://img.shields.io/github/v/tag/MohammadYounes/rtlcss)](https://github.com/MohammadYounes/rtlcss/releases)
 [![npm version](https://img.shields.io/npm/v/rtlcss)](https://www.npmjs.com/package/rtlcss)
