@@ -1,3 +1,9 @@
+# 3.1.0 - 30 Jan. 2021
+  * Use `strict` mode across all files. **Thanks @XhmikosR**
+  * Allow value directives to be placed any where inside the declaration value.
+  * Handle value directives placed after `!important`.  
+  * Fix reading config file sources ([#209](https://github.com/MohammadYounes/rtlcss/issues/209)).
+
 # 3.0.0 - 10 Dec. 2020
   * Upgrade to [POSTCSS] 8.
   * Dropped **Node.js 6.x, 8.x, 11.x, and 13.x** versions.
