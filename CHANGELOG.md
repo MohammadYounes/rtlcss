@@ -4,7 +4,7 @@
 # 3.1.0 - 30 Jan. 2021
   * Use `strict` mode across all files. **Thanks @XhmikosR**
   * Decrease package size by around 6%. **Thanks @XhmikosR**
-  * Add gaurds against prototype pollution. **Thanks @XhmikosR**
+  * Add guards against prototype pollution. **Thanks @XhmikosR**
   * Allow value directives to be placed any where inside the declaration value.
   * Handle value directives placed after `!important`.  
   * Fix reading config file sources ([#209](https://github.com/MohammadYounes/rtlcss/issues/209)).
