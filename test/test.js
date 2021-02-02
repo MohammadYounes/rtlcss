@@ -18,7 +18,8 @@ const tests = {
   '# RTLCSS (Plugins):': require('./data/rtlcss-plugins.js'),
   '# RTLCSS (Hooks):': require('./data/rtlcss-hooks.js'),
   '# Special:': require('./data/special.js'),
-  '# Variables:': require('./data/variables.js')
+  '# Variables:': require('./data/variables.js'),
+  '# Regression': require('./data/regression.js')
 }
 for (const key in tests) {
   if (Object.prototype.hasOwnProperty.call(tests, key)) {
