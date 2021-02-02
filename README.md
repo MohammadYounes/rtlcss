@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/MohammadYounes/rtlcss](https://img.shields.io/gitter/room/MohammadYounes/rtlcss?color=%2340aa8b)](https://gitter.im/MohammadYounes/rtlcss)
 
-<img style="margin:15px" title="RTLCSS" src="https://github.com/MohammadYounes/rtlcss/blob/master/.github/logo.png" align="right">
+<img src="https://github.com/MohammadYounes/rtlcss/blob/master/.github/logo.svg" alt="" align="right" width="100" height="100" title="RTLCSS">
 
 [![GitHub version](https://img.shields.io/github/v/tag/MohammadYounes/rtlcss)](https://github.com/MohammadYounes/rtlcss/releases)
 [![npm version](https://img.shields.io/npm/v/rtlcss)](https://www.npmjs.com/package/rtlcss)
@@ -25,7 +25,7 @@ Visit <https://rtlcss.com/playground/>
 
 ## Bugs and Issues
 
-Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new) .
+Have a bug or a feature request? please feel free to [open a new issue](https://github.com/MohammadYounes/rtlcss/issues/new).
 
 ## Release Notes
 
