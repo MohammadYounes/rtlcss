@@ -1,3 +1,6 @@
+# 3.1.2 - 04 Feb. 2021
+* Update `README.md`.
+
 # 3.1.1 - 02 Feb. 2021
 
 * Fixes `TypeError` when placing value directive before `!important`. [#218](https://github.com/MohammadYounes/rtlcss/issues/218)
