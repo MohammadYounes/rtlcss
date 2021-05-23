@@ -1,3 +1,6 @@
+# 3.2.0 - 23 May. 2021
+* Add `aliases` option to support processing Custom Properties (CSS Variables). **Thanks @elchininet**
+
 # 3.1.2 - 04 Feb. 2021
 * Update `README.md`.
 
