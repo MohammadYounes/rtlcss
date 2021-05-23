@@ -7,7 +7,8 @@
     "greedy": false,
     "processUrls": false,
     "stringMap": [],
-    "useCalc": false
+    "useCalc": false,
+    "aliases":{}
   },
   "plugins": [],
   "map": false
