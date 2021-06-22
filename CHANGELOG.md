@@ -1,3 +1,5 @@
+# 3.2.1 - 22 Jun. 2021
+* Bump [glob-parent](https://github.com/gulpjs/glob-parent) from 5.1.1 to 5.1.2.
 # 3.2.0 - 23 May. 2021
 * Add `aliases` option to support processing Custom Properties (CSS Variables). **Thanks @elchininet**
 
