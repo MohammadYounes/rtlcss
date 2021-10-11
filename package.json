@@ -35,8 +35,8 @@
     "strip-json-comments": "^3.1.1"
   },
   "devDependencies": {
-    "mocha": "^8.2.1",
-    "standard": "^16.0.3"
+    "mocha": "^9.1.2",
+    "standard": "^16.0.4"
   },
   "peerDependencies": {
     "postcss": "^8.2.4"
