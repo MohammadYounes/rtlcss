@@ -6,6 +6,7 @@ const tests = {
   '# Background:': require('./data/background.js'),
   '# Background Image:': require('./data/background-image.js'),
   '# Background Position:': require('./data/background-position.js'),
+  '# Object Position:': require('./data/object-position.js'),
   '# Properties:': require('./data/properties.js'),
   '# Values:': require('./data/values.js'),
   '# Values (N Value Syntax):': require('./data/values-n-syntax.js'),
@@ -27,7 +28,7 @@ for (const key in tests) {
     describe(key, function () {
       for (let i = 0; i < group.length; i++) {
         const item = group[i]
-      ;(function (test) {
+        ;(function (test) {
           it(test.should, function (done) {
             assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
             done()

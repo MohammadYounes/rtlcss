@@ -8,11 +8,11 @@ module.exports = [
   },
   {
     should: 'Should not flip env(safe-area-inset-*) (processEnv:false)',
-    expected: `div { 
+    expected: `div {
       margin-right:env(safe-area-inset-left, 10px);
       padding:env(safe-area-inset-right, 20px);
     }`,
-    input: `div { 
+    input: `div {
       margin-left:env(safe-area-inset-left, 10px);
       padding:env(safe-area-inset-right, 20px);
     }`,
@@ -21,11 +21,11 @@ module.exports = [
   },
   {
     should: 'Should flip env(safe-area-inset-*) (1 value)',
-    expected: `div { 
+    expected: `div {
       margin-right:env(safe-area-inset-right, 10px);
       padding:env(safe-area-inset-left, 20px);
     }`,
-    input: `div { 
+    input: `div {
       margin-left:env(safe-area-inset-left, 10px);
       padding:env(safe-area-inset-right, 20px);
     }`,
@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     should: 'Should flip env(safe-area-inset-*) (n+1 values)',
-    expected: `div { 
+    expected: `div {
       padding:
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-right, 20px)
@@ -47,7 +47,7 @@ module.exports = [
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-left, 20px);
     }`,
-    input: `div { 
+    input: `div {
       padding:
         env(safe-area-inset-top, 0px)
         env(safe-area-inset-right, 10px)
@@ -65,7 +65,7 @@ module.exports = [
   },
   {
     should: 'Should ignore flipping env(SAFE-AREA-INSET-*) (case-sensitive)',
-    expected: `div { 
+    expected: `div {
       padding:
         env(SAFE-AREA-INSET-TOP, 0px)
         env(SAFE-AREA-INSET-LEFT, 20px)
@@ -73,7 +73,7 @@ module.exports = [
         env(SAFE-AREA-INSET-RIGHT, 10px);
       border-right-width: env(SAFE-AREA-INSET-LEFT, 40px);
     }`,
-    input: `div { 
+    input: `div {
       padding:
         env(SAFE-AREA-INSET-TOP, 0px)
         env(SAFE-AREA-INSET-RIGHT, 10px)
