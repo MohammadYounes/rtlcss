@@ -1,3 +1,6 @@
+# 3.4.0 - 18 Oct. 2021
+* Support flipping `object-position`.
+* Update dev. dependencies.
 # 3.3.0 - 08 Jul. 2021
 * Add `processEnv` option to support flipping agent-defined environment variables (`safe-area-inset-left`, `safe-area-inset-right`).
 
