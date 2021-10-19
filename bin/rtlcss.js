@@ -3,7 +3,6 @@
 'use strict'
 const path = require('path')
 const fs = require('fs')
-const mkdirp = require('mkdirp')
 const picocolors = require('picocolors')
 const postcss = require('postcss')
 const rtlcss = require('../lib/rtlcss')
@@ -209,7 +208,7 @@ if (!shouldBreak) {
               // create output directory if it does not exist
               const dirName = path.dirname(rtlFile)
               if (!fs.existsSync(dirName)) {
-                mkdirp.sync(dirName)
+                fs.mkdirSync(dirName, { recursive: true })
               }
 
               // read and process the file.
