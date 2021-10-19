@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should not process variables starting with direction',

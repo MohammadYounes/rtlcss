@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should mirror (x-offset: 0 means 0%)',

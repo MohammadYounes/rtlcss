@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should mirror property name: border-top-right-radius',

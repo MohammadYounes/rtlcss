@@ -1,19 +1,36 @@
 #!/usr/bin/env node
 
 'use strict'
+
 const path = require('path')
 const fs = require('fs')
 const picocolors = require('picocolors')
 const postcss = require('postcss')
-const rtlcss = require('../lib/rtlcss')
-const configLoader = require('../lib/config-loader')
+const rtlcss = require('../lib/rtlcss.js')
+const configLoader = require('../lib/config-loader.js')
 const { version, bugs } = require('../package.json')
+
+const HELP_TEXT = `Usage: rtlcss [option option=parameter ...] [source] [destination]
+
+Option           Description
+--------------   ----------------------------------------------
+-h,--help        Print help (this message) and exit.
+-v,--version     Print version number and exit.
+-c,--config      Path to configuration settings file.
+- ,--stdin       Read from stdin stream.
+-d,--directory   Process all *.css files from input directory (recursive).
+-e,--ext         Used with -d option to set the output files extension.
+                 Default: ".rtl.css".
+-s,--silent      Silent mode, no warnings or errors are printed.
+
+*If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}
+`
 
 let input, output, directory, ext, config, currentErrorcode, arg
 const args = process.argv.slice(2)
 let shouldBreak = false
 
-process.on('exit', function () { process.reallyExit(currentErrorcode) })
+process.on('exit', () => { process.reallyExit(currentErrorcode) })
 
 function printWarning (...args) {
   console.warn(picocolors.yellow(...args))
@@ -28,30 +45,12 @@ function printError (...args) {
 }
 
 function printHelp () {
-  console.log('Usage: rtlcss [option option=parameter ...] [source] [destination]')
-  console.log('')
-  /* eslint-disable no-multi-spaces, comma-spacing */
-  const options = [
-    'Option '       , 'Description ',
-    '--------------', '----------------------------------------------',
-    '-h,--help'     , 'Print help (this message) and exit.',
-    '-v,--version'  , 'Print version number and exit.',
-    '-c,--config'   , 'Path to configuration settings file.',
-    '- ,--stdin'    , 'Read from stdin stream.',
-    '-d,--directory', 'Process all *.css files from input directory (recursive).',
-    '-e,--ext'      , 'Used with -d option to set the output files extension.\n\t\t Default: ".rtl.css".',
-    '-s,--silent'   , 'Silent mode, no warnings or errors are printed.'
-  ]
-  /* eslint-enable no-multi-spaces, comma-spacing */
-  for (let x = 0; x < options.length; x++) {
-    console.log(options[x++], '\t', options[x])
-  }
-  console.log('')
-  console.log('*If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}')
-  console.log('')
-  printInfo('RTLCSS version: ' + version)
-  printInfo('Report issues to: ' + bugs.url)
+  console.log(HELP_TEXT)
+
+  printInfo(`RTLCSS version: ${version}`)
+  printInfo(`Report issues to: ${bugs.url}`)
 }
+
 while ((arg = args.shift())) {
   switch (arg) {
     case '-h':
@@ -61,7 +60,7 @@ while ((arg = args.shift())) {
       break
     case '-v':
     case '--version':
-      printInfo('rtlcss version: ' + version)
+      printInfo(`rtlcss version: ${version}`)
       shouldBreak = true
       break
     case '-c':
@@ -85,7 +84,7 @@ while ((arg = args.shift())) {
       break
     case '-s':
     case '--silent':
-      console.log = console.info = console.warn = function () {}
+      console.log = console.info = console.warn = () => {}
       break
     case '-':
     case '--stdin':
@@ -93,7 +92,7 @@ while ((arg = args.shift())) {
       break
     default:
       if (arg[0] === '-') {
-        printError('rtlcss: unknown option. ' + arg)
+        printError(`rtlcss: unknown option. ${arg}`)
         shouldBreak = true
       } else if (!input) {
         input = path.resolve(arg)
@@ -129,23 +128,26 @@ if (!shouldBreak) {
 if (!shouldBreak) {
   if (!output && input !== '-') {
     if (directory !== true) {
-      output = path.extname(input) ? input.replace(/\.[^.]*$/, function (ext) { return '.rtl' + ext }) : input + '.rtl'
+      output = path.extname(input) ? input.replace(/\.[^.]*$/, (ext) => `.rtl${ext}`) : `${input}.rtl`
     } else {
       output = input
     }
   }
 
-  const processCSSFile = function (e, data, outputName) {
-    if (e) {
-      printError('rtlcss: ' + e.message)
+  const processCSSFile = (error, data, outputName) => {
+    if (error) {
+      printError(`rtlcss: ${error.message}`)
       return
     }
+
     let result
     const opt = { map: false }
+
     if (input !== '-') {
       opt.from = input
       opt.to = output
     }
+
     if (!config) {
       printWarning('rtlcss: Warning! No config present, using defaults.')
       result = postcss([rtlcss]).process(data, opt)
@@ -153,6 +155,7 @@ if (!shouldBreak) {
       if ('map' in config === true && input !== '-') {
         opt.map = config.map
       }
+
       result = postcss([rtlcss.configure(config)]).process(data, opt)
     }
 
@@ -161,33 +164,42 @@ if (!shouldBreak) {
       if (directory !== true) {
         savePath = output
       }
+
       printInfo('Saving:', savePath)
-      fs.writeFile(savePath, result.css, 'utf8', function (err) { err && printError(err) })
+
+      fs.writeFile(savePath, result.css, 'utf8', (err) => {
+        if (err) printError(err)
+      })
+
       if (result.map) {
-        fs.writeFile(savePath + '.map', result.map, 'utf8', function (err) { err && printError(err) })
+        fs.writeFile(`${savePath}.map`, result.map, 'utf8', (err) => {
+          if (err) printError(err)
+        })
       }
     } else {
-      process.stdout.write(result.css + '\n')
+      process.stdout.write(`${result.css}\n`)
     }
   }
 
-  const walk = function (dir, done) {
-    fs.readdir(dir, function (error, list) {
+  const walk = (dir, done) => {
+    fs.readdir(dir, (error, list) => {
       if (error) {
         return done(error)
       }
-      let i = 0
-      ;(function next () {
+
+      let i = 0;
+      (function next () {
         let file = list[i++]
         if (!file) {
           return done(null)
         }
+
         file = dir + path.sep + file
-        fs.stat(file, function (err, stat) {
+        fs.stat(file, (err, stat) => {
           if (err) {
             printError(err)
           } else if (stat && stat.isDirectory()) {
-            walk(file, function (err) {
+            walk(file, (err) => {
               if (err) {
                 printError(err)
               } else {
@@ -195,14 +207,14 @@ if (!shouldBreak) {
               }
             })
           } else {
-            // process only *.css
+            // process only *.css files
             if (/\.(css)$/.test(file)) {
               // compute output directory
               const relativePath = path.relative(input, file).split(path.sep)
               relativePath.pop()
               relativePath.push(path.basename(file).replace('.css', ext || '.rtl.css'))
 
-              // set rtl file name
+              // set rtl filename
               const rtlFile = path.join(output, relativePath.join(path.sep))
 
               // create output directory if it does not exist
@@ -212,7 +224,7 @@ if (!shouldBreak) {
               }
 
               // read and process the file.
-              fs.readFile(file, 'utf8', function (e, data) {
+              fs.readFile(file, 'utf8', (e, data) => {
                 try {
                   processCSSFile(e, data, rtlFile)
                 } catch (e) {
@@ -221,6 +233,7 @@ if (!shouldBreak) {
                 }
               })
             }
+
             next()
           }
         })
@@ -230,13 +243,13 @@ if (!shouldBreak) {
 
   if (input !== '-') {
     if (directory !== true) {
-      fs.stat(input, function (error, stat) {
+      fs.stat(input, (error, stat) => {
         if (error) {
           printError(error)
         } else if (stat && stat.isDirectory()) {
-          printError('rtlcss: Input expected to be a file, use -d option to process a directory.')
+          printError('rtlcss: Input expected to be a file, use the -d option to process a directory.')
         } else {
-          fs.readFile(input, 'utf8', function (e, data) {
+          fs.readFile(input, 'utf8', (e, data) => {
             try {
               processCSSFile(e, data)
             } catch (e) {
@@ -247,9 +260,9 @@ if (!shouldBreak) {
         }
       })
     } else {
-      walk(input, function (error) {
+      walk(input, (error) => {
         if (error) {
-          printError('rtlcss: ' + error)
+          printError(`rtlcss: ${error}`)
         }
       })
     }
@@ -258,14 +271,14 @@ if (!shouldBreak) {
     process.stdin.setEncoding('utf8')
 
     let buffer = ''
-    process.stdin.on('data', function (data) {
+    process.stdin.on('data', (data) => {
       buffer += data
     })
-    process.on('SIGINT', function () {
+    process.on('SIGINT', () => {
       processCSSFile(false, buffer)
       process.exit()
     })
-    process.stdin.on('end', function () {
+    process.stdin.on('end', () => {
       processCSSFile(false, buffer)
     })
   }

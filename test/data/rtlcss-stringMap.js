@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should rename "left", "Left", "LEFT" (autoRename:true). ',
