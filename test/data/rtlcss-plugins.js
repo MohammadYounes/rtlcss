@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should support plugins',
@@ -16,14 +17,16 @@ module.exports = [
           {
             name: 'content',
             expr: /content/im,
-            action: function (prop, value, cxt) {
+            action (prop, value, cxt) {
               if (value === '"A"') {
                 return { prop, value: '"ABC"' }
               }
+
               if (value === '"ABC"') {
                 return { prop, value: '"A"' }
               }
-              return { prop, value: value }
+
+              return { prop, value }
             }
           }
         ]

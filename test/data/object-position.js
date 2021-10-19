@@ -1,4 +1,5 @@
 'use strict'
+
 module.exports = [
   {
     should: 'Should mirror object-position (keywords only)',

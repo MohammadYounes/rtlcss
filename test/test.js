@@ -1,7 +1,10 @@
 /* eslint-env mocha */
+
 'use strict'
+
 const assert = require('assert').strict
 const rtlcss = require('..')
+
 const tests = {
   '# Background:': require('./data/background.js'),
   '# Background Image:': require('./data/background-image.js'),
@@ -25,18 +28,18 @@ const tests = {
 for (const key in tests) {
   if (Object.prototype.hasOwnProperty.call(tests, key)) {
     const group = tests[key]
-    describe(key, function () {
-      for (let i = 0; i < group.length; i++) {
-        const item = group[i]
-        ;(function (test) {
-          it(test.should, function (done) {
+    describe(key, () => {
+      for (const item of group) {
+        ((test) => {
+          it(test.should, (done) => {
             assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
             done()
           })
         })(item)
+
         if (item.reversable) {
-          (function (test) {
-            it(test.should + ' <REVERSED>', function (done) {
+          ((test) => {
+            it(`${test.should} <REVERSED>`, (done) => {
               assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
               done()
             })
