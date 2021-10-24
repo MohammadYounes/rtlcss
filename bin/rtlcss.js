@@ -128,7 +128,8 @@ if (!shouldBreak) {
 if (!shouldBreak) {
   if (!output && input !== '-') {
     if (directory !== true) {
-      output = path.extname(input) ? input.replace(/\.[^.]*$/, (ext) => `.rtl${ext}`) : `${input}.rtl`
+      const extension = path.extname(input)
+      output = extension ? input.replace(extension, `.rtl${extension}`) : `${input}.rtl`
     } else {
       output = input
     }
@@ -167,12 +168,12 @@ if (!shouldBreak) {
 
       printInfo('Saving:', savePath)
 
-      fs.writeFile(savePath, result.css, 'utf8', (err) => {
+      fs.writeFile(savePath, result.css, (err) => {
         if (err) printError(err)
       })
 
       if (result.map) {
-        fs.writeFile(`${savePath}.map`, result.map, 'utf8', (err) => {
+        fs.writeFile(`${savePath}.map`, result.map, (err) => {
           if (err) printError(err)
         })
       }
@@ -208,7 +209,7 @@ if (!shouldBreak) {
             })
           } else {
             // process only *.css files
-            if (/\.(css)$/.test(file)) {
+            if (file.endsWith('.css')) {
               // compute output directory
               const relativePath = path.relative(input, file).split(path.sep)
               relativePath.pop()
