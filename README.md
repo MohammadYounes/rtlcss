@@ -6,7 +6,7 @@
 
 [![GitHub version](https://img.shields.io/github/v/tag/MohammadYounes/rtlcss)](https://github.com/MohammadYounes/rtlcss/releases)
 [![npm version](https://img.shields.io/npm/v/rtlcss)](https://www.npmjs.com/package/rtlcss)
-[![Build Status](https://img.shields.io/github/workflow/status/MohammadYounes/rtlcss/CI/master?label=CI)](https://github.com/MohammadYounes/rtlcss/actions?query=workflow%3ACI+branch%3Amaster)
+[![Build Status](https://img.shields.io/github/workflow/status/MohammadYounes/rtlcss/CI/master?label=CI&logo=github)](https://github.com/MohammadYounes/rtlcss/actions?query=workflow%3ACI+branch%3Amaster)
 [![Dependencies](https://img.shields.io/david/MohammadYounes/rtlcss)](https://david-dm.org/MohammadYounes/rtlcss)
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-blue)](https://standardjs.com/)
