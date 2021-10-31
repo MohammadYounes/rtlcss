@@ -28,10 +28,10 @@
     "rtlcss": "./bin/rtlcss.js"
   },
   "dependencies": {
-    "chalk": "^4.1.2",
     "find-up": "^5.0.0",
     "mkdirp": "^1.0.4",
-    "postcss": "^8.3.11",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.0.0",
     "strip-json-comments": "^3.1.1"
   },
   "devDependencies": {
