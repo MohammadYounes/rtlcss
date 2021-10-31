@@ -3,8 +3,8 @@
 'use strict'
 const path = require('path')
 const fs = require('fs')
-const chalk = require('chalk')
 const mkdirp = require('mkdirp')
+const picocolors = require('picocolors')
 const postcss = require('postcss')
 const rtlcss = require('../lib/rtlcss')
 const configLoader = require('../lib/config-loader')
@@ -17,15 +17,15 @@ let shouldBreak = false
 process.on('exit', function () { process.reallyExit(currentErrorcode) })
 
 function printWarning (...args) {
-  console.warn(chalk.yellow(...args))
+  console.warn(picocolors.yellow(...args))
 }
 
 function printInfo (...args) {
-  console.info(chalk.green(...args))
+  console.info(picocolors.green(...args))
 }
 
 function printError (...args) {
-  console.error(chalk.red(...args))
+  console.error(picocolors.red(...args))
 }
 
 function printHelp () {
