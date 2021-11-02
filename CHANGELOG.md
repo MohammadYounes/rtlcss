@@ -1,3 +1,7 @@
+# 3.5.0 - 02 Nov. 2021
+* Update dependencies. **Thanks @XhmikosR**
+* Internal code cleanup/formatting. **Thanks @XhmikosR**
+
 # 3.4.0 - 18 Oct. 2021
 * Support flipping `object-position`.
 * Update dev. dependencies.
