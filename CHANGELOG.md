@@ -1,38 +1,47 @@
-# 3.5.0 - 02 Nov. 2021
+# RTLCSS Changelog
+
+## 3.5.0 - 02 Nov. 2021
+
 * Update dependencies. **Thanks @XhmikosR**
 * Internal code cleanup/formatting. **Thanks @XhmikosR**
 
-# 3.4.0 - 18 Oct. 2021
+## 3.4.0 - 18 Oct. 2021
+
 * Support flipping `object-position`.
-* Update dev. dependencies.
-# 3.3.0 - 08 Jul. 2021
+* Update devDependencies.
+
+## 3.3.0 - 08 Jul. 2021
+
 * Add `processEnv` option to support flipping agent-defined environment variables (`safe-area-inset-left`, `safe-area-inset-right`).
 
-# 3.2.1 - 22 Jun. 2021
+## 3.2.1 - 22 Jun. 2021
+
 * Bump [glob-parent](https://github.com/gulpjs/glob-parent) from 5.1.1 to 5.1.2.
 
-# 3.2.0 - 23 May. 2021
+## 3.2.0 - 23 May. 2021
+
 * Add `aliases` option to support processing Custom Properties (CSS Variables). **Thanks @elchininet**
 
-# 3.1.2 - 04 Feb. 2021
+## 3.1.2 - 04 Feb. 2021
+
 * Update `README.md`.
 
-# 3.1.1 - 02 Feb. 2021
+## 3.1.1 - 02 Feb. 2021
 
 * Fixes `TypeError` when placing value directive before `!important`. [#218](https://github.com/MohammadYounes/rtlcss/issues/218)
 
-# 3.1.0 - 30 Jan. 2021
+## 3.1.0 - 30 Jan. 2021
 
 * Use `strict` mode across all files. **Thanks @XhmikosR**
 * Decrease package size by around 6%. **Thanks @XhmikosR**
 * Add guards against prototype pollution. **Thanks @XhmikosR**
 * Allow value directives to be placed any where inside the declaration value.
-* Handle value directives placed after `!important`.  
+* Handle value directives placed after `!important`.
 * Fix reading config file sources ([#209](https://github.com/MohammadYounes/rtlcss/issues/209)).
 
-# 3.0.0 - 10 Dec. 2020
+## 3.0.0 - 10 Dec. 2020
 
-* Upgrade to [POSTCSS] 8.
+* Upgrade to [postcss] 8.
 * Dropped **Node.js 6.x, 8.x, 11.x, and 13.x** versions.
 
 ## 2.6.2 - 01 Dec. 2020
@@ -75,7 +84,7 @@
 ## 2.2.0 - 7 Jun. 2017
 
 * Support for pre/post hooks.
-* Upgrade to [POSTCSS] v6.x
+* Upgrade to [postcss] v6.x
 
 ## 2.1.2 - 31 Dec. 2016
 
@@ -83,46 +92,46 @@
 
 ## 2.1.1 - 28 Dec. 2016
 
-* Fixes a bug in self closing ignore directive (Fixes [#88](https://github.com/MohammadYounes/rtlcss/issues/88)).
+* Fixes a bug in self-closing ignore directive (Fixes [#88](https://github.com/MohammadYounes/rtlcss/issues/88)).
 
 ## 2.1.0 - 30 Nov. 2016
 
 * Support CSS `background-position` edge offsets.
 
-### 2.0.7 - 16 Nov. 2016
+## 2.0.7 - 16 Nov. 2016
 
-* Fixes a bug in flipping backgrounds having url placed first (Fixes [#84](https://github.com/MohammadYounes/rtlcss/issues/84)).
+* Fixes a bug in flipping backgrounds having URL placed first (Fixes [#84](https://github.com/MohammadYounes/rtlcss/issues/84)).
 * Update `node.value` so changes will be picked up by other processors (Closes [#85](https://github.com/MohammadYounes/rtlcss/issues/85)).
 
-### 2.0.6 - 12 Jul. 2016
+## 2.0.6 - 12 Jul. 2016
 
 * README updates.
 
-### 2.0.5 - 17 May. 2016
+## 2.0.5 - 17 May. 2016
 
-* Fixes a bug in complementing calc values (Fixes [#71](https://github.com/MohammadYounes/rtlcss/issues/71)).
-  
-### 2.0.4 - 25 Apr. 2016
+* Fixes a bug in complementing `calc` values (Fixes [#71](https://github.com/MohammadYounes/rtlcss/issues/71)).
+
+## 2.0.4 - 25 Apr. 2016
 
 * Fixes a bug in flipping cursor value (Fixes [#68](https://github.com/MohammadYounes/rtlcss/issues/68)).
 
-### 2.0.3 - 23 Mar. 2016
+## 2.0.3 - 23 Mar. 2016
 
 * Guard against flipping tokens, e.g: [shadows starting with a color function](https://github.com/MohammadYounes/rtlcss/blob/master/test/data/special.js#L2-L7).
-  
-### 2.0.2 - 05 Mar. 2016
+
+## 2.0.2 - 05 Mar. 2016
 
 * Fixes a bug in flipping background with a hex color value (Fixes [#60](https://github.com/MohammadYounes/rtlcss/issues/60)).
-  
-### 2.0.1 - 23 Feb. 2016
+
+## 2.0.1 - 23 Feb. 2016
 
 * Fixes a bug when having `decl` nodes inside `atrule`s and `autoRename` enabled.
 * Fixes a bug in flipping multi-valued transforms.
 
-# 2.0.0 - 18 Feb. 2016
+## 2.0.0 - 18 Feb. 2016
 
 * Support for control directive blocks, e.g. `/*rtl:begin:ignore*/ ... /*rtl:end:ignore*/`.
-* Support for strict auto renaming, Which ensures `autoRename` is applied only when a pair exists.
+* Support for strict auto renaming, which ensures `autoRename` is applied only when a pair exists.
 * New directives:
   * `config`
   * `options`
@@ -130,7 +139,7 @@
   * `remove`
 * Support for [Plugins](docs/writing-a-plugin.md).
 
-#### Upgrading from version 1.0
+### Upgrading from version 1.0
 
 Options and config settings have changed. However, you need not to worry about your CSS files as all directives are backward-compatible. This is a summary of what's changed:
 
@@ -145,7 +154,7 @@ Options and config settings have changed. However, you need not to worry about y
   * `stringMap`:
     * added `priority` attribute to control maps execution order.
     * added `exclusive` attribute, which determines if a map execution should stop iterating over other maps.
-    * dropped 'west-east' map from the default map collection.
+    * dropped `'west-east'` map from the default map collection.
 
 * Removed Options:
   * `enableLogging`, still warnings and errors are reported directly to postcss.
@@ -156,23 +165,23 @@ Options and config settings have changed. However, you need not to worry about y
 
 * Constructor arguments  `rules`, `declarations` and `properties` are now replaced with `plugins`.
 
-### v1.7.4 - 23 Feb. 2016
+## v1.7.4 - 23 Feb. 2016
 
 * Fixes a bug in flipping multiple transforms.
 
-### v1.7.3 - 30 Jan. 2016
+## v1.7.3 - 30 Jan. 2016
 
 * Fixes a bug in flipping N-Values containing comments.
 
-### 1.7.2 - 30 Jan. 2016
+## 1.7.2 - 30 Jan. 2016
 
 * Fixes a bug in flipping N-Values containing comments.
 
-### 1.7.2 - 04 Dec. 2015
+## 1.7.2 - 04 Dec. 2015
 
 * Fixes a compatibility issue with postcss-js (Fixes [#48](https://github.com/MohammadYounes/rtlcss/issues/48)).
 
-### 1.7.1 - 10 Nov. 2015
+## 1.7.1 - 10 Nov. 2015
 
 * Fixed a bug in flipping backgrounds having functions (Issue [#45](https://github.com/MohammadYounes/rtlcss/issues/45)).
 
@@ -182,16 +191,16 @@ Options and config settings have changed. However, you need not to worry about y
 * Mark rule as flipped when values are updated by decl. directives.
 * Allow further processing for rules that uses `rename` directive.
 
-### 1.6.3 - 28 Aug. 2015
+## 1.6.3 - 28 Aug. 2015
 
 * CLI: fix source map option (issue #40).
-* Upgrade to [POSTCSS] v5.0.x
+* Upgrade to [postcss] v5.0.x
 
-### 1.6.2 - 21 Jul. 2015
+## 1.6.2 - 21 Jul. 2015
 
 * CLI: fix loading custom configuration file manually via the --config flag. **Thanks @KeyKaKiTO**
 
-### 1.6.1 - 17 Mar. 2015
+## 1.6.1 - 17 Mar. 2015
 
 * Fixed flipping units having more than 1 digit before the decimal point.
 
@@ -199,11 +208,11 @@ Options and config settings have changed. However, you need not to worry about y
 
 * Support flipping `matrix3d` transform.
 
-### 1.5.2 - 28 Feb. 2015
+## 1.5.2 - 28 Feb. 2015
 
 * Fix flipping string maps containing regular expressions special characters (Fixes [#24](https://github.com/MohammadYounes/rtlcss/issues/24)).
 
-### 1.5.1 - 14 Feb. 2015
+## 1.5.1 - 14 Feb. 2015
 
 * Fix flipping multiple shadows when a hex color was used. **Thanks @ocean90**
 
@@ -211,23 +220,23 @@ Options and config settings have changed. However, you need not to worry about y
 
 * CLI: New option `-e,--ext` to set output files extension when processing a directory.
 
-### 1.4.3 - 24 Jan. 2015
+## 1.4.3 - 24 Jan. 2015
 
-* Upgrade to [POSTCSS] v4.0.x **Thanks @necolas**
+* Upgrade to [postcss] v4.0.x **Thanks @necolas**
 
-### 1.4.2 - 24 Oct. 2014
+## 1.4.2 - 24 Oct. 2014
 
 * CLI: Switch to Unix line endings (Fixes [#14](https://github.com/MohammadYounes/rtlcss/issues/14))
 
-### 1.4.1 - 24 Oct. 2014
+## 1.4.1 - 24 Oct. 2014
 
 * CLI: Print processing errors.
 
 ## 1.4.0 - 10 Oct. 2014
 
-* CLI: Support processing a directory. see [CLI documentation](https://github.com/MohammadYounes/rtlcss/blob/master/CLI.md#directory)
+* CLI: Support processing a directory. See [CLI documentation](https://github.com/MohammadYounes/rtlcss/blob/master/docs/CLI.md).
 
-### 1.3.1 - 29 Sep. 2014
+## 1.3.1 - 29 Sep. 2014
 
 * Update README.md (typos).
 
@@ -242,13 +251,13 @@ Options and config settings have changed. However, you need not to worry about y
 
 ## 1.1.0 - 26 Sep. 2014
 
-* Upgrade to [POSTCSS] v2.2.5
+* Upgrade to [postcss] v2.2.5
 * Support flipping `border-color`, `border-style` and `background-position-x`
 
-# 1.0.0 - 24 Aug. 2014
+## 1.0.0 - 24 Aug. 2014
 
-* Upgrade to [POSTCSS] v2.2.1
-* Support flipping urls in '@import' rule.
+* Upgrade to [postcss] v2.2.1
+* Support flipping urls in `@import` rule.
 * Fix JSON parse error when configuration file is UTF-8 encoded.
 * Better minification.
 
@@ -283,16 +292,16 @@ Options and config settings have changed. However, you need not to worry about y
 
 ## 0.3.0 - 5 Apr. 2014
 
-* Support flipping rotateZ.
-* Fix flipping rotate3d.
-* Fix flipping skew, skewX and skewY.
-* Fix flipping cursor value.
-* Fix flipping translate3d.
-* Update flipping background horizontal position to treat 0 as 0%
+* Support flipping `rotateZ`.
+* Fix flipping `rotate3d`.
+* Fix flipping `skew`, `skewX` and `skewY`.
+* Fix flipping `cursor` value.
+* Fix flipping `translate3d`.
+* Update flipping background horizontal position to treat `0` as `0%`
 
-### 0.2.1 - 20 Mar. 2014
+## 0.2.1 - 20 Mar. 2014
 
-* Upgrade to [POSTCSS] v0.3.4
+* Upgrade to [postcss] v0.3.4
 
 ## 0.2.0 - 20 Mar. 2014
 
@@ -300,17 +309,17 @@ Options and config settings have changed. However, you need not to worry about y
 * Support rad, grad & turn angle units when flipping linear-gradient
 * Fix typo in config.js
 
-### 0.1.3 - 7 Mar. 2014
+## 0.1.3 - 7 Mar. 2014
 
 * Fix missing include in rules.js
 
-### 0.1.2 - 5 Mar. 2014
+## 0.1.2 - 5 Mar. 2014
 
 * New option: minify output CSS.
 * Updated README.md
 
-### 0.1.1 - 4 Mar. 2014
+## 0.1.1 - 4 Mar. 2014
 
 * Initial commit.
 
-[POSTCSS]: https://postcss.org/
+[postcss]: https://postcss.org/
