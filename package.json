@@ -43,7 +43,8 @@
     "lint:fix": "npm run lint -- --fix",
     "mocha": "mocha -R spec",
     "mocha:special": "npm run mocha -- --fgrep \"# Special\"",
-    "test": "npm run lint && npm run main && npm run mocha"
+    "test": "npm run lint && npm run main && npm run mocha",
+    "test:ci": "npm run main && npm run mocha"
   },
   "main": "./lib/rtlcss.js",
   "files": [
