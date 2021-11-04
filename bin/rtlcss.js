@@ -51,6 +51,113 @@ function printHelp () {
   printInfo(`Report issues to: ${bugs.url}`)
 }
 
+function processCSSFile (error, data, outputName) {
+  if (error) {
+    printError(`rtlcss: ${error.message}`)
+    return
+  }
+
+  let result
+  const opt = { map: false }
+
+  if (input !== '-') {
+    opt.from = input
+    opt.to = output
+  }
+
+  if (!config) {
+    printWarning('rtlcss: Warning! No config present, using defaults.')
+    result = postcss([rtlcss]).process(data, opt)
+  } else {
+    if ('map' in config === true && input !== '-') {
+      opt.map = config.map
+    }
+
+    result = postcss([rtlcss.configure(config)]).process(data, opt)
+  }
+
+  if (output) {
+    let savePath = outputName
+    if (directory !== true) {
+      savePath = output
+    }
+
+    printInfo('Saving:', savePath)
+
+    fs.writeFile(savePath, result.css, (err) => {
+      if (err) printError(err)
+    })
+
+    if (result.map) {
+      fs.writeFile(`${savePath}.map`, result.map, (err) => {
+        if (err) printError(err)
+      })
+    }
+  } else {
+    process.stdout.write(`${result.css}\n`)
+  }
+}
+
+function walk (dir, done) {
+  fs.readdir(dir, (error, list) => {
+    if (error) {
+      return done(error)
+    }
+
+    let i = 0;
+    (function next () {
+      let file = list[i++]
+      if (!file) {
+        return done(null)
+      }
+
+      file = dir + path.sep + file
+      fs.stat(file, (err, stat) => {
+        if (err) {
+          printError(err)
+        } else if (stat && stat.isDirectory()) {
+          walk(file, (err) => {
+            if (err) {
+              printError(err)
+            } else {
+              next()
+            }
+          })
+        } else {
+          // process only *.css files
+          if (file.endsWith('.css')) {
+            // compute output directory
+            const relativePath = path.relative(input, file).split(path.sep)
+            relativePath.pop()
+            relativePath.push(path.basename(file).replace('.css', ext || '.rtl.css'))
+
+            // set rtl filename
+            const rtlFile = path.join(output, relativePath.join(path.sep))
+
+            // create output directory if it does not exist
+            const dirName = path.dirname(rtlFile)
+            if (!fs.existsSync(dirName)) {
+              fs.mkdirSync(dirName, { recursive: true })
+            }
+
+            // read and process the file.
+            fs.readFile(file, 'utf8', (e, data) => {
+              try {
+                processCSSFile(e, data, rtlFile)
+              } catch (e) {
+                printError('rtlcss: error processing file', file)
+                printError(e)
+              }
+            })
+          }
+
+          next()
+        }
+      })
+    })()
+  })
+}
+
 while ((arg = args.shift())) {
   switch (arg) {
     case '-h':
@@ -110,6 +217,7 @@ if (!shouldBreak) {
     printHelp()
     shouldBreak = true
   }
+
   if (!config && input !== '-') {
     try {
       let cwd = input
@@ -117,15 +225,13 @@ if (!shouldBreak) {
         cwd = path.dirname(input)
       }
       config = configLoader.load(null, cwd)
-    } catch (e) {
-      printError('rtlcss: invalid config file. ', e)
+    } catch (error) {
+      printError('rtlcss: invalid config file. ', error)
       currentErrorcode = 1
       shouldBreak = true
     }
   }
-}
 
-if (!shouldBreak) {
   if (!output && input !== '-') {
     if (directory !== true) {
       const extension = path.extname(input)
@@ -133,113 +239,6 @@ if (!shouldBreak) {
     } else {
       output = input
     }
-  }
-
-  const processCSSFile = (error, data, outputName) => {
-    if (error) {
-      printError(`rtlcss: ${error.message}`)
-      return
-    }
-
-    let result
-    const opt = { map: false }
-
-    if (input !== '-') {
-      opt.from = input
-      opt.to = output
-    }
-
-    if (!config) {
-      printWarning('rtlcss: Warning! No config present, using defaults.')
-      result = postcss([rtlcss]).process(data, opt)
-    } else {
-      if ('map' in config === true && input !== '-') {
-        opt.map = config.map
-      }
-
-      result = postcss([rtlcss.configure(config)]).process(data, opt)
-    }
-
-    if (output) {
-      let savePath = outputName
-      if (directory !== true) {
-        savePath = output
-      }
-
-      printInfo('Saving:', savePath)
-
-      fs.writeFile(savePath, result.css, (err) => {
-        if (err) printError(err)
-      })
-
-      if (result.map) {
-        fs.writeFile(`${savePath}.map`, result.map, (err) => {
-          if (err) printError(err)
-        })
-      }
-    } else {
-      process.stdout.write(`${result.css}\n`)
-    }
-  }
-
-  const walk = (dir, done) => {
-    fs.readdir(dir, (error, list) => {
-      if (error) {
-        return done(error)
-      }
-
-      let i = 0;
-      (function next () {
-        let file = list[i++]
-        if (!file) {
-          return done(null)
-        }
-
-        file = dir + path.sep + file
-        fs.stat(file, (err, stat) => {
-          if (err) {
-            printError(err)
-          } else if (stat && stat.isDirectory()) {
-            walk(file, (err) => {
-              if (err) {
-                printError(err)
-              } else {
-                next()
-              }
-            })
-          } else {
-            // process only *.css files
-            if (file.endsWith('.css')) {
-              // compute output directory
-              const relativePath = path.relative(input, file).split(path.sep)
-              relativePath.pop()
-              relativePath.push(path.basename(file).replace('.css', ext || '.rtl.css'))
-
-              // set rtl filename
-              const rtlFile = path.join(output, relativePath.join(path.sep))
-
-              // create output directory if it does not exist
-              const dirName = path.dirname(rtlFile)
-              if (!fs.existsSync(dirName)) {
-                fs.mkdirSync(dirName, { recursive: true })
-              }
-
-              // read and process the file.
-              fs.readFile(file, 'utf8', (e, data) => {
-                try {
-                  processCSSFile(e, data, rtlFile)
-                } catch (e) {
-                  printError('rtlcss: error processing file', file)
-                  printError(e)
-                }
-              })
-            }
-
-            next()
-          }
-        })
-      })()
-    })
   }
 
   if (input !== '-') {
@@ -250,12 +249,12 @@ if (!shouldBreak) {
         } else if (stat && stat.isDirectory()) {
           printError('rtlcss: Input expected to be a file, use the -d option to process a directory.')
         } else {
-          fs.readFile(input, 'utf8', (e, data) => {
+          fs.readFile(input, 'utf8', (err, data) => {
             try {
-              processCSSFile(e, data)
-            } catch (e) {
+              processCSSFile(err, data)
+            } catch (err) {
               printError('rtlcss: error processing file', input)
-              printError(e)
+              printError(err)
             }
           })
         }
