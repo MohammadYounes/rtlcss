@@ -2,12 +2,11 @@
 
 [![Join the chat at https://gitter.im/MohammadYounes/rtlcss](https://img.shields.io/gitter/room/MohammadYounes/rtlcss?color=%2340aa8b)](https://gitter.im/MohammadYounes/rtlcss)
 
-<img src="https://github.com/MohammadYounes/rtlcss/blob/master/.github/logo.svg" alt="" align="right" width="100" height="100" title="RTLCSS">
+<img src="https://github.com/MohammadYounes/rtlcss/blob/2.x/.github/logo.svg" alt="" align="right" width="100" height="100" title="RTLCSS">
 
 [![GitHub version](https://img.shields.io/github/v/tag/MohammadYounes/rtlcss)](https://github.com/MohammadYounes/rtlcss/releases)
 [![npm version](https://img.shields.io/npm/v/rtlcss)](https://www.npmjs.com/package/rtlcss)
-[![Build Status](https://github.com/MohammadYounes/rtlcss/workflows/CI/badge.svg?branch=master)](https://github.com/MohammadYounes/rtlcss/actions?query=workflow%3ACI+branch%3Amaster)
-[![Dependencies](https://img.shields.io/david/MohammadYounes/rtlcss)](https://david-dm.org/MohammadYounes/rtlcss)
+[![Build Status](https://github.com/MohammadYounes/rtlcss/workflows/CI/badge.svg?branch=2.x)](https://github.com/MohammadYounes/rtlcss/actions?query=workflow%3ACI+branch%3A2.x)
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-blue)](https://standardjs.com/)
 [![editor](https://img.shields.io/badge/editor-vscode-blue)](https://code.visualstudio.com/)
