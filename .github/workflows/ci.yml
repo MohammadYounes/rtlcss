@@ -34,4 +34,4 @@ jobs:
         if: matrix.node >= 8
 
       - name: Test
-        run: npm test
+        run: npm run mocha
