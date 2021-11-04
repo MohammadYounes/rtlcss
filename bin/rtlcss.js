@@ -158,59 +158,61 @@ function walk (dir, done) {
   })
 }
 
-while ((arg = args.shift())) {
-  switch (arg) {
-    case '-h':
-    case '--help':
-      printHelp()
-      shouldBreak = true
-      break
-    case '-v':
-    case '--version':
-      printInfo(`rtlcss version: ${version}`)
-      shouldBreak = true
-      break
-    case '-c':
-    case '--config':
-      arg = args.shift()
-      try {
-        config = configLoader.load(path.resolve(arg))
-      } catch (e) {
-        printError('rtlcss: invalid config file. ', e)
+function main () {
+  while ((arg = args.shift())) {
+    switch (arg) {
+      case '-h':
+      case '--help':
+        printHelp()
         shouldBreak = true
-        currentErrorcode = 1
-      }
-      break
-    case '-d':
-    case '--directory':
-      directory = true
-      break
-    case '-e':
-    case '--ext':
-      ext = args.shift()
-      break
-    case '-s':
-    case '--silent':
-      console.log = console.info = console.warn = () => {}
-      break
-    case '-':
-    case '--stdin':
-      input = '-'
-      break
-    default:
-      if (arg[0] === '-') {
-        printError(`rtlcss: unknown option. ${arg}`)
+        break
+      case '-v':
+      case '--version':
+        printInfo(`rtlcss version: ${version}`)
         shouldBreak = true
-      } else if (!input) {
-        input = path.resolve(arg)
-      } else if (!output) {
-        output = path.resolve(arg)
-      }
-      break
+        break
+      case '-c':
+      case '--config':
+        arg = args.shift()
+        try {
+          config = configLoader.load(path.resolve(arg))
+        } catch (e) {
+          printError('rtlcss: invalid config file. ', e)
+          shouldBreak = true
+          currentErrorcode = 1
+        }
+        break
+      case '-d':
+      case '--directory':
+        directory = true
+        break
+      case '-e':
+      case '--ext':
+        ext = args.shift()
+        break
+      case '-s':
+      case '--silent':
+        console.log = console.info = console.warn = () => {}
+        break
+      case '-':
+      case '--stdin':
+        input = '-'
+        break
+      default:
+        if (arg[0] === '-') {
+          printError(`rtlcss: unknown option. ${arg}`)
+          shouldBreak = true
+        } else if (!input) {
+          input = path.resolve(arg)
+        } else if (!output) {
+          output = path.resolve(arg)
+        }
+        break
+    }
   }
-}
 
-if (!shouldBreak) {
+  if (shouldBreak) return
+
   if (!directory && !input) {
     printError('rtlcss: no input file')
     console.log('')
@@ -283,3 +285,5 @@ if (!shouldBreak) {
     })
   }
 }
+
+main()
