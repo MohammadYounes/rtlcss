@@ -1,2 +1,2 @@
-bin/rtlcss.js text eol=lf
-test/css/*.css css eol=lf
+# Enforce Unix newlines
+* text=auto eol=lf
