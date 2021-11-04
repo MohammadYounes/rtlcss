@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-'use strict'
 var assert = require('assert')
 var rtlcss = require('../lib/rtlcss.js')
 var tests = {

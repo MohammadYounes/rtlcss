@@ -1,4 +1,3 @@
-'use strict'
 module.exports = [
   {
     'should': 'Should support plugins',
