@@ -7,6 +7,9 @@ var mkdirp = require('mkdirp')
 var postcss = require('postcss')
 var rtlcss = require('../lib/rtlcss')
 var configLoader = require('../lib/config-loader')
+var pkg = require('../package.json')
+var version = pkg.version
+var bugs = pkg.bugs
 
 var input, output, directory, ext, config, currentErrorcode, arg
 var args = process.argv.slice(2)
@@ -48,8 +51,8 @@ function printHelp () {
   console.log('')
   console.log('*If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}')
   console.log('')
-  printInfo('RTLCSS version: ' + require('../package.json').version)
-  printInfo('Report issues to: https://github.com/MohammadYounes/rtlcss/issues')
+  printInfo('RTLCSS version: ' + version)
+  printInfo('Report issues to: ' + bugs)
 }
 while ((arg = args.shift())) {
   switch (arg) {
@@ -60,7 +63,7 @@ while ((arg = args.shift())) {
       break
     case '-v':
     case '--version':
-      printInfo('rtlcss version: ' + require('../package.json').version)
+      printInfo('rtlcss version: ' + version)
       shouldBreak = true
       break
     case '-c':
