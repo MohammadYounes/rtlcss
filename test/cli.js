@@ -7,6 +7,11 @@ const { spawn } = require('child_process')
 const fs = require('fs')
 const bin = require('../package.json').bin.rtlcss
 
+const configPath = './test/css/config.json'
+const inputPath = './test/css/input.css'
+const expectedPath = './test/css/input.expected.css'
+const outputPath = './test/css/input.rtl.css'
+
 function runCommand (cmd, args, done) {
   const child = spawn(cmd, args)
   let resp = ''
@@ -16,14 +21,9 @@ function runCommand (cmd, args, done) {
   child.stdout.on('end', () => { done(err, resp) })
 }
 
-const configPath = './test/css/config.json'
-const inputPath = './test/css/input.css'
-const expectedPath = './test/css/input.expected.css'
-const outputPath = './test/css/input.rtl.css'
-
 describe('# CLI', () => {
   it('Should succeed', (done) => {
-    runCommand('node', [bin, inputPath, '--config', configPath, '--silent'], (err, resp) => {
+    runCommand('node', [bin, inputPath, '--config', configPath, '--silent'], (err) => {
       if (err) throw new Error(err)
       fs.readFile(expectedPath, 'utf-8', (err, expected) => {
         if (err) throw new Error(err)
