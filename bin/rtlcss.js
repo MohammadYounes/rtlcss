@@ -199,7 +199,9 @@ function main () {
           printError(`rtlcss: unknown option. ${arg}`)
           currentErrorcode = 1
           return
-        } else if (!input) {
+        }
+
+        if (!input) {
           input = path.resolve(arg)
         } else if (!output) {
           output = path.resolve(arg)
