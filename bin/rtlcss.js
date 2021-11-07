@@ -77,11 +77,7 @@ function processCSSFile (error, data, outputName) {
   }
 
   if (output) {
-    let savePath = outputName
-    if (directory !== true) {
-      savePath = output
-    }
-
+    const savePath = directory !== true ? output : outputName
     printInfo('Saving:', savePath)
 
     fs.writeFile(savePath, result.css, (err) => {
@@ -222,10 +218,7 @@ function main () {
 
   if (!config && input !== '-') {
     try {
-      let cwd = input
-      if (directory !== true) {
-        cwd = path.dirname(input)
-      }
+      const cwd = directory !== true ? path.dirname(input) : input
       config = configLoader.load(null, cwd)
     } catch (error) {
       printError('rtlcss: invalid config file. ', error)
