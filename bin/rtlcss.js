@@ -26,9 +26,9 @@ Option           Description
 *If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}
 `
 
-let input, output, directory, ext, config, currentErrorcode, arg
+let input, output, directory, ext, config
+let currentErrorcode = 0
 const args = process.argv.slice(2)
-let shouldBreak = false
 
 process.on('exit', () => { process.reallyExit(currentErrorcode) })
 
@@ -155,18 +155,17 @@ function walk (dir, done) {
 }
 
 function main () {
+  let arg
   while ((arg = args.shift())) {
     switch (arg) {
       case '-h':
       case '--help':
         printHelp()
-        shouldBreak = true
-        break
+        return
       case '-v':
       case '--version':
         printInfo(`rtlcss version: ${version}`)
-        shouldBreak = true
-        break
+        return
       case '-c':
       case '--config':
         arg = args.shift()
@@ -174,8 +173,8 @@ function main () {
           config = configLoader.load(path.resolve(arg))
         } catch (e) {
           printError('rtlcss: invalid config file. ', e)
-          shouldBreak = true
           currentErrorcode = 1
+          return
         }
         break
       case '-d':
@@ -197,7 +196,8 @@ function main () {
       default:
         if (arg[0] === '-') {
           printError(`rtlcss: unknown option. ${arg}`)
-          shouldBreak = true
+          currentErrorcode = 1
+          return
         } else if (!input) {
           input = path.resolve(arg)
         } else if (!output) {
@@ -207,13 +207,11 @@ function main () {
     }
   }
 
-  if (shouldBreak) return
-
   if (!directory && !input) {
-    printError('rtlcss: no input file')
-    console.log('')
+    printError('rtlcss: no input file\n')
     printHelp()
-    shouldBreak = true
+    currentErrorcode = 1
+    return
   }
 
   if (!config && input !== '-') {
@@ -223,7 +221,6 @@ function main () {
     } catch (error) {
       printError('rtlcss: invalid config file. ', error)
       currentErrorcode = 1
-      shouldBreak = true
     }
   }
 
