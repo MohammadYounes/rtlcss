@@ -27,6 +27,11 @@
   "bin": {
     "rtlcss": "./bin/rtlcss.js"
   },
+  "main": "./lib/rtlcss.js",
+  "files": [
+    "bin/*.js",
+    "lib/*.js"
+  ],
   "dependencies": {
     "find-up": "^5.0.0",
     "picocolors": "^1.0.0",
@@ -41,14 +46,17 @@
     "main": "node ./lib/rtlcss.js",
     "lint": "standard",
     "lint:fix": "npm run lint -- --fix",
-    "mocha": "mocha -R spec",
-    "mocha:special": "npm run mocha -- --fgrep \"# Special\"",
+    "mocha": "mocha",
+    "mocha:special": "mocha --fgrep \"# Special\"",
     "test": "npm run lint && npm run main && npm run mocha",
     "test:ci": "npm run main && npm run mocha"
   },
-  "main": "./lib/rtlcss.js",
-  "files": [
-    "bin/*.js",
-    "lib/*.js"
-  ]
+  "mocha": {
+    "check-leaks": true,
+    "reporter": "dot",
+    "throw-deprecation": true,
+    "trace-deprecation": true,
+    "trace-warnings": true,
+    "use_strict": true
+  }
 }
