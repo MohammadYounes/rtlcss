@@ -121,7 +121,7 @@ function walk (dir, done) {
           })
         } else {
           // process only *.css files
-          if (file.endsWith('.css')) {
+          if (path.extname(file) === '.css') {
             // compute output directory
             const relativePath = path.relative(input, file).split(path.sep)
             relativePath.pop()
