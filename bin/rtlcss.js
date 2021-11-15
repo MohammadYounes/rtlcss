@@ -107,7 +107,7 @@ function walk (dir, done) {
         return done(null)
       }
 
-      file = dir + path.sep + file
+      file = path.join(dir, file)
       fs.stat(file, (err, stat) => {
         if (err) {
           printError(err)
@@ -122,6 +122,7 @@ function walk (dir, done) {
         } else {
           // process only *.css files
           if (path.extname(file) === '.css') {
+            // TODO: this could probably be simplified
             // compute output directory
             const relativePath = path.relative(input, file).split(path.sep)
             relativePath.pop()
