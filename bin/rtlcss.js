@@ -142,7 +142,7 @@ function walk (dir, done) {
               try {
                 processCSSFile(e, data, rtlFile)
               } catch (e) {
-                printError('rtlcss: error processing file', file)
+                printError(`rtlcss: error processing file ${file}`)
                 printError(e)
               }
             })
@@ -173,7 +173,7 @@ function main () {
         try {
           config = configLoader.load(path.resolve(arg))
         } catch (e) {
-          printError('rtlcss: invalid config file. ', e)
+          printError(`rtlcss: invalid config file. ${e}`)
           currentErrorcode = 1
           return
         }
@@ -220,7 +220,7 @@ function main () {
       const cwd = directory !== true ? path.dirname(input) : input
       config = configLoader.load(null, cwd)
     } catch (error) {
-      printError('rtlcss: invalid config file. ', error)
+      printError(`rtlcss: invalid config file. ${error}`)
       currentErrorcode = 1
     }
   }
@@ -246,7 +246,7 @@ function main () {
             try {
               processCSSFile(err, data)
             } catch (err) {
-              printError('rtlcss: error processing file', input)
+              printError(`rtlcss: error processing file ${input}`)
               printError(err)
             }
           })
