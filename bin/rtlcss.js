@@ -26,9 +26,9 @@ Option           Description
 *If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}
 `
 
-let input, output, directory, ext, config, currentErrorcode, arg
+let input, output, directory, ext, config
+let currentErrorcode = 0
 const args = process.argv.slice(2)
-let shouldBreak = false
 
 process.on('exit', () => { process.reallyExit(currentErrorcode) })
 
@@ -51,81 +51,180 @@ function printHelp () {
   printInfo(`Report issues to: ${bugs.url}`)
 }
 
-while ((arg = args.shift())) {
-  switch (arg) {
-    case '-h':
-    case '--help':
-      printHelp()
-      shouldBreak = true
-      break
-    case '-v':
-    case '--version':
-      printInfo(`rtlcss version: ${version}`)
-      shouldBreak = true
-      break
-    case '-c':
-    case '--config':
-      arg = args.shift()
-      try {
-        config = configLoader.load(path.resolve(arg))
-      } catch (e) {
-        printError('rtlcss: invalid config file. ', e)
-        shouldBreak = true
-        currentErrorcode = 1
-      }
-      break
-    case '-d':
-    case '--directory':
-      directory = true
-      break
-    case '-e':
-    case '--ext':
-      ext = args.shift()
-      break
-    case '-s':
-    case '--silent':
-      console.log = console.info = console.warn = () => {}
-      break
-    case '-':
-    case '--stdin':
-      input = '-'
-      break
-    default:
-      if (arg[0] === '-') {
-        printError(`rtlcss: unknown option. ${arg}`)
-        shouldBreak = true
-      } else if (!input) {
-        input = path.resolve(arg)
-      } else if (!output) {
-        output = path.resolve(arg)
-      }
-      break
+function processCSSFile (error, data, outputName) {
+  if (error) {
+    printError(`rtlcss: ${error.message}`)
+    return
+  }
+
+  let result
+  const opt = { map: false }
+
+  if (input !== '-') {
+    opt.from = input
+    opt.to = output
+  }
+
+  if (!config) {
+    printWarning('rtlcss: Warning! No config present, using defaults.')
+    result = postcss([rtlcss]).process(data, opt)
+  } else {
+    if ('map' in config === true && input !== '-') {
+      opt.map = config.map
+    }
+
+    result = postcss([rtlcss.configure(config)]).process(data, opt)
+  }
+
+  if (output) {
+    const savePath = directory !== true ? output : outputName
+    printInfo('Saving:', savePath)
+
+    fs.writeFile(savePath, result.css, (err) => {
+      if (err) printError(err)
+    })
+
+    if (result.map) {
+      fs.writeFile(`${savePath}.map`, result.map, (err) => {
+        if (err) printError(err)
+      })
+    }
+  } else {
+    process.stdout.write(`${result.css}\n`)
   }
 }
 
-if (!shouldBreak) {
-  if (!directory && !input) {
-    printError('rtlcss: no input file')
-    console.log('')
-    printHelp()
-    shouldBreak = true
-  }
-  if (!config && input !== '-') {
-    try {
-      let cwd = input
-      if (directory !== true) {
-        cwd = path.dirname(input)
+function walk (dir, done) {
+  fs.readdir(dir, (error, list) => {
+    if (error) {
+      return done(error)
+    }
+
+    let i = 0;
+    (function next () {
+      let file = list[i++]
+      if (!file) {
+        return done(null)
       }
-      config = configLoader.load(null, cwd)
-    } catch (e) {
-      printError('rtlcss: invalid config file. ', e)
-      currentErrorcode = 1
-      shouldBreak = true
+
+      file = path.join(dir, file)
+      fs.stat(file, (err, stat) => {
+        if (err) {
+          printError(err)
+        } else if (stat && stat.isDirectory()) {
+          walk(file, (err) => {
+            if (err) {
+              printError(err)
+            } else {
+              next()
+            }
+          })
+        } else {
+          // process only *.css files
+          if (path.extname(file) === '.css') {
+            // TODO: this could probably be simplified
+            // compute output directory
+            const relativePath = path.relative(input, file).split(path.sep)
+            relativePath.pop()
+            relativePath.push(path.basename(file).replace('.css', ext || '.rtl.css'))
+
+            // set rtl filename
+            const rtlFile = path.join(output, relativePath.join(path.sep))
+
+            // create output directory if it does not exist
+            const dirName = path.dirname(rtlFile)
+            if (!fs.existsSync(dirName)) {
+              fs.mkdirSync(dirName, { recursive: true })
+            }
+
+            // read and process the file.
+            fs.readFile(file, 'utf8', (e, data) => {
+              try {
+                processCSSFile(e, data, rtlFile)
+              } catch (e) {
+                printError(`rtlcss: error processing file ${file}`)
+                printError(e)
+              }
+            })
+          }
+
+          next()
+        }
+      })
+    })()
+  })
+}
+
+function main () {
+  let arg
+  while ((arg = args.shift())) {
+    switch (arg) {
+      case '-h':
+      case '--help':
+        printHelp()
+        return
+      case '-v':
+      case '--version':
+        printInfo(`rtlcss version: ${version}`)
+        return
+      case '-c':
+      case '--config':
+        arg = args.shift()
+        try {
+          config = configLoader.load(path.resolve(arg))
+        } catch (e) {
+          printError(`rtlcss: invalid config file. ${e}`)
+          currentErrorcode = 1
+          return
+        }
+        break
+      case '-d':
+      case '--directory':
+        directory = true
+        break
+      case '-e':
+      case '--ext':
+        ext = args.shift()
+        break
+      case '-s':
+      case '--silent':
+        console.log = console.info = console.warn = () => {}
+        break
+      case '-':
+      case '--stdin':
+        input = '-'
+        break
+      default:
+        if (arg[0] === '-') {
+          printError(`rtlcss: unknown option. ${arg}`)
+          currentErrorcode = 1
+          return
+        } else if (!input) {
+          input = path.resolve(arg)
+        } else if (!output) {
+          output = path.resolve(arg)
+        }
+        break
     }
   }
-}
 
-if (!shouldBreak) {
+  if (!directory && !input) {
+    printError('rtlcss: no input file\n')
+    printHelp()
+    currentErrorcode = 1
+    return
+  }
+
+  if (!config && input !== '-') {
+    try {
+      const cwd = directory !== true ? path.dirname(input) : input
+      config = configLoader.load(null, cwd)
+    } catch (error) {
+      printError(`rtlcss: invalid config file. ${error}`)
+      currentErrorcode = 1
+    }
+  }
+
   if (!output && input !== '-') {
     if (directory !== true) {
       const extension = path.extname(input)
@@ -133,113 +232,6 @@ if (!shouldBreak) {
     } else {
       output = input
     }
-  }
-
-  const processCSSFile = (error, data, outputName) => {
-    if (error) {
-      printError(`rtlcss: ${error.message}`)
-      return
-    }
-
-    let result
-    const opt = { map: false }
-
-    if (input !== '-') {
-      opt.from = input
-      opt.to = output
-    }
-
-    if (!config) {
-      printWarning('rtlcss: Warning! No config present, using defaults.')
-      result = postcss([rtlcss]).process(data, opt)
-    } else {
-      if ('map' in config === true && input !== '-') {
-        opt.map = config.map
-      }
-
-      result = postcss([rtlcss.configure(config)]).process(data, opt)
-    }
-
-    if (output) {
-      let savePath = outputName
-      if (directory !== true) {
-        savePath = output
-      }
-
-      printInfo('Saving:', savePath)
-
-      fs.writeFile(savePath, result.css, (err) => {
-        if (err) printError(err)
-      })
-
-      if (result.map) {
-        fs.writeFile(`${savePath}.map`, result.map, (err) => {
-          if (err) printError(err)
-        })
-      }
-    } else {
-      process.stdout.write(`${result.css}\n`)
-    }
-  }
-
-  const walk = (dir, done) => {
-    fs.readdir(dir, (error, list) => {
-      if (error) {
-        return done(error)
-      }
-
-      let i = 0;
-      (function next () {
-        let file = list[i++]
-        if (!file) {
-          return done(null)
-        }
-
-        file = dir + path.sep + file
-        fs.stat(file, (err, stat) => {
-          if (err) {
-            printError(err)
-          } else if (stat && stat.isDirectory()) {
-            walk(file, (err) => {
-              if (err) {
-                printError(err)
-              } else {
-                next()
-              }
-            })
-          } else {
-            // process only *.css files
-            if (file.endsWith('.css')) {
-              // compute output directory
-              const relativePath = path.relative(input, file).split(path.sep)
-              relativePath.pop()
-              relativePath.push(path.basename(file).replace('.css', ext || '.rtl.css'))
-
-              // set rtl filename
-              const rtlFile = path.join(output, relativePath.join(path.sep))
-
-              // create output directory if it does not exist
-              const dirName = path.dirname(rtlFile)
-              if (!fs.existsSync(dirName)) {
-                fs.mkdirSync(dirName, { recursive: true })
-              }
-
-              // read and process the file.
-              fs.readFile(file, 'utf8', (e, data) => {
-                try {
-                  processCSSFile(e, data, rtlFile)
-                } catch (e) {
-                  printError('rtlcss: error processing file', file)
-                  printError(e)
-                }
-              })
-            }
-
-            next()
-          }
-        })
-      })()
-    })
   }
 
   if (input !== '-') {
@@ -250,12 +242,12 @@ if (!shouldBreak) {
         } else if (stat && stat.isDirectory()) {
           printError('rtlcss: Input expected to be a file, use the -d option to process a directory.')
         } else {
-          fs.readFile(input, 'utf8', (e, data) => {
+          fs.readFile(input, 'utf8', (err, data) => {
             try {
-              processCSSFile(e, data)
-            } catch (e) {
-              printError('rtlcss: error processing file', input)
-              printError(e)
+              processCSSFile(err, data)
+            } catch (err) {
+              printError(`rtlcss: error processing file ${input}`)
+              printError(err)
             }
           })
         }
@@ -284,3 +276,5 @@ if (!shouldBreak) {
     })
   }
 }
+
+main()
