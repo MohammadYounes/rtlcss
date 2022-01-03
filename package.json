@@ -35,7 +35,7 @@
   "dependencies": {
     "find-up": "^5.0.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.5",
     "strip-json-comments": "^3.1.1"
   },
   "devDependencies": {
