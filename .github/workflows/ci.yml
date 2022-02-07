@@ -6,7 +6,7 @@ env:
   FORCE_COLOR: 2
 
 jobs:
-  test:
+  run:
     name: Node ${{ matrix.node }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
 
@@ -35,20 +35,8 @@ jobs:
       - name: Test
         run: npm run coverage
 
-      - name: Run Coveralls Parallel
+      - name: Run Coveralls
         uses: coverallsapp/github-action@1.1.3
-        if: matrix.node == 16
+        if: matrix.node == 16 && matrix.os == 'ubuntu-latest'
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-          flag-name: run-${{ matrix.test_number }}
-          parallel: true
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true
