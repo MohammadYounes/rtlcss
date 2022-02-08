@@ -10,6 +10,8 @@ const rtlcss = require('../lib/rtlcss.js')
 const configLoader = require('../lib/config-loader.js')
 const { version, bugs } = require('../package.json')
 
+const fsP = fs.promises
+
 const HELP_TEXT = `Usage: rtlcss [option option=parameter ...] [source] [destination]
 
 Option           Description
@@ -80,12 +82,12 @@ function processCSSFile (error, data, outputName) {
     const savePath = directory !== true ? output : outputName
     printInfo('Saving:', savePath)
 
-    fs.writeFile(savePath, result.css, (err) => {
+    fsP.writeFile(savePath, result.css, (err) => {
       if (err) printError(err)
     })
 
     if (result.map) {
-      fs.writeFile(`${savePath}.map`, result.map, (err) => {
+      fsP.writeFile(`${savePath}.map`, result.map, (err) => {
         if (err) printError(err)
       })
     }
@@ -95,7 +97,7 @@ function processCSSFile (error, data, outputName) {
 }
 
 function walk (dir, done) {
-  fs.readdir(dir, (error, list) => {
+  fsP.readdir(dir, (error, list) => {
     if (error) {
       return done(error)
     }
@@ -108,7 +110,7 @@ function walk (dir, done) {
       }
 
       file = path.join(dir, file)
-      fs.stat(file, (err, stat) => {
+      fsP.stat(file, (err, stat) => {
         if (err) {
           printError(err)
         } else if (stat && stat.isDirectory()) {
@@ -138,7 +140,7 @@ function walk (dir, done) {
             }
 
             // read and process the file.
-            fs.readFile(file, 'utf8', (e, data) => {
+            fsP.readFile(file, 'utf8', (e, data) => {
               try {
                 processCSSFile(e, data, rtlFile)
               } catch (e) {
@@ -236,13 +238,13 @@ function main () {
 
   if (input !== '-') {
     if (directory !== true) {
-      fs.stat(input, (error, stat) => {
+      fsP.stat(input, (error, stat) => {
         if (error) {
           printError(error)
         } else if (stat && stat.isDirectory()) {
           printError('rtlcss: Input expected to be a file, use the -d option to process a directory.')
         } else {
-          fs.readFile(input, 'utf8', (err, data) => {
+          fsP.readFile(input, 'utf8', (err, data) => {
             try {
               processCSSFile(err, data)
             } catch (err) {

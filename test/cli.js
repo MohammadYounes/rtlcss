@@ -4,7 +4,7 @@
 
 const assert = require('assert').strict
 const { spawn } = require('child_process')
-const fs = require('fs')
+const fs = require('fs').promises
 const bin = require('../package.json').bin.rtlcss
 
 function runCommand (cmd, args, done) {
