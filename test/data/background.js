@@ -32,6 +32,18 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should mirror horizontal position expressed in length unit (one-value syntax)',
+    expected: '.banner { background: right 20px top 50% url(topbanner.png) #00D repeat-y fixed; }',
+    input: '.banner { background: 20px url(topbanner.png) #00D repeat-y fixed; }',
+    reversable: false
+  },
+  {
+    should: 'Should mirror horizontal position expressed in length unit (two-value syntax)',
+    expected: '.banner { background: right 20px top 30px url(topbanner.png) #00D repeat-y fixed; }',
+    input: '.banner { background: 20px 30px url(topbanner.png) #00D repeat-y fixed; }',
+    reversable: false
+  },
+  {
     should: 'Should not process string map in url (default)',
     expected: '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',
     input: '.banner { background: 10px top url(ltr-top-right-banner.png) #00D repeat-y fixed; }',

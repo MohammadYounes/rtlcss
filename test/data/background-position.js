@@ -14,9 +14,21 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should flip position expressed in length unit (one-value syntax)',
+    expected: 'div {background-position:right 10px top 50%}',
+    input: 'div {background-position:10px}',
+    reversable: false
+  },
+  {
+    should: 'Should flip position expressed in length unit (two-value syntax)',
+    expected: 'div {background-position:right 10px top 20px}',
+    input: 'div {background-position:10px 20px}',
+    reversable: false
+  },
+  {
     should: 'Should complement percentage horizontal position ',
-    expected: 'div {background-position:100% 75%;}',
-    input: 'div {background-position:0 75%;}',
+    expected: 'div {background-position:100% 75%, 64% 64%;}',
+    input: 'div {background-position:0 75%, 36% 64%;}',
     reversable: false
   },
   {

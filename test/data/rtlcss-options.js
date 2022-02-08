@@ -123,9 +123,9 @@ module.exports = [
     reversable: true
   },
   {
-    should: 'Should flip background-position when expressed in units (useCalc:true)',
-    expected: 'div { background-position: calc(100% - 10px) 0; transform-origin:calc(100% - 0.5rem) 0; }',
-    input: 'div { background-position: 10px 0; transform-origin:0.5rem 0; }',
+    should: 'Should flip transform-origin when expressed in units (useCalc:true)',
+    expected: 'div { transform-origin:calc(100% - 0.5rem) 0; }',
+    input: 'div { transform-origin:0.5rem 0; }',
     reversable: false,
     options: { useCalc: true }
   },
