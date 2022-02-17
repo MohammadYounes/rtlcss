@@ -1,0 +1,11 @@
+{
+  "include": [
+    "bin",
+    "lib"
+  ],
+  "reporter": [
+    "html",
+    "lcovonly",
+    "text"
+  ]
+}

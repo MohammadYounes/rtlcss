@@ -55,20 +55,5 @@
     "test": "npm run lint && npm run main && npm run mocha",
     "test:ci": "npm run main && npm run mocha",
     "coverage": "c8 npm run mocha"
-  },
-  "mocha": {
-    "check-leaks": true,
-    "reporter": "dot",
-    "throw-deprecation": true,
-    "trace-deprecation": true,
-    "trace-warnings": true,
-    "use_strict": true
-  },
-  "c8": {
-    "reporter": [
-      "html",
-      "lcov",
-      "text"
-    ]
   }
 }
