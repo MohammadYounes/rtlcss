@@ -26,6 +26,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should mirror property value: justify-content',
+    expected: 'div { justify-content:right; }',
+    input: 'div { justify-content:left; }',
+    reversable: true
+  },
+  {
     should: 'Should mirror property value: cursor nw',
     expected: 'div { cursor:nw-resize; }',
     input: 'div { cursor:ne-resize; }',
