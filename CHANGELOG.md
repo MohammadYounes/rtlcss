@@ -1,4 +1,9 @@
 # RTLCSS Changelog
+## 4.0.0 - 09 Aug. 2022
+
+* Update dependencies, Internal code refactoring, cleanup and optimizations. **Thanks @XhmikosR**
+* Support flipping `justify-content`, `justify-items` and `justify-self`. **Thanks @mbehzad**
+* Support flipping length position without using `calc` option.
 
 ## 3.5.0 - 02 Nov. 2021
 
