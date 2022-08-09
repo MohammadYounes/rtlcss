@@ -32,16 +32,16 @@ const args = process.argv.slice(2)
 
 process.on('exit', () => { process.reallyExit(currentErrorcode) })
 
-function printWarning (...args) {
-  console.warn(picocolors.yellow(...args))
+function printWarning(...args) {
+  args.forEach(a => console.warn(picocolors.yellow(a)))
 }
 
-function printInfo (...args) {
-  console.info(picocolors.green(...args))
+function printInfo(...args) {
+  args.forEach(a => console.info(picocolors.green(a)))
 }
 
-function printError (...args) {
-  console.error(picocolors.red(...args))
+function printError(...args) {
+  args.forEach(a => console.error(picocolors.red(a)))
 }
 
 function printHelp () {
