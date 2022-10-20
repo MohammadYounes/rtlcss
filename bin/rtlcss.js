@@ -26,8 +26,14 @@ Option           Description
 *If no destination is specified, output will be written to the same input folder as {source}.rtl.{ext}
 `
 
+const ErrorCodes = Object.freeze({
+  Ok : 0,
+  ArgumentError : 1,
+  ProcessingError : 2,
+})
+
 let input, output, directory, ext, config
-let currentErrorcode = 0
+let currentErrorcode = ErrorCodes.Ok
 const args = process.argv.slice(2)
 
 process.on('exit', () => { process.reallyExit(currentErrorcode) })
@@ -142,6 +148,7 @@ function walk (dir, done) {
               try {
                 processCSSFile(e, data, rtlFile)
               } catch (e) {
+                currentErrorcode = ErrorCodes.ProcessingError
                 printError(`rtlcss: error processing file ${file}`)
                 printError(e)
               }
@@ -174,7 +181,7 @@ function main () {
           config = configLoader.load(path.resolve(arg))
         } catch (e) {
           printError(`rtlcss: invalid config file. ${e}`)
-          currentErrorcode = 1
+          currentErrorcode = ErrorCodes.ArgumentError
           return
         }
         break
@@ -197,7 +204,7 @@ function main () {
       default:
         if (arg[0] === '-') {
           printError(`rtlcss: unknown option. ${arg}`)
-          currentErrorcode = 1
+          currentErrorcode = ErrorCodes.ArgumentError
           return
         }
 
@@ -213,7 +220,7 @@ function main () {
   if (!directory && !input) {
     printError('rtlcss: no input file\n')
     printHelp()
-    currentErrorcode = 1
+    currentErrorcode = ErrorCodes.ArgumentError
     return
   }
 
@@ -223,7 +230,7 @@ function main () {
       config = configLoader.load(null, cwd)
     } catch (error) {
       printError(`rtlcss: invalid config file. ${error}`)
-      currentErrorcode = 1
+      currentErrorcode = ErrorCodes.ArgumentError
     }
   }
 
@@ -248,6 +255,7 @@ function main () {
             try {
               processCSSFile(err, data)
             } catch (err) {
+              currentErrorcode = ErrorCodes.ProcessingError
               printError(`rtlcss: error processing file ${input}`)
               printError(err)
             }
