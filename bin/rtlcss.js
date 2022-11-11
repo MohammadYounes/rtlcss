@@ -27,9 +27,9 @@ Option           Description
 `
 
 const ErrorCodes = Object.freeze({
-  Ok : 0,
-  ArgumentError : 1,
-  ProcessingError : 2,
+  Ok: 0,
+  ArgumentError: 1,
+  ProcessingError: 2
 })
 
 let input, output, directory, ext, config
