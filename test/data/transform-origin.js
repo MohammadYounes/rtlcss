@@ -92,6 +92,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror x being center (x-offset-keyword y-offset)',
+    expected: 'div { transform-origin: center 30%; }',
+    input: 'div { transform-origin: center 30%; }',
+    reversable: true
+  },
+  {
     should: 'Should not mirror with x being calc (y-offset-keyword x-offset)',
     expected: 'div { transform-origin:top calc(100% - (((140%/2)))); }',
     input: 'div { transform-origin:top calc(((140%/2))); }',
