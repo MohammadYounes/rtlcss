@@ -14,11 +14,9 @@ const outputPath = './test/css/input.rtl.css'
 
 function runCommand (cmd, args, done) {
   const child = spawn(cmd, args)
-  let resp = ''
-  let err = ''
-  child.stderr.on('data', (error) => { err += error })
-  child.stdout.on('data', (buffer) => { resp += buffer.toString() })
-  child.stdout.on('end', () => { done(err, resp) })
+  let output = ''
+  child.stderr.on('data', (data) => { output += data })
+  child.stdout.on('end', () => { done(output) })
 }
 
 describe('# CLI', () => {
