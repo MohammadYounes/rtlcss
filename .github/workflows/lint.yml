@@ -2,13 +2,15 @@ name: Lint
 
 on:
   push:
-    branches-ignore:
-      - "dependabot/**"
+    branches:
+      - master
+      - "!dependabot/**"
   pull_request:
+  workflow_dispatch:
 
 env:
   FORCE_COLOR: 2
-  NODE: 16
+  NODE_LINT: 18
 
 jobs:
   lint:
@@ -21,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ env.NODE }}"
+          node-version: "${{ env.NODE_LINT }}"
           cache: npm
 
       - name: Install npm dependencies
