@@ -10,7 +10,9 @@ on:
 
 env:
   FORCE_COLOR: 2
-  NODE_COV: 18 # The Node.js version to run coveralls on
+
+permissions:
+  contents: read
 
 jobs:
   run:
@@ -26,6 +28,8 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -41,9 +45,3 @@ jobs:
 
       - name: Test
         run: npm run coverage
-
-      - name: Run Coveralls
-        uses: coverallsapp/github-action@v2
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == env.NODE_COV
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
