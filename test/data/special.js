@@ -83,5 +83,11 @@ module.exports = [
       border-left-width: env(SAFE-AREA-INSET-LEFT, 40px);
     }`,
     reversable: true
+  },
+  {
+    should: 'Should safeguard functions',
+    expected: 'div { transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); }',
+    input: 'div { transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); }',
+    reversable: true
   }
 ]
