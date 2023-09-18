@@ -1,5 +1,10 @@
 # RTLCSS Changelog
 
+## 4.1.1 - 18 Sep. 2023
+
+- Update mirroring `transform` to safeguard functions inside values.
+- Internal code refactoring. **Thanks @XhmikosR**
+
 ## 4.1.0 - 11 Apr. 2023
 
 - Update dependencies. **Thanks @XhmikosR**
