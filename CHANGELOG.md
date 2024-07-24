@@ -1,5 +1,9 @@
 # RTLCSS Changelog
 
+## 4.2.0 - 24 Jul. 2024
+
+- Add support for eight-value hex colors.
+
 ## 4.1.1 - 18 Sep. 2023
 
 - Update mirroring `transform` to safeguard functions inside values.
