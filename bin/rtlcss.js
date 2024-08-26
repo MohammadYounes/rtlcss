@@ -278,11 +278,23 @@ function main () {
       buffer += data
     })
     process.on('SIGINT', () => {
-      processCSSFile(false, buffer)
+      try {
+        processCSSFile(false, buffer)
+      } catch (e) {
+        currentErrorcode = ErrorCodes.ProcessingError
+        printError('rtlcss: error processing payload')
+        printError(e)
+      }
       process.exit()
     })
     process.stdin.on('end', () => {
-      processCSSFile(false, buffer)
+      try {
+        processCSSFile(false, buffer)
+      } catch (e) {
+        currentErrorcode = ErrorCodes.ProcessingError
+        printError('rtlcss: error processing payload')
+        printError(e)
+      }
     })
   }
 }
