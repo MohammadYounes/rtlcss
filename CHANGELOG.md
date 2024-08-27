@@ -1,5 +1,10 @@
 # RTLCSS Changelog
 
+## 4.3.0 - 27 Aug. 2024
+
+- Return an error code when the parsed CSS `stdin` is invalid. **Thanks @lade-odoo**
+
+
 ## 4.2.0 - 24 Jul. 2024
 
 - Add support for eight-value hex colors.
