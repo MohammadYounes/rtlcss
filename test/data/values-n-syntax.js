@@ -86,6 +86,24 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should mirror property value: inset',
+    expected: 'div { inset: 0 0 auto auto; }',
+    input: 'div { inset: 0 auto auto 0; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror property value: scroll-padding',
+    expected: 'div { scroll-padding: 0 80px 0 0; }',
+    input: 'div { scroll-padding: 0 0 0 80px; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror property value: scroll-margin',
+    expected: 'div { scroll-margin: 0 0 0 16px; }',
+    input: 'div { scroll-margin: 0 16px 0 0; }',
+    reversable: true
+  },
+  {
     should: 'Should mirror property value: box-shadow',
     expected: 'div { box-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
     input: 'div { box-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',

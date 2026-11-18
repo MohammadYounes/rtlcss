@@ -44,6 +44,24 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should mirror property value: place-content',
+    expected: 'div { place-content: center right; }',
+    input: 'div { place-content: center left; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror property value: place-items',
+    expected: 'div { place-items: start left; }',
+    input: 'div { place-items: start right; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror property value: place-self',
+    expected: 'div { place-self: center right; }',
+    input: 'div { place-self: center left; }',
+    reversable: true
+  },
+  {
     should: 'Should mirror property value: cursor nw',
     expected: 'div { cursor:nw-resize; }',
     input: 'div { cursor:ne-resize; }',
