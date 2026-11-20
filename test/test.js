@@ -2,6 +2,7 @@
 
 'use strict'
 
+const postcss = require('postcss')
 const assert = require('assert').strict
 const rtlcss = require('..')
 
@@ -23,14 +24,21 @@ const tests = {
   '# RTLCSS (Hooks):': require('./data/rtlcss-hooks.js'),
   '# Special:': require('./data/special.js'),
   '# Variables:': require('./data/variables.js'),
-  '# Regression:': require('./data/regression.js')
+  '# Regression:': require('./data/regression.js'),
+  '# Running RTLCSS as a postcss plugin after other plugins': require('./data/rtlcss-with-external-postcss-plugins.js')
 }
 for (const [key, group] of Object.entries(tests)) {
   describe(key, () => {
     for (const item of group) {
       ((test) => {
         it(test.should, (done) => {
-          assert.equal(rtlcss.process(test.input, test.options, test.plugins, test.hooks), test.expected)
+          const inputProcessed = postcss(
+            [
+              ...(test.postcssPlugin ? [test.postcssPlugin] : []),
+              rtlcss(test.options, test.plugins, test.hooks)
+            ]
+          ).process(test.input).css
+          assert.equal(inputProcessed, test.expected)
           done()
         })
       })(item)
@@ -38,7 +46,13 @@ for (const [key, group] of Object.entries(tests)) {
       if (item.reversable) {
         ((test) => {
           it(`${test.should} <REVERSED>`, (done) => {
-            assert.equal(rtlcss.process(test.expected, test.options, test.plugins, test.hooks), test.input)
+            const inputProcessed = postcss(
+              [
+                ...(test.postcssPlugin ? [test.postcssPlugin] : []),
+                rtlcss(test.options, test.plugins, test.hooks)
+              ]
+            ).process(test.expected).css
+            assert.equal(inputProcessed, test.input)
             done()
           })
         })(item)
