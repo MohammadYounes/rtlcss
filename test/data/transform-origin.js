@@ -98,6 +98,24 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should mirror (x-offset y-offset-keyword center)',
+    expected: 'div { transform-origin: 80% center; }',
+    input: 'div { transform-origin: 20% center; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror (x-offset 0 y-offset-keyword center)',
+    expected: 'div { transform-origin: 100% center; }',
+    input: 'div { transform-origin: 0 center; }',
+    reversable: false
+  },
+  {
+    should: 'Should mirror (x-offset y-offset-keyword center z-offset)',
+    expected: 'div { transform-origin: 75% center 10px; }',
+    input: 'div { transform-origin: 25% center 10px; }',
+    reversable: true
+  },
+  {
     should: 'Should not mirror with x being calc (y-offset-keyword x-offset)',
     expected: 'div { transform-origin:top calc(100% - (((140%/2)))); }',
     input: 'div { transform-origin:top calc(((140%/2))); }',
