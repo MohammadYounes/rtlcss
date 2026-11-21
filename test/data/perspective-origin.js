@@ -90,5 +90,11 @@ module.exports = [
     expected: 'div { perspective-origin:bottom left; }',
     input: 'div { perspective-origin:bottom right; }',
     reversable: true
+  },
+  {
+    should: 'Should mirror (x-offset y-offset-keyword center)',
+    expected: 'div { perspective-origin: 70% center; }',
+    input: 'div { perspective-origin: 30% center; }',
+    reversable: true
   }
 ]
