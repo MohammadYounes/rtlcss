@@ -9,6 +9,13 @@ module.exports = [
     options: { processUrls: true }
   },
   {
+    should: 'Should not process string map in data url (processUrls:true)',
+    expected: 'div { background-image: url(data:image/svg+xml;base64,ltr), url(data:image/png;base64,something/rtl);}',
+    input: 'div { background-image: url(data:image/svg+xml;base64,ltr), url(data:image/png;base64,something/rtl);}',
+    reversable: true,
+    options: { processUrls: true }
+  },
+  {
     should: 'Should not negate color value for linear gradient',
     expected: 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, #ff8 100%);}',
     input: 'div { background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, #ff8 100%);}',

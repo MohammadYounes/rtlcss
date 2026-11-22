@@ -71,6 +71,27 @@ module.exports = [
     options: { processUrls: { atrule: true } }
   },
   {
+    should: 'Should not process string map in data url (processUrls:true)',
+    expected: '.banner { background: 10px top url(data:image/svg+xml;base64,ltr) #00D repeat-y fixed; }',
+    input: '.banner { background: 10px top url(data:image/svg+xml;base64,ltr) #00D repeat-y fixed; }',
+    reversable: true,
+    options: { processUrls: true }
+  },
+  {
+    should: 'Should not process string map in data url (processUrls:{decl:true})',
+    expected: '.banner { background: 10px top url("data:image/jpeg;base64,something/rtl/something") #00D repeat-y fixed; }',
+    input: '.banner { background: 10px top url("data:image/jpeg;base64,something/rtl/something") #00D repeat-y fixed; }',
+    reversable: true,
+    options: { processUrls: { decl: true } }
+  },
+  {
+    should: 'Should not process string map in data url (processUrls:{decl:true},greedy:true)',
+    expected: ".banner { background: 10px top url('data:image/png;base64,somethingltrsomething') #00D repeat-y fixed; }",
+    input: ".banner { background: 10px top url('data:image/png;base64,somethingltrsomething') #00D repeat-y fixed; }",
+    reversable: true,
+    options: { processUrls: { decl: true }, greedy: true }
+  },
+  {
     should: 'Should not swap bright:bleft, ultra:urtla',
     expected: '.banner { background: 10px top url(ultra/bright.png) #00D repeat-y fixed; }',
     input: '.banner { background: 10px top url(ultra/bright.png) #00D repeat-y fixed; }',
