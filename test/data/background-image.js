@@ -56,5 +56,11 @@ module.exports = [
     expected: 'div { background-image: radial-gradient(at left top, red, blue);}',
     input: 'div { background-image: radial-gradient(at right top, red, blue);}',
     reversable: true
+  },
+  {
+    should: 'Should process a very long url quickly',
+    expected: `div { background-image: url("${'abcdefghij'.repeat(100000)}");}`,
+    input: `div { background-image: url("${'abcdefghij'.repeat(100000)}");}`,
+    reversable: false
   }
 ]
