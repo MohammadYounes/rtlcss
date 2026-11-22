@@ -93,6 +93,13 @@ module.exports = [
     options: { processUrls: true }
   },
   {
+    should: 'Should not process string map in data url: cursor (processUrls: true)',
+    expected: '.foo { cursor: url(data:image/png;base64,ltr), url(data:image/png;base64,rtl), se-resize, auto }',
+    input: '.foo { cursor: url(data:image/png;base64,ltr), url(data:image/png;base64,rtl), sw-resize, auto }',
+    reversable: true,
+    options: { processUrls: true }
+  },
+  {
     should: 'Should mirror property value: transition',
     expected: '.foo { transition: right .3s ease .1s, left .3s ease .1s, margin-right .3s ease, margin-left .3s ease, padding-right .3s ease, padding-left .3s ease}',
     input: '.foo { transition: left .3s ease .1s, right .3s ease .1s, margin-left .3s ease, margin-right .3s ease, padding-left .3s ease, padding-right .3s ease}',
