@@ -234,5 +234,71 @@ module.exports = [
     expected: 'div { transform: translateX(-ms-calc(-1*(((25%/2) * 10px)))) translateY(-moz-calc(((25%/2) * 10rad))) rotate(calc(-1*(((25%/2) * 10grad)))); }',
     input: 'div { transform: translateX(-ms-calc(((25%/2) * 10px))) translateY(-moz-calc(((25%/2) * 10rad))) rotate(calc(((25%/2) * 10grad))); }',
     reversable: false
+  },
+  {
+    should: 'Should mirror translate',
+    expected: 'div { translate: -10px 20px; }',
+    input: 'div { translate: 10px 20px; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror translate with three values',
+    expected: 'div { translate: -50% 20px 5px; }',
+    input: 'div { translate: 50% 20px 5px; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror translate with calc',
+    expected: 'div { translate: calc(-1*(100% - 10px)) 20px; }',
+    input: 'div { translate: calc(100% - 10px) 20px; }',
+    reversable: false
+  },
+  {
+    should: 'Should not mirror translate when the x value is a variable',
+    expected: 'div { translate: var(--x) 20px; }',
+    input: 'div { translate: var(--x) 20px; }',
+    reversable: false
+  },
+  {
+    should: 'Should mirror rotate with a vector and calc',
+    expected: 'div { rotate: -1 0 0 calc(-1*(10deg + 5deg)); }',
+    input: 'div { rotate: 1 0 0 calc(10deg + 5deg); }',
+    reversable: false
+  },
+  {
+    should: 'Should not mirror translate: none',
+    expected: 'div { translate: none; }',
+    input: 'div { translate: none; }',
+    reversable: false
+  },
+  {
+    should: 'Should mirror rotate',
+    expected: 'div { rotate: -45deg; }',
+    input: 'div { rotate: 45deg; }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror rotate around the y and z axes',
+    expected: 'div { rotate: y -0.5turn; } span { rotate: z -45deg; }',
+    input: 'div { rotate: y .5turn; } span { rotate: z 45deg; }',
+    reversable: false
+  },
+  {
+    should: 'Should not mirror rotate around the x axis',
+    expected: 'div { rotate: x 45deg; }',
+    input: 'div { rotate: x 45deg; }',
+    reversable: false
+  },
+  {
+    should: 'Should mirror rotate with a vector',
+    expected: 'div { rotate: -1 1 0 -45deg; }',
+    input: 'div { rotate: 1 1 0 45deg; }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror rotate: none',
+    expected: 'div { rotate: none; }',
+    input: 'div { rotate: none; }',
+    reversable: false
   }
 ]
