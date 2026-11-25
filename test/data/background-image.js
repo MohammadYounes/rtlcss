@@ -34,15 +34,33 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not negate angle value for linear gradient with var',
+    expected: 'div { background-image: linear-gradient(var(--a), rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+    input: 'div { background-image: linear-gradient(var(--a), rgba(255, 255, 255, .15) 25%, transparent 25%);}',
+    reversable: true
+  },
+  {
     should: 'Should complement the x position of a radial gradient',
     expected: 'div { background-image: radial-gradient(circle at 34% 40%, rgb(255, 165, 0) 0%, rgb(0, 0, 255) 100%);}',
     input: 'div { background-image: radial-gradient(circle at 66% 40%, rgb(255, 165, 0) 0%, rgb(0, 0, 255) 100%);}',
     reversable: true
   },
   {
+    should: 'Should not complement the x position of a radial gradient with var',
+    expected: 'div { background-image: radial-gradient(circle at var(--x) 40%, rgb(255, 165, 0) 0%, rgb(0, 0, 255) 100%);}',
+    input: 'div { background-image: radial-gradient(circle at var(--x) 40%, rgb(255, 165, 0) 0%, rgb(0, 0, 255) 100%);}',
+    reversable: true
+  },
+  {
     should: 'Should complement the x position of a conic gradient',
     expected: 'div { background-image: conic-gradient(from -90deg at 75% 50%, red, blue);}',
     input: 'div { background-image: conic-gradient(from 90deg at 25% 50%, red, blue);}',
+    reversable: true
+  },
+  {
+    should: 'Should not complement the x position of a conic gradient with var',
+    expected: 'div { background-image: conic-gradient(from var(--a) at var(--x) 50%, red, blue);}',
+    input: 'div { background-image: conic-gradient(from var(--a) at var(--x) 50%, red, blue);}',
     reversable: true
   },
   {

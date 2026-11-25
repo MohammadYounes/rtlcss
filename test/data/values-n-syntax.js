@@ -110,9 +110,21 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror property value with var: box-shadow',
+    expected: 'div { box-shadow: var(--a) -16px rgba(0, 128, 128, 0.98), var(--b) 5px 5px #ff0, inset var(--c) 1em 0 white; }',
+    input: 'div { box-shadow: var(--a) -16px rgba(0, 128, 128, 0.98), var(--b) 5px 5px #ff0, inset var(--c) 1em 0 white; }',
+    reversable: true
+  },
+  {
     should: 'Should mirror property value: text-shadow',
     expected: 'div { text-shadow: -60px -16px rgba(0, 128, 128, 0.98), -10.25px 5px 5px #ff0, inset -0.5em 1em 0 white; }',
     input: 'div { text-shadow: 60px -16px rgba(0, 128, 128, 0.98), 10.25px 5px 5px #ff0, inset 0.5em 1em 0 white; }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror property value with var: text-shadow',
+    expected: 'div { text-shadow: var(--a) -16px rgba(0, 128, 128, 0.98), var(--b) 5px 5px #ff0, inset var(--c) 1em 0 white; }',
+    input: 'div { text-shadow: var(--a) -16px rgba(0, 128, 128, 0.98), var(--b) 5px 5px #ff0, inset var(--c) 1em 0 white; }',
     reversable: true
   },
   {

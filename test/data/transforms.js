@@ -8,6 +8,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var: matrix',
+    expected: 'div { transform: matrix(2, var(--a), var(--b), 2, var(--c), 2); }',
+    input: 'div { transform: matrix(2, var(--a), var(--b), 2, var(--c), 2); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): matrix',
     expected: 'div { transform: matrix(2, 0.1, 0.75, 2, 2, 2); }',
     input: 'div { transform: matrix(2, -0.1, -.75, 2, -2, 2); }',
@@ -23,6 +29,12 @@ module.exports = [
     should: 'Should mirror transform : matrix3d',
     expected: 'div { transform:matrix3d(0.227114470162179, 0.127248412323519, 0, 0.000811630714323203, 0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, -165, 67, 0, 1); }',
     input: 'div { transform:matrix3d(0.227114470162179, -0.127248412323519, 0, -0.000811630714323203, -0.113139853456515, 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, 165, 67, 0, 1); }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror transform with var : matrix3d',
+    expected: 'div { transform:matrix3d(0.227114470162179, var(--a), 0, var(--b), var(--c), 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, var(--d), 67, 0, 1); }',
+    input: 'div { transform:matrix3d(0.227114470162179, var(--a), 0, var(--b), var(--c), 1.53997196559414, 0, 0.000596368270149729, 0, 0, 1, 0, var(--d), 67, 0, 1); }',
     reversable: true
   },
   {
@@ -44,6 +56,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var : translate',
+    expected: 'div { transform: translate(var(--x)); }',
+    input: 'div { transform: translate(var(--x)); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): translate',
     expected: 'div { transform: translate(-0.75px); }',
     input: 'div { transform: translate(.75px); }',
@@ -59,6 +77,12 @@ module.exports = [
     should: 'Should mirror transform : translateX',
     expected: 'div { transform: translateX(-50.25px); }',
     input: 'div { transform: translateX(50.25px); }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror transform with var : translateX',
+    expected: 'div { transform: translateX(var(--x)); }',
+    input: 'div { transform: translateX(var(--x)); }',
     reversable: true
   },
   {
@@ -80,6 +104,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var : translate3d',
+    expected: 'div { transform: translate3d(var(--x), 50%, 3em); }',
+    input: 'div { transform: translate3d(var(--x), 50%, 3em); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): translate3d',
     expected: 'div { transform: translate3d(-0.75px, 50%, 3em); }',
     input: 'div { transform: translate3d(.75px, 50%, 3em); }',
@@ -98,6 +128,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var : rotate',
+    expected: 'div { transform: rotate(var(--a)); }',
+    input: 'div { transform: rotate(var(--a)); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): rotate',
     expected: 'div { transform: rotate(-0.75deg); }',
     input: 'div { transform: rotate(.75deg); }',
@@ -113,6 +149,12 @@ module.exports = [
     should: 'Should mirror transform : rotate3d',
     expected: 'div { transform: rotate3d(-10, 20.15, 10, -45.14deg); }',
     input: 'div { transform: rotate3d(10, 20.15, 10, 45.14deg); }',
+    reversable: true
+  },
+  {
+    should: 'Should mirror transform with var : rotate3d',
+    expected: 'div { transform: rotate3d(var(--a), 20.15, 10, var(--b)); }',
+    input: 'div { transform: rotate3d(var(--a), 20.15, 10, var(--b)); }',
     reversable: true
   },
   {
@@ -146,6 +188,12 @@ module.exports = [
     reversable: false
   },
   {
+    should: 'Should not mirror transform with var : rotateY',
+    expected: 'div { transform: rotateY(var(--y)); }',
+    input: 'div { transform: rotateY(var(--y)); }',
+    reversable: false
+  },
+  {
     should: 'Should mirror transform with calc: rotateY',
     expected: 'div { transform: rotateY(calc(-1*(((25%/2) * 10deg)))); }',
     input: 'div { transform: rotateY(calc(((25%/2) * 10deg))); }',
@@ -155,6 +203,12 @@ module.exports = [
     should: 'Should mirror transform : rotateZ',
     expected: 'div { transform: rotateZ(-45.75deg); }',
     input: 'div { transform: rotateZ(45.75deg); }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror transform with var: rotateZ',
+    expected: 'div { transform: rotateZ(var(--z)); }',
+    input: 'div { transform: rotateZ(var(--z)); }',
     reversable: true
   },
   {
@@ -176,6 +230,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var: skew',
+    expected: 'div { transform: skew(var(--a),var(--b)); }',
+    input: 'div { transform: skew(var(--a),var(--b)); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): skew',
     expected: 'div { transform: skew(-0.25rad,-30deg); }',
     input: 'div { transform: skew(.25rad,30deg); }',
@@ -191,6 +251,12 @@ module.exports = [
     should: 'Should mirror transform : skewX',
     expected: 'div { transform: skewX(-20.75rad); }',
     input: 'div { transform: skewX(20.75rad); }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror transform with var : skewX',
+    expected: 'div { transform: skewX(var(--a)); }',
+    input: 'div { transform: skewX(var(--a)); }',
     reversable: true
   },
   {
@@ -212,6 +278,12 @@ module.exports = [
     reversable: true
   },
   {
+    should: 'Should not mirror transform with var : skewY',
+    expected: 'div { transform: skewY(var(--a)); }',
+    input: 'div { transform: skewY(var(--a)); }',
+    reversable: true
+  },
+  {
     should: 'Should mirror transform (with no digits before dot): skewY',
     expected: 'div { transform: skewY(-0.75grad); }',
     input: 'div { transform: skewY(.75grad); }',
@@ -227,6 +299,12 @@ module.exports = [
     should: 'Should mirror multiple transforms : translateX translateY Rotate',
     expected: 'div { transform: translateX(-50.25px) translateY(50.25px) rotate(-20.75deg); }',
     input: 'div { transform: translateX(50.25px) translateY(50.25px) rotate(20.75deg); }',
+    reversable: true
+  },
+  {
+    should: 'Should not mirror multiple transforms with var : translateX translateY Rotate',
+    expected: 'div { transform: translateX(var(--a)) translateY(50.25px) rotate(var(--b)); }',
+    input: 'div { transform: translateX(var(--a)) translateY(50.25px) rotate(var(--b)); }',
     reversable: true
   },
   {
