@@ -1,5 +1,17 @@
 # RTLCSS Changelog
 
+## 4.4.0 - 26 Nov. 2026
+
+- Add support for `inset`, `scroll-padding`, `scroll-margin`, `place-content`, `place-items` and `place-self`. **Thanks @Goldloli**
+- Add support for standalone `translate` and `rotate`. (Closes [#351](https://github.com/MohammadYounes/rtlcss/issues/351))
+- Support flipping `radial-gradient` and `conic-gradient`. **Thanks @mateuscmtropical**
+- Stop processing data URLs. (Closes [#309](https://github.com/MohammadYounes/rtlcss/issues/309)) **Thanks @elchininet**
+- Improve regex performance when processing long strings. **Thanks @mateuscmtropical**
+- Fix self-closing ignore directives persisting when applied to empty selectors. **Thanks @feritcemkahraman**
+- Fix runtime error when important has been set by another postcss plugin. **Thanks @elchininet**
+- Fix incorrect flipping of `transform-origin` / `perspective-origin` when `x-offset` is `center`.
+- Fix and improve handling of the CSS `var()` function.
+
 ## 4.3.0 - 27 Aug. 2024
 
 - Return an error code when the parsed CSS `stdin` is invalid. **Thanks @lade-odoo**
@@ -97,7 +109,7 @@
 ## 2.4.0 - 20 Jun. 2018
 
 - New Option:
-  - `useCalc` (default: `false`) to flip unit based `background-position` using `calc`. **Thanks @zoreet**
+  - `useCalc` (default: `false`) to flip unit based `-backgroundposition` using `calc`. **Thanks @zoreet**
 
 ## 2.3.0 - 9 Jun. 2018
 
