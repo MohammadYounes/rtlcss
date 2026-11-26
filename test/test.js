@@ -17,6 +17,7 @@ const tests = {
   '# Transforms:': require('./data/transforms.js'),
   '# Transform Origin:': require('./data/transform-origin.js'),
   '# Perspective Origin:': require('./data/perspective-origin.js'),
+  '# Translate and Rotate:': require('./data/translate-rotate.js'),
   '# RTLCSS (Options):': require('./data/rtlcss-options.js'),
   '# RTLCSS (Directives):': require('./data/rtlcss-directives.js'),
   '# RTLCSS (String Map):': require('./data/rtlcss-stringMap.js'),
